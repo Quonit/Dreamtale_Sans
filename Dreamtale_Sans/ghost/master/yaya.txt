@@ -1,0 +1,27 @@
+﻿//These define what character set your ghost will be using. Don't touch any of them.
+charset, UTF-8
+charset.dic, UTF-8
+charset.output, UTF-8
+charset.file, UTF-8
+charset.save, UTF-8
+charset.extension, UTF-8
+msglang,english
+
+//---- Dictionary Files ---------------------------------------------------------------------
+include, system_config.txt
+//dic, shiori3.dic
+system_config.txt	
+dic, string.dic			
+dic, dts_aitalk.dic			
+dic, dts_anchor.dic
+dic, dts_bootend.dic
+dic, dts_commu.dic
+dic, dts_etc.dic			
+dic, dts_gooptalk.dic		
+dic, dts_mouse.dic			
+dic, dts_menu.dic
+dic, dts_nameteach.dic
+dic, dts_word.dic
+
+//---- Log Location -------------------------------------------------------------------------
+//log, ayame.log		

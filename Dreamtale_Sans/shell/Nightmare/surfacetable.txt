@@ -1,0 +1,39 @@
+charset,UTF-8
+version,1
+option,DisableNoDefineSurfaces
+
+group,G
+{
+scope,0
+
+0,Neutral
+1,Side look
+2,Cross arms
+3,Suprise!
+4,It's nothing
+5,Angrr Goop
+6,bubble cheeck
+7,Laugh
+8,Scawy
+12,Pick Up
+110,Oh no
+20,Dream shoots
+21,NM gets shot
+1600,shoot1
+1601,shoot2
+1602,shoot3
+1603,shoot4
+1604,shoot5
+1605,shoot6
+1606,shoot7
+1607,shoot8
+1608,Dream sticks around to check
+1609,Dream needs to go
+1610,Dream leaves
+1611,NMshot1
+1612,NMshot2
+1613,NMshot3
+1614,NMshot4 or close eyes
+1615,NMopens eyes
+1616,NO DREAM LEAVE AAA
+}

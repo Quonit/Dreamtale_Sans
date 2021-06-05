@@ -1,0 +1,333 @@
+﻿OnMouseMove
+ {
+  	if nowmode != "QUIZ"
+ 	{
+		if reference3 == 0
+		{
+			MouseMoveSakura
+		} else 
+		{
+			MouseMoveKero
+		}
+	}
+ }
+MouseMoveSakura
+ {
+	if reference4 != ""
+ 	{
+ 		stroke++ 
+ 		if stroke >= 40 
+		{
+ 			stroke = 0
+			if reference4 == "Crown" 
+ 			{
+				if sleepingmode == "on"
+				{
+					if blushiemode == "on" && privacyrespecter == "off" || nicesadlevel >= 20
+					{
+					nicesadlevel += 1
+					"Hmm\w4.\w4.\w4.\w8\w8 %(username)?\e"
+					"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.%(username)?\e"
+					"zzz\w4.\w4.\w4.\e"
+					"* (He smiles a little.)\e"
+					"zzz\w4.\w4.\w4.\n\n* (He seems calm.)\e"
+					}
+					if nightynight == "on" && privacyrespecter == "off" && blushiemode == "off"
+					{
+					nicesadlevel += 1
+					"zzz\w4.\w4.\w4.\w8\w8 %(username)?\e"
+					"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.Don't tuch\w4.\w4.\w4.\e"
+					"zzz\w4.\w4.\w4.\e"
+					"'s mine\w4.\w4.\w4.\w8\w8 Don't take\w4.\w4.\w4.\e"
+					"hmm\w4.\w4.\w4.\w8\w8 *(username)\w4.\w4.\w4.\w4?\e"
+					}
+					if nicesadlevel <= -20 && punchout >= 20
+					{
+					"zzz\w4.\w4.\w4.\w8\w8 No\w4.\w4.\w4.\e"
+					"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.Give it back\w4.\w4.\w4.\e"
+					"* (Some invisible force is preventing you from taking the crown.)\e"
+					"Stop\w4.\w4.\w4.\w8\w8 zzz\w4.\w4.\w4.\e"
+					"zzz\w4.\w4.\w4.\w8\w8 's\w4.\w4.\w4.\w8\w8 's mine\w4.\w4.\w4.\n\n\w8\w8* (He seems really stressed out.)"
+					}
+					if privacyrespecter == "on"
+					{
+					"zzz\w4.\w4.\w4.\w8\w8 No\w4.\w4.\w4.\e"
+					"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.\w8 Go away\w4.\w4.\w4.\e"
+					"Stop it\w4.\w4.\w4.\w8\w8 's not yurs\w4.\w4.\w4.\e"
+					"zzz\w4.\w4.\w4.\w8\w8 Don't\w4.\w4.\w4.\e"
+					"zzz\w4.\w4.\w4.\w8\w8 's\w4.\w4.\w4.\w8\w8 's mine\w4.\w4.\w4.\e"
+					}
+				"zzz\w4.\w4.\w4.\w8\w8 Hmm\w4.\w4.\w4.\w8 Dream\w4.\w4.\w4.\w4?"
+				"zzz\w4.\w4.\w4.\w8\w8 Wha\w4.\w4.\w4.\w8 Wha's touchin me\w4.\w4.\w4.\w4?"
+				"zzz\w4.\w4.\w4.\w8\w8 Stop it\w4.\w4.\w4.\w8 don't touch my head\w4.\w4.\w4.\w4?"
+				"zzz\w4.\w4.\w4.\w8\w8 Don't\w4.\w4.\w4.\w8 Don't touch me-!!\w8\n\n\w8\w8\w8\w4z\w4z\w4z\w4.\w4.\w4.\w4"
+				}
+				else //Not sleeping
+				{
+					if blushiemode == "on" && privacyrespecter == "off"
+					{
+					"\0\s[32]Hmm...\e"
+					"\0\s[32]Thank you %(username)...\e"
+					"\0\s[32]...\e"
+					"\0\s[32]Feels nice...\e"
+					"\0\s[32]heheh!\e"
+					"\0\s[32]Thanks...\e"
+					}
+					if nightynight == "on" && privacyrespecter == "off" && blushiemode == "off"
+					{
+					"\0\s[17]I already told you %(username)!\n\n\w8Don't touch it!\e"
+					"\0\s[8]* (He's letting you pet him,\w4 but is still weary.)\e"
+					"\0\s[12]Hm...\e"
+					"\0\s[32]...Feels kinda nice...\e"
+					"\0\s[32]...\e"
+					"\0\s[32]* (He enjoys your pets.)\e"
+					"\0\s[15]* (He hums while being pet.)\e"
+					"\0\s[15]* (He hums while being pet.)\e"
+					"\0\s[31]Heh...\w5 I'm not used to gentle touches...\e"
+					}
+					if nicesadlevel <= -50 && punchout >= 25
+					{
+					"\0\s[33]Ah-!\0\s[17]\e"
+					"\0\s[33]Hey-!\w5\0\s[17] That's mine!!!\e"
+					"\0\s[19]* (Your mouse must have slipped.)\e"
+					"\0\s[19]* (He tries to avoid your touch, but can't.)\e"
+					"\0\s[19]Stop...\e"
+					}
+					if privacyrespecter == "on"
+					{
+					"\0\s[12]Don't touch me.\0\s[17]\e"
+					"\0\s[12]Stop it.\0\s[17]\e"
+					"\0\s[8]Could you stop touching me?\e"
+					"\0\s[3]Can you stop touching my crown?\w6 It's rude.\e"
+					"\0\s[3]* (He bats your hand away.)\n\n\w8Don't...\e"
+					"\0\s[12]* (He doesn't respond to the pets.)\e"
+					"\0\s[12]* (He's suspicious.)\e"
+					"\0\s[9]I told you not to...\e"
+						if blushiemode == "on"
+						{
+						"\0\s[22]I'll never trust you.\e"
+						"\0\s[22]* (You try to get %(nightname) to forgive you.)\n\n\w8* (He's lot listening...)\e"
+						}
+					}
+				"\0\s[17]Hey-!\w4 Don't touch that!\n\n/
+				\![*]\q[* (Ask him what it is.),whatstupidheadband]\n/
+				\![*]\q[* (Leave him alone.),leadstonowhere]\e"
+				"\0\s[17]Ah-\n\n\w8\0\s[7]Don't take my crown!\e"
+				"\0\s[17]Hey!!\e"
+				"\0\s[17]Ah-!\n\n\w8\0\s[3]Please don't touch it.\n\n\w8It's very important to me.\e"
+				"\0\s[17]Hey!!\n\n\w8\0\s[12]You shouldn't take things that don't belong to you...\e"
+				"\0\s[17]Don't do that!!\n\n\w8* (He seems to think you're trying to steal it.)\e"
+				}
+			}
+ 			elseif reference4 == "Petspot" 
+ 			{
+				if gooppets <= 50
+				{
+				"\0\s[6]Oh,\w2 so you're one of \f[italic,true]those\f[italic,false] idiots.\e"
+				"\0\s[4]Yes yes, continue with your stupid petting thing.\e"
+				"\0\s[0]* (Your hand gets all sticky...)\e"
+				"\0\s[5]\f[italic,true]HISSSSSSSSSSSSSSS!\f[italic,false]\e"
+				"\0\s[6]* (You pet the goop.)\e"
+				"\0\s[6]* (The goop is not happy about being pet.)\e"
+ 				"\0\s[8]* (Your hand gets all sticky\w2.\w2.\w2.)\e"
+ 				"\0\s[6]Why did Quonit even allow this...\e"
+ 				"\0\s[6]* (He begrudgingly put up with it,\w3 though he doesn't have much of a choice,\w2 though.)\e"
+ 				"\0\s[2]* (He is very grumpy.)\e"
+ 				"\0\s[2]You know,\w3 there's better things you could be doing right about now.\e"
+ 				"\0\s[8]Usually,\w3 humans are too busy bleeding out to try and touch me.\e"
+ 				"\0\s[2]* (He is completely defenseless to your touches.)\e"
+ 				"\0\s[2]* (He is very annoyed that he's been forced to put up with this.)\e"
+ 				"\0\s[5]With all your stupid petting it's no %#*&ing wonder Nightmare hated you!\e"
+				if blushiemode = "on"
+				{
+				"\0\s[4]I'm sure you did this to your old friend quiet a lot.\w6 \0\s[1]I'm sure that he misses it~\e"
+				}
+				}
+				else
+				{
+				"\0\s[2]* (He annoyedly puts up with it.)\e"
+				"\0\s[2]* (He grumbles, but doesn't protest.)\e"
+				"\0\s[2]Why do you even do this anyways,\w3 weirdo...\e"
+				"\0\s[2]There are a lot more interesting things you could do with your time then trying to show be affection.\e"
+				"\0\s[2]If you're trying to be nice,\w3 at the very least you could insult me instead...\e"
+				"\0\s[6]Honestly with all the affection you're attempting to show me you might as well just go play with the purple idiot instead.\n\n\w8I'm sure he'd enjoy it muuuuch more.\e"
+				"\0\s[5]I'm literally a being of negativity,\w4 why are you trying to be nice to me???\e"
+				"\0\s[6]You fleshy idiots are so weird.\e"
+				}
+			}
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+Select.whatstupidheadband
+	{
+		headbandexpo = "on"
+		"\0\s[12]It's my crown.\w4 Me and my brother both got one when we were little, \w4theirs just has a star on it instead of a crescent.\w8\n\nThe crowns are both very important to me so um-\w3 \0\s[8]just don't touch it.\e"
+	}
+OnMouseDoubleClick
+{	
+ 	if reference3 == 0
+	{
+		MouseDoubleClickSakura
+ 	}
+	else
+ 	{
+ 		MouseDoubleClickKero
+	}
+}
+
+OnMouseDragStart
+{
+ 	if reference3 == 0 //If Nighty is being dragged
+	{
+		if punchout >= 15 && Edgybitch == "off"
+		{
+		"\0\s[39]"
+		}
+		elseif Edgybitch == "on"
+		{
+		"\0\s[12]"
+		}
+		elseif sleepingmode == "on"
+		{
+		"\0\s[5]"
+			if givesleepyblankie == "on"
+			{
+			"\0\s[5]\i[48]"
+			}
+		}
+		else
+		{
+		"\0\s[38]"
+		}
+	} else //Other bitch. Dead.
+	{
+		"\1\s[118]"
+	}
+}
+
+OnMouseDragEnd
+{
+	if reference3 == 0
+	{
+		"\0\s[0]"
+		if sleepingmode == "on"
+		{
+			"\0\s[5]"
+			if givesleepyblankie == "on"
+			{
+			"\0\s[5]\i[48]"
+			}
+		}
+	}
+	else
+ 	{
+ 		"\1\s[10]"
+	}
+}
+
+MouseDoubleClickSakura
+{
+ 	if reference4 == "Book" //If sleeping mode == on he wont notice you clicking the book.
+	{
+		if privacyrespecter == "on"
+		{
+		"\0\s[1]\i[8]Stop looking through my stuff. \w5It's not very interesting anyways.\e"
+		"\0\s[1]\1* (He tilts the book in a way you can't see the back.)\e"
+		}
+		elseif blushiemode == "on" && privacyrespecter == "off"
+		{
+		"\0\s[1]\i[7]Oh, %(username) did you want to see my book?\n\n\w8\0\s[1]It's about %(bookstoread).\n\n"
+		--
+		"\w8It's kinda weird,\w3 but I like it.\e"
+		"\w8It's really interesting,\w3 you should give it a read.\e"
+		"\w8I don't know if I'm gonna finish it to be honest.\e"
+		"\w8I kinda thing it's something Dream would like reading,\w3 but I don't know if Dream likes to read all that much.\e"
+		"\w8It's really good,\w2 I've read it a few times already I just like coming back to it.\e"
+		"\w8I wish I had my Mom to read it with me.\w8 I just think that's a fun idea,\w3 to read with somebody who cares about you.\e"
+		}
+		elseif sleepingmode == "on"
+		{
+		"* (He's sleeping. \w4Do you want to see what the blurb on the back of the book says?)\w8\n\n* (He won't notice you snooping.)\n\n\![*]\q[Yes,readfunnyblurbsleepmode]\n\![*]\q[No,repsecttoyoumysirsleepmode]\e"
+		}
+		else
+		{
+		"\0\s[1]\1* (He's reading a book. Do you want to see what the blurb on the back says?)\n\n\![*]\q[Yes,readfunnyblurb]\n\![*]\q[No,repsecttoyoumysir]\e"
+		}
+	}
+	if reference4 == "Face" //Punching animations get worse as there are more.
+	{
+		if punchout > 15 //&& <= 10
+		{
+		nicesadlevel -= 1
+		punchout += 1
+		"\0\s[290]Ah-\w5\0\s[23] Stop it!!!\e"
+		"\0\s[290]Hghk-! \w9\w9nnn...\e"
+		"\0\s[30]Ah-\w5 Ow!! \w7\0\s[1619]Stop it!!\e"
+		"\0\s[30]Hey!\w7\w7\n\nOw...\w5 Ow...\w5 This hurts...\e"
+		"\0\s[30]Nngh-! \w9\w9hnnggg...\e"
+		"\0\s[290]!! \w9\w9Ow-\w4 Stop it!\e"
+		"\0\s[290]!! \w9\w9Don't do that!!\e"
+		}
+		if punchout >= 30
+		{
+		nicesadlevel -= 1
+		punchout += 1
+		"\0\s[34]Ah-!!!\0\s[1622]\n\n\w8\w8Ow-\w6 ow,\w4 nngghh...\n\n\w8\w4* (That crack on his skull is bleeding.)\e"
+		"\0\s[34]\w8\w8Oh-!!!\0\s[1622]\n\n\w8\w8Ack-\w8 ow,\w5 It hurts...\n\n\w8\w8* (Just add to the scars, \w4why don't you?)\e"
+		"\0\s[30]Ah! \w8\w8Ow...\w6\w8\w6 Ow...\e"
+		"\0\s[34]\w8\w8Oh-!!!\0\s[1622]\n\n\w8\w8Ack-\w8 ow,\w5 It hurts...\n\n\w8\w8* (He's not going to last super long...)\e"
+		"\0\s[30]Ah! \w8\w8Ow...\w6\w8\w6 Ow...\e"
+		"\0\s[30]!! ... \w9\w9Ghk...\e"
+		"\0\s[34]\w8\w8Ow!\w8\w8 Ow...\w8\w8 Ow...\n\n\w8\w8* (It's fun to see him hurt,\w5 what with the new animation.)\e"
+		}
+		else
+		{
+		"\1* (Are you sure you want to hit him?)\n\n"
+		--
+		"\![*]\q[Yes,punchnighty]\n/
+		\![*]\q[No!!,dontpunchnighty]\e"
+		}
+ 	}
+	else
+ 	{
+ 		OpenSakuraMenu
+	}
+ }
+ 
+Select.punchnighty
+{
+	if blushiemode == "on" && privacyrespecter == "off" || nightynight == "on"
+	{
+	sadlevel += 1
+	punchout += 1
+	"\0\s[290]Ack-! %(username)??\w4\0\s[21] Why did you do that???\e"
+	"\0\s[30]Ow!! Wait,\w3\0\s[21] %(username)???\e"
+	"\0\s[30]Ah-!! Ow!!!\w4 %(username)?!\n\n\w8\0\s[21]Why did you do that???\w6 I-\w3 I thought you were my friend!\e"
+	}
+	nicesadlevel -= 1
+	punchout += 1
+	"\0\s[290]Ow! \w3Why did you do that??"
+	"\0\s[290]Ow-! \w3Stop it!"
+	"\0\s[290]Ow- \w3Why did you hit me??"
+	"\0\s[30]Ack- \w3that hurt!"
+	"\0\s[290]Ah- \w3Don't do that!"
+}
+Select.dontpunchnighty
+{
+	"\1* (Your relationship with %(nightname) has been preserved.)\e"
+	"\1* (Are you a coward or did you misclick?)\e"
+	"\1* (Peace has been restored.)\e"
+}
+Select.readfunnyblurbsleepmode
+{
+	"\1* (It says it's %(bookstoread).)\e"
+}
+Select.repsecttoyoumysirsleepmode
+{
+	respect +1
+	"\0\s[1]\1* (There is no reason not to,\w4 but good job anyways.)\e"
+}

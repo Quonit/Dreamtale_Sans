@@ -1,0 +1,283 @@
+//--------------------Aitalk------------------------------
+GoopTalk
+{
+	"\0\s[0]Honestly,\w3 did you expect there to be a ghost about %(nightname) without me in it?\e"
+	"\0\s[1]You might want to go check on your %(usersfolder)\w2.\w2.\w2.\w5 I've been spending a bit of time there,\w5 maybe it got deleted?\n\n\![*]\q[Call his bluff,heisntbluffing]\n\![*]\q[Get upset,feedgoopy]\e"
+	"\0\s[6]God,\w4 this place is so boring.\n\n\w8Couldn't there at least be more then one character out at a time or is that just to complicated to make?\e"
+	"\0\s[0]* (You ask him if he enjoys his new home.)\n\n\w8\0\s[6]This place sucks.\e"
+	"\0\s[0]* (You ask if you can hug him.)\n\n\w8\0\s[2]I think that's a stupid question to ask.\n\n\w8* (\w3.\w3.\w3.\w3Is that a yes or a no?)\n\n\w8\0\s[5]That's a no you idiot!!!\e"
+	"\0\s[2]How long are you going to force me to stay here anyways?\e"
+	"\0\s[1]You're computer's been running for %exh.\n\n\w8* (You ask him if that's hours or minutes.)\n\n\w8\0\s[8]Suffer and live without an answer.\e"
+	"\0\s[6]Honestly,\w3 I bet this ghost would have been a lot more interesting if I had one of my pets to talk to.\e"
+	"\0\s[4]Honestly,\w3 anDream is \f[italic,true]such\f[italic,false] an extrovert.\n\n\w8\0\s[1]I bet it would be heartbreaking to see if they found out that all their friends were liars.\e"
+	"\0\s[0]* (You ask the goop if he reads at all.)\0\s[2]\n\n\w8Please,\w4 the only reason the other one did it is because there was nothing else to do.\n\n\w8 I'm sure if his universe had phones or anything of that sort he would've scurried off to there,\w4 sense it's just a way to avoid people.\e"
+	"\0\s[1]* (You wonder if he's left any goop behind while wandering around your computer.)\e"
+	"\0\s[1]You know,\w4 the little skeleton always seemed upset over their job of protecting the tree,\w4 with nothing to protect it from.\0\s[0]\w8\n\nI don't know why he'd be upset,\w3 I doubt he'd have a very fun time trying to prevent somebody from taking one with how little he tries to fight back.\w8 I suppose he really is just stupid.\e"
+	"\0\s[1]I'm honestly surprised the little twat never tried to run away from home.\n\n\w8I guess he must just looove his brother,\w4 who he never tells anything and hides from and ignores when possible.\e"
+	"\0\s[4]You know,\w2 the dumb idiot always seemed so curious about the seasons,\w2 but I bet if he lived in a place with them he'd no longer be excited about it.\e"
+	
+	//Ifs
+	if blushiemode == "on"
+	{
+	"\0\s[1]You know\w5.\w5.\w5. \w8It's almost a little sad. \w8\n\nTo think he loved you at one point.\n\n\w8\0\s[0]Almost brings a tear to the eye, \w6that he actually trusted someone for once.\w8 Really taught him a valuable lesson there, huh?\e"
+	"\0\s[4]I'm surprised you don't seem to act more distraught over loosing your boyfriend.\n\n\w8Then again I doubt you ever cared in the first place.\e"
+	"\0\s[1]There are many ways to create negativity.\w8 One of the easiest is just through pain,\w5 but emotional ones can be more sustaining and if you do it right, \w5just as bad or even worse.\n\n\w8It's not something I try often, \w6so it's a shame I wasn't able to feed on the vessel's sadness...\e"
+	}
+	if hasdreamplush == "on"
+	{
+	"\0\s[11]* (Looks like he still has that doll\w2.\w2.\w2.)\e"
+	}
+	if hasblakie == "on"
+	{
+	"\0\s[8]\i[11]That was a real cute blanket you gave to little night back there.\w8 Bet he'd be sad to see it ripped up like this.\e"
+	"\0\s[1]* (He pulls out the blanket...)\n\n\w8\0\s[8]\i[11]* (It doesn't look any good for sleeping anymore.)\e"
+	}
+	if hastea == "on"
+	{
+	"\0\s[1]* (You wonder if he's going to drink anything from the mug you gave %(nightname) earlier,\w3 but then you realize that he probably broke it\w2.\w2.\w2.)\e"
+	}
+	if timeslot == "midnight"
+	{
+	"\0\s[1]Man,\w5 somebodies got a $%^& poor sleeping schedule.\n\n\w8\0\s[0]What,\w5 you afraid of having a 'nightmare'?\e"
+	"\0\s[1]* (You wonder if you'll see a spooky ghost this late at night.)\n\n\w8\0\s[8]* (Oh,\w4 there it is.)\e"
+	}
+	/*
+	if month == 1
+	{
+	""
+	}
+	if month == 2
+	{
+	""
+	}
+	if month == 3
+	{
+	""
+	}
+	if month == 4
+	{
+	""
+	}
+	if month == 5
+	{
+	""
+	}
+	*/
+	if month == 6
+	{
+	"\0\s[0]* (You talk about how great the summer is.)\n\n\w8\0\s[4]Yeah yeah,\w6 I'm sure you'd love it,\w4 not having any goop to get thin and gross because of the heat.\e"
+	}
+	/*
+	if month == 7
+	{
+	""
+	}
+	if month == 8
+	{
+	""
+	}
+	if month == 9
+	{
+	""
+	}
+	*/
+	if month == 10
+	{
+	"\0\s[0]I might not have as many features as that purple twink, \w3but at the very least I'm a pretty damn fitting Halloween ghost,\w3 huh?\e:chain=twinkchain"
+	"\0\s[0]Quonit made a gag where I have to appear at Halloween,\w5 but is anybody \f[italic,true]really\f[italic,false] going to use this ghost by then?\e"
+	}
+	/*
+	if month == 11
+	{
+	""
+	}
+	if month == 12
+	{
+	""
+	}
+	*/
+}
+Select.heisntbluffing
+{
+	"\0\s[4]Alright,\w2 alright,\w4 I jist.\n\n\w8I could destroy it if I felt like it,\w3 but Quonit told me I'd be malware if I did that.\n\n\w8\0\s[1]Personally,\w2 I don't see anything wrong with that prospect.\e"
+}
+	Select.feedgoopy
+	{
+		"\0\s[6]God,\w3 you actually fell for that??\n\n\w8\0\s[8]You idiot...\e"
+	}
+twinkchain
+{{CHAIN
+	"\0\s[0]Quo told me I'm not allowed to call Nighty a twink anymore.\w8\n\nDunno why, \w4and I disagree.\e:chain=end"
+}}CHAIN
+
+//--------------------Bootend------------------------------
+OnGoopWake
+{
+	"\![change,Shell,Nightmare]\w8\w8"
+	--
+	"\0\s[1]I was wondering when I'd see you again...\e"
+	"\0\s[0]* (You ask him if he's going to comment on the time.)\n\n\w8Why would I? \w5\0\s[1]It's not like it means anything.\e"
+	"\0\s[1]Let's hope I don't get too bored here.\e"
+	"\0\s[1]I bet you missed me.\e"
+	"\0\s[4]See?\w5 I knew you'd bring me back here.\e"
+}
+
+OnGoopSleep
+{
+	"\0\s[1]Neat,\w4 I'll go mess up your %(usersfolder).\e"
+	"\0\s[1]Have fun without me~\w8"
+	"\0\s[1]In a bit.\w8"
+	"\0\s[0]See you later.\w8"
+	"\0\s[0]I trust I'll be seeing you again soon?\w8"
+	"\0\s[4]Heh,\w4 like you can avoid me for that long.\w8"
+	--
+	"\-\e"
+}
+
+//--------------------Menu------------------------------
+GoopMenu
+{
+ 	wd = GetWeekDay
+ 	ap = GetAP
+ 	nowmin = Getnowmin
+ 	nowhour = Getnowhour
+	--
+	"\n\n\_q\b2"
+	--
+ 	"\![*]\q[Make him say something,altalk]\n"
+	"\![*]\q[Ask him to talk,altalk]\n"
+	"\![*]\q[Talk,altalk]\n"
+	"\![*]\q[Ask him to say something,altalk]\n"
+	--
+	if lastTalk != "" 
+	{
+	"\![*]\q[Repeat,OnLastTalk]\n\n"
+	"\![*]\q[Ask him to repeat himself,OnLastTalk]\n\n"
+	"\![*]\q[Ask him to repeat what he last said,OnLastTalk]\n\n"
+	"\![*]\q[Ask him to say what he just said,OnLastTalk]\n\n"
+	}
+	--
+	"\![*]\q[ACT,Ongoopact] or try to give him some \![*]\q[ITEMS,goopitemsmenu]\n/
+	\![*]\q[Change the configurations,configmenu]\n/
+	\![*]\q[Use some functions,dosomething]\n\n/
+	//\![*]\q[Test Variable,testvariable2]\n\n/
+ 	\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+}
+
+Ongoopact
+{
+	"\0\s[1]What do you want?\n\n"
+	"\0\s[0]What?\n\n"
+	"\0\s[1]Get it over with already.\n\n"
+	--
+	"\![*]\q[Check,checkinguout2]\n/
+	\![*]\q[Compliment...?,Oncomplementeegoop]\n/
+	\![*]\q[Flirt,flirtyflirtgoop]\n/
+	\![*]\q[Insult,nitpickthegoop]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+Select.checkinguout2
+{
+	"\0\s[0]\1* (NIGHTMARE - ATK ?? DEF ??)\n* (It's at the very least a good thing you can't smell him.)\n\n"
+	"\0\s[0]\1* (NIGHTMARE - ATK ?? DEF ??)\n* (Very sticky. Probably not huggable.)\n\n"
+	"\0\s[0]\1* (NIGHTMARE - ATK ?? DEF ??)\n* (Not safe to hug.)\n\n"
+	"\0\s[0]\1* (NIGHTMARE - ATK ?? DEF ??)\n* (Dreamtale sans?)\n\n"
+	"\0\s[0]\1* (NIGHTMARE - ATK ?? DEF ??)\n* (There he is!!!)\n\n"
+	"\0\s[0]\1* (GOOPMARE - ATK ?? DEF ??)\n* (Needs a bath.)\n\n"
+	"\0\s[0]\1* (NIGHTMARE - ATK ?? DEF ??)\n* (Goopy!)\n\n"
+	"\0\s[0]\1* (GOOPMARE - ATK ?? DEF ??)\n* (Edgy.)\n\n"
+}
+Select.Oncomplementeegoop
+{
+	"\0\s[2]* (You tell him he has very magnificent goop.)\n\n\w8Could you maybe not?\e"
+	"\0\s[2]* (You tell Goopmare he is very terrifying.)\n\n\w8. . .\e"
+	"\0\s[2]* (You tell him he looks huggable.)\n\n\w8\0\s[5]I am not!\n\n\w8* (And cute.)\n\n\w8\f[italic,true]HISSSSSSSSSSSSSSS!\f[italic,false]\e"
+	"\0\s[6]* (You comment on how comfy his clothes look.)\n\n\w8\0\s[8]Human's skin is more fun to wear.\e"
+	"\0\s[6]* (You comment on his many tentacles.)\n\n\w8\0\s[4]Yes they're great for stabbing, \w2slicing, \w2choking, \w2and a myriad of other things.\e"
+	--
+	"\![*]\q[Do another ACTtion...?,toybox]\n/
+	\![*]\q[Again,Oncomplementeegoop]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+Select.flirtyflirtgoop
+{
+	"\0\s[0]* (You tell him you suffer so much that he could live off of it.)\0\s[4]\n\n\w8Yeah yeah I'm sure I could.\w6 Because one person is totally enough...\e"
+	"\0\s[0]* (You tell him that you're into hentai.)\n\n\0\s[5]\w8You're %$^#ing weird!\e"
+	"\0\s[0]* (You ask him how many tentacles he can summon at a time.)\n\n\0\s[8]\w8Depends on how much suffering is around.\e"
+	"\0\s[0]* (You ask him if it hurt falling from the vending machine, because he a snack.)\n\n\0\s[8]\w8Aww~\w6 somebody hungry for some negativity?\e"
+	"\0\s[0]* (You ask him if he has an extra heart,\w4 because yours was just stolen.)\n\n\w8\0\s[8]If you let me leave I could get one for you~\e"
+	"\0\s[0]* (You tell him your favorite food is apples.)\n\n\0\s[5]\w8\f[italic,true]HISSSSSSSSSSSSSSS!\f[italic,false]\e"
+	--
+	"\![*]\q[Do another ACTtion...?,toybox]\n/
+	\![*]\q[Again,flirtyflirtgoop]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+Select.nitpickthegoop
+{
+	"\0\s[8]* (You try to insult him but he just keeps making this face at you...)\e"
+	"\0\s[8]* (Before you can even get a word in,\w4 he makes this face.)\e"
+	"\0\s[8]* (He grows in power.)\n\n\w8* (But you haven't even said anything yet...?)\e"
+	"\0\s[8]* (You don't even say anything,\w5 and he grows anyways.)\n\n\w8* (It's the thought that counts you guess...)\e"
+	"\0\s[6]* (You get annoyed about how you can't insult him.)\n\n\w9\0\s[8]* (He enjoys this.)\e"
+	"\0\s[6]* (It doesn't look like insulting him will do anything...)\e"
+	"\0\s[4]Ah,\w4 yes,\w4 because insulting me will hurt my feelings.\n\n\w8\0\s[8]Idiot.\e"
+	"\0\s[2]* (You tell him he needs a bath.)\n\n\w8If you thought that, then maybe you should've never gotten me dirty in the first place.\e"
+	--
+	"\![*]\q[Do another ACTtion...?,toybox]\n/
+	\![*]\q[Again,nitpickthegoop]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.goopitemsmenu
+{
+	"\0\s[1]Heh,\w4 sure.\n\n"
+	"\0\s[0]I'm curious,\w4 fine.\n\n"
+	"\0\s[6]Fine, whatever.\n\n"
+	--
+	"\![*]\q[Give him a toy,gooptoybox]\n/
+	\![*]\q[Try to feed him,goopfood]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.gooptoybox
+{
+	if hasdreamplush == "off"
+	{
+	nicesadlevel += 1
+	hasdreamplush == "on"
+	"\0\s[0]* (You hand him a doll of anDream.)\n\n\w8\0\s[11]Hah,\w4 wouldn't this be a thing to toy with?\n\n"
+	}
+	if hasblankie == "off"
+	{
+	nicesadlevel += 1
+	hasblankie == "on"
+	"\0\s[0]* (You hand him a soft,\w2 comfy blanket.)\n\n\w8\0\s[8]\i[11]Cute.\w6 I bet the twins would've loved this thing.\n\n"
+	}
+	"\0\s[6]* (You 'gift' him with a tiny music box.)\n\n\w8I have absolutely no use for this.\n\n* (He doesn't take it...)\n\n"
+	"\0\s[0]* (You 'give him a color cube\w2.\w2.\w2.)\n\n\w8\0\s[5]* (He throws it onto the ground and all the pieces break off.)\n\n\w8\w5* (That's one way to solve it\w2.\w2.\w2.)\n\n"
+	"\0\s[1]* (You consider giving him some candles,\w5 but it seems unwise.)\n\n"
+	"\0\s[1]* (You try handing him a book.)\n\n\w8\0\s[7]Hah!\w5 I'm not interested.\n\n"
+	--
+	"\![*]\q[Give something else??,goopitemsmenu]\n/
+	\![*]\q[Again...?,gooptoybox]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.goopfood
+{
+	"\0\s[2]I don't \f[italic,true]want\f[italic,false] or \f[italic,true]need\f[italic,false] any of your useless food,\w4 %(username).\n\n"
+	"\0\s[2]* (You try to hand him a sandwich,\w3 but he's being picky about it...)\n\n"
+	"\0\s[2]* (You ask him if he wants some pasta.)\n\n\w8\0\s[8]You know, I think I'm more hungry for something a bit more meaty right now.\n\n"
+	"\0\s[8]How about no?\n\n"
+	"\0\s[8]* (You offer him some steak.)\n\n\w8I told you,\w3 I don't need to eat.\n\n\w8* (Picky...)\n\n"
+	"\0\s[8]* (You hand him a peice of candy.)n\n\w8\0\s[2]No thanks,\w4 I'd never eat candy that I can't certify if it was stolen from a kid or not.\n\n"
+	--
+	"\![*]\q[Give something else??,goopitemsmenu]\n/
+	\![*]\q[Again...?,goopfood]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.testvariable2
+{
+	Edgybitch = "off"
+}

@@ -1,0 +1,502 @@
+﻿OnFileDrop2
+{
+	_filepath = SPLITPATH(reference0)
+	_filename = _filepath[2]
+	_fileext = TOLOWER(_filepath[3])
+	case _fileext
+	{
+		when ".jpg", ".jpeg", ".bmp"
+		{
+			Wallpaperfile = reference0
+			
+			"\0\s[0]The file you dropped is %(_filename)%(_fileext).\w8\1\s[10]How would you like us to set this picture as your wallpaper?\n\n[half]/
+			\q[Centered,SetWallpaper_0]\n/
+			\q[Tiled,SetWallpaper_1]\n/
+			\q[Stretched,SetWallpaper_2]\n\n/
+			\q[No thanks,SetWallpaper_Cancel]\e"
+		}
+		when ".mid", ".wav", ".mp3", ".wma", ".au" //Other file formats you might want to give your ghost a specific response to.
+		{
+			if Edgybitch == "on"
+			{
+				"\0\s[0]What, \w4do you want me to sing for you or something?\e"
+			}
+			else
+			{
+			"\0\s[8]%(_filename)%(_fileext) is a music file...\n\n\w8I can't do anything with those, \w8sorry.\n\n\w8Maybe try another ghost?\e"
+			}
+		}
+		others
+		{
+			"\0\s[0]This is %(_filename)%(_fileext).\w8\e"
+		}
+	}
+}
+//This set of options sets the wallpaper up.
+Select.SetWallpaper_0
+{
+	"\![set,wallpaper,%(Wallpaperfile),center]\0\s[1]* (The image is centered.)\e"
+}
+Select.SetWallpaper_1
+{
+	"\![set,wallpaper,%(Wallpaperfile),tile]\0\s[1]* (The image is tiled.)\e"
+}
+Select.SetWallpaper_2
+{
+	"\![set,wallpaper,%(Wallpaperfile),stretch]\0\s[0]* (The image is stretched.)\e"
+}
+Select.SetWallpaper_Cancel
+{
+	"\1\s[10]\b[1]* (The wallpaper was canceled.)\e"
+}
+ //---- OnInstallBegin -------------------------------------------------------
+OnInstallBegin
+ {
+	if Edgybitch == "on"
+	{
+		"\0\s[1]Ah,\w4 somebody to replace me I see?\w8\n\n\0\s[4]Oh don't worry, \w4I'm not mad about it.\w5 Here, I'll even install it for you.\e"
+		"\0\s[1]* (Installing file\w4.\w4.\w4.\w4)\e"
+	}
+	else
+	{
+	"\0\s[0]Oh hey, it looks like there's a ghost in here.\w8 I'll install it.\e"
+	"\0\s[4]Another ghost? \w8Sure, I'll install it.\e"
+	"\0\s[0]* (Installing file\w4.\w4.\w4.\w4)\e"
+	}
+ }
+ //---- OnInstallComplete -------------------------------------------------------
+ //OnInstallComplete runs once the file above has finished installing.
+OnInstallComplete
+ {
+	"\0"
+ 	--
+	if reference0 == "shell"
+ 	{	
+		if reference1 == "Nightmare"
+		{
+		Edgybitch = "on"
+		wasemo = "on"
+		"\0\s[1]This should come with the ghost.\w8 Wonder what Quonit fucked up with this time.\e"
+		}
+		elseif reference1 == "Another totally real shell wow"
+		{
+		"\s[0]We have installed another totally real shell.\e"
+		}
+		else //For any other shell they may install.
+		{
+		"\s[0]We've installed a new shell.\w8\1\s[10]It's called  %(reference1).\e" //%(reference1) here would be the name of the shell they installed. Replace if needed.
+		}
+ 	}
+	elseif reference0 == "ghost"
+ 	{
+		"\s[0]* (%(reference1) has been successfully installed.)\e"
+		"\s[0]I've installed %(reference1) for you.\e"
+ 	}
+	elseif reference0 == "balloon"
+ 	{
+		"\s[0]* (%(reference1) has been successfully installed.)\e"
+		"\s[0]I've installed %(reference1) for you.\e"
+ 	}
+	elseif reference0 == "plugin"
+ 	{
+		"\s[0]* (Plugin %(reference1) has been successfully installed.)\e"
+		"\s[0]I've installed plugin %(reference1) for you.\e"
+ 	}
+}
+
+OnInstallFailure
+ {
+	if Edgybitch == "on"
+	{
+		"\0\s[0]* (The installation has failed.)\n\n\w5"
+		"\0\s[0]How sad.\w5 It didn't work.\n\n\w5"
+	}
+	else
+	{
+	"\0\s[0]\1* (The installation has failed.)\n\n\w5"
+	"\0\s[0]I couldn't install it, sorry.\n\n\w5"
+	}
+	--
+	if reference0 == "unsupported"
+	{
+	"\0\s[0]\1* (The file is unsupported.)\e"
+	}	
+	elseif reference0 == "extraction"
+	{
+	"\0\s[0]\1* (The file could not be extracted properly.)\e"
+	}
+ }
+ 
+OnInstallRefuse
+ {
+	"\0\s[0]I can't install this. \w4I think it's for %(reference0) instead.\e"
+	"\0\s[0]\1* (This file is for %(reference0))\e"
+ }
+ 
+OnVanishSelecting
+{
+	"\0\s[8]Oh, you want to uninstall me?\e"
+	"\0\s[0]\1* (Do you wish to uninstall Dreamtale Sans from your computer?)\e"
+}
+OnVanishSelected
+{
+	"\0\s[0]Goodbye.\e"
+	"\0\s[0]\1* (You've decided to uninstall Dreamtale Sans.)\e"
+}
+OnVanishCancel
+{
+	"\0\s[0]Oh, \w6so you decided not to install me?\e"
+	"\0\s[0]\1* (You've decided not to uninstall Dreamtale Sans.)\e"
+}
+TalkVanishButtonHold
+{
+	"\0\s[8]Um\w3.\w3.\w3. \w5are you gonna uninstall me or not?\e"
+}
+OnVanished
+{
+	"\0\s[0]Goodbye %(reference0)...\e"
+}
+
+OnBIFFBegin
+{
+	"\1* (Checking the e-mail\w4.\w4.\w4.)\e"
+}
+
+OnBIFFComplete
+{
+	if reference0 == 0
+ 	{
+ 		"\1* (There is no new mail.)\e"
+	}
+	elseif reference0 == 1
+ 	{
+ 		"\1 (There is one new email.)\e"
+	}
+	elseif reference0 > 1 && reference0 < 11
+	{
+		"\1* (There are %(reference0) emails.)\e"
+	}
+	elseif reference0 > 100
+	{
+		"\1* (There are %(reference0) emails unread.)\e"
+	}
+ 	else
+	{
+		"\1* (There are %(reference0) emails.)\e"
+ 	}
+}
+
+OnBIFFFailure
+ {
+	if reference0 == "timeout"
+ 	{
+		if Edgybitch == "on"
+		{
+			"\0\s[1]Connection timed out.\w5 What a shame.\e"
+		}
+		else
+		{
+ 		"\0\s[8]The connection timed out.\e"
+		}
+	}
+ 	elseif reference0 == "kick"
+	{
+		"\0\s[8]I can't access the account.\e"
+ 	}
+	elseif reference0 == "defect"
+ 	{
+ 		"\0\s[0]\1* (The email account was not set up properly.)\w8\n\n* (It can be reset at the POP menu.)\![open,configurationdialog]\e"
+	}
+ 	elseif reference0 == "artificial"
+	{
+		"\0\s[1]\1* (The user cancelled the email check.)"
+	}
+	else
+	{
+		if Edgybitch == "on"
+		{
+			"\0\s[4]I only got an error code '%(reference[0])'.\w8\n\nHow sad.\e"
+		}
+		if Edgybitch == "off"
+		{
+		"\0\s[8]I only got an error code '%(reference[0])'.\w8\n\nSorry.\e"
+		}
+	}
+}
+
+OnUpdateBegin
+{
+	if Edgybitch == "on"
+	{
+		"\0\s[1]* (Starting the update process.)\e"
+		"\0\s[1]Surprising,\w5 she actually updated it.\e"
+	}
+	if Edgybitch == "off"
+	{
+		"\0\s[0]\1* (Starting the update process.)\w8\e"
+		"\0\s[4]I wonder what kind of things could be in the update...\w8\e"
+		"\0\s[4]Huh,\w5 I didn't think Quonit would ever touch this ghost again after April Fools\w2.\w2.\w2.\w8\e"
+	}
+	if reference0 == "artificial"
+	{
+		"\0\s[1]\1* (The user cancelled the email check.)"
+	}
+}
+OnUpdateReady
+{
+	"\0\s[1]\1* (There are %(reference[0]) new files.)\w8\e"
+}
+OnUpdateComplete
+{
+	if reference0 == "none"
+ 	{
+ 		"\0\s[1]\1* (There are no new files.)\e"
+		"\0\s[2]Doesn't look like there's anything new to update with.\e"
+	}
+ 	else
+	{
+		"\0\s[1]\1* (Update successful!)\e"
+ 	}
+}
+
+OnUpdateFailure
+{
+	if reference0 == "timeout"
+ 	{
+ 		"\0\s[1]\1* (The update connection timed out.)\e"
+	}
+ 	elseif reference0 == "md5 miss"
+	{
+		"\0\s[1]\1* (The MD5 hash of the files don't match.)\e"
+ 	}
+	else //for other errors
+ 	{
+ 		"\0\s[1]\1* (The update could not be completed.)\w8\n\n* (The error is '%(reference0)'.)\e"
+	}
+}
+OnUpdate.OnDownloadBegin
+{
+ 	if "aitalk" _in_ reference0 
+ 	{
+ 		"\0\s[1]\1* (You get the feeling he might have more things to say.)\e"
+ 	}
+ 	else //for files not specified above
+ 	{
+	"\0\s[1]\1* (...)\e"
+	}
+}
+
+OnUpdate.OnMD5CompareBegin
+{
+	"\0\s[1]\1* (Checking the MDI value...)\e"
+}
+OnUpdate.OnMD5CompareComplete
+{
+	"\0\s[1]\1* (MDI check positive).\e"
+}
+OnUpdate.OnMD5CompareFailure
+ {
+	"\0\s[1]\1* (The MDI values don't seem to match.)\w8\e"
+ }
+OnHeadlinesenseBegin
+ {
+	"\0\s[1]\1* (You've selected %(reference0).)\e"
+ }
+OnHeadlinesense.OnFind
+{
+ 	if reference2 == "First" || reference2 == "First and Last"
+	{
+		"\1\b2\s[10]%(reference0):"
+ 	}
+	elseif reference2 == "Next"
+ 	{
+ 		"\10\b2\s[10]%(reference0):"
+	}
+ 	elseif reference2 == "Last"
+	{
+		"\10\b2\s[10]%(reference0):"
+ 	}
+	--
+	"\n\n%reference3\n"
+ 	--
+ 	if reference2 == "First" || reference2 == "Next"
+	{
+		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	else
+ 	{
+ 		"\![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	
+}
+Select.Headline_Cancel
+{
+	"\1* (Headline viewing complete.)\e"
+}
+OnHeadlinesenseComplete
+ {
+	"\0\s[1]\1* (No update. %(reference0).)\e"
+ }
+OnHeadlinesenseFailure
+  {
+	"\0\s[1]\1* (The feed can't updated because " 
+ 	--
+	if reference0 == "can't download"
+ 	{
+		"it can't be downloaded.)"
+ 	}
+	elseif reference0 == "can't analyze"
+ 	{
+		"it can't be analyzed.)"
+ 	}
+	else //other errors
+ 	{
+		"...\w6 for an unknown cause.)"
+ 	}
+	--
+ 	"\e"
+}
+OnUpdatedataCreating
+{
+	"\0\s[1]\1* (* (Creating the updates2.dau file.))\e"
+}
+OnUpdatedataCreated
+{
+	"\0\s[1]\1* (Successfully created updates2.dau.)\e"
+}
+OnNarCreating
+{
+	"\0\s[1]\1* (Creating the .nar file.)\e"
+}
+OnNarCreated
+{
+	"\0\s[1]\1* (Successfully created '%(reference0)'.)\e"
+}
+OnSNTPBegin
+{
+	"\0\s[1]\1* (Connecting to %(reference0) for the time.)\e"
+}
+OnSNTPCompare
+{
+ 	"Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\n/
+	Your Time: %reference2[1]/%reference2[2]/%reference2[0] %reference2[3]:%reference2[4]:%reference2[5]\w2\n/
+ 	\n"
+	--
+ 	if reference3 == 0 
+	{
+ 		"\0\s[1]\1* (The clock is accurate.)\e"
+	}
+ 	else
+	{
+ 		"\0\s[1]\1\s[10]\b[1]* (Your clock doesn't match.\w6\nDo you want it fixed?)\n\n/
+		\![*]\q[Fix it,OnSNTPEXECUTE]\n/
+ 		\![*]\q[Leave it alone,OnSNTPCANCEL]\e"
+	}
+}
+OnSNTPEXECUTE
+{
+	"\0\s[1]\1* (The clock has been fixed.)\6\e"
+}
+OnSNTPCANCEL
+{
+	"\0\s[1]\1* (You decide to leave it alone.)\e"
+}
+OnSNTPFailure
+{
+	"\0\s[1]\1* (The clock wasn't changed. \w8Something went wrong.)\e"
+}
+OnDisplayChange
+{
+	displaybpp    = reference0
+ 	displaywidth  = reference1
+	displayheight = reference2
+}
+OnScreenSaverStart
+{
+	if Edgybitch == "on"
+	{
+		"\0\s[5]What the hell is this???\e"
+	}
+	else
+	{
+		"\0\s[3]Um- \w8.\w8.\w8.\w8\n\n\0\s[7]what's going on??\e"
+	}
+}
+OnScreenSaverEnd
+{
+	if Edgybitch == "on"
+	{
+		"\0\s[5]What the hell was that??\e" 
+	}
+	else
+	{
+		"\0\s[8]Okay... good, it's gone.\e"
+	}
+}
+OnApplicationBoot
+{
+	"\0\s[0]\1* (%(reference0) just started.)\e"
+}
+OnApplicationClose
+{
+	"\0\s[1]\1* (%(reference0) has closed.)\e"
+}
+OnApplicationFileOpen
+{
+	"\0\s[0]Opening %(reference1).\e"
+}OnBatteryLow
+{
+	"\0\s[1]\1* (The laptop's battery is low. \w8There is %(reference0) power left.)\e"
+} OnBatteryCritical
+{
+	"\0\s[1]\1* (The laptop's battery is critically low.)\e"
+}
+OnSysResourceLow
+{
+	"\0\s[1]\1* (The system resources are low.)\e"
+}
+OnShellScaling
+{
+	if reference0 >= 150
+	{
+		if Edgybitch == "on"
+		{
+			"\0\s[1]You know\w3.\w3.\w3.\n\n\w8I wonder if I can change my side on my own.\e"
+			"\0\s[1]* (Biggest sized goop.)\e"
+		}
+		else
+		{
+		"\0\s[3]Dunno why you'd want me to take up so much of your screen\w3.\w3.\w3. \w4But okay.\e"
+		"\0\s[1]\1* (He doesn't seem to have noticed.)\e"
+		"\0\s[1]\1* (Big size sans.)\e"
+		}
+		
+	}
+	elseif reference0 == 100
+	{
+		if Edgybitch == "on"
+		{
+		"\0\s[1]Normal sized. \w8How boring.\e"
+		}
+		else
+		{
+		"\0\s[1]\1* (He doesn't seem to have noticed.)\e"
+		"\0\s[4]Back to normal...\e"
+		"\0\s[1]\1* (Normal sized sans.)\e"
+		}
+	}
+	elseif reference0 == 50
+	{
+		if Edgybitch == "on"
+		{
+			"\0\s[5]Trying to get me out of the way so you don't have to think about what you did??\e"
+			"\0\s[1]Either you're trying to get me out of the way or you just have a really shitty screen.\e"
+		}
+		else
+		{
+		"\0\s[0]Um\w3.\w3.\w3. \w8\0\s[13]\n\nEverything is really big now.\e"
+		"\0\s[1]\1* (He doesn't seem to have noticed.)\e"
+		"\0\s[1]\1* (Smol sans.\w8 Fun sized sans.)\e"
+		}
+	}
+}

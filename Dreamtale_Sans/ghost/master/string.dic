@@ -1,0 +1,165 @@
+﻿//---------------------------Strings--------------------------
+On_username //Don't touch
+{
+	username
+}
+
+On_homeurl //Network update URL
+{
+	"https://raw.githubusercontent.com/Quonit/Dreamtale_Sans/master/"
+}
+
+On_recommendrootbutton.caption //Top Menu Option Caption
+ {
+	"Reference Sites"
+}
+
+On_sakura.recommendsites //Top Menu Option Websites
+ {
+	"Make Your Own Ghost"
+	--
+	"%ASC(1)http://www.ashido.com/ukagaka/walkthrough.html%ASC(2)"
+	--
+	"SSP"
+	--
+	"%ASC(1)http://ssp.shillest.net/%ASC(2)"
+	--
+	"Crow + SSP Reference (J)"
+	--
+	"Quonit's Tumblr"
+	--
+	"%ASC(1)http://quonit.tumblr.com//%ASC(2)"
+	--
+	"Quonit's Deviantart"
+	--
+	"%ASC(1)http://www.deviantart.com/quonit37//%ASC(2)"
+ }
+ 
+On_portalrootbutton.caption //The second option from the top's caption
+ {
+	"Nothing here."
+ }
+
+On_sakura.portalsites //Websites in the Second Option
+ {
+ 	"Why did you right click me"
+ }
+
+On_kero.recommendbuttoncaption //Top Menu Option in the Second Character
+ {
+	"What is wrong with you"
+ }
+
+On_kero.recommendsites //Top Menu Websites for the Second Character
+ {
+	"Hm"
+ }
+
+On_updatebutton.caption //Update Menu Caption
+ {
+	"Update SSP"
+}
+
+On_dressuprootbutton.caption //Dress-up Menu Caption
+{
+	"Dressing Up - Hidden"
+}
+
+On_headlinesenserootbutton.caption //Headlines and RSS Feeds
+{
+	"Headlines + RSS Feeds"
+}
+
+On_readmebutton.caption //Readme Caption
+ {
+	"READ ME"
+	"Manual"
+	"How to use"
+	"click me"
+ }
+
+On_vanishbutton.caption //Uninstall Caption
+ {
+	"Uninstall"
+}
+
+On_shellrootbutton.caption //Shell Caption
+ {
+	"Shells - Hidden"
+}
+
+On_ghostrootbutton.caption //Change Ghost Caption
+ {
+	"Swap Ghost"
+}
+
+On_callghostrootbutton.caption //Call Ghosts Caption
+ {
+	"Call Ghost"
+}
+
+On_quitbutton.caption //Quit Caption
+ {
+	"Quit"
+}
+
+//----------------------------------Stop!------------------------------------
+//Don't mess with anything after this point! It's all stuff you don't need to worry about. Just save and move on to the next .dic file.
+ //---- 소멸 지시 버튼 표시 교체 -------------------------------------------------------
+On_vanishbutton.visible
+ {
+ 	if deleteshitai == "ON"
+ 	{
+	"1"
+	}
+	else
+	{
+	"0"
+	}
+}
+//---- 딳벍뭷궻뫜궻긕?긚긣뼹롦벦 -------------------------------------------------------
+On_otherghostname
+{
+	ghostexlist = ""
+	_i = 0
+	while _i >= 0 {
+		_ghostname = NAMETOVALUE("reference%_i")
+		if _ghostname != "" {
+			if _i > 0; ghostexlist += ","
+			ghostexlist += _ghostname[0]
+			_i++
+		}
+		else; _i = -1
+	}
+	ghostexcount = ARRAYSIZE(ghostexlist)
+}
+//---- SHIORI 듫쁀륃뺪 ------------------------------------------------------------------
+On_version
+{
+	GETSETTING(AYAINFO_VERSION)
+}
+On_craftman
+{
+	"umeici"
+}
+On_craftmanw
+{
+	"?럖"
+}
+On_name
+{
+	"AYA"
+}
+//---- Owned SSTP 뾭 uniqueid 롦벦 ------------------------------------------------------
+On_uniqueid
+{
+	uniqueid = reference0
+}
+//---- hwnd 롦벦 ------------------------------------------------------------------------
+On_hwnd
+{
+	sakurahwnd    = reference0[0]
+	kerohwnd      = reference0[1]
+	sakurablnhwnd = reference1[0]
+	keroblnhwnd   = reference1[1]
+}

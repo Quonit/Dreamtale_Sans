@@ -1,0 +1,92 @@
+charset,UTF-8
+version,1
+option,DisableNoDefineSurfaces
+
+group,G
+{
+scope,0
+
+0,Neutral
+1,Reading
+2,Shrug
+3,Worried Sideglance
+4,Thinking
+5,Sleeping
+6,Excited
+7,Shock
+8,Shame
+9,sad lookdown
+16,Up0
+10,Null
+11,Slight Disgust
+12,Minor Annoyence
+13,Shy
+14,Joking
+15,hum
+16,up
+17,Protect crown
+18,don hit meee
+19,Scared
+20,Happy smile
+21,Begging
+22,Facing away
+23,Sniff
+25,nom nom
+26,Dream doll
+27,Mug
+28,Flush
+29,Blow Kiss
+290,Angry panch
+30,Eye ponch
+31,19 but happy
+32,Yay pet!
+33,take crown
+34,Falls down
+35,touch cheek blush
+36,Dream No
+37,Tired 5
+38,Pick Up Normal
+39,Pick Up Mean
+40,Flowers
+41,Drink
+1600,up1
+1601,up2
+1602,up3
+1603,Sniff2
+1604,Fall in-between
+1605,Sleeping2
+1606,Fall 1
+1607,Fall 2
+1608,Fall 3
+1609,Fall 4
+1610,Fall 5
+1611,Fall 6
+1612,Fall 7
+1613,Goop 0
+1614,Goop 0.2
+1615,Goop 1
+1616,Goop 1.2
+1617,Goop Up
+1618,Blow Kiss 2
+1619,Cheek Hit 2
+1620,Eye Hit 2
+1621,Fall hit 2
+1622,Fall hit 3
+1623,Fall hit 4
+1624,Dream Surprise
+1625,Dream Shy
+1626,Dream Happy
+1627,Tea
+1628,Dreamswap
+1629,Dim
+1630,Flower
+1631,Fancy
+2001,D!Suprise
+2002,D!Shy
+2003,D!Wave
+2004,D!Worried
+2628,D!Dreamswap
+2629,D!Dawn
+2631,D!Mine
+2632,D!Dreamswap
+}

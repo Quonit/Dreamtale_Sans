@@ -1,0 +1,6 @@
+﻿charset,UTF-8
+type,ghost
+name,Dreamtale Sans
+directory,dreamtale_sans
+
+balloon.directory,z_undertale

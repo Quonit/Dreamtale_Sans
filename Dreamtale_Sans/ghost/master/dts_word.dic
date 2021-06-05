@@ -1,0 +1,161 @@
+﻿nightname
+{
+	if nightynight == "on"
+	{
+	"Nighty"
+	}
+	else
+	{
+	"Nightmare"
+	}
+}
+
+VillageLevel
+{
+punchout - nicesadlevel
+}
+
+internalenvelope
+{
+	"Internal Envelope Dialogue 1 - %(exampleenvelope)"
+	"%(username)'s computer"
+	"Here is a blanklist object - %(blanklist)."
+}
+
+ItemMOO
+{
+	"\![*]\q[Give him something different,itemsmenu]\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+blanklist
+{
+	"Quo crashed their computer once putting an envelope in an envelope..."
+}
+
+bookstoread
+{
+	"a book by that one guy who did a metric ton of cocaine"
+	"a book with the Tolkien-like birds"
+	"a book called 'For Thine Twelth Fortune'... \w4I think that's what it's called"
+	"a new fantasy novel about the wizards"
+	"a one book set in China except it's future-China and everyone's a robot-centaur"
+	"a really weird book where a lot of the pages were upside down or the text went in spirals"
+	"a book about demon hunters and prophecies that was a total rip-off of that one other show"
+	"a rip-off book of that other popular series"
+	"a book where there's a monster at the end"
+	"a ridiculous cyberpunk book about Slamball"
+	"a book about that rare extinct bird"
+	"a book about Ebola"
+	"a book where everyone's miserable and their marriage is falling apart"
+	"a book with the rabbits and all the made-up words"
+	"a depressing book about the two dogs that escape a research lab"
+	"a cute book about the princess who lives with a dragon"
+	"a book about the kid who lived in a sewer"
+	"a book about the weird magician messing with some sociologist"
+	"a book about the gift of fear"
+	"a book about the talking mice"
+	"a book about the Civil War"
+	"a book about the Civil War except with dragons"
+	"a book about all the weird things scientists did around the turn of the century"
+	"a book about the secret government infiltration of a terrorist base"
+	"a book about the government cover-up of a massive oil spill"
+	"a book about the guy who thought he was a soldier but was really a robot \w4but then maybe he really was a person who just thought he was a robot"
+	"a preachy book about politics"
+	"a book with all the spaceships and social commentary"
+	"a book where everyone died at the end"
+	"a book with all the impenetrable slang"
+	"a book about serial killers"
+	"a book about true crime"
+	"a book about creepy occult activity in this area"
+	"a book of bogus magic spells"
+	"a cursed book with the cover made of skin"
+	"a book that screams every time you open it"
+	"a mysterious journal with the '3' on it"
+	"a mysterious journal with the '2' on it"
+	"a book with a glossary at the end, like come on"
+	"a book called 'To Serve Man' or something like that?"
+	"a sappy romance novel"
+	"a book told entirely through people's letters to each other"
+	"a one romance novel that turned into a zombie apocalypse halfway through"
+	"a book where it turned out the narrator was YOU!"
+	"a book that makes you rethink your life"
+	"a book that scarred you for life"
+	"a book that spends most of its time threatening you"
+	"a book about a cat's nine lives"
+	"a book of short stories where a long finger came out of a bathroom sink drain"
+	"a one book with the lady who has a bug for a head"
+	"a one book where the dude turns into a bug and it's like a metaphor or something"
+	"a book with all the flowery prose about being a barbarian"
+	"a book that was pretty good except the main character sucked"
+	"a book where the terrorists hated our freedom"
+	"a book with all the were-cheetahs and weird sex"
+	"a tell-all gossip book about that one sci-fi show from the 90s"
+	"a boring coffee table book with the weird pictures"
+	"a really terrible book by that one actress"
+	"a book where you had to set it on fire to get the real ending"
+	"a book about burning books"
+	"a book about a boot stomping on a human face forever"
+	"a book about the crushing ennui of the 1980s and also serial killing"
+	"a book about gay vampires"
+	"a book about gay werewolves"
+	"a book about gay mummies"
+	"a book about gay dragons"
+	"a book about gay aliens"
+	"a book about the gilded falseness of the Jazz Age"
+	"a book about the governess who fell in love with the guy who had his crazy wife in the attic"
+	"an incredibly depressing book about the AIDS crisis in the 1980s"
+	"a super bleak book with baby eating"
+	"a really cute book about the wall flower finding a wall"
+	"a book about the giant centipede that wants to enter a famous dog show"
+	"a weird report about the killer stacks of paper"
+	"a book about the children who die horrible gruesome deaths in the chocolate factory"
+	"a boring book everyone has to read in school. You know what one I'm talking about."
+	"a book about topology"
+	"a weird book where the story's split in two and one starts at the end and one starts at the beginning and then they meet at the center"
+	"a book where everybody sounds like a robot"
+	"a book with all the puns"
+	"a book of thought experiments"
+	"a book where everyone's hopping around different dimensions"
+	"a book that didn't have words, it just had the same picture of the same guy on every page"
+	"...it's just Twilight."
+}
+
+dreambday
+{
+	"\0\s[13]Oh,\w4 it's %(bornmonthprint) %(borndayprint), \w3right?\w8\n\nThat's your birthday, \w4so uh-\0\s[7]\w8\1\s[1625]\w8\w8*\w5 (\w4.\w4.\w4.\w4)\w8\0\s[36]\n\nanDream what are you doing here!!\1\n\nComing to say hi to %(username).\0\n\nBut-\n\n\w5\1\n\n%(username) already knows about me though,\w4 so it's fine!\n\n\0\s[8]Fine but you can't stay here...\n\n\w8\1Okay!\w7\n\n\1\s[1626]Hello %(username),\w4 are you having a good birthday?\w6 I hope you are cause I dunno how to tell from here. \w8\1\s[1625]Nightmare this place is really weird.\0\s[8]\w8I know that,\w4 I live here.\1\w8\n\nOkay.\w7\1\s[1626]Happy birthday %(username)!\w8\w8\w8\1\s[10]\e"
+}
+
+usersfolder
+{
+	"Downloads folder"
+	"Pictures folder"
+	"Document folder"
+	"Programs folder"
+	"Desktop folder"
+	"secret folder"
+	"Music folder"
+	"Video folder"
+	"Recycle Bin"
+	"SSP folder"
+	"System 32"
+}
+lessonkor
+{
+	"사과(sa-gua),apple"
+	"노동(no-dong),labor"
+	"손가락(son-ga-rak),finger"
+	"마르크스(ma-r-k-s),Marx"
+	"자본주의(ja-bon-ju-yi),capitalism"
+}
+blanklistparagraph
+{
+	"List paragraph 1"; "List paragraph 2"; "List paragraph 3"; "List paragraph 4"; "List paragraph 5";
+}
+
+ //**** Don't touch this ***************************************************************
+ On_\person
+{
+ 	person
+}
