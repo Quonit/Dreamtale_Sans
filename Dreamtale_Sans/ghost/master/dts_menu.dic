@@ -894,7 +894,7 @@ Onyouact
     --
     "\![*]\q[Check,checkinguout]\n"
 	--
-	if nicesadlevel > 4 && punchout > 1
+	if punchout >= 1
 	{
 	"\![*]\q[Apologize,sayyoursorry]\n"
 	}
@@ -1030,6 +1030,7 @@ Select.checkinguout //Use this to give hints at stats
 	}
 	--
 	"\![*]\q[Choose another ACTion,Onyouact]\n/
+	\![*]\q[ASK another Question,youtalk]\n/
 	\![*]\q[Again,checkinguout]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
 }
@@ -1359,6 +1360,9 @@ Select.youtalk
     }
 	--
     "\![*]\q[Check,checkinguout]\n"
+	"\![*]\q[His Soul,looksoul]\n"
+	//"\![*]\q[Yourself,talkaboutme]\n"
+	//"\![*]\q[Himself,talkaboutyou]\n"
     --
     if headbandexpo == "on"
     {
@@ -1378,6 +1382,11 @@ Select.youtalk
 	if askaboutnamee == "on"
     {
        "\![*]\q[Your name?,whataboutmyname]\n"
+    }
+    --
+	if wasemo == "on"
+    {
+       "\![*]\q[Goopmare?,askboutgoopy]\n"
     }
     --
     "\![*]\q[Your eyes?,waxingandwaining]\n\n/
@@ -1506,6 +1515,42 @@ Select.waxingandwaining
 	"\![*]\q[ASK another question,youtalk]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
 }
+Select.looksoul
+{
+	if nicesadlevel <=20 //Bad
+	{
+		//he seems uncomfortable.
+			if nicesadlevel <= -25 // sad below 25
+			{
+				"Absolutely not."
+			}
+			if nicesadlevel <= -50 //sad below 50
+			{
+				"sad"
+			}
+			if punchout >= 10 //hit 10 times
+			{
+				"* (he seems scared.)"
+			}
+			if punchout >= 15 //hit 15 times
+			{
+				"* (he seems scared.)"
+			}
+	}
+	//Good
+	if nicesadlevel >= 20 && privacyrespecter == "off"//good route lol
+	{
+		"um... sure"
+            if blushiemode == "on" && privacyrespecter == "off" && punchout == 0 //blushie mode
+			{
+				"okie uwu"
+			}
+	}
+}
+Select.askboutgoopy
+{
+	"\0\s[7]!\w8\w8\n\n\s[8].\w2.\w2.\w2.\w2I don't wanna talk about it.\w8\n\n* (Disappointing.)"
+}
 
 //Items
 Select.itemsmenu
@@ -1533,30 +1578,18 @@ Select.itemsmenu
 	--
 	if hasmug == on
 	{
-	"\_q\![*]\q[Some candles,givecandles]  \![*]\q[A music box,givesong]\n/
-	\![*]\q[An outfit,giveoutfit]     \![*]\q[A color cube,givecube]\n/
-	\![*]\q[A plush,giveplush]   \![*]\q[A blanket,giveblankie]     \![*]\q[A gift,givegift]\n/
+	"\_q\![*]\q[An outfit,giveoutfit]     \![*]\q[A plush,giveplush]\n/
+	\![*]\q[A blanket,giveblankie]     \![*]\q[A gift,givegift]\n/
 	\![*]\q[A mug,givemug]    \![*]\q[A rock,rude]     \![*]\q[Some food,nightyneedstoeat]\n/
 	\![*]\q[A book,givebook]    \![*]\q[NOTHING,CANCEL]  \![*]\q[Go back,BACKTOMENU]\e"
 	}
 	else
 	{
-	"\![*]\q[Some candles,givecandles]  \![*]\q[A music box,givesong]\n/
-	\![*]\q[An outfit,giveoutfit]     \![*]\q[A color cube,givecube]\n/
-	\![*]\q[A plush,giveplush]   \![*]\q[A blanket,giveblankie]     \![*]\q[A gift,givegift]\n/
+	"\_q\![*]\q[An outfit,giveoutfit]     \![*]\q[A plush,giveplush]\n/
+	\![*]\q[A blanket,giveblankie]     \![*]\q[A gift,givegift]\n/
 	\![*]\q[A drink,givhimdrank]    \![*]\q[A rock,rude]     \![*]\q[Some food,nightyneedstoeat]\n/
 	\![*]\q[A book,givebook]    \![*]\q[NOTHING,CANCEL]  \![*]\q[Go back,BACKTOMENU]\e"
 	}
-}
-Select.givecandles
-{
-	nicesadlevel += 1
-	"\0\s[0]\1* (You gift him with some scented candles.)\0\s[4]\1\n\n\w8Aw,\w3 that's nice of you.\w6 I could put them around the treehouse.\n\n%(ItemMOO)"
-}
-Select.givesong
-{
-	nicesadlevel += 1
-	"\0\s[0]\1* (You give him a tiny,\w4 cute looking music box.)\n\n\w8\0\s[4]\1Aw\w2.\w2.\w2.\w4 It's so adorable.\n\n\w8* (You tell him to turn the key in it.)\n\n\w8\0\s[13]\1* (He does so, and soon enough it starts clicking a tune.\w6 He smiles.)\n\n\w8\0\s[6]\1Thank you %(username)!!\n\n%(ItemMOO)"
 }
 Select.giveoutfit
 {
@@ -1565,11 +1598,7 @@ Select.giveoutfit
 	"\0\s[1629]Huh...\w8\n\nIt's a lot heavier than my normal one.\n\n\w8Why are there so many extras on it?\n\n%(ItemMOO)"
 	"\0\s[1630]* (He lifts his arm looking at it.)\n\n\w8Flowers?\n\n%(ItemMOO)"
 	"\0\s[1631]* (He seems happy!)\n\n\w8Aw,\w3 what a nice color!\n\n%(ItemMOO)"
-}
-Select.givecube
-{
-	nicesadlevel += 1
-	"\0\s[0]\1* (You gift him with a color cube.)\n\n\w8\0\s[4]\1What is it?\n\n\w8* (You tell him that it's a puzzle where you have to get each of the sides to be the same color.)\n\n\w8\0\s[13]\1* (He attempts solving it,\w4 but he starts looking frustrated quickly.)\n\n\w8\0\s[3]\1Um, \w4thanks.\w6 I'll work at it.\n\n%(ItemMOO)"
+	"\0\s[1632]* (You ask him what he thinks.)\w8\n\nWhy are the gloves and shoes all ripped at the ends?\n\n%(ItemMOO)\e"
 }
 Select.givebook
 {
@@ -1581,6 +1610,9 @@ Select.givegift
 	nicesadlevel += 1
 	"\0\s[0]\1* (You give him a purple flower!)\0\s[4]\1\n\n\w8Aw, \w4that's kinda cute\w2.\w2.\w2.\w8 To bad it won't live very long...\n\n\w8* (\w2.\w2.\w2.\w4Well he turned that dark pretty quickly.)\n\n%(ItemMOO)"
 	"\0\s[13]\1* (You gift him with a dream catcher.)\n\n\w8Oh\w2.\w2.\w2. \w5Thank you, \w5these are supposed to stop nightmares?\n\n\w8* (You tell him that they are.)\n\n\w8\0\s[0]\1Oh\w3.\w3.\w3. \w7Well, \w5I'll try to have good dreams. \w8\n\nOkay?\n\n%(ItemMOO)"
+	"\0\s[0]\1* (You gift him with a color cube.)\n\n\w8\0\s[4]\1What is it?\n\n\w8* (You tell him that it's a puzzle where you have to get each of the sides to be the same color.)\n\n\w8\0\s[13]\1* (He attempts solving it,\w4 but he starts looking frustrated quickly.)\n\n\w8\0\s[3]\1Um, \w4thanks.\w6 I'll work at it.\n\n%(ItemMOO)"
+	"\0\s[0]\1* (You give him a tiny,\w4 cute looking music box.)\n\n\w8\0\s[4]\1Aw\w2.\w2.\w2.\w4 It's so adorable.\n\n\w8* (You tell him to turn the key in it.)\n\n\w8\0\s[13]\1* (He does so, and soon enough it starts clicking a tune.\w6 He smiles.)\n\n\w8\0\s[6]\1Thank you %(username)!!\n\n%(ItemMOO)"
+	"\0\s[0]\1* (You gift him with some scented candles.)\0\s[4]\1\n\n\w8Aw,\w3 that's nice of you.\w6 I could put them around the treehouse.\n\n%(ItemMOO)"
 }
 Select.giveplush
 {
@@ -1625,7 +1657,6 @@ Select.toybox
 	"\0\s[0]\1* (You hand him a violin.)\0\s[6]\1\n\n\w8Oh-\w3 Thank you,\w3 I'd play you something but I don't know how to use it.\n\n\w8\0\s[6]\1That was still very nice of you though!\n\n"
 	}
 	}
-	
 }
 */
 Select.nightyneedstoeat
@@ -1709,7 +1740,7 @@ Select.nightyneedstoeat
 			"\0\s[1]\1* (You pour him a different brand of cereal then normal.)\n\n\w8* (He takes it in his hands and eats it, being careful not to spill anything on the book while eating.)\0\s[1]\i[39]\1\n\n"
 		}
 		--
-		"\![*]\q[Again,toybox]\n/
+		"\![*]\q[Again,nightyneedstoeat]\n/
 		\![*]\q[Give him something different,itemsmenu]\n/
 		\![*]\q[Nevermind,CANCEL]\e"
 	}
@@ -1733,7 +1764,6 @@ Select.iiiimsinginintherain
 	"Doesn't look like you have anything to give him.\e"
 }
 */
-//---- OnChoiceTimeout ---------------------------------------------------------
 OnChoiceTimeout
  {
 	"\0\s[1]Nevermind then...\e"	
@@ -1767,8 +1797,6 @@ Select.givesleepblankie
 	givesleepyblankie = "on"
 	"\0\s[5]\i[48]* (He looks comfy.)\e"
 }
-
-//--Test Variable --------------------------------------------------------
 Select.testvariable
 {
 	Edgybitch = "on"

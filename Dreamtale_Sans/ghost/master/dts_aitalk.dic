@@ -1,5 +1,4 @@
-﻿//---------------------------AI Talk--------------------------
-AiTalk //Leave this alone.
+﻿AiTalk //Leave this alone.
  {
 	if RAND(100) < communicateratio
  	{
@@ -23,7 +22,6 @@ AiTalk //Leave this alone.
  		}
 	}
  }
-//--RandomTalk 
 RandomTalk : nonoverlap
 {	
 //Replace all dialogue ifs
@@ -75,9 +73,9 @@ RandomTalk : nonoverlap
 		"zzz\w4.\w4.\w4.\w8\w8\w8 Y'\w4.\w4.\w4.\w8\w8\w8 zzz\w4.\w4.\w4.\w8\w8\w8 Y'not useless\w4.\w4.\w4.\e"
 		"anDream\w4.\w4.\w4.\w8\w8\w8zzz\w4.\w4.\w4.\w8\w8\w8 Just eat it already\w4.\w4.\w4.\w8\w8\w8 zzz\w4.\w4.\w4\e"
 		"anDream\w4.\w4.\w4.\w8\w8\w8zzz\w4.\w4.\w4.\w8\w8\w8 Wha'\w4.\w4.\w4.\w8\w8\w8 zzz\w4.\w4.\w4.\w8\w8 Twins\w4.\w4.\w4.\w4?\w8\w8 I ain't e'en wan' one\w4.\w4.\w4.\e"
-		"zzz\w4.\w4.\w4.\w8\w8\w8 Tszzz\w4.\w4.\w4.\w8\w8\w8 Tszzz\w4.\w4.\w4.\w8\w8\w8 I'mma snake,\w4 hehe\w4.w4.\w4.\e"
-		"zzz\w4.\w4.\w4.\w8\w8\w8 Staph it\w4.\w4.\w4.\w8\w8\w8 zzz\w4.\w4.\w4.\w8\w8\w8 I'm tiny but I c'n still hurt you\w4.w4.\w4.\e"
-		"zzz\w4.\w4.\w4.\w8\w8\w8 Stop\w4.\w4.\w4.\w8\w8\w8 zzz\w4.\w4.\w4.\w8\w8\w8 Stop bein' nice to eachother\w4.w4.\w4. \w8zzz\w4.\w4.\w4.\w8\w8\w8's gross\w4.\w4.\w4.\e"
+		"zzz\w4.\w4.\w4.\w8\w8\w8 Tszzz\w4.\w4.\w4.\w8\w8\w8 Tszzz\w4.\w4.\w4.\w8\w8\w8 I'mma snake,\w4 hehe\w4.\w4.\w4.\e"
+		"zzz\w4.\w4.\w4.\w8\w8\w8 Staph it\w4.\w4.\w4.\w8\w8\w8 zzz\w4.\w4.\w4.\w8\w8\w8 I'm tiny but I c'n still hurt you\w4.\w4.\w4.\e"
+		"zzz\w4.\w4.\w4.\w8\w8\w8 Stop\w4.\w4.\w4.\w8\w8\w8 zzz\w4.\w4.\w4.\w8\w8\w8 Stop bein' nice to each other\w4.\w4.\w4. \w8zzz\w4.\w4.\w4.\w8\w8\w8's gross\w4.\w4.\w4.\e"
 		"zzz\w4.\w4.\w4.\w8\w8\w8 woooo\w4.\w4.\w4. \w4zzz\w4.\w4.\w4. \w8\w8\w8Meme Squad\w4.\w4.\w4.\w8\w8\w8 hehe\w4.\w4.\w4.\e"
 		"zzz\w4.\w4.\w4. Cross\w4.\w4.\w4. zzz\w4.\w4.\w4. stop runnin' off\w4.\w4.\w4. \w8\w8\w8 zzz\w4.\w4.\w4.\e"
 		"* (He mumbles something you don't understand.)"
@@ -108,7 +106,7 @@ RandomTalk : nonoverlap
 		"\0\s[1]\1* (He doesn't say anything.\w8 He must be really interested in that book.)\e"	
 		"\0\s[12]Why do I even look like a sans when I've got nothing to do with him...\e"	
 		"\0\s[1]\1* (It smells like old books and purple.)\e"
-		"\0\s[12]I wish I had a five page document about magic apples and the various ways they kill people.\w8\n\nIt's honestly a plothole that I don't have that much information already, \w6with how many books I read.\e"
+		//"\0\s[12]I wish I had a five page document about magic apples and the various ways they kill people.\w8\n\nIt's honestly a plothole that I don't have that much information already, \w6with how many books I read.\e"
 		"\0\s[4]You know, I wish I could play an instrument.\w8\n\nMaybe a violin or something?\e"
 		"\0\s[4]Once I get home I should try to clean around the treehouse again...\w6 anDream rarely picks up their stuff.\e"
 		"\0\s[4]I wonder how much it rains there...\e"
@@ -116,12 +114,15 @@ RandomTalk : nonoverlap
 		"\0\s[13]\1* (He's fiddling with his hands.)\e"
 		"\0\s[4]Would having wings even be all that fun?\w8\n\nI feel like they'd just get in the way of everything.\e"
 		"\0\s[4]Maybe I should go out and get more outfits at some point.\w8 This ones gettin' kinda old.\e"
+		"\0\s[4]I hope nobody sneaks up on Mom's Tree while I'm not there\w2.\w2.\w2.\e"
 //if dialogue
 		//Negative Route
 		if nicesadlevel <= -10
 		{
 			"\0\s[4]I wonder how I'll be able to get back home...\e"
 			"\0\s[8]Maybe once I get home I can take a nap...\e"
+			"\0\s[12]Why was I even dragged out here anyways\w2.\w2.\w2.\w2?\w8\n\nDon't you have other ways to entertain yourself?\e"
+			"\1*(He seems uncomfortable.)\e"
 		}
 		if nicesadlevel <= -25
 		{
@@ -136,7 +137,7 @@ RandomTalk : nonoverlap
 			"\0\s[1]\1* (He looks a little uncomfortable reading his book)\w8\n\n* (Bother him?)\n\n\![*]\q[Yes,besnoopbother]\n\![*]\q[No,continuesnooping]\e"
 		}
 		//Positive Route
-		if nicesadlevel >= 50
+		if nicesadlevel >= 15
 		{
 			"\0\s[4]You know,\w5 swimming sounds kinda fun. \w6\0\s[6]Me and anDream do it sometimes!\n\n\w8\0\s[9]Though I had to stop cause.\w3\w3.\w3.\w5 later anDream would start inviting their friends to,\w4 and they-\n\n\w8\w4.\w4.\w4.\w5\0\s[12]I don't want to talk about it.\e"
 			"\0\s[13]I try to read poetry sometimes too\w2.\w2.\w2.\w6 I think it's also good,\w4 maybe I could try writing some at some point? \0\s[8]\w8Not like anybody would read it...\e"
@@ -226,7 +227,7 @@ RandomTalk : nonoverlap
 				when "Jockey"
 					{
 						"\0\s[13]Oh, I know her.\w8 Quonit also made that ghost.\e"
-						"\0\s[0]Quonit also made that ghost!\w8 She said they're going to work on her after I'm finished.\e"
+						"\0\s[0]Quonit also made that ghost!\w8 They said they're going to work on her after I'm finished.\e"
 						"\0\s[15]\1 (He starts humming for whatever reason.)\e"
 					}
 				when "flele"
@@ -260,6 +261,14 @@ RandomTalk : nonoverlap
 				when "Azura"
 					{
 						"\0\s[13]Those are some\w2.\w2.\w2.\w5 Interesting wings?\e"
+					}
+				when "S"
+					{
+						"\0\s[4]I wonder what AU that one is from\w2.\w2.\w2.\e"
+					}
+				other
+					{
+						"\![raise,OnAiTalk]"
 					}
 				}
 			}
@@ -446,7 +455,7 @@ RandomTalk : nonoverlap
 			"\0\s[1]\1* (It's breakfast,\w3 so it's a good idea to eat.\w8 \![*]\q[Feed him something?,nightyneedstoeat])\e"
 			if hastea == "on"
 			{
-			"\0\s[26]* (He drinks some early morning tea.)\e"
+			"\0\s[27]* (He drinks some early morning tea.)\e"
 			}
 		}
 		if timeslot == "lunch"
@@ -458,7 +467,7 @@ RandomTalk : nonoverlap
 		}
 		if timeslot == "afternoon"
 		{
-			if nicesadlevel >= 50
+			if nicesadlevel >= 25
 			{
 			"\0\s[8]\1* (He looks tired.)\w8\n\n* (That's strange,\w4 it's the middle of the afternoon.)\e"
 			"\0\s[8]\1* (%(nightname) is acting tired..)\w8\n\n* (You ask him if he's going to take a nap.)\n\n\w8Maybe...\e"
@@ -468,6 +477,7 @@ RandomTalk : nonoverlap
 			}
 			}
 			"\0\s[8]\1* (You ask %(nightname) if he wants a snack.)\0\s[4]\w8\n\nOh,\w3 sure.\n\n\w8* (You hand him some fruit snacks.)\0\s[25]\e"
+			"\0\s[4]It's probably really warm outside right now\w2.\w2.\w2.\e"
 		}
 		if timeslot == "evening"
 		{
@@ -535,10 +545,12 @@ Select.besnoopbother
 		}
 	Select.besnoopbother1
 		{
+			snoop =-5
 			"\0\s[12]* (You tell him you have no idea why he's mad.)\w8\n\n\0\s[21]You keep looking through my books while I'm reading!\n\n\w8* (You remind him that he told you that you should stop asking him what the book was and to just look at it.)\n\n\w8\0\s[12]\1\s[10]* (He looks down at the ground and crosses his arms like a kid.)\e"
 		}
 	Select.continuesnooping1
 		{
+			nicesadlevel =- 3
 			"\0\s[1]\1* (You tell him that he is on your computer so he needs to deal with you.\w8\n\n\0\s[9]\1\s[10]* (He looks down at the ground and crosses his arms, upset.)"
 		}
 Select.isitcoldyes
@@ -632,26 +644,83 @@ Select.Yesvacation
 		{
 			"\0\s[6]It's okay!\w8 I don't go on vacations either!\e"
 		}
-//--Chains
 ciderchain
 {{CHAIN
 	"\0\s[0]Now that I think on it more,\w4 I wonder if the Mom's tree's apples taste anything like your world's apples.\e:chain=end"
 }}CHAIN
-
-//-OnMinuteChange
 OnMinuteChange
 {
 	timeslot = GetTimeSlot
 	--
  	if minute == 0 
 	{
- 		if hour == 12 //Noon
+		if hour == 1
 		{
- 			"\0\s[0]It's twelve\w2.\w2.\w2. \w5That's usually when most people go to eat, \w2right?\e"
 		}
- 		elseif hour == 0 //Midnight
+		elseif hour == 2
 		{
- 			"\0\s[1]\1 (He doesn't seem to notice how late it is.)\e"
+		}
+		elseif hour == 3
+		{			
+			"\0\s[1]\1* (It's 3 AM.)\n\n\w8* (Better watch out.)\e"
+		}
+		elseif hour == 4
+		{
+		}
+		elseif hour == 5
+		{
+		}
+		elseif hour == 6
+		{
+		}
+		elseif hour == 7
+		{
+		}
+		elseif hour == 8
+		{
+		}
+		elseif hour == 9
+		{
+		}
+		elseif hour == 10
+		{
+		}
+		elseif hour == 11
+		{
+		}
+ 		elseif hour == 12
+		{
+			"\0\s[0]It's twelve\w2.\w2.\w2. \w5That's usually when most people go to eat, \w2right?\e"
+		}
+		elseif hour == 13
+		{
+		}
+		elseif hour == 14
+		{
+		}
+		elseif hour == 15 //3pm
+		{
+		}
+		elseif hour == 16
+		{
+		}
+		elseif hour == 17
+		{
+		}
+		elseif hour == 18
+		{
+		}
+		elseif hour == 19
+		{
+		}
+		elseif hour == 20
+		{
+		}
+		elseif hour == 21
+		{
+		}
+		elseif hour == 22
+		{
 		}
 		elseif hour == 23
 		{
@@ -664,13 +733,13 @@ OnMinuteChange
 			"\0\s[0]It's 11 pm.\e"
 			}
 		}
-		elseif hour == 3
+ 		elseif hour == 0
 		{
-			"\0\s[1]\1* (It's 3 AM.)\n\n\w8* (Better watch out.)\e"
+ 			"\0\s[1]\1 (He doesn't seem to notice how late it is.)\e"
 		}
 		else
 		{
-			"\0\s[1]\1* (It's %(hour12)'o clock.)\e"
+			"\0\s[0]It's %(hour12)'o clock.\e"
 		}
 	}
 	elseif mikireflag == 1

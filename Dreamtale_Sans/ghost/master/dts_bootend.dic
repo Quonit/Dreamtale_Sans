@@ -1,5 +1,4 @@
-﻿//---------------------------Booting and Ending--------------------------
-OnFirstBoot
+﻿OnFirstBoot
 {
 	//Basics
  	lastTalk = ""
@@ -698,7 +697,7 @@ OnGhostChanged
 		"\0\s[19]* (Switched from %(reference0) back to this idiot...)"
 		"\0\s[19]* (At least %(reference0) actually talked to you...)"
 		}
-		elseif Edgybitch
+		elseif Edgybitch == "on"
 		{
 		"\0\s[4]See?\w5 I'd knew you'd come back to me.\e"
 		}

@@ -1,12 +1,11 @@
-﻿//---------------------------Strings--------------------------
-On_username //Don't touch
+﻿On_username //Don't touch
 {
 	username
 }
 
 On_homeurl //Network update URL
 {
-	"https://raw.githubusercontent.com/Quonit/Dreamtale_Sans/master/"
+	"https://raw.githubusercontent.com/quonit/Dreamtale_Sans/master/Dreamtale_Sans"
 }
 
 On_recommendrootbutton.caption //Top Menu Option Caption

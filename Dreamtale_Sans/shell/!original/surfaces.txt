@@ -1,6 +1,4 @@
-//---------------------------Surfaces.txt--------------------------
 //DTS
-//--surface.append-------------------------------------------------------------------
 surface.append500-590 
 {
 collision0,15,16,111,48,Face
@@ -470,6 +468,8 @@ element1,overlay,surface1604.png,0,0
 //Eat
 surface25
 {
+collision0,116,42,186,72,Crown
+collision1,118,77,172,96,Face
 element1,overlay,surface1524.png,0,0
 //Blushies
 100interval,bind
@@ -479,6 +479,9 @@ element1,overlay,surface1524.png,0,0
 //Dream doll
 surface26
 {
+collision0,115,30,186,51,Crown
+collision1,108,46,168,87,Face
+collision1,136,95,171,130,Dollie
 element1,overlay,surface1525.png,0,0
 //Blushies
 100interval,bind
@@ -501,12 +504,16 @@ element1,overlay,surface1526.png,0,0
 //Flush
 surface28
 {
+collision0,112,35,186,57,Crown
+collision1,112,59,168,89,Face
 element1,overlay,surface1527.png,0,0
 }
 
 //Blow Kiss
 surface29
 {
+collision0,115,34,186,47,Crown
+collision1,114,59,171,87,Face
 element0,overlay,surface1528.png,0,0
 41interval,runonce
 41pattern1,1618,60,base,0,0
@@ -537,12 +544,15 @@ element0,overlay,surface1531.png,0,0
 //Yay pet!
 surface32
 {
+collision0,107,39,186,61,Crown
+collision1,112,72,168,91,Face
 element0,overlay,surface1532.png,0,0
 }
 
 //Don steal crownnn
 surface33
 {
+collision1,119,48,168,87,Face
 element0,overlay,surface1533.png,0,0
 }
 
@@ -558,6 +568,8 @@ element0,overlay,surface1534.png,0,0
 //<3
 surface35
 {
+collision0,115,27,186,48,Crown
+collision1,111,49,168,87,Face
 element0,overlay,surface1535.png,0,0
 }
 
@@ -571,7 +583,6 @@ element0,overlay,surface1536.png,0,0
 surface37
 {
 element0,overlay,surface1537.png,0,0
-
 //Blankie
 48interval,never
 48pattern0,1116,0,overlay,0,0
@@ -595,12 +606,16 @@ element0,overlay,surface1539.png,0,0
 //Flowers
 surface40
 {
+collision0,118,20,186,40,Crown
+collision1,115,46,171,83,Face
 element0,overlay,surface1540.png,0,0
 }
 
 //Drinking boy
 surface41
 {
+collision0,119,34,199,56,Crown
+collision1,118,60,174,91,Face
 element0,overlay,surface1541.png,0,0
 //Add initial arms
 1interval,runonce
@@ -611,6 +626,14 @@ element0,overlay,surface1541.png,0,0
 49pattern0,1118,0,overlay,0,0
 49pattern1,1119,100,overlay,0,0
 49pattern2,1118,100,overlay,0,0
+}
+
+//SOUL
+surface42
+{
+collision0,118,34,197,53,Crown
+collision1,118,60,179,93,Face
+element0,overlay,surface1540.png,0,0
 }
 
 //Sleeping 2
@@ -735,7 +758,6 @@ element0,overlay,surface1621.png,0,0
 surface1622 //Fall 2
 {
 element0,overlay,surface1622.png,0,0
-
 //breath
 47interval,always,10
 47pattern0,-1,75,base,0,0
