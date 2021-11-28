@@ -10,6 +10,6 @@ craftman,Quonit
 craftmanurl,https://quonit.tumblr.com/
 
 sstp.allowunspecifiedsend,0
-shiori,yaya.dll
+shiori,aya5.dll
 
 icon,DTS.ico

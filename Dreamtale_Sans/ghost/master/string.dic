@@ -5,7 +5,7 @@
 
 On_homeurl //Network update URL
 {
-	"https://raw.githubusercontent.com/quonit/Dreamtale_Sans/master/Dreamtale_Sans/"
+	"https://raw.githubusercontent.com/quonit/Dreamtale_Sans/master/Dreamtale_Sans"
 }
 
 On_recommendrootbutton.caption //Top Menu Option Caption
