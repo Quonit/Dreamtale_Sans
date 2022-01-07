@@ -1,6 +1,12 @@
 Changelong for Dreamtale Sans!
 --------------------------------------------------------------------------------------------------------------------
 
+7th January 2022
+Bugfixes:
+-Small patch to fix the User not being given a name
+-Removed option to ask about soul, which was unfinished
+-Minor Typo fixes
+
 6th January 2022
 Additions:
 -Added this Changelog!

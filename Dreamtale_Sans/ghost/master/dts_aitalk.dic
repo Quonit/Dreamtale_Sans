@@ -77,6 +77,15 @@ RandomTalk : nonoverlap
 	}
 	elseif sleepingmode == "on"
 	{
+		if givesleepyblankie == "on"
+		{
+		"\0\s[5]\i[48]"
+		}
+		else
+		{
+		"\0\s[5]"
+		}
+		--
 		"* (He won't notice if you look through his book now.)\e"
 		"zzz\w4.\w4.\w4. \w8\w8anDream\w4.\w4.\w4. \w8\w8\w8zzz\w4.\w4.\w4. \w8\w8stop\w4.\w4.\w4. \w8flyin' away\w4.\w4.\w4. \w8\w8\w8'm tryna talk to ya\w4.\w4.\w4. \w8zzz\w4.\w4.\w4.\e"
 		"zzz\w4.\w4.\w4.\w8\w8 Stop it\w4.\w4.\w4. \w8das' dumb\w4.\w4.\w4.\w8\w8\w8 zzz\w4.\w4.\w4.\w8\w8 yur gonna die Killer\w4.\w4.\w4.\w8\w8\w8 zzz\w4.\w4.\w4.\e"
@@ -127,21 +136,20 @@ RandomTalk : nonoverlap
 		"\0\s[4]I wish I had a staff or something. \w8That'd be cool.\e"
 		"\0\s[4]I heard once that the golden apples on Mom's tree heal people of sickness. \w8\n\n\0\s[3]It sounds really important for something that was only mentioned once...\e"
 		
-		"\0\s[1]\1* (He looks like he's thinking about something else.)\e"
+		"\0\s[1]\i[55]* (He looks like he's thinking about something else.)\e"
 		"\0\s[12]Why do I even look like a sans when I've got nothing to do with him...\e"	
-		"\0\s[1]\1* (It smells like old books and purple.)\e"
-		//"\0\s[12]I wish I had a five page document about magic apples and the various ways they kill people.\w8\n\nIt's honestly a plothole that I don't have that much information already, \w6with how many books I read.\e"
+		"\0\s[1]\i[55]* (It smells like old books and purple.)\e"
 		"\0\s[4]You know, I wish I could play an instrument.\w8\n\nMaybe a violin or something?\e"
 		"\0\s[4]Once I get home I should try to clean around the treehouse again...\w6 anDream rarely picks up their stuff.\e"
 		"\0\s[4]I wonder how much it rains there...\e"
 		"\0\s[4]I wonder when I'll get to go back home.\w8 Not that I was really gonna do anything... \w4But...\e"
-		"\0\s[13]\1* (He's fiddling with his hands.)\e"
+		"\0\s[13]\i[55]* (He's fiddling with his hands.)\e"
 		"\0\s[4]Would having wings even be all that fun?\w8\n\nI feel like they'd just get in the way of everything.\e"
 		"\0\s[4]Maybe I should go out and get more outfits at some point.\w8 This ones gettin' kinda old.\e"
 		"\0\s[4]I hope nobody sneaks up on Mom's Tree while I'm not there\w2.\w2.\w2.\e"
-		"\0\s[1]\1* (It smells like spaghetti.)\e"
-		"\0\s[1]\1* (He's pretty quiet today.)\e"
-		"\0\s[1]\1* (You poke him.)\0\s[1]\i[8]Could you not?\n\n\![*]\q[Hug him,hugpurpleman]\n\![*]\q[Respect his wishes,leavepurplemanalone]\e\e"
+		"\0\s[1]\i[55]* (It smells like spaghetti.)\e"
+		"\0\s[1]\i[55]* (He's pretty quiet today.)\e"
+		"\0\s[1]\i[55]* (You poke him.)\0\s[1]\i[8]Could you not?\n\n\![*]\q[Hug him,hugpurpleman]\n\![*]\q[Respect his wishes,leavepurplemanalone]\e\e"
 		"\0\s[4]Kinda wonder what the world would be like if I never existed\w2.\w2.\w2.\w8\n\n\i[55]* (Is that normal for him?)\e"
 //if dialogue
 		//Negative Route
@@ -657,7 +665,7 @@ Select.hugpurpleman
 	Select.leavepurplemanalone
 	{
 	nicesadlevel += 1
-	respect + 1
+	respect += 1
 	"\i[55]* (You respect his distance.)\n\n\w8\s[3]Thanks I guess?"
 	}
 Select.Yesvacation
@@ -672,6 +680,17 @@ Select.Yesvacation
 		{
 			"\0\s[6]It's okay!\w8 I don't go on vacations either!\e"
 		}
+Select.fiveleave
+{
+	//temp dialogue
+	nicesadlevel += 1
+	"Ah-\w5 Thank you!!\w8\w8\w8\-\e"
+}
+	Select.fivestay
+	{
+		nicesadlevel -= 5
+		"O-Oh\w2.\w2.\w2.\w8 I mean, if you could soon,\w3 then\w2.\w2.\w2."
+	}
 ciderchain
 {{CHAIN
 	"\0\s[0]Now that I think on it more,\w4 I wonder if the Mom's tree's apples taste anything like your world's apples.\e:chain=end"
@@ -697,6 +716,9 @@ OnMinuteChange
 		}
 		elseif hour == 5
 		{
+			"\0\s[7]\i[55]* (He notices what time it is.)\n\n\w8Ah-\w4 I better get back home soon.\n\n\w8Otherwise Dream might notice I'm not there when they wake up\w2.\w2.\w2. \w4And\w2.\w2.\w2.\n\n\w8* (Let him leave?)\n\n/
+			\![*]\q[Yes,fiveleave]\n/
+			\![*]\q[No,fivestay]\e"
 		}
 		elseif hour == 6
 		{

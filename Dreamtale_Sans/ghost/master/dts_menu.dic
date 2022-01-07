@@ -1352,7 +1352,7 @@ Select.youtalk
     }
     --
     "\![*]\q[Check,checkinguout]\n"
-    "\![*]\q[His Soul,looksoul]\n"
+    //"\![*]\q[His Soul,looksoul]\n"
     //"\![*]\q[Yourself,talkaboutme]\n"
     //"\![*]\q[Himself,talkaboutyou]\n"
     --
@@ -1512,22 +1512,15 @@ Select.waxingandwaining
 }
 Select.looksoul
 {
-    if nicesadlevel <=20 //Bad
+    if nicesadlevel <=10 //Bad
     {
         //he seems uncomfortable.
-        if nicesadlevel <= -25 // sad below 25
+        if nicesadlevel <= -25 || punchout >= 1 && punchout <= 9// sad below 25
         {
-            "Absolutely not."
+			//temp dialogue. Add angry main pose?
+            "Absolutely not.\n\n\w8\s[12]\i[55]* (He moves away from you...)\n\n\w8\s[12]Why are you interested in it anyways?"
         }
-        if nicesadlevel <= -50 //sad below 50
-        {
-            "sad"
-        }
-        if punchout >= 10 //hit 10 times
-        {
-            "* (he seems scared.)"
-        }
-        if punchout >= 15 //hit 15 times
+        if nicesadlevel <= -50 || punchout >= 10 //sad below 50
         {
             "* (he seems scared.)"
         }

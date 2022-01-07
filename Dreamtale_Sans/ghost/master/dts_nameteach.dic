@@ -1,13 +1,10 @@
 ﻿OnTeachName	
 {
 	if reference0 == "TEACHNAME" //ignore this
-		{
-		"\0\s[0]What do you want to be called?\![open,inputbox,OnNameTeach,-1]\e"
-		}
-	else
-		{
-		//username = reference0
-		}
+	{
+	menuname = "on"
+	"\0\s[0]What do you want to be called?\![open,inputbox,OnNameTeach,-1]\e"
+	}	else	{	} //idk what this else is even here for it's always left empty
 }
 OnNameTeach
 {
@@ -57,12 +54,20 @@ OnNameTeach
 	}
 	elseif reference0 == "" || reference0 == " " || reference0 == "   " 
 	{
-		username = "NULL" 
-		"\0\s[8]... I'll just call you NULL then."
+		username = "User" 
+		"\0\s[8]... I'll just call you User then."
 	}
-	else 
+	else
 	{
+		username = tempname
+		if menuname == "on"
+		{
+		"Cool...%(backmenu)" //\e put here to stop it from playing the rest of the intro dialogue.
+		}
+		else
+		{
 		"Cool..."
+		}
 	}
 	--
 	"\w8\s[4]\n\nSo what do you go by?\n\n/
@@ -71,8 +76,38 @@ OnNameTeach
 	\![*]\q[They/Them/Their,choicefirsttheythem]\e"
 }
 
-//--NameDone
+Select.choicefirsthehim
+{
+	presuffix = "masculine"
+	himher = "him"
+	heshe = "he"
+	hisher = "his"
+	--
+	FirstBootDone
+}
+Select.choicefirstsheher
+{
+	presuffix = "feminine"
+	himher = "her"
+	heshe = "she"
+	hisher = "her"
+	--
+	FirstBootDone
+}
+Select.choicefirsttheythem
+{
+	himher = "them"
+	heshe = "they"
+	hisher = "theirs"
+	--
+	FirstBootDone
+}
+
+FirstBootDone
+{
+	"\0\s[0]Neat\w2.\w2.\w2. \w8I'm Nightmare.\e"
+}
 NameDone
 {
-		"\0\s[0]I'll call you %(username).\w8 If you ever want to change your name, \w8just go back into the Configuration menu.\e"
+	"\0\s[0]I'll call you %(username).\w8 If you ever want to change your name, \w8just go back into the Configuration menu.\e"
 }

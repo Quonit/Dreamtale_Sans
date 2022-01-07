@@ -4,20 +4,20 @@ file,ghost/master/Extras/beep.wav88b3e2141eac4b16e03a5de9504bcc57size=151278d
 file,ghost/master/Extras/bell ring sound.mp3a7e979f6aff67a2fb87a338d13816470size=51963date=2020-03-09T16:56:30
 file,ghost/master/Extras/hessodreamy.pngc7cf53bebb2b47456ed25000e07b0668size=7951date=2020-02-28T20:54:34
 file,ghost/master/Extras/mydeadmom.png972bc10a962625207f355c23f278b67dsize=8800date=2020-02-29T00:04:28
-file,ghost/master/changelog.txt3a17cd49465b20dcbbc0d00971722315size=756date=2022-01-06T17:35:52
+file,ghost/master/changelog.txt08dc81930e55fd2bc25999862022f886size=916date=2022-01-07T13:30:50
 file,ghost/master/delete.txtd41d8cd98f00b204e9800998ecf8427esize=0date=2021-10-30T22:23:48
 file,ghost/master/descript.txt9dd0b05d70486f6c3a8aff9c9bedcc9asize=247date=2021-10-30T22:33:00
-file,ghost/master/dts_aitalk.dice47c082cb99c8fb5e72ef83f1e3b8e4esize=41985date=2022-01-06T17:04:13
+file,ghost/master/dts_aitalk.dicd276e5dcc8db0bbd2f170e1caf6e6a85size=42383date=2022-01-07T13:27:07
 file,ghost/master/dts_anchor.dic74c357e2cf628512fa5b5e759a81244esize=5930date=2022-01-06T16:51:50
-file,ghost/master/dts_bootend.dic1aab7d49451b2abf474f595f3e7aa240size=20510date=2022-01-06T17:34:30
+file,ghost/master/dts_bootend.dic028f3a2fb21334c2d6c4b1cbf7807debsize=20357date=2022-01-07T13:23:04
 file,ghost/master/dts_commu.dic5e95df84001d684047e8ac6fbec58b38size=307date=2021-12-24T21:15:54
-file,ghost/master/dts_dreamtalk.dic86439b5f8f16322ed5f5cdd76267ab31size=872date=2021-12-19T12:31:28
+file,ghost/master/dts_dreamtalk.dic86439b5f8f16322ed5f5cdd76267ab31size=872date=2022-01-06T17:45:56
 file,ghost/master/dts_etc.dic8476374077bc400dfa4e0ed2ab4629bcsize=12220date=2022-01-06T17:24:43
 file,ghost/master/dts_gooptalk.dic4b0ccfd5c1b1092a36763030c80faf9dsize=13423date=2022-01-06T14:22:46
-file,ghost/master/dts_menu.dic4caf280fe5dc9e0d18a76821b297cabfsize=74898date=2022-01-06T17:11:41
+file,ghost/master/dts_menu.dice94f88bd4c99afd3158516875a93d0f3size=74908date=2022-01-07T13:27:47
 file,ghost/master/dts_mouse.dic0653ba509b984999a6b8621567bf5f7fsize=13942date=2022-01-06T14:04:21
-file,ghost/master/dts_nameteach.dicdd77290c891b285d3400701d3d6e0a32size=2207date=2022-01-06T15:50:25
-file,ghost/master/dts_word.dicb93e67097012cce454c58973ee9ce134size=6711date=2022-01-06T19:15:11
+file,ghost/master/dts_nameteach.dica03949f893a5f00d11dcd941d82e166asize=2836date=2022-01-07T13:26:25
+file,ghost/master/dts_word.dicf69775e9ab60bd54d10578e8ff1ddfc4size=6877date=2022-01-07T13:26:19
 file,ghost/master/gomi.dll51fe9597398db01e684a0f9d52c63242size=13312date=2004-06-01T17:00:04
 file,ghost/master/gt_template.ico9b275939dbf11bd2ec5f4ef3e00fa06asize=1148date=2014-11-09T14:17:38
 file,ghost/master/mciaudior.dllb1082bccd2aac2017f7936baf2d967b3size=29696date=2003-03-13T13:23:26

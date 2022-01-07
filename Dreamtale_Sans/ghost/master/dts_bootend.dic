@@ -1,18 +1,19 @@
 ﻿OnFirstBoot
 {
 	//Basics
- 	lastTalk = ""
-	passmin = 0 
-	passsec = 0 
- 	username = "USER" 
-	stroke = 0
- 	teachusername = 0
-	mikireflag = 0
- 	aitalkinterval = 400
- 	birthdayprint = "????"
-	talktime = "5 minutes" 
-	deleteshitai = "OFF"
-	nowshell = "Dreamtale Sans"
+ 	lastTalk = "" //Last peice of dialogue
+	passmin = 0 //How many minutes have passed
+	passsec = 0 //How many seconds have passed
+ 	username = "User" //Default Username
+	stroke = 0 //???
+ 	teachusername = 0 //???
+	mikireflag = 0 //???
+ 	aitalkinterval = 400 //???
+ 	birthdayprint = "????" //Birthdate
+	talktime = "5 minutes" //Default talk frequency
+	deleteshitai = "OFF" //???
+	nowshell = "Dreamtale Sans" //Current shell. Not even sure if this works...
+	menuname = "off" //If you're changing your name from the menu
 	//Constants
 	//Good
 	nightynight = "off" //If his name is Nightmare or Nighty
@@ -58,36 +59,6 @@
  		"\0\s[3]Something happened...\e"
 		}
  	}
-}
-Select.choicefirsthehim
-{
-	presuffix = "masculine"
-	himher = "him"
-	heshe = "he"
-	hisher = "his"
-	--
-	FirstBootDone
-}
-Select.choicefirstsheher
-{
-	presuffix = "feminine"
-	himher = "her"
-	heshe = "she"
-	hisher = "her"
-	--
-	FirstBootDone
-}
-Select.choicefirsttheythem
-{
-	himher = "them"
-	heshe = "they"
-	hisher = "theirs"
-	--
-	FirstBootDone
-}
-FirstBootDone
-{
-	"\0\s[0]Neat\w2.\w2.\w2. \w8I'm Nightmare.\e"
 }
 GetTimeSlot
 {

@@ -40,6 +40,12 @@ backask //Put this at the end of the ask menu instead of typing this out 30 time
 	\![*]\q[Back to main menu,BACKTOMENU]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
 }
+backmenu //Put at the end of settings
+{
+	"\n\n\![*]\q[Back to Settings,configmenu]\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
 
 blanklist //I put blanklist in blanklist lol
 {
