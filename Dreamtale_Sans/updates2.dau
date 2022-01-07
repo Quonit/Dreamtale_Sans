@@ -3,8 +3,6 @@ ghost/master/Extras/beep.wav88b3e2141eac4b16e03a5de9504bcc57size=151278date=2
 ghost/master/Extras/bell ring sound.mp3a7e979f6aff67a2fb87a338d13816470size=51963date=2020-03-09T16:56:30
 ghost/master/Extras/hessodreamy.pngc7cf53bebb2b47456ed25000e07b0668size=7951date=2020-02-28T20:54:34
 ghost/master/Extras/mydeadmom.png972bc10a962625207f355c23f278b67dsize=8800date=2020-02-29T00:04:28
-ghost/master/aya5.dll7737614f08f642a0261a4f81917ed77asize=198144date=2005-06-23T20:08:28
-ghost/master/aya5.txt7e5cedfec0f762dc30404939e420fc65size=703date=2020-03-02T15:50:38
 ghost/master/changelog.txt3a17cd49465b20dcbbc0d00971722315size=756date=2022-01-06T17:35:52
 ghost/master/delete.txtd41d8cd98f00b204e9800998ecf8427esize=0date=2021-10-30T22:23:48
 ghost/master/descript.txt9dd0b05d70486f6c3a8aff9c9bedcc9asize=247date=2021-10-30T22:33:00
@@ -18,7 +16,7 @@ ghost/master/dts_gooptalk.dic4b0ccfd5c1b1092a36763030c80faf9dsize=13423date=2
 ghost/master/dts_menu.dic4caf280fe5dc9e0d18a76821b297cabfsize=74898date=2022-01-06T17:11:41
 ghost/master/dts_mouse.dic0653ba509b984999a6b8621567bf5f7fsize=13942date=2022-01-06T14:04:21
 ghost/master/dts_nameteach.dicdd77290c891b285d3400701d3d6e0a32size=2207date=2022-01-06T15:50:25
-ghost/master/dts_word.dic6ad1fc2cc7286a00f483ae76cdc09361size=7305date=2022-01-06T14:19:38
+ghost/master/dts_word.dicb93e67097012cce454c58973ee9ce134size=6711date=2022-01-06T19:15:11
 ghost/master/gomi.dll51fe9597398db01e684a0f9d52c63242size=13312date=2004-06-01T17:00:04
 ghost/master/gt_template.ico9b275939dbf11bd2ec5f4ef3e00fa06asize=1148date=2014-11-09T14:17:38
 ghost/master/mciaudior.dllb1082bccd2aac2017f7936baf2d967b3size=29696date=2003-03-13T13:23:26
@@ -239,61 +237,4 @@ shell/Nightmare/surface1617.png2363920e424b718ecc26a0619bbf3e62size=33487date
 shell/Nightmare/surfaces.txt804832dd416723ca20c749678e6a2d56size=7288date=2021-12-20T10:05:28
 shell/Nightmare/surfacetable.txtd27fb1f641fcb942d2e5ec7ddbd4649bsize=552date=2020-04-01T09:52:26
 shell/Nightmare/thumbnail.pngb3abbdf9ba558ecb11fd65da059fa0d0size=184823date=2019-07-13T16:53:28
-shell/Purple Man/descript.txt68b949f7b34bc50008c79b793be73cbasize=3172date=2020-04-02T20:17:42
-shell/Purple Man/menu_background.png0a5ffcd535c3d2051646340ddc36bda3size=36018date=2019-12-25T16:40:06
-shell/Purple Man/menu_foreground.pngccedefd3be0bf3c1de617f4346acf370size=11212date=2019-12-25T16:34:24
-shell/Purple Man/menu_sidebar.png63ea611f0e3737d8f3b2be8fffc6006dsize=6737date=2019-12-25T16:36:46
-shell/Purple Man/read me.txt855c908f8863b8a773dbb37ea1cf451asize=1838date=2014-11-25T14:57:48
-shell/Purple Man/surface0.pna4a209e0064df26c80a990c1430dbace6size=10289date=2019-06-29T12:11:20
-shell/Purple Man/surface0.png50d0a3a08b8ea9f0b04ca238a0d2ac34size=19106date=2019-06-28T23:05:20
-shell/Purple Man/surface10.png50037d2a3abb77830b9f0f74832ab9aesize=309date=2019-06-28T23:05:38
-shell/Purple Man/surface1010.pngfbeb5f3954ca3b235ca9c285d28379f1size=918date=2019-09-28T13:56:40
-shell/Purple Man/surface1011.pngeeaca667d6417866475a05d84f8e3db3size=1622date=2019-09-28T13:56:32
-shell/Purple Man/surface1012.pnge6905258da22a6a3da37ff03841c6aaesize=1679date=2019-09-28T13:55:54
-shell/Purple Man/surface1013.pngbcb23caa5890f268f85dccf1fe81ce04size=1282date=2019-11-29T15:23:00
-shell/Purple Man/surface1100.png02e5bb48e550bd2ea3560c7ba188d29csize=1301date=2019-06-28T23:13:28
-shell/Purple Man/surface1101.pnge36c8bae32bf7f6da3ef588d46fedf82size=1537date=2019-06-28T23:14:24
-shell/Purple Man/surface1102.png991bd4be43e3ac83aedaeca26a90b5aasize=1634date=2019-06-28T23:15:28
-shell/Purple Man/surface1103.png2403cae95863bffea909e28d8dab926asize=1636date=2019-12-02T20:02:52
-shell/Purple Man/surface1104.png4f42c4ecd7809e80ce974629125ac264size=1712date=2019-12-02T20:03:18
-shell/Purple Man/surface1105.pngced9a01699b28ee0fcc5f1ddf4016cc1size=1715date=2019-12-02T20:15:50
-shell/Purple Man/surface1106.png21c56c5be246ad24225ae0d015bbf885size=1735date=2019-12-02T20:17:24
-shell/Purple Man/surface1107.png6b17ee0444d30a0bcb48837ab87ac156size=1886date=2019-12-02T20:27:14
-shell/Purple Man/surface1108.png592b3447f1fc3ba041d4716cf678a8casize=1946date=2019-12-02T20:29:44
-shell/Purple Man/surface1109.png6b17ee0444d30a0bcb48837ab87ac156size=1886date=2019-12-02T20:27:14
-shell/Purple Man/surface1110.pnga885416328c1c2b3b622f237b5b834adsize=2392date=2019-06-28T22:42:50
-shell/Purple Man/surface1111.png0500ab2414ca8abd1e586959a25e1b66size=1989date=2019-09-13T16:16:16
-shell/Purple Man/surface1112.png217a7390c9b83dcd6cd69e755e20a139size=2951date=2019-09-28T13:48:20
-shell/Purple Man/surface1113.pngd1389fd031ec2bf6ddb803c46ebb209asize=3440date=2019-09-13T16:17:34
-shell/Purple Man/surface1200.png202f4f1c78e9f7637f8b4d1addda2770size=6473date=2019-06-29T13:36:40
-shell/Purple Man/surface1201.pngd0cce74459d168f873316a95cedae7f7size=6558date=2019-06-29T13:37:28
-shell/Purple Man/surface1202.png1379c56deca800d1ee6346fcca41ad77size=6264date=2019-06-29T13:38:18
-shell/Purple Man/surface1250.png592b3447f1fc3ba041d4716cf678a8casize=1946date=2019-12-02T20:29:44
-shell/Purple Man/surface1300.pnga4b921ca002e93c11387983f5298ad17size=1244date=2019-11-28T13:53:50
-shell/Purple Man/surface1501.pna85d2658cade5bb54ec8c666a045106basize=9983date=2019-06-29T12:34:30
-shell/Purple Man/surface1501.png74901e1b3cd0a02677fa12392ba3e9b8size=21489date=2019-09-28T13:51:32
-shell/Purple Man/surface1502.png480c72a80e5fba43a199e73f204030c4size=25349date=2019-06-29T15:16:24
-shell/Purple Man/surface1503.png5aff7750bb658c71d14c0f385022724dsize=20555date=2019-06-29T15:20:12
-shell/Purple Man/surface1504.png6b925fa0a087c131e101225e644b083fsize=18922date=2019-06-29T15:26:44
-shell/Purple Man/surface1505.pnad5ac16c6d40d2148ecbf2ddb9a6cfc76size=7854date=2019-07-14T18:40:04
-shell/Purple Man/surface1505.pngc82bc34367d75969e35083d32d82248fsize=16692date=2019-07-14T18:39:46
-shell/Purple Man/surface1506.pngb2f21d68903c71e640a45ea03db729bdsize=20277date=2019-09-13T15:49:52
-shell/Purple Man/surface1507.png8e0df7a17ebb38c7ce33df9612d5c094size=23128date=2019-11-28T18:21:36
-shell/Purple Man/surface1508.png778b57f23fd860fd531a2b280bdfbc49size=24372date=2019-09-27T16:46:20
-shell/Purple Man/surface1509.png8c58f400b5e8a8c8552c6ba490756f1asize=21824date=2019-09-27T16:46:36
-shell/Purple Man/surface1511.pngf097c1ad9e71dcfa9e2dd0d1f6aae048size=16868date=2019-11-29T15:06:44
-shell/Purple Man/surface1512.png5a9a8dd474fa574993c125235e365feasize=18089date=2019-12-01T16:26:52
-shell/Purple Man/surface1513.pngdbeab27fb45a8fa59589fe6b80e77785size=16607date=2019-12-01T19:38:00
-shell/Purple Man/surface1514.png4037e9650a18cb1e5104564354002569size=19751date=2019-12-01T19:57:52
-shell/Purple Man/surface1515.png052dbe3a3ae2290ffbdbbc5aefb42f99size=13146date=2019-12-01T20:21:38
-shell/Purple Man/surface1516.png781d1057911bafe1322dba82efa6198dsize=25842date=2020-01-02T14:50:02
-shell/Purple Man/surface1517.pngae7a9bdafdbf828b88c8207623a0aef8size=23607date=2019-12-14T13:59:58
-shell/Purple Man/surface1518.pngc0502b098f7c875374f98b9fb38b1346size=18663date=2019-12-26T14:53:48
-shell/Purple Man/surface1519.png92402a35a585467c1fc87f71d24bfd51size=24553date=2020-01-02T14:53:28
-shell/Purple Man/surface1600.png261c9dc74e1c15f1559575e9a0e10c10size=14763date=2019-09-12T22:25:40
-shell/Purple Man/surface1601.png3811cc72f8687e35bc932683216277dbsize=15385date=2019-09-12T22:28:32
-shell/Purple Man/surface1602.png69447ed402743d9bb7116bc66edc71a2size=16002date=2019-09-12T22:30:20
-shell/Purple Man/surfaces.txtae01a7b6559000b307e33e0830278eaasize=5335date=2020-01-02T14:53:36
-shell/Purple Man/surfacetable.txta7b212e30764d60f9e12047d3ee8f226size=356date=2019-12-31T20:21:50
-shell/Purple Man/thumbnail.pngb3abbdf9ba558ecb11fd65da059fa0d0size=184823date=2019-07-13T16:53:28
 thumbnail.pngb3abbdf9ba558ecb11fd65da059fa0d0size=184823date=2019-07-13T16:53:28
