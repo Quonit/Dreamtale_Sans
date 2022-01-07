@@ -8,15 +8,12 @@ charset.extension, UTF-8
 msglang,english
 
 //---- Dictionary Files ---------------------------------------------------------------------
-include, system_config.txt
-//dic, shiori3.dic
-system_config.txt	
+dic, shiori3.dic		
 dic, string.dic			
 dic, dts_aitalk.dic			
 dic, dts_anchor.dic
 dic, dts_bootend.dic
 dic, dts_commu.dic
-dic, dts_dreamtalk.dic
 dic, dts_etc.dic			
 dic, dts_gooptalk.dic		
 dic, dts_mouse.dic			

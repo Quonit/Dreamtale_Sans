@@ -1,14 +1,11 @@
-//---------------------------Communication--------------------------
 OnCommunicate
  {
 	if reference0 == "user" || reference0 == "User"
  	{
-		//---- 사용자로부터의 이야기에 대답
  		ReplyToUser
 	}
  	else
 	{
- 		//---- 유령로부터의 이야기에 대답
 		ReplyToGhost
  	}
 }
@@ -22,8 +19,6 @@ ReplyToGhost
 {
  	res_reference0 = reference0
 	{
-	"\0\s[0]You said %(res_reference0).\w8\1\s[10]Odd thing to say.\e"
-	
-	"\1\s[10]Hey, %(res_reference0).\e"
+	"\0\i[55]* (He doesn't seem to notice...\w8 Maybe they're invisable to him?)\e"
 	}
 }

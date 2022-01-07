@@ -4,6 +4,7 @@ _talk = reference0
 _talk = REPLACE(_talk, "anDream", "\_a[Dream]Dream\_a")
 _talk = REPLACE(_talk, "Mom's tree", "\_a[Mom's tree]Mom's tree\_a")
 _talk = REPLACE(_talk, "Quonit", "\_a[Quonit]Quonit\_a")
+_talk = REPLACE(_talk, "AnNight", "\_a[Nightmare]Nightmare\_a")
 	if reference1 == "" && reference2 == "" {
 	EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
 	}
@@ -29,31 +30,38 @@ case reference0
 		}
 		else
 		{
-		if privacyrespecter == "on"
-		{
-		"\0\s[12]They're somebody.\e"
-		}
-		elseif Edgybitch == "on"
-		{
-		"\_b[Extras\hessodreamy.png,125,10]\_l[0,50]Hah,\0\s[7]\w4 that sap?\n\n\w8''Oh boo hoo, \w3I'm too stupid to think that people are being mean to my brother dearist, \w3whom I love so much and definitely care enough to notice things like cuts on his arm!''\n\n\w8\0\s[1]Hah, \w5bet they wouldn't be happy if they saw me.\e"
-		}
-		elseif blushiemode == "on" && sleepingmode == "off"
-		{
-		"\_b[Extras\hessodreamy.png,125,10]\_l[0,50]\0\s[9]anDream\w2.\w2.\w2.\n\n\0\s[31]\w8\n\n\w8I bet anDream would like you, \w2%(username).\w8\n\nI\w2.\w2.\w2. \w4I don't make friends often,\w3 and they know that\w2.\w2.\w2.\w8\0\s[9] just not why, \w2really.\n\n\w8\0\s[31]But I know they'd like you a lot, \w5\0\s[6]because they don't like it when I'm sad and you make me happy!\n\n\w8\0\s[31]So\w2.\w2.\w2.\w4 yeah!\e"
-		}
-		elseif sleepingmode == "on"
-		{
-		"\_b[Extras\hessodreamy.png,125,10]\_l[0,50]\0\s[9]anDream\w2.\w2.\w2.\n\n\0\s[31]\w8\n\n\w8I bet anDream would like you, \w2%(username).\w8\n\nI\w2.\w2.\w2. \w4I don't make friends often,\w3 and they know that\w2.\w2.\w2.\w8\0\s[9] just not why, \w2really.\n\n\w8\0\s[31]But I know they'd like you a lot, \w5\0\s[6]because they don't like it when I'm sad and you make me happy!\n\n\w8\0\s[31]So\w2.\w2.\w2.\w4 yeah!\e"
-		}
-		else
-		{
-		brotherexpo = "on"
-		"\0\s[6]\_b[Extras\hessodreamy.png,125,10]\_l[0,50]Oh, \w3that's my twin brother. \w8\0\s[4]Lets see\w2.\w2.\w2.\w8\w8\n\n\0\s[3]Me and them are supposed to \w2'protect the village' by keeping the tree alive and watering it and whatever else.\w8\0\s[0] They like doing it a lot because they really like the people there and want to protect them, \w4\0\s[6]which I think makes him super nice\w4.\w4.\w4. \0\s[9]\w8\n\n\w8\0\s[7]Uh- \w8\0\s[6]we also built a treehouse together! \w8\n\n\0\s[0]It's kinda near the tree, and we both live in it. \w5We built it with some of the villagers when we were little.\s[8]\w8\n\nI kinda wish they were here with me,\w5 \0\s[9]but they're not\w4.\w4.\w4. \w8They're probably just having a lot of fun at home.\e"
+			if passhour >= 5
+			{
+			"\0\s[9]They're pry super worried about me\w2.\w2.\w2.\w8\n\nI should get home so that they know where I am.\w8\n\nI really shouldn't leave them alone this long\w2.\w2.\w2.\e"
+			}
+			else
+			{
+				if privacyrespecter == "on"
+				{
+				"\0\s[12]They're somebody.\e"
+				}
+				elseif Edgybitch == "on"
+				{
+				"\_b[Extras\hessodreamy.png,125,10]\_l[0,50]Hah,\0\s[7]\w4 that sap?\n\n\w8''Oh boo hoo, \w3I'm too stupid to think that people are being mean to my brother dearist, \w3whom I love so much and definitely care enough to notice things like cuts on his arm!''\n\n\w8\0\s[1]Hah, \w5bet they wouldn't be happy if they saw me.\e"
+				}
+				elseif blushiemode == "on" && sleepingmode == "off"
+				{
+				"\_b[Extras\hessodreamy.png,125,10]\_l[0,50]\0\s[9]anDream\w2.\w2.\w2.\n\n\0\s[31]\w8\n\n\w8I bet anDream would like you, \w2%(username).\w8\n\nI\w2.\w2.\w2. \w4I don't make friends often,\w3 and they know that\w2.\w2.\w2.\w8\0\s[9] just not why, \w2really.\n\n\w8\0\s[31]But I know they'd like you a lot, \w5\0\s[6]because they don't like it when I'm sad and you make me happy!\n\n\w8\0\s[31]So\w2.\w2.\w2.\w4 yeah!\e"
+				}
+				elseif sleepingmode == "on"
+				{
+				"\_b[Extras\hessodreamy.png,125,10]\_l[0,50]\0\s[9]anDream\w2.\w2.\w2.\n\n\0\s[31]\w8\n\n\w8I bet anDream would like you, \w2%(username).\w8\n\nI\w2.\w2.\w2. \w4I don't make friends often,\w3 and they know that\w2.\w2.\w2.\w8\0\s[9] just not why, \w2really.\n\n\w8\0\s[31]But I know they'd like you a lot, \w5\0\s[6]because they don't like it when I'm sad and you make me happy!\n\n\w8\0\s[31]So\w2.\w2.\w2.\w4 yeah!\e"
+				}
+				else
+				{
+				brotherexpo = "on"
+				"\0\s[6]\_b[Extras\hessodreamy.png,125,10]\_l[0,50]Oh, \w3that's my twin brother. \w8\0\s[4]Lets see\w2.\w2.\w2.\w8\w8\n\n\0\s[3]Me and them are supposed to \w2'protect the village' by keeping the tree alive and watering it and whatever else.\w8\0\s[0] They like doing it a lot because they really like the people there and want to protect them, \w4\0\s[6]which I think makes him super nice\w4.\w4.\w4. \0\s[9]\w8\n\n\w8\0\s[7]Uh- \w8\0\s[6]we also built a treehouse together! \w8\n\n\0\s[0]It's kinda near the tree, and we both live in it. \w5We built it with some of the villagers when we were little.\s[8]\w8\n\nI kinda wish they were here with me,\w5 \0\s[9]but they're not\w4.\w4.\w4. \w8They're probably just having a lot of fun at home.\e"
+				}
+			}
 		}
 	}
-	}
-		when "Quonit"
-		{
+	when "Quonit"
+	{
 		if Edgybitch == "on" && sleepingmode == "off"
 		{
 		"\0\s[4]\_b[Extras\aliteralfoxmotheroftwo.png,125,10]\_l[0,60]She's the idiot that decided to spend nearly a year working on making this stupid crap.\e"
@@ -71,8 +79,8 @@ case reference0
 		"\0\s[0]\_b[Extras\aliteralfoxmotheroftwo.png,125,10]\_l[0,60]Oh-\w6 Quonit isn't anybody really important.\w8 They're the person that coded me.\w8 If any of you are wondering how their name is pronounced\w3 it's Kw-aw-nit.\e"
 		}
 	}
-		when "Mom's tree"
-		{
+	when "Mom's tree"
+	{
 		if privacyrespecter == "on" && sleepingmode == "off"
 		{
 		"\0\s[12]...It's a magic tree.\e"
@@ -95,6 +103,10 @@ case reference0
 		momstreeexpo = "on"
 		"\0\s[0]\_b[Extras\mydeadmom.png,125,10]\_l[0,60]Our Mom used to take care of this tree that's supposed to\w8\0\s[4]\w8.\w8.\w8.\w8 \0\s[2]protect the village, \w8or something. \w8\n\n\0\s[0]It's basically just some magical signifier to tell us how the people in our village are feeling. \w8\n\nIt was dying once so our Mom merged with it after creating me and my brother.\w8 We're supposed to protect it sense she can't anymore.\e"
 		}
+	}
+	when "Nightmare"
+	{
+		"\0\s[2002]My brother\w2.\w2.\w2. \w8\i[49]I don't know where's he's gone to\w2.\w2.\w2.\w8\n\n\s[2007]I hope he's alright.\e"
 	}
 }
 }

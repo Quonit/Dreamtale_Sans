@@ -14,39 +14,43 @@
 	deleteshitai = "OFF"
 	nowshell = "Dreamtale Sans"
 	//Constants
-	nightynight = "off" //Good
-	flirtlevel = 0
-	respect = 0
-	blushiemode = "off"
-	ily = 0
-	gooppets = 0
-	privacyrespecter = "off" //Bad
-	Edgybitch = "off"
-	snoop = 0
-	punchout = 0
-	hessodreamy = "off" //Natural
-	sleepingmode = "off"
-	wasemo = "off"
-	hasdreamplush = "off"
-	hastea = "off"
-	nicesadlevel = 0
-	hasblankie = "off"
-	hasviolin = "off"
+	//Good
+	nightynight = "off" //If his name is Nightmare or Nighty
+	flirtlevel = 0 //How many times you flirt with him
+	respect = 0 //How many times you decide not to touch his book
+	blushiemode = "off" //If blushiemode is on or off
+	ily = 0 //If you've told him you like him
+	gooppets = 0 //How many times you've pet goomare
+	//Bad
+	privacyrespecter = "off" //If you've been mean to him?
+	Edgybitch = "off" //Goopmare mode
+	snoop = 0 //how many times you've clicked to read his book
+	punchout = 0 //How many times you've hit him
+	//Natural
+	nicesadlevel = 0 //Relationship variable
+	hessodreamy = "off" //If you've seen Dream or not
+	sleepingmode = "off" //If he's sleeping
+	wasemo = "off" //If you've seen goopmare before. I could honestly just replace this and use only hessodreamy
+	sittang = "off" //if he is sitting
+	intodreams = "off" //If Dream is here
+	//Items
+	hasdreamplush = "off" //If you've given him the Dream plush
+	hastea = "off" //If you've given him a mug
+	hasblankie = "off" //If you've given him the blanket
+	hasviolin = "off" //If you've given him a violin?
 	//One time use
-	talkaboutlater = "off"
-	headbandexpo = "off"
-	momstreeexpo = "off"
-	brotherexpo = "off"
-	askaboutnamee = "off"
-	dontmovestatsitshalloween = "off"
-	givesleepyblankie = "off"
+	talkaboutlater = "off" //How to trigger the nightynight conversation
+	headbandexpo = "off" //If he's explained the headbands
+	momstreeexpo = "off" //If he's talked about his momstreeexpo
+	brotherexpo = "off" //If you've asked about Dream
+	askaboutnamee = "off" //If you asked about his name
+	dontmovestatsitshalloween = "off" //If it's halloween so that your stats won't reset when he gets out of goopmode
+	givesleepyblankie = "off" //If you give him a blanket while he's sleeping
+	starcrownexpo = "off" //Ask Dream about the star crown
 	
-	if reference0 == 0 
+	if reference0 == 0
  	{
-		"\![enter,passivemode]\0\s[1]\w8\w8\w8*\w4 ( \w4. \w4. \w4.\w4)\w8\w8\i[7]\w8\w8\1\s[93]\n\n\b[1]\0\w8\n\n\w8\1\s[10]\0\s[1]\i[7]Oh, I'm here now.\n\n\0\s[16]\w8\w8\w8\0\s[0]You were probably expecting my brother, \w8\0\s[8]and even if you were expecting me you probably didn't expect to see me like this\w2.\w2.\w2.\w4 so sorry about that.\w8\n\n\0\s[0]My name is Nightmare.\w8\n\n\0\s[3]Um\w4.\w4.\w4. \w8\0\s[4]I'm supposed to ask, \w4what do you go by?\n\n/
-		\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
-		\![*]\q[She/Her/Hers,choicefirstsheher]\n/
-		\![*]\q[They/Them/Their,choicefirsttheythem]\e"
+		"\![enter,passivemode]\0\s[1]\w8\w8\w8*\w4 (\w4. \w4. \w4.\w4)\w8\w8\i[7]\w8\w8\1\s[93]\n\n\w8\n\n\w8\1\s[10]\0\s[1]\i[7]\n\n\0\s[16]\w8\w8\w8\0\s[3]\i[55]* (He views his surroundings uncomfortably.\w8 It's obvious he doesn't know where he is.)\n\n\w8Um\w2.\w2.\w2.\w8 You-\w8 I don't know you,\w5 do I?\n\n\w8Do you... Have a name?\![leave,passivemode] \![open,inputbox,OnNameTeach,-1]"
  	}
 	else
  	{
@@ -62,7 +66,7 @@ Select.choicefirsthehim
 	heshe = "he"
 	hisher = "his"
 	--
-	NameInput
+	FirstBootDone
 }
 Select.choicefirstsheher
 {
@@ -71,7 +75,7 @@ Select.choicefirstsheher
 	heshe = "she"
 	hisher = "her"
 	--
-	NameInput
+	FirstBootDone
 }
 Select.choicefirsttheythem
 {
@@ -79,11 +83,11 @@ Select.choicefirsttheythem
 	heshe = "they"
 	hisher = "theirs"
 	--
-	NameInput
+	FirstBootDone
 }
-NameInput
+FirstBootDone
 {
-	"\0\s[0]Alright, \w4what about your name? \![leave,passivemode] \![open,inputbox,OnNameTeach,-1]\e"
+	"\0\s[0]Neat\w2.\w2.\w2. \w8I'm Nightmare.\e"
 }
 GetTimeSlot
 {
@@ -121,7 +125,7 @@ GetDaySlot
 	"%(month)month %(day)day"
 }
 OnBoot
- {
+{
 	if Edgybitch == "on"
 	{
 		OnGoopWake
@@ -173,8 +177,11 @@ OnBoot
 	{
 		"\0\s[4]I'm pretty sure Quonit told me something about today\w2.\w2.\w2.\w5\0\s[2] I forgot what it was, though.\e"
 	}
+	/*
 	elseif dayslot == "12month 21day" //If hessodreamy == "on" Dream appears
 	{
+		intodreams == "on"
+		"Aah! Where...! I'm looking for someone... Do you- maybe know... (hand on head) sorry! :looks around: I- I'm sorry... My name is Dream, yours is...? (something clicks). %(username)? Okay..."
 			"\0\s[1]\i[14]\1\w8\w8\w8*\w4 ( \w4. \w4. \w4.\w4)\w8\w8\n\n* (He looks to be enjoying his book.)\w8\w8\w8\n\n* (Disturb him?)\e"
 			--
 			"\n\n/
@@ -202,6 +209,7 @@ OnBoot
 				}
 			}
 	}
+	*/
 	elseif dayslot == "10month 31day"
 	{
 	Edgybitch = "on"
@@ -214,15 +222,11 @@ OnBoot
 	}
 }
 
-normalboottalk
+normalboottalk //All temp dialogue
 {
 	if Edgybitch == "on"
 	{
 		GoopWake
-	}
-	elseif weekday == 6 && hour >= 19
-	{
-	"\0\s[0]My brother usually has plans on Saturday.\w8\w4\0\s[4]\n\nI wonder if he had anything planned today\w3.\w3.\w3.\e"
 	}
 	elseif VillageLevel >= 150
 	{
@@ -242,11 +246,17 @@ normalboottalk
 	}
 	else
 	{
+		//if RAND(100) < 70
+		//{
+		"\0\s[4]Oh- \w8Hi again %(username).\e"
+		//}
+		//else
+		//{
+		//sittang = "on"
+		//"\0\s[1]\1* (It doesn't look like he's noticed you.)\e" //sitmode == on?
+		//}
 	"\0\s[0]Huh, \w4looks like I'm back here again.\e"
-	"\0\s[0]Oh- \w8Hi again %(username).\e"
-	"\0\s[1]Hello again %(username).\e"		
-	"\0\s[4]Huh, \w8I didn't actually think you'd open me again.\e"
-	"\0\s[1]\1* (It doesn't look like he's noticed you.)\e"
+	"\0\s[1]Hello again %(username).\e"
 	}
 	}
  	else
@@ -255,11 +265,13 @@ normalboottalk
 		{
 		if privacyrespecter == true
 		{
+		//sitmode == "on"
 		"\0\s[1]\1* (It doesn't seem like he's going to say anything to you.)\e"
 		"\0\s[1]\1* (He seems tired.)\w8\n\n\w3.\w3.\w3.\n\n\w8\i[6]* (It doesn't seem like he's going to talk to you.)\e"
 		}
 		if blushiemode == "on" && privacyrespecter == "off" 
 		{
+		//All boring
 		"\0\s[1]\i[8]\i[14]Hello username, \w4hows your morning going?\e"
 		"\0\s[1]\i[8]\i[14]Are you doing well %(username)?\e"
 		"\0\s[20]I hope you are well this morning.\e"
@@ -270,18 +282,18 @@ normalboottalk
 		"\0\s[5]zzz\w3.\w3.\w3.\n\n\w8\w8* (Aw... \w5You found him while he was sleeping.)\e"		
 		"\0\s[5].\w6.\w6.\n\n\w8* (It looks like he's sleeping.)\e"
 		}
-		"\0\s[1].\w3.\w3.\w3\i[7]\w8Oh, good morning %(username).\e"
-		"\0\s[0]Oh, you're still up too?\e"		
-		"\0\s[1]\i[8]Do you usually stay up this late?\e"		
+		"\0\s[1].\w3.\w3.\w3\i[7]\w8Oh, good morning %(username).\e" //Get up animation?
+		//"\0\s[0]Oh, you're still up too?\e"		
+		//"\0\s[1]\i[8]Do you usually stay up this late?\e"		
 		"\0\s[8]It's the middle of the night, what are you doing up?\n\n\w8*(You tell him it's early morning.)\n\n\w8\0\s[11]Wait, really?\e"
 		"\0\s[1]\1 (It doesn't look like he's slept at all.)\e"
 		"\0\s[1]\1 (Looks like he pulled an allnighter.)\e"
 		}
 		elseif timeslot == "morning"
 		{
-		if privacyrespecter == true
+		if privacyrespecter == "on"
 		{
-		"\0\s[1]\1* (It doesn't seem like he's got anything to say to you this morning.)\e"
+		//"\0\s[1]\1* (It doesn't seem like he's got anything to say to you this morning.)\e"
 		}
 		else
 		{

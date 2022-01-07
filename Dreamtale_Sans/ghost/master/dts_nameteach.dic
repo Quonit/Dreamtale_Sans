@@ -1,5 +1,4 @@
-﻿//---------------------------The User's Name--------------------------
-OnTeachName	
+﻿OnTeachName	
 {
 	if reference0 == "TEACHNAME" //ignore this
 		{
@@ -17,224 +16,61 @@ OnNameTeach
 	reference0 = REPLACE(reference0," ","") //removes spaces
 	reference0 = REPLACE(reference0,".","") //removes periods
 	reference0 = REPLACE(reference0,"-","") //removes dashes
-	if reference0 == "Nightmare" || reference0 == "nightmare" || reference0 == "nighty"
+	if reference0 == "Nightmare" || reference0 == "Nighty" || reference0 == "Night"
 	{
-		"\0\s[11]Um\w2.\w2.\w2.\w4 No.\![open,inputbox,OnNameTeach,-1]"
+		"\0\s[13]Um\w2.\w2.\w2.\w4 That's my name,\w5\s[8] so that could end up really confusing.\![open,inputbox,OnNameTeach,-1]"
 	}
-	elseif reference0 == "Dream" || reference0 == "dream" 
+	elseif reference0 == "Dream"
 	{
 		username = tempname
-		"\0\s[11]That's my brother's name. \w8You can't use it.\![open,inputbox,OnNameTeach,-1]"
+		"\0\s[12]That's my brother's name. \w8You can't use it.\![open,inputbox,OnNameTeach,-1]"
 	}
-	elseif reference0 == "Ink" || reference0 == "ink" 
+	elseif reference0 == "Ink" || reference0 == "Error"
 	{
 		username = tempname
-		"\0\s[11]Ink? \w8\n\nI\w3.\w3.\w3. \w6\0\s[8]I guess you can use that.\n\n\w8's not like I really talk about him here..."
+		"\0\s[4]\w8I\w3.\w3.\w3. \w6\0\s[8]I guess you can use that.\n\n\w8"
 	}	
-	elseif reference0 == "Quonit" || reference0 == "quonit" 
+	elseif reference0 == "Quonit"
 	{
 		username = tempname
 		"\0\s[6]Hi Quonit!!!"
 	}
-	elseif reference0 == "Radic" || reference0 == "radic" 
+	elseif reference0 == "Radic" || reference0 == "Worm"
 	{
 		username = tempname
-		"\0\s[8]Sorry you have to see this Zar."
+		"\0\s[4]I think I recognize that from somewhere...?\w8\n\n\s[2]Whatever."
 	}
-	elseif reference0 == "Jockey" || reference0 == "jockey"
+	elseif reference0 == "Jockey"
 	{
 		username = tempname
-		"\0\s[3]I think I met somebody named that once..."
+		"\0\s[3]I think I met somebody named that once...\w8 Anyways."
 	}
-	elseif reference0 == "Mom" || reference0 == "mom" || reference0 == "mommy" || reference0 == "Mommy"
+	elseif reference0 == "Mom" || reference0 == "Mommy"
 	{
 		username = tempname
 		"\0\s[11]...weirdo.\![open,inputbox,OnNameTeach,-1]"
 	}
-	elseif reference0 == "Exel" || reference0 == "Exelent"
+	elseif reference0 == "Levidre" || reference0 == "Levi"
 	{
 		username = tempname
-		"\0\s[0]Oh, hey Excel.\w7 Quo told me you're actually the reason this ghost exists so...\w8\0\s[6]\n\nThank you?"
-	}
-	elseif reference0 == "Stabbs" || reference0 == "stabbs"
-	{
-		username = tempname
-		"\0\s[0]Oh, hey Stabbs!\w8 Quonit told me to say hi."
-	}
-	elseif reference0 == "Cherry" || reference0 == "cherry"
-	{
-		username = tempname
-		"\0\s[0]Hello Cherry! \w8Quonit told me to say hello."
-	}
-	elseif reference0 == "Levidre" || reference0 == "levidre" || reference0 == "levi" || reference0 == "Levi"
-	{
-		username = tempname
-		"\0\s[6]Merci de votre aide!"
-	}
-	elseif reference0 == "Riot" || reference0 == "riot"
-	{
-		username = tempname
-		"\0\s[0]Oh- Hello Riot,\w8\w8 Quonit asked me to ask if you're doing okay."
+		"\0\s[6]Merci de votre aide!" //levi is french lol. It says ""
 	}
 	elseif reference0 == "" || reference0 == " " || reference0 == "   " 
 	{
 		username = "NULL" 
-		"\0\s[8]... I'll just call you NULL then.\e"
+		"\0\s[8]... I'll just call you NULL then."
 	}
 	else 
 	{
-		"\0\s[0]Do you want a title?\w4\n\n[half]\![*]\q[Nope,titlenone]\n"
-		--
-		if presuffix == "masculine" 
-		{
-		"\![*]\q[Mr.,titlemr]\n/
-		\![*]\q[-kun,titlekun]/
-		\![*]\q[Lord,titlelord]\n/
-		\![*]\q[Don,titledon]/
-		\![*]\q[Sir,titlesir]/
-		\![*]\q[Master,titlemaster]\n"
-		}
-		elseif presuffix == "feminine" 
-		{
-		"\![*]\q[Ms.,titlems]\n/
-		\![*]\q[Lady,titlelady]/
-		\![*]\q[Mistress,titlemistress]\n/
-		\![*]\q[Doña,titledona]/
-		\![*]\q[Dame,titledame]/
-		\![*]\q[Lady,titlelady]\n"
-		}
-		-- 
-		"\![*]\q[-ssi,titlessi]/
-		\![*]\q[Khun,titlekhun]/
-		\![*]\q[-chan,titlechan]\n/
-		\![*]\q[JII,titlejii]/
-		\![*]\q[Sri,titlesri]/
-		\![*]\q[-sama,titlesama]\n/
-		\![*]\q[Dr.,titledoctor]/
-		\![*]\q[Prof.,titleprofessor]/
-		\![*]\q[-san,titlesan]\e"
+		"Cool..."
 	}
+	--
+	"\w8\s[4]\n\nSo what do you go by?\n\n/
+	\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
+	\![*]\q[She/Her/Hers,choicefirstsheher]\n/
+	\![*]\q[They/Them/Their,choicefirsttheythem]\e"
 }
-Select.titlenone
-{
-		username = tempname
-		NameDone
-}
-Select.titlemr
-{
-		username = "Mr. " + tempname
-		NameDone
-}
-Select.titlelord
-{
-		username = "Lord " + tempname
-		NameDone
-}
-Select.titledon
-{
-		username = "Don " + tempname
-		NameDone
-}
-Select.titlesir
-{
-		username = "Sir " + tempname
-		NameDone
-}
-Select.titlekun
-{
-		username = tempname + "-kun"
-		NameDone
-}
-Select.titlemaster
-{
-		username = "Master " + tempname
-		NameDone
-}
-Select.titlexian
-{
-		username = tempname + " xiansheng"
-		NameDone
-}	
-Select.titlems
-{
-		username = "Ms. " + tempname
-		NameDone
-}
-Select.titlelady
-{
-		username = "Lady " + tempname
-		NameDone
-}
-Select.titlemistress
-{
-		username = "Mistress " + tempname
-		NameDone
-}
-Select.titlemohtarama
-{
-		username = "Mohtarama " + tempname
-		NameDone
-}
-Select.titledona
-{
-		username = "Doña " + tempname
-		NameDone
-}
-Select.titledame
-{
-		username = "Dame " + tempname
-		NameDone
-}
-Select.titlechan
-{
-		username = tempname + "-chan"
-		NameDone
-}
-Select.titlesri
-{
-		username = "Sri " + tempname
-		NameDone
-}
-Select.titlesama
-{
-		username = tempname + "-sama"
-		NameDone
-}
-Select.titledoctor
-{
-		username = "Dr. " + tempname
-		NameDone
-}
-Select.titleprofessor
-{
-		username = "Prof. " + tempname
-		NameDone
-}
-Select.titlessi
-{
-		username = tempname + "-ssi"
-		NameDone
-}
-Select.titlesan
-{
-		username = tempname + "-san"
-		NameDone
-}
-Select.titlekhun
-{
-		username = "Khun " + tempname
-		NameDone
-}
-Select.titlejii
-{
-		username = tempname + " JII"
-		NameDone
-}
-Select.titlemissus
-{
-		username = "Mrs. " + tempname
-		NameDone
-}
+
 //--NameDone
 NameDone
 {

@@ -1,0 +1,7 @@
+Charset,UTF-8
+install,691383085
+surfacecount,143
+update_result,NG(404:Dreamtale_Sans/README.md)
+firstboot,691383116
+commitmemorysize,5878349
+lastboot,694829225

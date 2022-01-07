@@ -19,7 +19,11 @@
 		{
 			if Edgybitch == "on"
 			{
-				"\0\s[0]What, \w4do you want me to sing for you or something?\e"
+			"\0\s[0]What, \w4do you want me to sing for you or something?\e"
+			}
+			elseif intodreams == "on"
+			{
+			"\0\s[2002]* (Dream doesn't seem to know what it is...)\0\s[2002]Um... Thank you...?\e"
 			}
 			else
 			{
@@ -255,8 +259,13 @@ OnUpdateComplete
 	}
  	else
 	{
-		"\0\s[1]\1* (Update successful!)\e"
+		"\0\s[1]\1* (Update successful!)\n\n\w8* (Do you want to read the changelog?)\n\n/
+		\q[See Changelog,OnShowLog]   \q[No thanks,Cancel]"
  	}
+}
+OnShowLog
+{
+    "\![open,file,changelog.txt]\e"
 }
 
 OnUpdateFailure
@@ -499,4 +508,26 @@ OnShellScaling
 		"\0\s[1]\1* (Smol sans.\w8 Fun sized sans.)\e"
 		}
 	}
+}
+
+BalloonCheck
+{
+    if ASEARCH("Status",var.req.key) != -1
+    {
+        _currentstatus = var.req.value[ASEARCH("Status",var.req.key)]
+        if "balloon" _in_ _currentstatus; 1
+        else; 0
+    }
+    else; 0
+}
+
+MenuCheck
+{
+    if ASEARCH("Status",var.req.key) != -1
+    {
+        _currentstatus = var.req.value[ASEARCH("Status",var.req.key)]
+        if "choosing" _in_ _currentstatus; 1
+        else; 0
+    }
+    else; 0
 }

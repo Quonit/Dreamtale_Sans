@@ -4,8 +4,13 @@ surface.append500-590
 collision0,15,16,111,48,Face
 collision1,40,50,102,84,Book
 }
-
-//--His Poses---------------------------------------------------------
+//      ::::    ::: ::::::::::: ::::::::  :::    ::: ::::::::::: :::   :::
+//     :+:+:   :+:     :+:    :+:    :+: :+:    :+:     :+:     :+:   :+:
+//    :+:+:+  +:+     +:+    +:+        +:+    +:+     +:+      +:+ +:+
+//   +#+ +:+ +#+     +#+    :#:        +#++:++#++     +#+       +#++:
+//  +#+  +#+#+#     +#+    +#+   +#+# +#+    +#+     +#+        +#+
+// #+#   #+#+#     #+#    #+#    #+# #+#    #+#     #+#        #+#
+//###    #### ########### ########  ###    ###     ###        ###
 surface0
 {
 //Collision
@@ -31,6 +36,10 @@ element0,overlay,surface0.png,0,0
 //Blushies
 100interval,bind
 100pattern0,100,0,add,0,0
+
+//Stop Talking-----------------------------------------------------------------------------
+55interval,never
+55pattern0,0,0,stop,1
 }
 
 //Reading
@@ -102,6 +111,10 @@ element0,overlay,surface1501.png,0,0
 //Blushies
 100interval,bind
 100pattern0,101,0,add,0,0
+
+//Stop Talking-----------------------------------------------------------------------------
+55interval,never
+55pattern0,0,0,stop,10
 }
 
 //Shrug
@@ -131,6 +144,10 @@ element0,overlay,surface1502.png,0,0
 //Blushies
 100interval,bind
 100pattern0,102,0,add,0,0
+
+//Stop Talking-----------------------------------------------------------------------------
+55interval,never
+55pattern0,0,0,stop,15
 }
 
 //Worried Sideglance
@@ -160,6 +177,10 @@ element0,overlay,surface1503.png,0,0
 //Blushies
 100interval,bind
 100pattern0,103,0,add,0,0
+
+//Stop Talking-----------------------------------------------------------------------------
+55interval,never
+55pattern0,0,0,stop,19
 }
 
 //Thinking
@@ -189,6 +210,10 @@ element0,overlay,surface1504.png,0,0
 //Blushies
 100interval,bind
 100pattern0,104,0,add,0,0
+
+//Stop Talking-----------------------------------------------------------------------------
+55interval,never
+55pattern0,0,0,stop,23
 }
 
 //Sleeping
@@ -241,15 +266,34 @@ element0,overlay,surface1506.png,0,0
 //Blushies
 100interval,bind
 100pattern0,106,0,add,0,0
+
+//Stop Talking-----------------------------------------------------------------------------
+55interval,never
+55pattern0,0,0,stop,28
 }
 
 //Shock
 surface7
 {
 //Collision
-collision0,120,21,160,53,Crown
-collision1,116,45,165,93,Face
+collision0,123,34,192,66,Crown
+collision1,118,63,179,95,Face
 element1,overlay,surface1507.png,0,0
+
+//Tentacles!?
+2interval,never
+2pattern0,1300,0,interpolate,0,0
+2pattern1,1301,66,interpolate,0,0
+2pattern2,1300,50,interpolate,0,0
+2pattern3,1301,50,interpolate,0,0
+2pattern4,0,0,start,2
+
+//Pull In
+3interval,never
+3pattern1,1301,0,interpolate,0,0
+3pattern2,1302,8,interpolate,0,0
+3pattern3,1303,8,interpolate,0,0
+3pattern3,7,8,interpolate,0,0
 
 //Blushies
 100interval,bind
@@ -636,6 +680,12 @@ collision1,118,60,179,93,Face
 element0,overlay,surface1540.png,0,0
 }
 
+//  ________  _ _____  ____  ____  ____ 
+// /  __/\  \///__ __\/  __\/  _ \/ ___\
+// |  \   \  /   / \  |  \/|| / \||    \
+// |  /_  /  \   | |  |    /| |-||\___ |
+// \____\/__/\\  \_/  \_/\_\\_/ \|\____/
+
 //Sleeping 2
 surface1605
 {
@@ -800,12 +850,15 @@ surface1632 //SwapDream
 element0,overlay,surface1632.png,0,0
 }
 
+//      :::::::::  :::::::::  ::::::::::     :::       :::   :::
+//     :+:    :+: :+:    :+: :+:          :+: :+:    :+:+: :+:+:
+//    +:+    +:+ +:+    +:+ +:+         +:+   +:+  +:+ +:+:+ +:+
+//   +#+    +:+ +#++:++#:  +#++:++#   +#++:++#++: +#+  +:+  +#+
+//  +#+    +#+ +#+    +#+ +#+        +#+     +#+ +#+       +#+
+// #+#    #+# #+#    #+# #+#        #+#     #+# #+#       #+#
+//#########  ###    ### ########## ###     ### ###       ###
 
-
-
-//FUCK IT SECOND CHARACTER
-
-surface2000 //Dream Suprise
+surface2000 //Dream Polite
 {
 element0,overlay,surface2000.png,0,0
 }
@@ -818,9 +871,13 @@ element0,overlay,surface2001.png,0,0
 surface2002 //Dream Shy
 {
 element0,overlay,surface2002.png,0,0
+
+//Sad
+49interval,never
+50pattern0,2102,0,overlay,0,0
 }
 
-surface2003 //Dream Happy
+surface2003 //Dream Wave
 {
 element0,overlay,surface2003.png,0,0
 }
@@ -834,6 +891,22 @@ surface2005 //sit for nighty
 {
 element0,overlay,surface2005.png,0,0
 }
+
+surface2006 //Happy?
+{
+element0,overlay,surface2006.png,0,0
+}
+
+surface2007 //Worried
+{
+element0,overlay,surface2007.png,0,0
+}
+
+//  ____  _     _____  _____ _  _____  ____ 
+// /  _ \/ \ /\/__ __\/    // \/__ __\/ ___\
+// | / \|| | ||  / \  |  __\| |  / \  |    \
+// | \_/|| \_/|  | |  | |   | |  | |  \___ |
+// \____/\____/  \_/  \_/   \_/  \_/  \____/
 
 surface2628 //Dreamswap
 {

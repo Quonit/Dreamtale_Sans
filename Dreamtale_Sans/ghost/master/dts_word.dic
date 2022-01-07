@@ -1,4 +1,4 @@
-﻿nightname
+﻿nightname //Decides which name to use for him
 {
 	if nightynight == "on"
 	{
@@ -10,31 +10,67 @@
 	}
 }
 
-VillageLevel
+VillageLevel //Negative variable that also catches if you've hit him or not. Used so that you can't unlock goopmare without hurting him
 {
 punchout - nicesadlevel
 }
 
-internalenvelope
+internalenvelope //???
 {
 	"Internal Envelope Dialogue 1 - %(exampleenvelope)"
 	"%(username)'s computer"
 	"Here is a blanklist object - %(blanklist)."
 }
 
-ItemMOO
+ItemMOO //Put this at the end of the item menu instead of typing this out 30 times
 {
-	"\![*]\q[Give him something different,itemsmenu]\n/
+	"\n\n\![*]\q[Give him something different,itemsmenu]\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+actigon //Put this at the end of the act menu instead of typing this out 30 times
+{
+	"\n\n\![*]\q[Choose another ACTion,Onyouact]\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+backask //Put this at the end of the ask menu instead of typing this out 30 times
+{
+	"\n\n\![*]\q[Ask something else,youtalk]\n/
 	\![*]\q[Back to main menu,BACKTOMENU]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
 }
 
-blanklist
+blanklist //I put blanklist in blanklist lol
 {
 	"Quo crashed their computer once putting an envelope in an envelope..."
 }
 
-bookstoread
+pickup //why is this here instead of mouse.dic
+{
+	if punchout >= 15 && Edgybitch == "off"
+	{
+	"\0\s[39]"
+	}
+	elseif Edgybitch == "on"
+	{
+	"\0\s[12]"
+	}
+	elseif sleepingmode == "on"
+	{
+	"\0\s[5]"
+		if givesleepyblankie == "on"
+		{
+		"\0\s[5]\i[48]"
+		}
+	}
+	else
+	{
+	"\0\s[38]"
+	}
+}
+
+bookstoread //Stolen from Zarla's hs ghost. Some are written by me.
 {
 	"a book by that one guy who did a metric ton of cocaine"
 	"a book with the Tolkien-like birds"
@@ -122,12 +158,12 @@ bookstoread
 	"...it's just Twilight."
 }
 
-dreambday
+dreambday //dream's one other appearence lol
 {
 	"\0\s[13]Oh,\w4 it's %(bornmonthprint) %(borndayprint), \w3right?\w8\n\nThat's your birthday, \w4so uh-\0\s[7]\w8\1\s[1625]\w8\w8*\w5 (\w4.\w4.\w4.\w4)\w8\0\s[36]\n\nanDream what are you doing here!!\1\n\nComing to say hi to %(username).\0\n\nBut-\n\n\w5\1\n\n%(username) already knows about me though,\w4 so it's fine!\n\n\0\s[8]Fine but you can't stay here...\n\n\w8\1Okay!\w7\n\n\1\s[1626]Hello %(username),\w4 are you having a good birthday?\w6 I hope you are cause I dunno how to tell from here. \w8\1\s[1625]Nightmare this place is really weird.\0\s[8]\w8I know that,\w4 I live here.\1\w8\n\nOkay.\w7\1\s[1626]Happy birthday %(username)!\w8\w8\w8\1\s[10]\e"
 }
 
-usersfolder
+usersfolder //Different folders for the computer
 {
 	"Downloads folder"
 	"Pictures folder"
@@ -141,21 +177,8 @@ usersfolder
 	"SSP folder"
 	"System 32"
 }
-lessonkor
-{
-	"사과(sa-gua),apple"
-	"노동(no-dong),labor"
-	"손가락(son-ga-rak),finger"
-	"마르크스(ma-r-k-s),Marx"
-	"자본주의(ja-bon-ju-yi),capitalism"
-}
-blanklistparagraph
-{
-	"List paragraph 1"; "List paragraph 2"; "List paragraph 3"; "List paragraph 4"; "List paragraph 5";
-}
 
- //**** Don't touch this ***************************************************************
- On_\person
+On_\person //idk what this is
 {
  	person
 }

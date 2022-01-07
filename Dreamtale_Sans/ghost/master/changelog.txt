@@ -1,0 +1,20 @@
+Changelong for Dreamtale Sans!
+--------------------------------------------------------------------------------------------------------------------
+
+6th January 2022
+Additions:
+-Added this Changelog!
+-Redid the OnFirstBoot sequence
+-Added drink related item dialogue
+-Added a response to other ghosts in the commu.dic
+-Redid a lot of OnBoot dialogue
+-Redrew surface 7 (Surprise pose)
+-Not directly ghost related, but finally posted his website! https://dreamtalesans.neocities.org/
+
+Bugfixes:
+-Fixed getting him a drink from the menu
+-Fixed drink-related idle poses
+-Reorganized the menus to be cleaner
+-Changed many instances of \1 to \i[55] so that it wouldn't call up the wrong balloon
+-Moved some dialogue around
+-Fixed TONS of typos

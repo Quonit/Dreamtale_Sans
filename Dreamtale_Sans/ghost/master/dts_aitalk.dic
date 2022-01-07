@@ -29,6 +29,10 @@ RandomTalk : nonoverlap
 	{
 		GoopTalk
 	}
+	elseif intodreams == "on"
+	{
+		DreamTalk
+	}
 	elseif VillageLevel >= 150 && punchout <= 30 && Edgybitch == "off"
 	{
 		"\0\s[22]\1* (Despite everything you've done to him, \w4his life here might be better then at home.)\e"
@@ -47,6 +51,28 @@ RandomTalk : nonoverlap
 		if blushmode == "on"
 		{
 		"\0\s[22]\1* (You're disappointed.\w6 At the very least you hoped he'd cry at you for breaking his heart...)\e"
+		}
+	}
+	elseif sittang == "on"
+	{
+		//moving some old dialogue to here WOW
+		"\0\s[1]\1* (You ask him what book he's reading.)\n\n\w8\0\i[8]\1Shouldn't you be able to read the cover yourself?\n\n\w8*(You ask him if the book is good.)\n\n\w8If it wasn't, do you think I'd be reading it?\e"
+		"\0\s[1]\1* (He looks very focused on his book.)\e"
+		"\0\s[1]\1* (He doesn't say anything.\w8 He must be really interested in that book.)\e"
+		if nicesadlevel >= 50
+		{
+			"\0\s[1]\i[14]\1* (He seems pretty happy here.)\e"
+			"\0\s[1]\i[14]\i[7]\1* (He smiles at you a bit.)\e"
+			"\0\s[1]\i[14]\i[7]You know,\w5 I think you've been pretty nice.\e"
+		}
+		if nicesadlevel <= -25
+		{
+			"\0\s[1]Least I'm allowed to sit down while I'm here.\e" //Add pose
+		}
+		if snoop >= 5
+		{
+			"\0\s[1]\1* (It smells like snoopdog.)\e"			
+			"\0\s[1]\1* (He looks a little uncomfortable reading his book)\w8\n\n* (Bother him?)\n\n\![*]\q[Yes,besnoopbother]\n\![*]\q[No,continuesnooping]\e"
 		}
 	}
 	elseif sleepingmode == "on"
@@ -95,15 +121,13 @@ RandomTalk : nonoverlap
 	{
 		"\t\*\0\s[22]* (You hear sniffing.)\w8\w8\0\s[23]\n\n* \f[italic,true]sniff sniff\f[italic,false],\n\n\w8\w4I want to go home-\w5 why can't I just go home?\n\n\w8\![*]\q[Push him over.,Goopmare]\e"
 	}
-	else
+	else //Normal stuff
 	{
 		"\0\s[4]I wonder how things are back at home...\e"
-		"\0\s[1]\1* (You ask him what book he's reading.)\n\n\w8\0\i[8]\1Shouldn't you be able to read the cover yourself?\n\n\w8*(You ask him if the book is good.)\n\n\w8If it wasn't, do you think I'd be reading it?\e"	
 		"\0\s[4]I wish I had a staff or something. \w8That'd be cool.\e"
 		"\0\s[4]I heard once that the golden apples on Mom's tree heal people of sickness. \w8\n\n\0\s[3]It sounds really important for something that was only mentioned once...\e"
-		"\0\s[1]\1* (He looks very focused on his book.)\e"
+		
 		"\0\s[1]\1* (He looks like he's thinking about something else.)\e"
-		"\0\s[1]\1* (He doesn't say anything.\w8 He must be really interested in that book.)\e"	
 		"\0\s[12]Why do I even look like a sans when I've got nothing to do with him...\e"	
 		"\0\s[1]\1* (It smells like old books and purple.)\e"
 		//"\0\s[12]I wish I had a five page document about magic apples and the various ways they kill people.\w8\n\nIt's honestly a plothole that I don't have that much information already, \w6with how many books I read.\e"
@@ -115,6 +139,10 @@ RandomTalk : nonoverlap
 		"\0\s[4]Would having wings even be all that fun?\w8\n\nI feel like they'd just get in the way of everything.\e"
 		"\0\s[4]Maybe I should go out and get more outfits at some point.\w8 This ones gettin' kinda old.\e"
 		"\0\s[4]I hope nobody sneaks up on Mom's Tree while I'm not there\w2.\w2.\w2.\e"
+		"\0\s[1]\1* (It smells like spaghetti.)\e"
+		"\0\s[1]\1* (He's pretty quiet today.)\e"
+		"\0\s[1]\1* (You poke him.)\0\s[1]\i[8]Could you not?\n\n\![*]\q[Hug him,hugpurpleman]\n\![*]\q[Respect his wishes,leavepurplemanalone]\e\e"
+		"\0\s[4]Kinda wonder what the world would be like if I never existed\w2.\w2.\w2.\w8\n\n\i[55]* (Is that normal for him?)\e"
 //if dialogue
 		//Negative Route
 		if nicesadlevel <= -10
@@ -126,22 +154,16 @@ RandomTalk : nonoverlap
 		}
 		if nicesadlevel <= -25
 		{
-			"\0\s[1]Least I'm allowed to sit down while I'm here.\e"
 			"\0\s[12]Why do I even have to be here...\e"
 			"\0\s[12]Y'know,\w5 you'd pry have a lot more fun if you just closed me.\w8\n\nThen I wouldn't take up as much of your screen.\e"
 			"\0\s[3]\1* (He's looking around your screen weirdly.)\n\n\w8* (Maybe he's trying to find somewhere else to be?)\e"
-		}
-		if snoop >= 5
-		{
-			"\0\s[1]\1* (It smells like snoopdog.)\e"			
-			"\0\s[1]\1* (He looks a little uncomfortable reading his book)\w8\n\n* (Bother him?)\n\n\![*]\q[Yes,besnoopbother]\n\![*]\q[No,continuesnooping]\e"
 		}
 		//Positive Route
 		if nicesadlevel >= 15
 		{
 			"\0\s[4]You know,\w5 swimming sounds kinda fun. \w6\0\s[6]Me and anDream do it sometimes!\n\n\w8\0\s[9]Though I had to stop cause.\w3\w3.\w3.\w5 later anDream would start inviting their friends to,\w4 and they-\n\n\w8\w4.\w4.\w4.\w5\0\s[12]I don't want to talk about it.\e"
 			"\0\s[13]I try to read poetry sometimes too\w2.\w2.\w2.\w6 I think it's also good,\w4 maybe I could try writing some at some point? \0\s[8]\w8Not like anybody would read it...\e"
-			if talkboutlater == "off" && nightynight == "off" && askaboutnamee == "off"
+			if talkboutlater == "off" && nightynight == "off" //&& askaboutnamee == "off"
 			{
 				"\0\s[9]\1* (He looks upset.)\w8\w8\n\n* (Ask him what's wrong?)\n\n/
 				\![*]\q[Yes,whatswronglilbb]\n/
@@ -150,9 +172,6 @@ RandomTalk : nonoverlap
 		}
 		if nicesadlevel >= 50
 		{
-			"\0\s[1]\i[14]\1* (He seems pretty happy here.)\e"
-			"\0\s[1]\i[14]\i[7]\1* (He smiles at you a bit.)\e"
-			"\0\s[1]\i[14]\i[7]You know,\w5 I think you've been pretty nice.\e"
 			"\0\s[13].\w2.\w2.\w2Hey,\w4 %(username)?\n\n\w8\w2.\w2.\w2.\w4Thanks for letting me stay here, \w4I guess."
 			"\0\s[9]Hey,\w4 %(username),\w4 if I'm distracting you from your work you should probably just...\w5 close me,\w3 so you can get back to it.\e"
 		}
@@ -173,16 +192,17 @@ RandomTalk : nonoverlap
 		}
 		if hastea == "on"
 		{
-			"\0\s[27]* (He sips some tea out of the mug you gave him.)\e"
+			"\0\s[41]* (He sips something out of the mug you gave him.)\e"
+			"\0\s[27]\1* (Smells like green tea.)\e"
 		}
 		if hasviolin == "off"
 		{
 			"\0\s[4]I think knowing how to play an instrument would be fun\w4.\w4.\w4.\w8 Maybe like a violin or a piano or something.\w8\0\s[13] I wonder how I'd get my hands on one of those\w2.\w2.\w2.\e"
 		}
-		if talkboutlater == "on" && nightynight == "off"
+		if talkboutlater == "on"
 		{
 			"\0\s[4]So um\w3.\w3.\w3. \n\n\s[9]actually, nevermind.\n\n/
-			\![*]\q[Ask him what he was going to say,nameyes]\n/
+			\![*]\q[Ask him again what he was going to say,nameyes]\n/
 			\![*]\q[You didn't care anyways,nameno]\e"
 		}
 		if ghostexcount > 0 
@@ -194,7 +214,7 @@ RandomTalk : nonoverlap
 			//If anybody is reading through the files uh that's cool I guess but there are a lot of secrets in here you should learn by poking the ghost instead of looking here.
 			--
 			case checkname
-				{    
+			{    
 				when "Girl"
 					{
 					"\0\s[13]* (He looks at them both cautiously)\e"
@@ -235,6 +255,10 @@ RandomTalk : nonoverlap
 						"\0\s[15]* (He hums along to the flele's song.)\e"
 						"\0\s[13]I know that Azura can sing too.\w8\n\nLevidre must've spent a lot of time figuring out how to do that.\e"
 					}
+				when "FLUX"
+					{
+						"\0\s[15]* (He hums along to the song.)\e"
+					}
 				when "Papyrus"
 					{
 						"\0\s[12]You know why I don't have a Papyrus for a brother?\w8\n\nBecause I'm not a sans.\e"
@@ -272,6 +296,10 @@ RandomTalk : nonoverlap
 					}
 				}
 			}
+//Times
+//{
+	//Months
+	//{
 		if month == 12
 		{
 			"\0\s[4]It's December where you are, right?\w8\n\n\0\s[8]Our times don't exactly match up, \w5mine is pretty messed up.\e"		
@@ -290,11 +318,11 @@ RandomTalk : nonoverlap
 			{
 			"\0\s[0]I don't know if it snows at the end of the year where you live, \w5but it does at home for me.\w8 Me and my brother liked to play in it when we were younger, but I've been avoiding it in more recent years\w2.\w2.\w2. \w6I still like the memories, though.\e"
 			}
-		}	
+		}
 		if month == 1
 		{
 			"\0\s[0]First month of the year for you, right?\w8 Do you ever do anything for it?\e"		
-			"\0\s[4]I remember a few years ago some people were throwing a big new-years party.\w8 To come you had to bring some of your own food, and anDream wanted to make a really big cake.\n\n\w8\0\s[9]Me and him make it together, but I didn't want to go to the party and told anDream he could just go on his own.\w8 He stayed behind and we ate the cake together... It was really nice of him.\w8\n\n\0\s[8]I try sometimes feel kinda bad he didn't get to go,\w5 but he tells me not to.\e"
+			"\0\s[4]I remember a few years ago some people were throwing a big new-years party.\w8 To come you had to bring some of your own food, and anDream wanted to make a really big cake.\n\n\w8\0\s[9]Me and them make it together, but I didn't want to go to the party and told anDream they could just go on his own.\w8 They stayed behind and we ate the cake together... It was really nice of them.\w8\n\n\0\s[8]I try sometimes feel kinda bad they didn't get to go,\w5 but they tell me not to.\e"
 			"\0\s[8]My brother's probably going to end up going to one of those big new years parties...\w8\n\n\0\s[12]I just hope I don't have to go.\w5 Reading's more fun than people.\e"
 			if nicesadlevel <= -10
 			{
@@ -318,17 +346,10 @@ RandomTalk : nonoverlap
 		}
 		if month == 3
 		{
-			"\0\s[13]Kinda wonder what the world would be like if I never existed\w2.\w2.\w2.\w8\n\n\0\s[2]Though I guess it really depends on which world.\e"		
-			"\0\s[20]Thanks for using me this long\w3.\w3.\w3.\n\n\w8\0\s[4]I thought after April most people would've forgotten about me.\e"
-			"\0\s[13]March was a very stressful month for Quonit because they needed to finish me super quick.\e"
-			if hastea == "on"
-			{
-			"\0\s[27]\1* (Smells like green tea.)\e"
-			}
 		}
 		if month == 4
 		{
-			"\0\s[0]I actually don't have the same calender as you all do, \w4but we still do have some kind of 'prank day' like your first is April is supposed to be.\e"
+			"\0\s[0]I actually don't have the same calendar as you all do, \w4but we still do have some kind of 'prank day' like your first is April is supposed to be.\e"
 			"\0\s[13]Quonit started making me back in June 2019\w4.\w4.\w4.\n\n\w8\0\s[8]I don't know why they decided to work on me, \w6a one day April Fools joke, \w6instead of something else...\e"
 			"\0\s[1]\1* (Smells like silly string.)\e"
 		}
@@ -384,6 +405,9 @@ RandomTalk : nonoverlap
 			"\0\s[13]I heard in Winter all of the plants die and trees loose their leaves.\w8\n\nIf it could have weather where I lived,\w4 would Mom's tree do that?\e"
 			"\0\s[1]\1 (Smells like apple cider.)\e"
 		}
+	//}
+	//Days
+	//{
 		if weekday == 1 //Monday
 		{
 			"\0\s[4]There's a lot of standardization in your world for the days, \w5like Monday is usually the first day of the weekdays,\w4 which are only five days long even though your weeks are seven days long\w2.\w2.\w2. \w5and people say the week starts at Sunday.\w8\n\nI don't understand most of it, but your world has a lot more complexities and rules then ours.\e"
@@ -412,9 +436,6 @@ RandomTalk : nonoverlap
 		}
 		if weekday == 4 //Thursday
 		{
-			"\0\s[1]\1* (It smells like spaghetti.)\e"
-			"\0\s[1]\1* (He's pretty quiet today.)\e"
-			"\0\s[1]\1* (You poke him.)\0\s[1]\i[8]Could you not?\n\n\![*]\q[Hug him,hugpurpleman]\n\![*]\q[Respect his wishes,leavepurplemanalone]\e\e"
 		}
 		if weekday == 5 //Friday
 		{
@@ -433,6 +454,9 @@ RandomTalk : nonoverlap
 			"\0\s[4]I heard a lot of stuff closes on Sundays.\w8\n\nWe don't really have a lot of stores where we live so stuff doesn't really close\w2.\w2.\w2.\e"
 			"\0\s[0]Hey %(username),\w4 you got any errands to run?\n\n\w8* (You ask %(nightname) why he's asking.)\n\n\w8\0\s[13]I dunno...\w5 kinda wanna go home, \w2maybe.\e"
 		}	
+	//}
+	//Hours
+	//{
 		if timeslot == "earlymorning"
 		{
 			"\0\s[4]Is it morning for you now?\w8 It's hard to tell from in here.\e"		
@@ -469,8 +493,10 @@ RandomTalk : nonoverlap
 		{
 			if nicesadlevel >= 25
 			{
+			//{
 			"\0\s[8]\1* (He looks tired.)\w8\n\n* (That's strange,\w4 it's the middle of the afternoon.)\e"
 			"\0\s[8]\1* (%(nightname) is acting tired..)\w8\n\n* (You ask him if he's going to take a nap.)\n\n\w8Maybe...\e"
+			//}
 			{
 			sleepingmode = "on"
 			"\0\s[1]\1\w8.\w8.\w8.\n\n\w8\w8\w8\w8\0\s[5]\1\w8\w8\w8Z\w6Z\w6Z\w6.\w6.\w6.\w8\w8\w8\n\n* (It looks like he fell asleep.)\w8\n\n* (Poor thing\w3.\w3.\w3.\w8 He must've not slept during night.)\e"
@@ -506,7 +532,9 @@ RandomTalk : nonoverlap
 			"\0\s[5]\1\w8\w8\w8\w8*( \w4.\w4.\w4.)\n\n\w8zzz\w4.\w4.\w4.\n\n\w8\w8* (Wow,\w3 he actually managed to sleep.)\e"
 			}
 		}	
-		if passhour == 1
+	//}	
+//}	
+	if passhour == 1
 		{
 			"\0\s[3]It's been an hour\w2.\w2.\w2.\w6 are you sure you aren't bored or something yet?\e"
 		}
@@ -525,42 +553,42 @@ RandomTalk : nonoverlap
 }
 //Selects
 Select.readfunnyblurb //The stuff leading to this is now in dts_mouse.dic but this is fine
-		{
-			snoop += 1
-			"\0\s[1]\1* (It says it's %(bookstoread).)\e"
-		}
-	Select.repsecttoyoumysir
-		{
-			respect += 1
-			"\0\s[1]\1* (You feel accomplished somehow.)\e"
-		}
+{
+	snoop += 1
+	"\0\s[1]\1* (It says it's %(bookstoread).)\e"
+}
+Select.repsecttoyoumysir
+{
+	respect += 1
+	"\0\s[1]\1* (You feel accomplished somehow.)\e"
+}
 Select.besnoopbother
-		{
-			"\0\s[11]Couldn't you just leave me alone? \w8\w8\n\n\0\s[12]It's not like I decided to be here, \w8couldn't you maybe stop bothering me?\n\n\w8\w8* (Ask him what you've done wrong?)\n\n\![*]\q[Yes,besnoopbother1]\n\![*]\q[No,continuesnooping1]\e"
-		}
-	Select.continuesnoopinge
-		{
-			snoop =-5
-			"\0\s[12]\1* (You decide to accept his terms. \w8\0\s[6]\1\s[10]He looks happier now.)\n\n\w8\w8* (You feel somewhat accomplished.)"
-		}
+{
+	"\0\s[11]Couldn't you just leave me alone? \w8\w8\n\n\0\s[12]It's not like I decided to be here, \w8couldn't you maybe stop bothering me?\n\n\w8\w8* (Ask him what you've done wrong?)\n\n\![*]\q[Yes,besnoopbother1]\n\![*]\q[No,continuesnooping1]\e"
+}
+Select.continuesnoopinge
+{
+	snoop =-5
+	"\0\s[12]\1* (You decide to accept his terms. \w8\0\s[6]\1\s[10]He looks happier now.)\n\n\w8\w8* (You feel somewhat accomplished.)"
+}
 	Select.besnoopbother1
-		{
-			snoop =-5
-			"\0\s[12]* (You tell him you have no idea why he's mad.)\w8\n\n\0\s[21]You keep looking through my books while I'm reading!\n\n\w8* (You remind him that he told you that you should stop asking him what the book was and to just look at it.)\n\n\w8\0\s[12]\1\s[10]* (He looks down at the ground and crosses his arms like a kid.)\e"
-		}
+	{
+		snoop =-5
+	"\0\s[12]* (You tell him you have no idea why he's mad.)\w8\n\n\0\s[21]You keep looking through my books while I'm reading!\n\n\w8* (You remind him that he told you that you should stop asking him what the book was and to just look at it.)\n\n\w8\0\s[12]\1\s[10]* (He looks down at the ground and crosses his arms like a kid.)\e"
+	}
 	Select.continuesnooping1
-		{
-			nicesadlevel =- 3
-			"\0\s[1]\1* (You tell him that he is on your computer so he needs to deal with you.\w8\n\n\0\s[9]\1\s[10]* (He looks down at the ground and crosses his arms, upset.)"
-		}
+	{
+		nicesadlevel =- 3
+		"\0\s[1]\1* (You tell him that he is on your computer so he needs to deal with you.\w8\n\n\0\s[9]\1\s[10]* (He looks down at the ground and crosses his arms, upset.)"
+	}
 Select.isitcoldyes
-		{
-			"\0\s[0]Oh, okay. \w8Hope you have a good jacket, then.\e"
-		}
+{
+	"\0\s[0]Oh, okay. \w8Hope you have a good jacket, then.\e"
+}
 	Select.isitcoldnv
-		{
-			"\0\s[4]Maybe just wear something light if you're going outside then.\e"
-		}
+	{
+		"\0\s[4]Maybe just wear something light if you're going outside then.\e"
+	}
 	Select.isitcoldno
 		{
 			"\0\s[4]Oh, is it actually summer where you live?\w8\0\s[0]\n\nThe Earth is very interesting with it's seasons.\w8\n\n\0\s[4]Then again\w4.\w4.\w4.\w8\s[2] It could just be climate change.\e"
@@ -572,7 +600,7 @@ Select.whatswronglilbb
 		}
 	Select.lethimbeplsfortheloveofgod
 		{
-			"\0\s[9]\1* (He'll feel better soon.)\e"
+			"\0\s[9]\i[55]* (He'll feel better soon.)\n\n\w8* (Probably.)\e"
 		}
 Select.nameyes
 		{
@@ -582,7 +610,7 @@ Select.nameyes
 		}
 	Select.name2yes
 		{
-			"\0\s[14]My brother doesn't think I'm bothered by it, \w2and I don't want to tell him I am because then he'd feel bad!\n\n\w8.\w3.\w3.\w3\0\s[12]You know what? \w8\0\s[8]That isn't even the biggest problem. \w8\w8There's also the backlash from the people I need to take care of. \w8\n\nThey'd think I'm just trying to pull it off as a stunt to get a better public perception\w5, or they'd just ignore that I changed my name.\n\n/
+			"\0\s[14]My brother doesn't think I'm bothered by it, \w2and I don't want to tell them I am because then he'd feel bad!\n\n\w8.\w3.\w3.\w3\0\s[12]You know what? \w8\0\s[8]That isn't even the biggest problem. \w8\w8There's also the backlash from the people I need to take care of. \w8\n\nThey'd think I'm just trying to pull it off as a stunt to get a better public perception\w5, or they'd just ignore that I changed my name.\n\n/
 			\![*]\q[Why are you protecting them?,name3yes]\n/
 			\![*]\q[Tell him to shut up,nameno]\e"
 		}
@@ -592,7 +620,7 @@ Select.nameyes
 			privacyrespecter = "off"
 			talkaboutlater = "off"
 			nicesadlevel += 5
-			"\0\s[14]It's literally the entire reason I exist.\0\s[9]And I'm not even really protecting them from anything,\w3 they just call it that for some reason. \w8\0\s[12]I just sit near a stupid tree and make sure nobody touches it,\w4 even though nobody wants to go anywhere near it except for curious three year olds.\n\n\0\s[9]\w8.\w3.\w3.\w3You know what? \0\s[8]This is stupid, \w6just call me Nighty or something instead of Nightmare.\e"
+			"\0\s[14]It's literally the entire reason I exist.\0\s[9]And I'm not even really protecting them from anything,\w3 they just call it that for some reason. \w8\0\s[12]I just sit near a stupid tree and make sure nobody touches it,\w4 even though nobody wants to go anywhere near it except for curious three year olds.\n\n\0\s[9]\w8.\w3.\w3.\w3You know what?\w8 \0\s[8]This is stupid, \w6just call me Nighty or something instead of Nightmare.\e"
 		}
 	Select.nameno
 		{
@@ -624,14 +652,14 @@ Select.Goopmare
 Select.hugpurpleman
 	{
 	nicesadlevel += 1
-	"\0\s[27]Hey!!\w8\0\s[18]Don't do that!!!"
+	"\i[5]\s[7]* (You try to give him a hug,\w4 but the mouse cursor doesn't have arms...)\n\n\w8\s[3]What's with you trying to touch people anyways..."
 	}
 	Select.leavepurplemanalone
-		{
-		nicesadlevel += 1
-		respect + 1
-		"\0\s[27]Hey!!\w8\0\s[18]Don't do that!!!"
-		}
+	{
+	nicesadlevel += 1
+	respect + 1
+	"\i[55]* (You respect his distance.)\n\n\w8\s[3]Thanks I guess?"
+	}
 Select.Yesvacation
 {
 	"\0\s[0]Oh,\w3 well I hope you have fun.\w8\n\n\0\s[13]I wonder if it's possible for you to take me on a laptop with you...\e"
@@ -805,12 +833,12 @@ OnSecondChange
 }
 MikireTalk
 {
-	"\0\s[1]\1* (%(nightname) is off the screen.\w8 You can bring him back by pressing Ctrl+Shift+F12.)"
+	"\0\i[55]* (%(nightname) is off the screen.\w8 You can bring him back by pressing Ctrl+Shift+F12.)"
 	"\1\s[10]\e"
 }
 EndMikireTalk
 {
-	"\0\s[1]\1* (%(nightname) is back on the desktop.)\e"
+	"\0\i[55]* (%(nightname) is back on the desktop.)\e"
 	"\1\s[10]\e"
 }
 OnSurfaceRestore
@@ -831,11 +859,20 @@ OnSurfaceRestore
 	{
 	"\0\s[0]\e"
 	}
+	elseif sittang == "on"
+	{
+	"\0\s[1]\e"
+	}
+	elseif intodreams == "on"
+	{
+	"\0\s[2000]\e" //Make idles at some point
+	//Staring off at something?
+	//Fiddling?
+	}
 	else
 	{
 	"\0\s[0]\e"
-	"\0\s[1]\e"
-		if hasmug == "on"
+		if hastea == "on"
 		{
 		"\0\s[41]\e"
 		"\0\s[27]\e"
