@@ -1,5 +1,5 @@
 //--------------------Aitalk------------------------------
-GoopTalk
+GoopTalk : nonoverlap_pool
 {
     "\0\s[0]Honestly,\w3 did you expect there to be a ghost about %(nightname) without me in it?\e"
     "\0\s[1]You might want to go check on your %(usersfolder)\w2.\w2.\w2.\w5 I've been spending a bit of time there,\w5 maybe it got deleted?\n\n\![*]\q[Call his bluff,heisntbluffing]\n\![*]\q[Get upset,feedgoopy]\e"
@@ -113,8 +113,6 @@ twinkchain
 //--------------------Bootend------------------------------
 OnGoopWake
 {
-    "\![change,Shell,Nightmare]\w8\w8"
-    --
     "\0\s[1]I was wondering when I'd see you again...\e"
     "\0\s[0]* (You ask him if he's going to comment on the time.)\n\n\w8Why would I? \w5\0\s[1]It's not like it means anything.\e"
     "\0\s[1]Let's hope I don't get too bored here.\e"
@@ -137,14 +135,14 @@ OnGoopSleep
 //--------------------Menu------------------------------
 GoopMenu
 {
-     wd = GetWeekDay
-     ap = GetAP
-     nowmin = Getnowmin
-     nowhour = Getnowhour
-    --
-    "\n\n\_q\b2"
-    --
-     "\![*]\q[Make him say something,altalk]\n"
+	wd = GetWeekDay
+	ap = GetAP
+	nowmin = Getnowmin
+	nowhour = Getnowhour
+	--
+	"\n\n\_q\b2"
+	--
+	"\![*]\q[Make him say something,altalk]\n"
     "\![*]\q[Ask him to talk,altalk]\n"
     "\![*]\q[Talk,altalk]\n"
     "\![*]\q[Ask him to say something,altalk]\n"
@@ -158,7 +156,7 @@ GoopMenu
     }
     --
     "\![*]\q[ACT,Ongoopact] or try to give him some \![*]\q[ITEMS,goopitemsmenu]\n/
-    \![*]\q[Change the configurations,configmenu]\n/
+    \![*]\q[Stats,configmenu]\n/
     \![*]\q[Use some functions,dosomething]\n\n/
     //\![*]\q[Test Variable,testvariable2]\n\n/
      \![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"

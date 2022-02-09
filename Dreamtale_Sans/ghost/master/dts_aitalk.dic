@@ -1,29 +1,29 @@
-﻿AiTalk //Leave this alone.
- {
+﻿OnAiTalk //Leave this alone.
+{
 	if RAND(100) < communicateratio
- 	{
- 		StartCommunicate
-	}
- 	else
 	{
- 		if mikireflag == 0
+		StartCommunicate
+	}
+	else
+	{
+		if mikireflag == 0
 		{
 			if CHAIN.IDName == "" {
- 				lastTalk = RandomTalk
+				lastTalk = RandomTalk
 			}
 			else {
-				lastTalk = ChainTalk
+			lastTalk = ChainTalk
 			}
 			lastTalk
 		}
- 		else
-		{ 
+		else
+		{
 		MikireTalk
- 		}
+		}
 	}
- }
-RandomTalk : nonoverlap
-{	
+}
+RandomTalk : nonoverlap_pool
+{
 //Replace all dialogue ifs
 	if Edgybitch == "on"
 	{
@@ -35,44 +35,97 @@ RandomTalk : nonoverlap
 	}
 	elseif VillageLevel >= 150 && punchout <= 30 && Edgybitch == "off"
 	{
-		"\0\s[22]\1* (Despite everything you've done to him, \w4his life here might be better then at home.)\e"
-		"\0\s[22]\1* (Might not last too much longer.)\e"
-		"\0\s[22]\1* (Hittable.)\e"
-		"\0\s[22]\1* (It's weird he turned around.\w5 You're sure a punch of the back of the head would hurt more then the front.)\e"
-		"\0\s[19]\1* (He's too scared to talk.)\e"
-		"\0\s[19]\1* (He's being quiet.)\e"
-		"\0\s[19]\1.....\e"
-		"\0\s[19]\1...\e"
+		"\0\s[22]\i[55]* (Despite everything you've done to him, \w4his life here might be better then at home.)\e"
+		"\0\s[22]\i[55]* (Might not last too much longer.)\e"
+		"\0\s[22]\i[55]* (Hittable.)\e"
+		"\0\s[22]\i[55]* (It's weird he turned around.\w5 You're sure a punch of the back of the head would hurt more then the front.)\e"
+		"\0\s[19]\i[55]* (He's too scared to talk.)\e"
+		"\0\s[19]\i[55]* (He's being quiet.)\e"
+		"\0\s[19]\i[55].....\e"
+		"\0\s[19]\i[55]...\e"
 		if nightynight == "on"
 		{
-		"\0\s[22]\1* (Smells like misplaced trust.)\e"
-		"\0\s[22]\1* (He's learnt to hide his tears well,\w3 apparently.)\e"
+		"\0\s[22]\i[55]* (Smells like misplaced trust.)\e"
+		"\0\s[22]\i[55]* (He's learnt to hide his tears well,\w3 apparently.)\e"
 		}
 		if blushmode == "on"
 		{
-		"\0\s[22]\1* (You're disappointed.\w6 At the very least you hoped he'd cry at you for breaking his heart...)\e"
+		"\0\s[22]\i[55]* (You're disappointed.\w6 At the very least you hoped he'd cry at you for breaking his heart...)\e"
 		}
 	}
 	elseif sittang == "on"
 	{
-		//moving some old dialogue to here WOW
-		"\0\s[1]\1* (You ask him what book he's reading.)\n\n\w8\0\i[8]\1Shouldn't you be able to read the cover yourself?\n\n\w8*(You ask him if the book is good.)\n\n\w8If it wasn't, do you think I'd be reading it?\e"
-		"\0\s[1]\1* (He looks very focused on his book.)\e"
-		"\0\s[1]\1* (He doesn't say anything.\w8 He must be really interested in that book.)\e"
-		if nicesadlevel >= 50
-		{
-			"\0\s[1]\i[14]\1* (He seems pretty happy here.)\e"
-			"\0\s[1]\i[14]\i[7]\1* (He smiles at you a bit.)\e"
-			"\0\s[1]\i[14]\i[7]You know,\w5 I think you've been pretty nice.\e"
-		}
 		if nicesadlevel <= -25
 		{
-			"\0\s[1]Least I'm allowed to sit down while I'm here.\e" //Add pose
+			"\0\s[1]Least I'm allowed to sit down while I'm here." //Add pose
+			"\0\s[1]\i[55]\i[9]* (He looks annoyed...)"
+			"\0\s[1]Don't even know why I'm here if you aren't even paying attention to me\w3.\w3.\w3."
+			"\0\s[1]\i[55]* (You ask him what he's reading.)\n\n\w8\i[9]* (\w3.\w3.\w3.He eyes you annoyedly.)"
+			--
+			"\e"
+		}
+		else
+		{
+		//moving some old dialogue to here WOW
+			"\0\s[1]\i[55]* (You ask him what book he's reading.)\n\n\w8\0\i[8]\i[55]Shouldn't you be able to read the cover yourself?\n\n\w8*(You ask him if the book is good.)\n\n\w8If it wasn't, do you think I'd be reading it?\e"
+			"\0\s[1]\i[55]* (He looks very focused on his book.)\e"
+			"\0\s[1]\i[55]* (He doesn't say anything.\w8 He must be really interested in that book.)\e"
+			"\0\s[1]\i[55]* (You wonder if he's hungry about now...)\n\n\w8\![*]\q[Feed him something?,nightyneedstoeat])\e"
+			"\0\s[1]\i[55]* (It smells like grass.)\e"
+            "\0\s[1]\i[55]* (It smells uneventful.)\e"
+			"\0\s[1]\i[55]* (Smells like apple cider.)\e"
+			"\0\s[1]\i[55]* (He's being quite quiet.)\e"
+			"\0\s[1]\i[55]* (He's quietly reading.)\e"
+			"\0\s[16]* (He gets back up.)\e:eval=sittang='off'"
+		if nicesadlevel >= 25
+		{
+			"\0\s[1]\i[55]\w8.\w8.\w8.\n\n\w8\w8\w8\w8\0\s[5]\i[55]\w8\w8\w8Z\w6Z\w6Z\w6.\w6.\w6.\w8\w8\w8\n\n* (It looks like he fell asleep.)\w8\n\n* (Poor thing\w3.\w3.\w3.\w8 He must've not slept during night.)\e:eval=sleepingmode='on'"
+		}
+		if nicesadlevel >= 50
+		{
+			"\0\s[1]\i[14]\i[55]* (He seems pretty happy here.)"
+			"\0\s[1]\i[14]\i[7]\i[55]* (He smiles at you a bit.)"
+			"\0\s[1]\i[14]\i[7]You know,\w5 I think you've been pretty nice."
+			--
+			"\e"
 		}
 		if snoop >= 5
 		{
-			"\0\s[1]\1* (It smells like snoopdog.)\e"			
-			"\0\s[1]\1* (He looks a little uncomfortable reading his book)\w8\n\n* (Bother him?)\n\n\![*]\q[Yes,besnoopbother]\n\![*]\q[No,continuesnooping]\e"
+			"\0\s[1]\i[55]* (It smells like snoopdog.)"			
+			"\0\s[1]\i[55]* (He looks a little uncomfortable reading his book)\w8\n\n* (Bother him?)\n\n\![*]\q[Yes,besnoopbother]\n\![*]\q[No,continuesnooping]"
+			"\0\s[1]\i[55]* (Smells like silly string.)"
+			--
+			"\e"
+		}
+		if season == "Winter"
+		{
+			"\0\s[1]I wonder\w2.\w2.\w2.\w7\w8\i[14]\i[7] Does it snow where you live?\n\n\w8\w8\0\s[1]\i[14]There are a lot of older stories I've found that talk about people having to make their way through snowstorms, \w4and kids playing with it\w2.\w2.\w2.\w8\n\n\s[1]\i[7]I've never seen snow-\w4 it doesn't\w2.\w2.\w2.\w8 Do that,\w5 where I live,\w8\s[1]\i[14] but I still like reading about it!"
+			"\0\s[1]\i[55]* (Smells like hot chocolate.)"
+			--
+			"\e"
+		}
+		if weekday == 5 //Friday
+		{
+			"\0\s[1]\i[55]* (Smells like glitter.)\e"
+		}
+		if timeslot == "earlymorning"
+		{
+			"\0\s[1]\i[8]Shouldn't you be asleep by now?\e"
+			"\0\s[1]* (He doesn't look tired, somehow.)\e"
+		}
+		if timeslot == "morning"
+		{
+			"\0\s[1]\i[55]* (You wonder if he had a good sleep.)\e"
+		}
+		if timeslot == "latenight"
+		{
+			"\0\s[1]\i[55]* (%(nightname) doesn't seem tired in the slightest.)\e"
+			"\0\s[1]\i[55]* (You ask %(nightname) if he's going to bed soon.)\n\n\w8\0\s[1]\i[7]\i[55]Are you?\e"
+		}
+		if timeslot == "midnight"
+		{
+			"\0\s[1]* (It's awfully late,\w4 shouldn't he be getting to bed?)\e"
+		}
 		}
 	}
 	elseif sleepingmode == "on"
@@ -126,19 +179,23 @@ RandomTalk : nonoverlap
 		"zzz\w4.\w4.\w4.\w8\w8\w8 Ngh\w2.\w2.\w2.\w8 No\w4, don't\w4.\w4.w4.\w8 Stop\w4.\w4.\w4.\w8"
 		}
 	}
-	elseif nicesadlevel <= -80 && punchout >= 120 && Edgybitch == "off" //IT ADDS UP TO 200 OK
+	elseif nicesadlevel <= -120 && punchout >= 80 && Edgybitch == "off" //IT ADDS UP TO 200 OK
 	{
 		"\t\*\0\s[22]* (You hear sniffing.)\w8\w8\0\s[23]\n\n* \f[italic,true]sniff sniff\f[italic,false],\n\n\w8\w4I want to go home-\w5 why can't I just go home?\n\n\w8\![*]\q[Push him over.,Goopmare]\e"
+	}
+	elseif nicesadlevel >= 50 && nightynight != "on" && talkaboutlater != "on" //This is a failsafe if it still hasn't triggered the dialogue, somehow.
+	{
+		"\0\s[9]\i[55]* (He looks upset.)\w8\w8\n\n* (Ask him what's wrong?)\n\n/
+		\![*]\q[Yes,whatswronglilbb]\n/
+		\![*]\q[No,lethimbeplsfortheloveofgod]\e"
 	}
 	else //Normal stuff
 	{
 		"\0\s[4]I wonder how things are back at home...\e"
 		"\0\s[4]I wish I had a staff or something. \w8That'd be cool.\e"
 		"\0\s[4]I heard once that the golden apples on Mom's tree heal people of sickness. \w8\n\n\0\s[3]It sounds really important for something that was only mentioned once...\e"
-		
-		"\0\s[1]\i[55]* (He looks like he's thinking about something else.)\e"
-		"\0\s[12]Why do I even look like a sans when I've got nothing to do with him...\e"	
-		"\0\s[1]\i[55]* (It smells like old books and purple.)\e"
+		"\0\s[4]\i[55]* (He looks like he's thinking about something else.)\e"
+		"\0\s[0]\i[11]\i[55]* (It smells like old books and purple.)\e"
 		"\0\s[4]You know, I wish I could play an instrument.\w8\n\nMaybe a violin or something?\e"
 		"\0\s[4]Once I get home I should try to clean around the treehouse again...\w6 anDream rarely picks up their stuff.\e"
 		"\0\s[4]I wonder how much it rains there...\e"
@@ -147,33 +204,34 @@ RandomTalk : nonoverlap
 		"\0\s[4]Would having wings even be all that fun?\w8\n\nI feel like they'd just get in the way of everything.\e"
 		"\0\s[4]Maybe I should go out and get more outfits at some point.\w8 This ones gettin' kinda old.\e"
 		"\0\s[4]I hope nobody sneaks up on Mom's Tree while I'm not there\w2.\w2.\w2.\e"
-		"\0\s[1]\i[55]* (It smells like spaghetti.)\e"
-		"\0\s[1]\i[55]* (He's pretty quiet today.)\e"
-		"\0\s[1]\i[55]* (You poke him.)\0\s[1]\i[8]Could you not?\n\n\![*]\q[Hug him,hugpurpleman]\n\![*]\q[Respect his wishes,leavepurplemanalone]\e\e"
+		"\0\s[0]\i[11]\i[55]* (He's pretty quiet today.)\e"
+		"\0\s[7]\i[55]* (You poke him.)\n\n\w8\s[0]\i[13]\i[15]Could you not?\n\n\![*]\q[Hug him,hugpurpleman]\n\![*]\q[Respect his wishes,leavepurplemanalone]\e\e"
 		"\0\s[4]Kinda wonder what the world would be like if I never existed\w2.\w2.\w2.\w8\n\n\i[55]* (Is that normal for him?)\e"
+		"\0\s[0]\i[55]* (You ask him for the time.)\n\n\w8\s[4]It's\w3.\w3.\w3.\w8 Um\w3.\w3.\w3.\n\n\w8\i[55]* (You ask him why he doesn't know the time.\w8 There's a clock right in his menu.\n\n\w8\0\s[4]Huh?"
 //if dialogue
 		//Negative Route
 		if nicesadlevel <= -10
 		{
-			"\0\s[4]I wonder how I'll be able to get back home...\e"
-			"\0\s[8]Maybe once I get home I can take a nap...\e"
+			"\0\s[4]I wonder how I'll be able to get back home\w2.\w2.\w2.\e"
+			"\0\s[8]Maybe once I get home I can take a nap\w2.\w2.\w2.\e"
 			"\0\s[12]Why was I even dragged out here anyways\w2.\w2.\w2.\w2?\w8\n\nDon't you have other ways to entertain yourself?\e"
-			"\1*(He seems uncomfortable.)\e"
+			"\0\s[11]\i[55]*(He seems uncomfortable.)\e"
 		}
 		if nicesadlevel <= -25
 		{
 			"\0\s[12]Why do I even have to be here...\e"
 			"\0\s[12]Y'know,\w5 you'd pry have a lot more fun if you just closed me.\w8\n\nThen I wouldn't take up as much of your screen.\e"
-			"\0\s[3]\1* (He's looking around your screen weirdly.)\n\n\w8* (Maybe he's trying to find somewhere else to be?)\e"
+			"\0\s[3]\i[55]* (He's looking around your screen weirdly.)\n\n\w8* (Maybe he's trying to find somewhere else to be?)\e"
 		}
 		//Positive Route
 		if nicesadlevel >= 15
 		{
 			"\0\s[4]You know,\w5 swimming sounds kinda fun. \w6\0\s[6]Me and anDream do it sometimes!\n\n\w8\0\s[9]Though I had to stop cause.\w3\w3.\w3.\w5 later anDream would start inviting their friends to,\w4 and they-\n\n\w8\w4.\w4.\w4.\w5\0\s[12]I don't want to talk about it.\e"
+			//Neither of these things work
 			"\0\s[13]I try to read poetry sometimes too\w2.\w2.\w2.\w6 I think it's also good,\w4 maybe I could try writing some at some point? \0\s[8]\w8Not like anybody would read it...\e"
-			if talkboutlater == "off" && nightynight == "off" //&& askaboutnamee == "off"
+			if talkaboutlater != "on" && nightynight != "on" //If both of those are not equal (!=) to on
 			{
-				"\0\s[9]\1* (He looks upset.)\w8\w8\n\n* (Ask him what's wrong?)\n\n/
+				"\0\s[9]\i[55]* (He looks upset.)\w8\w8\n\n* (Ask him what's wrong?)\n\n/
 				\![*]\q[Yes,whatswronglilbb]\n/
 				\![*]\q[No,lethimbeplsfortheloveofgod]\e"
 			}
@@ -190,8 +248,8 @@ RandomTalk : nonoverlap
 			"\0\s[32]* (He seems happy.)\e"
 			"\0\s[6]I think my brother would like to meet you one day! \w8\0\s[20]They'd be happy I made a friend, \w3y'know? \w6\0\s[13]Cause I don't have those at home.\n\n\w8\0\s[20]Thank you a lot...\e"
 			"\0\s[28]* (He's blushing a lot, for whatever reason.)"
-			"\0\s[0]\1* (You ask him if he's ever had a crush on anybody.)\n\n\w8\0\s[28]\1Um- \w4well- \w2not- \w3not anybody from home at least!\e"
-			"\0\s[0]\1* (You blow him a random kiss.)\n\n\w8\0\s[28]\1Um- \0\s[28]!\e"
+			"\0\s[0]\i[55]* (You ask him if he's ever had a crush on anybody.)\n\n\w8\0\s[28]\i[55]Um- \w4well- \w2not- \w3not anybody from home at least!\e"
+			"\0\s[0]\i[55]* (You blow him a random kiss.)\n\n\w8\0\s[28]\i[55]Um- \0\s[28]!\e"
 		}
 		//Misc
 		if hasdreamplush == "on"
@@ -201,19 +259,19 @@ RandomTalk : nonoverlap
 		if hastea == "on"
 		{
 			"\0\s[41]* (He sips something out of the mug you gave him.)\e"
-			"\0\s[27]\1* (Smells like green tea.)\e"
+			"\0\s[27]\i[55]* (Smells like green tea.)\e"
 		}
 		if hasviolin == "off"
 		{
-			"\0\s[4]I think knowing how to play an instrument would be fun\w4.\w4.\w4.\w8 Maybe like a violin or a piano or something.\w8\0\s[13] I wonder how I'd get my hands on one of those\w2.\w2.\w2.\e"
+			//"\0\s[4]I think knowing how to play an instrument would be fun\w4.\w4.\w4.\w8 Maybe like a violin or a piano or something.\w8\0\s[13] I wonder how I'd get my hands on one of those\w2.\w2.\w2.\e"
 		}
-		if talkboutlater == "on"
+		if talkaboutlater == "on"
 		{
 			"\0\s[4]So um\w3.\w3.\w3. \n\n\s[9]actually, nevermind.\n\n/
 			\![*]\q[Ask him again what he was going to say,nameyes]\n/
 			\![*]\q[You didn't care anyways,nameno]\e"
 		}
-		if ghostexcount > 0 
+		if ghostexcount > 0
 			{
 			_number = RAND(ghostexcount)
 			--
@@ -222,224 +280,142 @@ RandomTalk : nonoverlap
 			//If anybody is reading through the files uh that's cool I guess but there are a lot of secrets in here you should learn by poking the ghost instead of looking here.
 			--
 			case checkname
-			{    
+			{	
 				when "Girl"
+				{
+				"\0\s[13]* (He looks at them both cautiously)\e"
+				"\0\s[13]That triangle monster looks interesting\w2.\w2.\w2.\w8\n\nI wonder where he's from.\e"
+				}
+				when "Hunter and Smoker"
+				{
+					"\0\i[55]* (You start thinking of zombies for some reason.)\e"
+					"\0\s[13]I wonder what their names are.\w8 Bet they're very interesting and creative.\e"
+					if sittang == "on"
 					{
-					"\0\s[13]* (He looks at them both cautiously)\e"
-					"\0\s[13]That triangle monster looks interesting...\e"
-					}
-				when "Hunter and Smoker Beta"
-					{
-						"\0\s[1]\1* (You start thinking of zombies for some reason.)\e"
-						"\0\s[13]I wonder what their names are.\w8 Bet they're very interesting and creative.\e"
-						"\0\s[1]\1* (He's reading a book about zombies.)\e"
-					}
-				when "Radic"
-					{
-						"\0\s[13]I don't think I've seen many monsters that look like that...\e"
-						"\0\s[4]Pocket monsters?\e"
-						"\0\s[15]Those two were Quonit's first experience with ghosts!\w8\n\n\0\s[4]Sort of,\w4 they're the first they saw gifs of in a tumblr post.\e"
-					}
-				when "Gaster"
-					{
-						"\0\s[13]That's an interesting looking Gaster...\e"
-						"\0\s[13]He probably wouldn't like it if I talked to him, heh.\w8 Imagine how hard that'd be to explain.\w8\n\n\0\s[14]Hey Gaster!\w8 I'm a lookalike of one your clone sons you keep in secret from another dimension, \w6and I don't even have anything to do with your son and I just look like him for no reason!\e"
-						"\0\s[13]Quonit took a lot of insperation from that ghost.\w8\n\nThe menus and acts are often based off of him.\e"
-					}
-				when "MVSans"
-					{
-						"\0\s[13]Heh, imagine if I got put in that ghost instead.\e"
-						"\0\s[13]Quonit actually made me 'cause of that ghost.\w8 There was a pole for what shell should be added next and one of the options was Dreamtale sans.\e"
-						"\0\s[13]I wonder if that ghost will have a anDream in it one day.\e"
-					}
-				when "Jockey"
-					{
-						"\0\s[13]Oh, I know her.\w8 Quonit also made that ghost.\e"
-						"\0\s[0]Quonit also made that ghost!\w8 They said they're going to work on her after I'm finished.\e"
-						"\0\s[15]\1 (He starts humming for whatever reason.)\e"
-					}
-				when "flele"
-					{
-						"\0\s[15]* (He hums along to the flele's song.)\e"
-						"\0\s[13]I know that Azura can sing too.\w8\n\nLevidre must've spent a lot of time figuring out how to do that.\e"
-					}
-				when "FLUX"
-					{
-						"\0\s[15]* (He hums along to the song.)\e"
-					}
-				when "Papyrus"
-					{
-						"\0\s[12]You know why I don't have a Papyrus for a brother?\w8\n\nBecause I'm not a sans.\e"
-						"\0\s[4]I wonder where that Papyrus' brother went...\e"
-					}
-				when "Sans and Papyrus"
-					{
-						"\0\s[12]You know why I don't have a Papyrus for a brother?\w8 Because I'm not a sans.\e"
-						"\0\s[12]See, \w4look, \w4an actual sans.\e"
-					}
-				when "UC"
-					{
-						"\0\s[13]Oh look, \w4another AU Sans.\e"
-						"\0\s[13]Looks like an actual Sans AU...\e"
-					}
-				when "Sparx"
-					{
-						"\0\s[13]Bomb guy...\w8 Doesn't look very nice.\e"
-					}
-				when "Temmie"
-					{
-						"\0\s[13]Heh,\w4 cute kitty!\e"
-					}
-				when "Azura"
-					{
-						"\0\s[13]Those are some\w2.\w2.\w2.\w5 Interesting wings?\e"
-					}
-				when "S"
-					{
-						"\0\s[4]I wonder what AU that one is from\w2.\w2.\w2.\e"
-					}
-				other
-					{
-						"\![raise,OnAiTalk]"
+					"\0\s[1]\i[55]* (He's reading a book about zombies.)\e"
 					}
 				}
+				when "Radic"
+				{
+					"\0\s[13]I don't think I've seen many monsters that look like that...\e"
+					"\0\s[4]Pocket monsters...?\e"
+				}
+				when "Gaster"
+				{
+					"\0\s[4]* (He eyes Gaster cautiously...)\n\n\w8I didn't think there were other skeletons\w2.\w2.\w2.\e"
+					"\0\s[4]\i[55]* (He looks at Gaster...)\n\n\w8\0\s[4]He looks very\w2.\w2.\w2. \w8professional.\n\n\w8\w8\0\s[8]I wouldn't want to bother him\w2.\w2.\w2.\e"
+				}
+				when "Jockey"
+				{
+					"\0\s[15]\i[55]* (He starts humming for whatever reason.)\e"
+					"\0\s[4]That human looks kind of familiar\w3.\w3.\w3.\n\n\w8I wonder if I've met her before,\w4 or something.\e"
+				}
+				when "flele"
+				{
+					"\0\s[15]* (He hums along to the flele's song.)\e"
+				}
+				when "FLUX"
+				{
+					"\0\s[15]* (He hums along to the song.)\e"
+				}
+				when "Papyrus"
+				{
+					"\0\s[4]* (It smells like spaghetti.)\e"
+				}
+				when "Sans and Papyrus"
+				{
+					if sittang == "on"
+					{
+						"\0\s[1]\i[55]* (Looks like he's reading a joke book.)"
+						"\0\s[1]\i[55]* (Looks like he's reading a joke book\w4.\w4.\w4. \w9\w7Or is it a science book?)"
+					}
+					"\0\s[0]\i[55]* (It smells like spaghetti.)\e"
+				}
+				when "Sparx"
+				{
+					"\0\s[13]That monster looks a bit weird\w3.\w3.\w3.\w8\w4\n\n\w8Haven't seen anyone like him.\e"
+				}
+				when "Temmie"
+				{
+					"\0\s[6]Heh,\w4 cute kitty!\e"
+				}
+				when "Azura"
+				{
+					"\0\s[4].\w2.\w2.\w2How does that human have wings?\e"
+				}
+				other
+				{
+					"\![raise,OnAiTalk]"
+				}
+				}
 			}
-//Times
-//{
-	//Months
-	//{
-		if month == 12
-		{
-			"\0\s[4]It's December where you are, right?\w8\n\n\0\s[8]Our times don't exactly match up, \w5mine is pretty messed up.\e"		
-			"\0\s[4]Is it cold where you live?\n\n/
-			\![*]\q[Yes,isitcoldyes]\n/
-			\![*]\q[Not very,isitcoldnv]\n/
-			\![*]\q[No,isitcoldno]\e"	
-			"\0\s[0]When it snows where I live, it for some reason snows all around the tree but it doesn't touch it.\n\n\w8\0\s[3] It kinda freaks me out...\e"
-			"\0\s[0]Humans have always liked to make holidays during bad times, \w4like Winter! \w5Which is why all of the Winter holidays exist.\w8\n\n\0\s[4]Where I'm from we don't really have weather though\w2.\w2.\w2.\w4 It's always just the same stuff,\w4 so we don't really have that much in terms of holidays.\e"
-			"\0\s[1]\1\s[10]\b[1]* (Smells like hot chocolate.)\e"
+	if season == "Spring"
+	{
+		"\0\s[4]A lot of people try to eat outside during the spring\w2.\w2.\w2.\n\n\w8They kinda view it as like,\w4 a fun sorta thing. \w8It's like\w3.\w3.\w3.\w4 When kids build treehouses for fun.\w8\n\nMe and Dream live in a treehouse and usually eat near the apple tree,\w8\s[0]\i[11] so it's just really normal stuff but everyone else treats it like a novelty.\e"
+	}
+	if season == "Summer"
+	{
+		"\0\s[0]I wonder how hot it gets for you\w2.\w2.\w2. \w8but where I'm from it never really gets more then a little warm.\e"
+		"\0\s[4]A lot of the gardens start sprouting around summer\w3.\w3.\w3.\n\n\w8Me and anDream were often asked to help out,\w5 though people don't ask me as much anymore...\w8 So usually anDream often gets rounded up into helping with other people's chores\w2.\w2.\w2.\n/
+		\![*]\q[Sounds off,dreamfinechores]\n/
+		\![*]\q[Sounds bad,dreamnofinechores]\n/
+		\![*]\q[Ignore it,leadstonothing]\e"
+		//"\0\s[4]I'm pretty sure normal apple trees are supposed to bloom at this time of year?\e" (talk about apple tree lore with the flower shit
+		"\0\s[13]I heard lots of people go on trips or 'vacations' during summer.\w8 Do you think you will?\n/
+		\![*]\q[Yes,Yesvacation]\n/
+		\![*]\q[Maybe,Maybevacation]\n/
+		\![*]\q[No,Novacation]\e"
+		"\0\s[4]I read some people swim in the summer.\w4It sounds more like a human thing to me, \w4I'm pretty sure I'd sink.\e"
+		"\0\s[13]Lots of people describe that it feels like they're melting when it's super hot\w2.\w2.\w2. \w5\0\s[19]I really hope they don't mean it\w2.\w2.\w2.\e"
+		
+	}
+	if season == "Autumn"
+	{
+		"\0\s[4]Lots of berries should start being good to pick this month.\n\n\w8I always like doing that,\w4 it's one of the few things I'm still able to enjoy.\w6\0\s[8] Though,\w2 sometimes it stains my clothes a bit.\e"
+		"\0\s[4]I used to love carving pumpkins with anDream,\w4 but-\0\s[8]\w8Um...\n\n\w8\0\s[13]I still can cook the seeds after though.\w6 That's a fun thing to do...\e"
+	}
+	if season == "Winter" 
+	{
+		//Temp Dialogue
+		"\0\s[4]Is it cold where you live?\n\n/
+		\![*]\q[Yes,isitcoldyes]\n/
+		\![*]\q[Not very,isitcoldnv]\n/
+		\![*]\q[No,isitcoldno]\e"
+		//Dec Specific
+		//"\0\s[4]It's December where you are, right?\w8\n\n\0\s[8]Our times don't exactly match up, \w5mine is pretty messed up.\e"
+		//Jan Specific
+		//"\0\s[0]First month of the year for you, right?\w8 Do you ever do anything for it?\e"		
+		//"\0\s[4]I remember a few years ago some people were throwing a big new-years party.\w8 To come you had to bring some of your own food, and anDream wanted to make a really big cake.\n\n\w8\0\s[9]Me and them make it together, but I didn't want to go to the party and told anDream they could just go on his own.\w8 They stayed behind and we ate the cake together... It was really nice of them.\w8\n\n\0\s[8]I try sometimes feel kinda bad they didn't get to go,\w5 but they tell me not to.\e"
+		//"\0\s[8]My brother's probably going to end up going to one of those big new years parties...\w8\n\n\0\s[12]I just hope I don't have to go.\w5 Reading's more fun than people.\e"
+		//"\0\s[13]I know a lot of people like to make new-years resolutions\w4.\w4.\w4. \w6Do you do that?\e"
+		//"\0\s[13]Hope that the year hasn't been too mean to you %(username)...\e"
+		"\0\s[4]While researching for your world I found out that a lot of people make special kinds of beverages for winter, \w4like 'apple cider' and things like that. \w8\n\nI wonder what kind of apples you have in your world, because I doubt they're magic like ours, \w4with how occasionally and casually you eat things with them in it.\e:chain=ciderchain"
+		"\0\s[13]I heard in Winter all of the plants die and trees loose their leaves.\w8\n\n\0\s[4].\w2.\w2.\w2That doesn't happen here,\w5 though.\n\n\w8There are kinda seasons,\w5 but it's more of a 'which part of the year is slightly colder or warmer' thing\w2.\w2.\w2.\e"
 			if nicesadlevel <= -10
 			{
-			"\0\s[1]\1* (It feels cold.)\e"
-			}
-			if nicesadlevel >= 25
-			{
-			"\0\s[0]I don't know if it snows at the end of the year where you live, \w5but it does at home for me.\w8 Me and my brother liked to play in it when we were younger, but I've been avoiding it in more recent years\w2.\w2.\w2. \w6I still like the memories, though.\e"
-			}
-		}
-		if month == 1
-		{
-			"\0\s[0]First month of the year for you, right?\w8 Do you ever do anything for it?\e"		
-			"\0\s[4]I remember a few years ago some people were throwing a big new-years party.\w8 To come you had to bring some of your own food, and anDream wanted to make a really big cake.\n\n\w8\0\s[9]Me and them make it together, but I didn't want to go to the party and told anDream they could just go on his own.\w8 They stayed behind and we ate the cake together... It was really nice of them.\w8\n\n\0\s[8]I try sometimes feel kinda bad they didn't get to go,\w5 but they tell me not to.\e"
-			"\0\s[8]My brother's probably going to end up going to one of those big new years parties...\w8\n\n\0\s[12]I just hope I don't have to go.\w5 Reading's more fun than people.\e"
-			if nicesadlevel <= -10
-			{
-			"\0\s[1]\1* (It feels cold.)\e"
+			"\0\s[0]\i[11]\i[55]* (It feels cold.)\e"
 			"\0\s[8]If it snowed where I lived then my brother would probably have a lot of fun.\w8\0\s[12]\n\nToo bad I have to hang out here instead of with them.\e"
 			}
 			if nicesadlevel >= 25
 			{
-			"\0\s[13]I know a lot of people like to make new-years resolutions\w4.\w4.\w4. \w6Do you do that?\e"
+			"\0\s[0]\i[14]I think it snowed where we lived,\w4 me and anDream would've liked to play in it more when we were younger\w2.\w2.\w2.\n\n\w8\0\s[0]\i[11]I also bet that like most things,\w4 someone would've pushed me down into it and I wouldn't feel safe playing out there anymore.\e"
 			}
-			if nicesadlevel >= 50
-			{
-			"\0\s[13]Hope that the year hasn't been too mean to you %(username)...\e"
-			}
-		}
-		if month == 2
-		{
-			"\0\s[12]February is just so short, why couldn't they just make all of the months thirty days long?\w8\n\n\0\s[15]Except, \w4oh wait, \w4they do where I'm from because they like to do things that make sense.\e"
-			"\0\s[12]Why do you have such weird names for months?\w8\w8 Just spell things normally instead of stuff like\w3.\w3.\w3. \w3\w8\0\s[13]wed-ness-day.\n\n\0\s[14]\w8Wouldn't it be better to just say Wensday?\e"
-			"\0\s[13]Quonit worked on me for a while,\w5 I think they started in about June\w2.\w2.\w2.\w5 But for the most part they coded me in two months, \w4Febuary and March.\e"
-		}
-		if month == 3
-		{
-		}
-		if month == 4
-		{
-			"\0\s[0]I actually don't have the same calendar as you all do, \w4but we still do have some kind of 'prank day' like your first is April is supposed to be.\e"
-			"\0\s[13]Quonit started making me back in June 2019\w4.\w4.\w4.\n\n\w8\0\s[8]I don't know why they decided to work on me, \w6a one day April Fools joke, \w6instead of something else...\e"
-			"\0\s[1]\1* (Smells like silly string.)\e"
-		}
-		if month == 5
-		{
-			"\0\s[0]The creator of the ghost's birthday is this month, \w5actually.\e"
-			"\0\s[13]It's one month after April\w4.\w4.\w4.\n\n\w8\0\s[3]I'm kinda surprised I'm still being used.\e"
-			"\0\s[4]I wonder,\w4 is it Summer or Spring yet in May where you live?\e"
-			"\0\s[1]\i[14]\i[7]I heard that May's a good time to have picnics.\w8\0\s[1]\i[14]I usually eat outside so it's not a fun activity for me, \w3but it might be to you.\e"
-		}
-		if month == 6
-		{
-			"\0\s[0]I heard its hot during June and around that where you guys live, \w4but where I'm from it never really gets more then a little warm.\n\n\w8I think it has to do with Mom's tree, but it's hard for me to know.\e"
-			"\0\s[4]I'm pretty sure summer soltice is this month.\w8 I can't really tell when I'm away from home...\e"
-			"\0\s[9]I bet anDream's enjoying their summer, \w5they like it a lot.\e"
-			"\0\s[15]My half birthday is sometime this month!\w8\n\n\0\s[4]Actually,\w4 at some point while Quonit was researching this ghost they were trying to find out my birthday\w2.\w2.\w2 They found it really difficult, for some reason.\w8 Dunno why they didn't just ask me.\n\n\w8\0\s[0]It's December twenty-first,\w4 by the way!\e"
-			"\0\s[13]I heard lots of people go on trips or 'vacations' during summer.\w8 Do you think you will?\n/
-			\![*]\q[Yes,Yesvacation]\n/
-			\![*]\q[Maybe,Maybevacation]\n/
-			\![*]\q[No,Novacation]\e"
-			"\0\s[13]I hear a Dad's day is sometime this month or something.\n\n\w8\0\s[4]I don't really have a Dad,\w4 and my Mom's a tree so the holiday is meaningless to me.\w8\0\s[8]Hopefully your Dad is nice enough to be celebrated though.\e"
-		}
-		if month == 7
-		{
-			"\0\s[4]I'm pretty sure normal apple trees are supposed to bloom at this time of year?\e"
-			"\0\s[4]I read some people swim in the summer.\w4It sounds more like a human thing to me, \w4I'm pretty sure I'd sink.\e"
-			"\0\s[4]I heard you guys like to set fireworks off during this month\w2.\w2.\w2.\w4 We don't have stuff like that where me and my brother live,\w4 but I'm sure we could recreate it with magic.\e"
-		}
-		if month == 8
-		{
-			"\0\s[4]I'm pretty sure from what I read, \w4September is the month when fall starts for you. \w8\n\nIt's August now, I think, so that's pretty soon.\w8\n\n\0\s[3]Though, \w4when I tried talking with Quonit about it they said that it actually starts in November, \w8and Winter is in December and around 40 to 60 degrees Fahrenheit\w3.\w3.\w3. \w4\0\s[8]which doesn't sound right from what I know.\e"
-			"\0\s[4]From what I know, August is the hottest month of the year. \w8\0\s[15]From what I've read about your world,\w5 people would make holidays during harsh times for levity. \0\s[4]\w8It's surprising there don't seem to be ones for this month.\e"
-			"\0\s[13]Lots of people describe that it feels like they're melting when it's super hot\w2.\w2.\w2. \w5\0\s[19]I really hope they don't mean it\w2.\w2.\w2.\e"
-		}
-		if month == 9 
-		{
-			"\0\s[0]Did you know that September is by far the month where the most humans are born?\e"
-			"\0\s[13]Fall looks like it'd be a nice month\w2.\w2.\w2.\w4 If only I had seasons.\e"
-			"\0\s[4]Autum looks very pretty.\w6 \0\s[8]Wish I had it.\e"
-			"\0\s[4]Lots of berries should start being good to pick this month.\n\n\w8I always like doing that,\w4 it's one of the few things I'm still able to enjoy.\w6\0\s[8] Though,\w2 sometimes it stains my clothes a bit.\e"
-		}
-		if month == 10
-		{
-			"\0\s[8]I really don't think I'm a good Halloween ghost\w3.\w3.\w3. \w4Least anDream would like to dress up.\e"
-			"\0\s[0]I'm kinda curious to know what you'd dress up for for Halloween, \w3but Quonit hasn't made a way that I can ask you yet.\w8 I'm not even sure if they plan to add updates to this ghost, \w3\0\s[12]because I was supposed to be a one time gag\w3.\w3.\w3. \w8but I bet by the time it's October, you'll already now.\e"
-			"\0\s[4]I was made as a holiday gag,\w5 so do you think anybodies done that sort of thing for other characters?\w8\n\nIs there any other ghost that was made specifically for a holiday?\e"
-			"\0\s[4]I used to love carving pumpkins with anDream,\w4 but-\0\s[8]\w8Um...\n\n\w8\0\s[13]I still can cook the seeds after though.\w6 That's a fun thing to do...\e"
-		}
-		if month == 11
-		{
-			"\0\s[0]Winter is such an interesting phenomenon to me. \w8We have it where I live, \w4but the tree doesn't let us experience some of the harsher aspects of it.\w8\n\n\0\s[4]I wonder,\w4 if I went far enough away from it would it get colder?\e"
-			"\0\s[4]While researching for your world I found out that a lot of people make special kinds of beverages for winter, \w4like 'apple cider' and things like that. \w8\n\nI wonder what kind of apples you have in your world, because I doubt they're magic like ours, \w4with how occasionally and casually you eat things with them in it.\e:chain=ciderchain"
-			"\0\s[13]I heard in Winter all of the plants die and trees loose their leaves.\w8\n\nIf it could have weather where I lived,\w4 would Mom's tree do that?\e"
-			"\0\s[1]\1 (Smells like apple cider.)\e"
-		}
+	}
 	//}
 	//Days
 	//{
 		if weekday == 1 //Monday
 		{
-			"\0\s[4]There's a lot of standardization in your world for the days, \w5like Monday is usually the first day of the weekdays,\w4 which are only five days long even though your weeks are seven days long\w2.\w2.\w2. \w5and people say the week starts at Sunday.\w8\n\nI don't understand most of it, but your world has a lot more complexities and rules then ours.\e"
-			"\0\s[4]I heard a lot of people need to go to work on Mondays.\w8\n\n We have some jobs where we live, but not a lot\w2.\w2.\w2. \w4\0\s[9]and I don't think mine really counts.\n\n/
-			\![*]\q[Why not?,Doesyourworkcountyes]\n/
-			\![*]\q...,Nocommentonifworkcount]\n/
-			\![*]\q[Shut up.,Whotfwantstohearaboutyourwork]\e"
-			"\0\s[4]I'm pretty sure school also starts on Mondays?\w8\n\nWe don't really have that where I'm from,\w4 usually parents just teach their kids at home\w2.\w2.\w2.\w4\0\s[9]\e"
-			"\0\s[1]\1* (Smells like coffee.)\e"
+			//Something something schooling. Usually me and Dream would have gotten caught up in lessons... gee I hope I'm not missing any lessons...
+			//"\0\s[4]I'm pretty sure school also starts on Mondays?\w8\n\nWe don't really have that where I'm from,\w4 usually parents just teach their kids at home\w2.\w2.\w2.\w4\0\s[9]\e"
+			"\0\s[0]\i[55]* (Smells like coffee.)\e"
 			"\0\s[13]Hope you don't have to work too hard today %(username).\e"
 		}
 		if weekday == 2 //Tuesday
 		{
-			"\0\s[4]Nothing much interesting seems to happen on Tuesdays.\e"
-			"\0\s[13]You know... \w5Tuesday sounds like two's day, \w5but it's not the second day of the week,\w4 sense it's a circle.\n\n\w8\0\s[4]Some people say the week starts on Sunday or Monday though,\w3 which if it's Monday then it would make it the second day.\e"
-			"\0\s[4]April fools is on a Wednesday the year I came out.\n\n\w8\0\s[9]I kinda figured that after the initial release or whatever nobody would really care,\w4 so it's nice to know that I'm still around...\e"
-			"\0\s[1]\1* (It smells uneventful.)\e"
 		}
 		if weekday == 3 //Wednesday
 		{
-			//"\0\s[4]Before coming here, I actually did a lot of research on your world and where you live. \w8What I've noticed is that there are a bunch of differences in how we date stuff, like how you date months and years and weeks.\w8\0\s[15]\n\nAll of your weekdays are apparently named after different kinds of gods in your mythologies.\w8\n\nSun-day, Moon-day, Tīw's-Day, Woden's-day, Thor's day, and Frigga-Day.\w8\n\nThat's why Wednesday has a silent d I think!\e"
-			"\0\s[4]Quonit told me today is the first day of the week, which doesn't really make sense,\w4 \0\s[3]because it's a circle, \w4right?\e"
-			"\0\s[8]I hope today isn't super long and annoying for you...\e"
-			"\0\s[4]I know this ghost actually came out on a Wednesday, \w4so that's something.\e"
 			"\0\s[13]Week's halfway over\w2.\w2.\w2.\e"
 		}
 		if weekday == 4 //Thursday
@@ -449,30 +425,31 @@ RandomTalk : nonoverlap
 		{
 			"\0\s[4]So,\w4 is work ending for you today? \w6I think it's the last day of work for a lot of people.\w6 That's good, right?\e"
 			"\0\s[13]Hope you get weekends off.\n\n\w8It wouldn't be very fun if you didn't.\e"
-			"\0\s[1]\1* (Smells like glitter.)\e"
 		}
 		if weekday == 6 //Saturday
 		{
-			"\0\s[1]\1* (It smells like grass.)\e"
 			"\0\s[0]Did you get to stay home today?\n\n\w8\0\s[4]I wonder actually,\w4 am I in your home?\w4 Or did you take me somewhere?\e"
-			"\0\s[8]anDream's always out hanging out with other people on Saturdays,\w4 so even if you let me leave I wouldn't have much to do.\e"
+			"\0\s[8]anDream's always out hanging out with other people on Saturdays,\w4 so even if you let me leave I wouldn't have much to do\w4.\w4.\w4.\n\n\w8\w8\0\s[0]\i[11]Well\w4.\w4.\w4.\w8\i[10]It's more like other people are taking up all their time on Saturday,\w5 and will probably try to get back at them for leaving.\e"
 		}
 		if weekday == 7 //Sunday
 		{
 			"\0\s[4]I heard a lot of stuff closes on Sundays.\w8\n\nWe don't really have a lot of stores where we live so stuff doesn't really close\w2.\w2.\w2.\e"
+			if nicesadlevel <= -10
+			{
 			"\0\s[0]Hey %(username),\w4 you got any errands to run?\n\n\w8* (You ask %(nightname) why he's asking.)\n\n\w8\0\s[13]I dunno...\w5 kinda wanna go home, \w2maybe.\e"
-		}	
+			}
+		}
 	//}
 	//Hours
 	//{
 		if timeslot == "earlymorning"
 		{
 			"\0\s[4]Is it morning for you now?\w8 It's hard to tell from in here.\e"		
-			"\0\s[0]* (You ask him for the time.)\w8\w8\n\nIt's still night, right?\w8\n\n* (You tell him to check the clock.)\w8\n\n\0\s[4]\w2*\w4(\w4.\w4.\w4.\w4)\w8\n\n\w8\0\s[8]I need to keep better track of time...\e"		
-			"\0\s[1]Shouldn't you be asleep by now?\e"		
-			"\0\s[1]...\e"		
-			"\0\s[1]* (He doesn't look tired, somehow.)\e"
-			"\0\s[1]\1[7]So,\w3 %(username),\w3 did you watch the sunrise as well?\n\n\w8\i[14]Of course they're different sunrises,\w3 but it's still pretty.\e"
+			"\0\s[0]* (You ask him for the time.)\w8\w8\n\nIt's still night, right?\w8\n\n* (You tell him to check the clock.)\w8\n\n\0\s[4]\w2*\w4(\w4.\w4.\w4.\w4)\w8\n\n\w8\0\s[8]I need to keep better track of time...\e"
+			if nicesadlevel >= 25
+			{
+			"\0\s[0]\i[55]\i[14]So,\w3 %(username),\w3 did you watch the sunrise as well?\n\n\w8Of course they're different sunrises,\w3 but it's still pretty.\e"
+			}
 			if hastea == "on"
 			{
 			"\0\s[26]* (He's drinking coffee.)\e"
@@ -480,20 +457,21 @@ RandomTalk : nonoverlap
 		}
 		if timeslot == "morning"
 		{
-			"\0\s[1]\1* (You wonder if he had a good sleep.)\e"
-			"\0\s[1]anDream always gets up earlier then me.\w8\n\nI think they just like being out in the morning."
-			"\0\s[4]Wonder what it is like for you outside in the morning...\e"
-			"\0\s[1]anDream is probably enjoying a good breakfast with their friends.\w8 It's usually pretty lonely all by myself,\w4 so thank you for sticking around.\e"
-			"\0\s[1]\1* (It's breakfast,\w3 so it's a good idea to eat.\w8 \![*]\q[Feed him something?,nightyneedstoeat])\e"
+			"\0\s[0]anDream always gets up earlier then me.\w8\n\n\i[11].\w3.\w3.\w3They used to be a pretty late sleeper.\w8 Got no idea why it changed\w3.\w3.\w3."
+			"\0\s[4]Wonder what it is like for you outside in the morning\w2.\w2.\w2.\w8You guys have weather  and seasons and stuff,\w8 right?\n\n\w8So it's probably different\w3.\w3.\w3.\e"
+			"\0\s[0]\i[55]* (It's breakfast,\w3 so it's a good idea to eat.\w8\n\n\![*]\q[Feed him something?,nightyneedstoeat])\e"
 			if hastea == "on"
 			{
 			"\0\s[27]* (He drinks some early morning tea.)\e"
 			}
+			if nicesadlevel >= 25
+			{
+			"\0\s[0]Mornings can get pretty lonely\w3.\w3.\w3.\w8\n\n\s[0]\i[10]\i[11]anDream's always up before me,\w4 but we don't usually get much time to talk or anything before we have to leave.\w8\n\nThey have more to do than me,\w4\s[0]\i[7] and sometimes we barely see each other all day before we go to sleep\w3.\w3.\w3.\e"
+			}
 		}
 		if timeslot == "lunch"
 		{
-			"\0\s[1]\1* (It's about lunchtime.\w8 \![*]\q[Feed him something?,nightyneedstoeat])\e"
-			"\0\s[1]\1* (You wonder if he's hungry about now...)\e"
+			"\0\s[0]\i[55]* (It's about lunchtime.\w8\n\n\![*]\q[Feed him something?,nightyneedstoeat])\e"
 			"\0\s[4]You know,\w4 at home we used to cook stuff with the neighbors.\n\n\w8\0\s[9]Only anDream does it now but it...\w5 used to be kinda fun.\e"
 			"\0\s[0]Even at home around the middle of the day is the hottest.\n\n\w8\0\s[13]It never gets too hot but some monsters are bothered by it,\w4 so...\w4 I dunno,\w3 if you don't like the hot stay inside,\w2 I guess.\e"
 		}
@@ -501,43 +479,34 @@ RandomTalk : nonoverlap
 		{
 			if nicesadlevel >= 25
 			{
-			//{
-			"\0\s[8]\1* (He looks tired.)\w8\n\n* (That's strange,\w4 it's the middle of the afternoon.)\e"
-			"\0\s[8]\1* (%(nightname) is acting tired..)\w8\n\n* (You ask him if he's going to take a nap.)\n\n\w8Maybe...\e"
-			//}
-			{
-			sleepingmode = "on"
-			"\0\s[1]\1\w8.\w8.\w8.\n\n\w8\w8\w8\w8\0\s[5]\1\w8\w8\w8Z\w6Z\w6Z\w6.\w6.\w6.\w8\w8\w8\n\n* (It looks like he fell asleep.)\w8\n\n* (Poor thing\w3.\w3.\w3.\w8 He must've not slept during night.)\e"
+			"\0\s[8]\i[55]* (He looks tired.)\w8\n\n* (That's strange,\w4 it's the middle of the afternoon.)\e"
+			"\0\s[8]\i[55]* (%(nightname) is acting tired..)\w8\n\n* (You ask him if he's going to take a nap.)\n\n\w8Maybe\w4.\w4.\w4.\n\n\w8\0\s[1]\i[55]* (He sits down.)\e:eval=sittang='on'"
 			}
-			}
-			"\0\s[8]\1* (You ask %(nightname) if he wants a snack.)\0\s[4]\w8\n\nOh,\w3 sure.\n\n\w8* (You hand him some fruit snacks.)\0\s[25]\e"
-			"\0\s[4]It's probably really warm outside right now\w2.\w2.\w2.\e"
+			"\0\s[8]\i[55]* (You ask %(nightname) if he wants a snack.)\0\s[4]\w8\n\nOh,\w3 sure.\n\n\w8* (You hand him some fruit snacks.)\0\s[25]\e"
 		}
 		if timeslot == "evening"
 		{
 			"\0\s[0]* (You tell him it's about dinnertime.)\n\n\w8\0\s[13]Oh, \w3I didn't notice.\w5 .\w4.\w4.Maybe you should go eat something.\e"
-			"\0\s[4]I keep hearing there's this thing called 'rush-hour' or something around five.\n\n\w8\0\s[2] I don't live where you do though so I wouldn't know much about it.\e"
-			"\0\s[4]I think watching the sunset is fun,\w4 are you going to do that %(username)?\e"
+			"\0\s[4]Sometimes it's difficult to catch the sun when it's setting\w3.\w3.\w3.\w8\n\nObviously you know when it is,\w8 but the entire village is surrounded by a thick forest,\w8 and especially a lot of the trees around the edge are really tall.\n\n\w8\s[0]\i[15]\i[14]I found that the best view is when you can get up on the old fire towers in the forest-\w8 Only me and anDream can go up there though,\w4 sense no one dares to go into the forest.\e"
 		}
 		if timeslot == "latenight"
 		{
 			if blushiemode == "on"
 			{
-			"\0\s[0]\1* (You tell %(nightname) the night reminds you of him.)\n\n\w8\0\s[28]\1*(He completely flushes\w2.\w2.\w2.)\e"
+			"\0\s[0]\i[55]* (You tell %(nightname) the night reminds you of him.)\n\n\w8\0\s[28]\i[55]*(He completely flushes\w2.\w2.\w2.)\e"
 			}
-			"\0\s[1]\1* (%(nightname) doesn't seem tired in the slightest.)\e"
-			"\0\s[1]\1* (You ask %(nightname) if he's going to bed soon.)\n\n\w8\0\s[1]\i[7]\1Are you?\e"
+			if nicesadlevel >= 25
+			{
 			"\0\s[20]Hope your day went well, \w2%(username).\e"
+			}
 		}
 		if timeslot == "midnight"
 		{
-			"\0\s[1]* (It's awfully late,\w4 shouldn't he be getting to bed?)\e"
-			"\0\s[1]* (You wonder if a spooky ghost will pop out in the middle of the night.)\n\n\w8\w8* (Oh look, a ghost's right here.)\e"
-			"\0\s[1]* (You tell %(night) he should be getting to bed, it's important to get the good rest you need.)\n\n\w8Yeah\w3.\w3.\w3.Probably.\w6 Bet anDream would be happier if I could just sleep instead of whatever this is.\e"
+			"\0\s[0]\i[15]\i[55]* (You wonder if a spooky ghost will pop out in the middle of the night.)\n\n\w8\w8* (Oh look,\w8 a ghost's right here.)\e"
+			"\0\s[0]\i[15]\i[55]* (You tell %(nightname) he should be getting to bed,\w8 it's important to get the rest you need.)\n\n\w8Yeah\w3.\w3.\w3.Probably.\w8\0\s[0]\i[11] Bet anDream would be happier if I could just sleep instead of whatever this is.\e"
 			if sadnicelevel >= 50
 			{
-			sleepingmode = "on"
-			"\0\s[5]\1\w8\w8\w8\w8*( \w4.\w4.\w4.)\n\n\w8zzz\w4.\w4.\w4.\n\n\w8\w8* (Wow,\w3 he actually managed to sleep.)\e"
+			"\0\s[5]\i[55]\w8\w8\w8\w8*( \w4.\w4.\w4.)\n\n\w8zzz\w4.\w4.\w4.\n\n\w8\w8* (Wow,\w3 he actually managed to sleep.)\e:eval=sleepingmode='on'"
 			}
 		}	
 	//}	
@@ -562,68 +531,81 @@ RandomTalk : nonoverlap
 //Selects
 Select.readfunnyblurb //The stuff leading to this is now in dts_mouse.dic but this is fine
 {
+	lasttalked = 0
 	snoop += 1
-	"\0\s[1]\1* (It says it's %(bookstoread).)\e"
+	"\0\s[1]\i[55]* (It says it's %(bookstoread).)\e"
 }
 Select.repsecttoyoumysir
 {
+	lasttalked = 0
 	respect += 1
-	"\0\s[1]\1* (You feel accomplished somehow.)\e"
+	"\0\s[1]\i[55]* (You feel accomplished somehow.)\e"
 }
 Select.besnoopbother
 {
+	lasttalked = 0
 	"\0\s[11]Couldn't you just leave me alone? \w8\w8\n\n\0\s[12]It's not like I decided to be here, \w8couldn't you maybe stop bothering me?\n\n\w8\w8* (Ask him what you've done wrong?)\n\n\![*]\q[Yes,besnoopbother1]\n\![*]\q[No,continuesnooping1]\e"
 }
 Select.continuesnoopinge
 {
+	lasttalked = 0
 	snoop =-5
-	"\0\s[12]\1* (You decide to accept his terms. \w8\0\s[6]\1\s[10]He looks happier now.)\n\n\w8\w8* (You feel somewhat accomplished.)"
+	"\0\s[12]\i[55]* (You decide to accept his terms. \w8\0\s[6]\i[55]\s[10]He looks happier now.)\n\n\w8\w8* (You feel somewhat accomplished.)"
 }
 	Select.besnoopbother1
 	{
+		lasttalked = 0
 		snoop =-5
-	"\0\s[12]* (You tell him you have no idea why he's mad.)\w8\n\n\0\s[21]You keep looking through my books while I'm reading!\n\n\w8* (You remind him that he told you that you should stop asking him what the book was and to just look at it.)\n\n\w8\0\s[12]\1\s[10]* (He looks down at the ground and crosses his arms like a kid.)\e"
+		"\0\s[12]* (You tell him you have no idea why he's mad.)\w8\n\n\0\s[21]You keep looking through my books while I'm reading!\n\n\w8* (You remind him that he told you that you should stop asking him what the book was and to just look at it.)\n\n\w8\0\s[12]\i[55]\s[10]* (He looks down at the ground and crosses his arms like a kid.)\e"
 	}
 	Select.continuesnooping1
 	{
 		nicesadlevel =- 3
-		"\0\s[1]\1* (You tell him that he is on your computer so he needs to deal with you.\w8\n\n\0\s[9]\1\s[10]* (He looks down at the ground and crosses his arms, upset.)"
+		"\0\s[0]\i[13]\i[55]* (You tell him that he is on your computer so he needs to deal with you.\w8\n\n\0\s[9]\i[55]* (He looks down at the ground and crosses his arms, upset.)"
 	}
 Select.isitcoldyes
 {
+	lasttalked = 0
 	"\0\s[0]Oh, okay. \w8Hope you have a good jacket, then.\e"
 }
 	Select.isitcoldnv
 	{
+		lasttalked = 0
 		"\0\s[4]Maybe just wear something light if you're going outside then.\e"
 	}
 	Select.isitcoldno
 		{
+			lasttalked = 0
 			"\0\s[4]Oh, is it actually summer where you live?\w8\0\s[0]\n\nThe Earth is very interesting with it's seasons.\w8\n\n\0\s[4]Then again\w4.\w4.\w4.\w8\s[2] It could just be climate change.\e"
 		}
 Select.whatswronglilbb
 		{
-			talkboutlater = "on"
+			lasttalked = 0
+			talkaboutlater = "on"
 			"\0\s[9]\w5.\w5.\w5.\w8\n\n\w8\0\s[12]...I'll talk about it later.\e"
 		}
 	Select.lethimbeplsfortheloveofgod
 		{
+			lasttalked = 0
 			"\0\s[9]\i[55]* (He'll feel better soon.)\n\n\w8* (Probably.)\e"
 		}
 Select.nameyes
 		{
+			lasttalked = 0
 			"\w8...You know my name? \w8'Nightmare'?\w8 \0\s[9]I\w2.\w2.\w2.\w5I actually hate it.\w8\n\n\0\s[12]The people who named us thought me and my brother were opposites, \w4so they got the name 'anDream' and I got the name 'Nightmare', \w4cause they were the 'good one' and I was the 'bad one'.\n\n/
 			\![*]\q[Ask him why he can't change it,name2yes]\n/
 			\![*]\q[Tell him to be quiet,nameno]\e"
 		}
 	Select.name2yes
 		{
+			lasttalked = 0
 			"\0\s[14]My brother doesn't think I'm bothered by it, \w2and I don't want to tell them I am because then he'd feel bad!\n\n\w8.\w3.\w3.\w3\0\s[12]You know what? \w8\0\s[8]That isn't even the biggest problem. \w8\w8There's also the backlash from the people I need to take care of. \w8\n\nThey'd think I'm just trying to pull it off as a stunt to get a better public perception\w5, or they'd just ignore that I changed my name.\n\n/
 			\![*]\q[Why are you protecting them?,name3yes]\n/
 			\![*]\q[Tell him to shut up,nameno]\e"
 		}
 	Select.name3yes
 		{
+			lasttalked = 0
 			nightynight = "on"
 			privacyrespecter = "off"
 			talkaboutlater = "off"
@@ -632,6 +614,7 @@ Select.nameyes
 		}
 	Select.nameno
 		{
+			lasttalked = 0
 			talkaboutlater = "off"
 			privacyrespecter = "on"
 			nicesadlevel -= 5
@@ -639,68 +622,100 @@ Select.nameyes
 		}
 Select.Doesyourworkcountyes
 	{
+		lasttalked = 0
 		nicesadlevel += 4
 		"\0\s[9]I\w2.\w2.\w2. \w4I take care of Mom's tree, \w4I just don't\w2.\w2.\w2. \w4\0\s[8]I help feed it and whatever else, \w4but only anDream's apples do anything.\w8\n\n\0\s[9]Because their apples are able to be cut up and used to help numb pain,\w5 but mine are just kind of useless\w2.\w2.\w2.\e"
 	}
 	Select.Whotfwantstohearaboutyourwork
 		{
+			lasttalked = 0
 			nicesadlevel -= 2
 			"\0\s[7]Uh- \w2Sorry!\e"
 		}
 	Select.Nocommentonifworkcount
 		{
+			lasttalked = 0
 			"\0\s[9]\w2.\w2.\w2.\e"
 		}
 Select.Goopmare
 	{
+		lasttalked = 0
 		Edgybitch = "on"
 		wasemo = "on"
-"\0\s[23]Ah-!\0\s[24]\w8\w8\w8\w8\w8\w8\w8\w8\n\n.\w8.\w8.\0\s[1612]\i[35]\w5\i[36]\i[37]\w8\w8\w8\w8\0\s[1617]\w8\w8\0\s[1613]Looks like you found me.\w4.\w4.\w5I'd say it's almost impressive.\w4 Especially if you didn't even know I was here, \w4the lengths you went through to basically torture him.\w8\n\n\0\s[1615]But, here you are. \w5Doesn't much matter what you said to him before.\w8\0\s[1613] You get to talk to me now.\0\s[0]\![change,Shell,Nightmare]\e"
+"\0\s[23]Ah-!\0\s[24]\w8\w8\w8\w8\w8\w8\w8\w8\n\n.\w8.\w8.\0\s[1612]\i[35]\w5\i[36]\i[37]\w8\w8\w8\w8\0\s[1617]\w8\w8\0\s[1613]Looks like you found me.\w4.\w4.\w5I'd say it's almost impressive.\w4 Especially if you didn't even know I was here, \w4the lengths you went through to basically torture him.\w8\n\n\0\s[1615]But, here you are. \w5Doesn't much matter what you said to him before.\w8\0\s[1613] You get to talk to me now.\![change,Shell,Nightmare]\e"
 	}
 Select.hugpurpleman
 	{
+	lasttalked = 0
 	nicesadlevel += 1
 	"\i[5]\s[7]* (You try to give him a hug,\w4 but the mouse cursor doesn't have arms...)\n\n\w8\s[3]What's with you trying to touch people anyways..."
 	}
 	Select.leavepurplemanalone
 	{
+	lasttalked = 0
 	nicesadlevel += 1
 	respect += 1
 	"\i[55]* (You respect his distance.)\n\n\w8\s[3]Thanks I guess?"
 	}
 Select.Yesvacation
 {
+	lasttalked = 0
 	"\0\s[0]Oh,\w3 well I hope you have fun.\w8\n\n\0\s[13]I wonder if it's possible for you to take me on a laptop with you...\e"
 }
 	Select.Maybevacation
 		{
-			"\0\s[0]Well if you do go on one I hope that it's fun.\e"
+		lasttalked = 0
+		"\0\s[0]Well if you do go on one I hope that it's fun.\e"
 		}
 	Select.Novacation
 		{
-			"\0\s[6]It's okay!\w8 I don't go on vacations either!\e"
+		lasttalked = 0
+		"\0\s[6]It's okay!\w8 I don't go on vacations either!\e"
 		}
 Select.fiveleave
 {
+	lasttalked = 0
 	//temp dialogue
 	nicesadlevel += 1
 	"Ah-\w5 Thank you!!\w8\w8\w8\-\e"
 }
 	Select.fivestay
 	{
+		lasttalked = 0
 		nicesadlevel -= 5
 		"O-Oh\w2.\w2.\w2.\w8 I mean, if you could soon,\w3 then\w2.\w2.\w2."
+	}
+Select.dreamfinechores
+{
+	"\0\s[0]I think it's fine if they're okay with it...\w8\i[11] But they get dragged into a lot of stuff I don't think they want to do because of\w4.\w4.\w4.\w8\w4\n\n\s[8]Sigh,\w4 nevermind."
+}
+	Select.dreamnofinechores
+	{
+		"\0\s[0]\i[11]I don't think it's right either,\w6 but I can't do anything about it\w3.\w3.\w3.\w8\w4\n\nanDream has to spend so much time protecting me from people that I feel kind of\w3.\w3.\w3.\w3 Useless when trying to help them out.\w8\w4\n\n\s[12]'s not like I have the social power to do anything."
 	}
 ciderchain
 {{CHAIN
 	"\0\s[0]Now that I think on it more,\w4 I wonder if the Mom's tree's apples taste anything like your world's apples.\e:chain=end"
 }}CHAIN
+
+//Time stuff
+HourCheck
+{
+if passmin >= 59
+{
+	passmin = 0
+	passhour = passhour + 1
+}
+}
+
 OnMinuteChange
 {
+	lasttalked += 1
 	timeslot = GetTimeSlot
 	--
- 	if minute == 0 
+	if minute == 0
 	{
+		/*
 		if hour == 1
 		{
 		}
@@ -708,8 +723,11 @@ OnMinuteChange
 		{
 		}
 		elseif hour == 3
-		{			
-			"\0\s[1]\1* (It's 3 AM.)\n\n\w8* (Better watch out.)\e"
+		{
+			if sittang == "on"
+			{
+			"\0\s[1]\i[55]* (It's 3 AM.)\n\n\w8* (Better watch out.)\e"
+			}
 		}
 		elseif hour == 4
 		{
@@ -719,7 +737,7 @@ OnMinuteChange
 			"\0\s[7]\i[55]* (He notices what time it is.)\n\n\w8Ah-\w4 I better get back home soon.\n\n\w8Otherwise Dream might notice I'm not there when they wake up\w2.\w2.\w2. \w4And\w2.\w2.\w2.\n\n\w8* (Let him leave?)\n\n/
 			\![*]\q[Yes,fiveleave]\n/
 			\![*]\q[No,fivestay]\e"
-		}
+			}
 		elseif hour == 6
 		{
 		}
@@ -738,9 +756,9 @@ OnMinuteChange
 		elseif hour == 11
 		{
 		}
- 		elseif hour == 12
+		elseif hour == 12
 		{
-			"\0\s[0]It's twelve\w2.\w2.\w2. \w5That's usually when most people go to eat, \w2right?\e"
+		"\0\s[0]It's twelve\w2.\w2.\w2. \w5That's usually when most people go to eat, \w2right?\e"
 		}
 		elseif hour == 13
 		{
@@ -776,92 +794,116 @@ OnMinuteChange
 		{
 			if minute == 55
 			{
-			"\0\s[1]\1* (Five minutes to midnight.)\n\n\w8* (Should you be heading to bed?)\e"
+				if sittang == "on"
+				{
+				"\0\s[1]\i[55]* (Five minutes to midnight.)\n\n\w8* (Should you be heading to bed?)\e"
+				}
 			}
-			else 
+			else
 			{
 			"\0\s[0]It's 11 pm.\e"
 			}
 		}
- 		elseif hour == 0
+		elseif hour == 0
 		{
- 			"\0\s[1]\1 (He doesn't seem to notice how late it is.)\e"
+			if sittang == "on"
+			{
+			"\0\s[1]\i[55] (He doesn't seem to notice how late it is.)\e"
+			}
 		}
 		else
 		{
 			"\0\s[0]It's %(hour12)'o clock.\e"
 		}
+		*/
 	}
 	elseif mikireflag == 1
- 	{
- 		MikireTalk
+	{
+		MikireTalk
+	}
+	elseif sittang == "off" && lasttalked >= 15 //If he doesn't talk for 15 minutes
+	{
+		sittang = "on"
+		"\0\s[1]\i[55]* (He sits down.)\e"
+	}
+	elseif nicesadlevel <= -25 //Might change later. what is this.
+	{
+	privacyrespecter = "on"
+	}
+	//Mare Code
+	elseif nowshell == "Nightmare"
+	{
+		Edgybitch = "on"
+	}
+	elseif Edgybitch == "on"
+	{
+		//"\![change,Shell,Nightmare]\e"
+	}
+	//Blushie Code
+	elseif blushmode == "on" && privacyrespecter == "off"
+	{
+		//"\![bind,Costume,Blushies,true]\e"
+	}
+	elseif blushiemode == "off" || privacyrespecter == "on"
+	{
+		//"\![bind,Costume,Blushies,false]\e"
+	}
+	//Dream Code
+	elseif intodreams == "on"
+	{
+		//"\![change,Shell,Dream]\e"
+	}
+	elseif nowshell == "Dream"
+	{
+		intodreams = "on"
+	}
+	else
+	{
+		Edgybitch = "off"
+		intodreams = "off"
+		//"\![change,Shell,Dreamtale Sans]\e"
 	}
 }
 OnSecondChange
- {
-	if passsec == 60
- 		{
-	 	passsec = 0
- 		passmin = passmin + 1
-		}
- 	else
- 		{
-	 	passsec = passsec + 1
-		}
-	if mikireflag == 1 && reference1 == 0
-		{
-			EndMikireTalk
- 		}
-		mikireflag = reference1
-	if reference2 == 1
+{
+	if passsec == 60 //Figures out when a minute passes
 	{
- 		//This dialogue doesn't work because two characters should never be on the screen at the same time. Even Dream will likely just be drawn on the same surfaces.
+	passsec = 0
+	passmin = passmin + 1
+	}
+	else
+	{
+	passsec = passsec + 1
+	}
+	if mikireflag == 1 && reference1 == 0
+	{
+	EndMikireTalk
+	}
+	mikireflag = reference1
+	if reference2 == 1 //If two characters are dragged on top of each other
+	{
+	//This dialogue doesn't work because two characters should never be on the screen at the same time. Even Dream will likely just be drawn on the same surfaces.
 	}
 	if ASEARCH("Status",var.req.key) != -1
-    {
-        currentstatus = var.req.value[ASEARCH("Status",var.req.key)]
+	{
+		currentstatus = var.req.value[ASEARCH("Status",var.req.key)]
 		if "balloon" _in_ currentstatus
 		{
 			//no more
-        }
-        else
-        {
-            if nicesadlevel <= -5 || snoop <= 20
-			{
-			privacyrespecter = "on"
-			}
-			if nicesadlevel >= -5 || snoop >= 20
-			{
-				privacyrespecter = "off"
-			}
-			if nowshell == "Nightmare"
-			{
-				Edgybitch == "on"
-			}
-			if blushmode == "on" && privacyrespecter == "off"
-			{
-				"\![bind,Costume,Blushies,true]\e"
-			}
-			if blushiemode == "off"
-			{
-				"\![bind,Costume,Blushies,false]\e"
-			}
-			if privacyrespecter == "on"
-			{
-				"\![bind,Costume,Blushies,false]\e"
-			}
-        }
-    }
+		}
+		else
+		{
+			//????
+		}
+	}
 }
 MikireTalk
 {
 	"\0\i[55]* (%(nightname) is off the screen.\w8 You can bring him back by pressing Ctrl+Shift+F12.)"
-	"\1\s[10]\e"
 }
 EndMikireTalk
 {
 	"\0\i[55]* (%(nightname) is back on the desktop.)\e"
-	"\1\s[10]\e"
 }
 OnSurfaceRestore
 {
@@ -887,13 +929,13 @@ OnSurfaceRestore
 	}
 	elseif intodreams == "on"
 	{
-	"\0\s[2000]\e" //Make idles at some point
+	"\0\s[0]\e" //Make idles at some point
 	//Staring off at something?
 	//Fiddling?
 	}
 	else
 	{
-	"\0\s[0]\e"
+	"%(surface0)\e"
 		if hastea == "on"
 		{
 		"\0\s[41]\e"
@@ -907,7 +949,7 @@ OnSurfaceRestore
 }
 OnShellChanged //I hope this doesn't kill the ghost
 {
-  nowshell = reference0
+	nowshell = reference0
 }
 OnKeyPress
 {

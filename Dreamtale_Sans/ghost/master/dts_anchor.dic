@@ -24,9 +24,15 @@ case reference0
 {
 	when "Dream"
 	{
+	lasttalked = 0
 		if sleepingmode == "on"
 		{
 		"z\w2z\w2z\w2.\w2.\w2.\w8\w8 anDream\w2.\w2.\w2.\w2?\e"
+		}
+		elseif sittang == "on"
+		{
+			//temp dialogue
+			"\0\s[1]"
 		}
 		else
 		{
@@ -62,6 +68,7 @@ case reference0
 	}
 	when "Quonit"
 	{
+	lasttalked = 0
 		if Edgybitch == "on" && sleepingmode == "off"
 		{
 		"\0\s[4]\_b[Extras\aliteralfoxmotheroftwo.png,125,10]\_l[0,60]She's the idiot that decided to spend nearly a year working on making this stupid crap.\e"
@@ -81,6 +88,7 @@ case reference0
 	}
 	when "Mom's tree"
 	{
+	lasttalked = 0
 		if privacyrespecter == "on" && sleepingmode == "off"
 		{
 		"\0\s[12]...It's a magic tree.\e"
@@ -106,8 +114,15 @@ case reference0
 	}
 	when "Nightmare"
 	{
+	lasttalked = 0
 		"\0\s[2002]My brother\w2.\w2.\w2. \w8\i[49]I don't know where's he's gone to\w2.\w2.\w2.\w8\n\n\s[2007]I hope he's alright.\e"
 	}
 }
 }
+}
+
+//This bit of code is what makes menu options that don't start with On direct to Select.options instead. Remove or comment it if you prefer!
+OnChoiceSelect
+{
+    EVAL("Select.%(reference0)")
 }

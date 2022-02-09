@@ -9,7 +9,7 @@
 		{
 			Wallpaperfile = reference0
 			
-			"\0\s[0]The file you dropped is %(_filename)%(_fileext).\w8\1\s[10]How would you like us to set this picture as your wallpaper?\n\n[half]/
+			"\0\s[0]The file you dropped is %(_filename)%(_fileext).\w8\i[55]\s[10]How would you like us to set this picture as your wallpaper?\n\n[half]/
 			\q[Centered,SetWallpaper_0]\n/
 			\q[Tiled,SetWallpaper_1]\n/
 			\q[Stretched,SetWallpaper_2]\n\n/
@@ -19,11 +19,11 @@
 		{
 			if Edgybitch == "on"
 			{
-			"\0\s[0]What, \w4do you want me to sing for you or something?\e"
+			"\0\s[0]\i[13]What, \w4do you want me to sing for you or something?\e"
 			}
 			elseif intodreams == "on"
 			{
-			"\0\s[2002]* (Dream doesn't seem to know what it is...)\0\s[2002]Um... Thank you...?\e"
+			"\0\s[2002]* (Dream doesn't seem to know what it is...)\0\s[2002]Um\w2.\w2.\w2.\w8 Thank you\w2.\w2.\w2.\w2?\e"
 			}
 			else
 			{
@@ -51,11 +51,11 @@ Select.SetWallpaper_2
 }
 Select.SetWallpaper_Cancel
 {
-	"\1\s[10]\b[1]* (The wallpaper was canceled.)\e"
+	"\i[55]\s[10]\b[1]* (The wallpaper was canceled.)\e"
 }
  //---- OnInstallBegin -------------------------------------------------------
 OnInstallBegin
- {
+{
 	if Edgybitch == "on"
 	{
 		"\0\s[1]Ah,\w4 somebody to replace me I see?\w8\n\n\0\s[4]Oh don't worry, \w4I'm not mad about it.\w5 Here, I'll even install it for you.\e"
@@ -63,53 +63,43 @@ OnInstallBegin
 	}
 	else
 	{
-	"\0\s[0]Oh hey, it looks like there's a ghost in here.\w8 I'll install it.\e"
-	"\0\s[4]Another ghost? \w8Sure, I'll install it.\e"
-	"\0\s[0]* (Installing file\w4.\w4.\w4.\w4)\e"
+	"\0\s[4]A ghost...? \w8Sure, I'll install it.\e"
+	"\0%(surface0)* (Installing file\w4.\w4.\w4.\w4)\e"
 	}
- }
- //---- OnInstallComplete -------------------------------------------------------
- //OnInstallComplete runs once the file above has finished installing.
+}
 OnInstallComplete
- {
+{
 	"\0"
- 	--
+	--
 	if reference0 == "shell"
- 	{	
+	{	
 		if reference1 == "Nightmare"
 		{
 		Edgybitch = "on"
 		wasemo = "on"
-		"\0\s[1]This should come with the ghost.\w8 Wonder what Quonit fucked up with this time.\e"
-		}
-		elseif reference1 == "Another totally real shell wow"
-		{
-		"\s[0]We have installed another totally real shell.\e"
+		"\0\s[1]This should come with the ghost.\w8 Wonder what Quonit screwed up this time.\e"
 		}
 		else //For any other shell they may install.
 		{
-		"\s[0]We've installed a new shell.\w8\1\s[10]It's called  %(reference1).\e" //%(reference1) here would be the name of the shell they installed. Replace if needed.
+		"%(surface0)\i[55]* (%(reference1) was installed.)\e" 
 		}
- 	}
+	}
 	elseif reference0 == "ghost"
- 	{
-		"\s[0]* (%(reference1) has been successfully installed.)\e"
-		"\s[0]I've installed %(reference1) for you.\e"
- 	}
+	{
+		"%(surface0)\i[55]* (%(reference1) has been successfully installed.)\e"
+	}
 	elseif reference0 == "balloon"
- 	{
-		"\s[0]* (%(reference1) has been successfully installed.)\e"
-		"\s[0]I've installed %(reference1) for you.\e"
- 	}
+	{
+		"%(surface0)\i[55]* (%(reference1) has been successfully installed.)\e"
+	}
 	elseif reference0 == "plugin"
- 	{
-		"\s[0]* (Plugin %(reference1) has been successfully installed.)\e"
-		"\s[0]I've installed plugin %(reference1) for you.\e"
- 	}
+	{
+		"%(surface0)\i[55]* (Plugin %(reference1) has been successfully installed.)\e"
+	}
 }
 
 OnInstallFailure
- {
+{
 	if Edgybitch == "on"
 	{
 		"\0\s[0]* (The installation has failed.)\n\n\w5"
@@ -117,103 +107,100 @@ OnInstallFailure
 	}
 	else
 	{
-	"\0\s[0]\1* (The installation has failed.)\n\n\w5"
-	"\0\s[0]I couldn't install it, sorry.\n\n\w5"
+	"%(surface0)\i[55]* (The installation has failed.)\n\n\w5"
+	"\0\s[8]I couldn't install it, sorry.\n\n\w5"
 	}
 	--
 	if reference0 == "unsupported"
 	{
-	"\0\s[0]\1* (The file is unsupported.)\e"
+	"%(surface0)\i[55]* (The file is unsupported.)\e"
 	}	
 	elseif reference0 == "extraction"
 	{
-	"\0\s[0]\1* (The file could not be extracted properly.)\e"
+	"%(surface0)\i[55]* (The file could not be extracted properly.)\e"
 	}
- }
+}
  
 OnInstallRefuse
- {
-	"\0\s[0]I can't install this. \w4I think it's for %(reference0) instead.\e"
-	"\0\s[0]\1* (This file is for %(reference0))\e"
- }
+{
+	"\0\s[8]I can't install this. \w4I think it's for %(reference0) instead.\e"
+	"\0%(surface0)\i[55]* (This file is for %(reference0))\e"
+}
  
 OnVanishSelecting
 {
-	"\0\s[8]Oh, you want to uninstall me?\e"
-	"\0\s[0]\1* (Do you wish to uninstall Dreamtale Sans from your computer?)\e"
+	"\0%(surface0)\i[55]* (Do you wish to uninstall Dreamtale Sans from your computer?)\e"
 }
 OnVanishSelected
 {
-	"\0\s[0]Goodbye.\e"
-	"\0\s[0]\1* (You've decided to uninstall Dreamtale Sans.)\e"
+	"\0%(surface0)\i[55]* (You've decided to uninstall Dreamtale Sans.)\e"
 }
 OnVanishCancel
 {
-	"\0\s[0]Oh, \w6so you decided not to install me?\e"
-	"\0\s[0]\1* (You've decided not to uninstall Dreamtale Sans.)\e"
+	"\0%(surface0)\i[55]* (You've decided not to uninstall Dreamtale Sans.)\e"
 }
 TalkVanishButtonHold
 {
-	"\0\s[8]Um\w3.\w3.\w3. \w5are you gonna uninstall me or not?\e"
+	"\0\s[9]Um\w3.\w3.\w3. \w5are you gonna uninstall me or not?\e"
 }
 OnVanished
 {
-	"\0\s[0]Goodbye %(reference0)...\e"
+	"\0\s[3]Huh\w2.\w2.\w2.\w8\n\nI swear I saw someone,\w8 guess they disappeared\w2.\w2.\w2."
 }
 
 OnBIFFBegin
 {
-	"\1* (Checking the e-mail\w4.\w4.\w4.)\e"
+	"\0%(surface0)\i[55]* (Checking the e-mail\w4.\w4.\w4.)\e"
 }
 
 OnBIFFComplete
 {
 	if reference0 == 0
- 	{
- 		"\1* (There is no new mail.)\e"
+	{
+		"\0%(surface0)\i[55]* (There is no new mail.)\e"
 	}
 	elseif reference0 == 1
- 	{
- 		"\1 (There is one new email.)\e"
+	{
+		"\0%(surface0)\i[55]* (There is one new email.)\e"
 	}
 	elseif reference0 > 1 && reference0 < 11
 	{
-		"\1* (There are %(reference0) emails.)\e"
+		"\0%(surface0)\i[55]* (There are %(reference0) emails.)\e"
 	}
 	elseif reference0 > 100
 	{
-		"\1* (There are %(reference0) emails unread.)\e"
+		"\0%(surface0)\i[55]* (There are %(reference0) emails unread.)\e"
 	}
- 	else
+	else
 	{
-		"\1* (There are %(reference0) emails.)\e"
- 	}
+		"\0%(surface0)\i[55]* (There are %(reference0) emails.)\e"
+	}
 }
 
 OnBIFFFailure
- {
+{
 	if reference0 == "timeout"
- 	{
+	{
 		if Edgybitch == "on"
 		{
 			"\0\s[1]Connection timed out.\w5 What a shame.\e"
 		}
 		else
 		{
- 		"\0\s[8]The connection timed out.\e"
+			"\0\s[8]The connection timed out.\e"
 		}
 	}
- 	elseif reference0 == "kick"
+	elseif reference0 == "kick"
 	{
 		"\0\s[8]I can't access the account.\e"
- 	}
-	elseif reference0 == "defect"
- 	{
- 		"\0\s[0]\1* (The email account was not set up properly.)\w8\n\n* (It can be reset at the POP menu.)\![open,configurationdialog]\e"
 	}
- 	elseif reference0 == "artificial"
+	elseif reference0 == "defect"
 	{
-		"\0\s[1]\1* (The user cancelled the email check.)"
+		"\0\s[0]\i[55]* (The email account was not set up properly.)\w8\n\n* (It can be reset at the POP menu.)\![open,configurationdialog]\e"
+	}
+	elseif reference0 == "artificial"
+	{
+		"\0%(surface0)\i[55]* (Email check was canceled.)"
 	}
 	else
 	{
@@ -232,192 +219,201 @@ OnUpdateBegin
 {
 	if Edgybitch == "on"
 	{
-		"\0\s[1]* (Starting the update process.)\e"
-		"\0\s[1]Surprising,\w5 she actually updated it.\e"
+		"\0%(surface0)\i[55]* (Starting the update process.)\e"
 	}
 	if Edgybitch == "off"
 	{
-		"\0\s[0]\1* (Starting the update process.)\w8\e"
+		"\0%(surface0)\i[55]* (Starting the update process.)\w8\e"
 		"\0\s[4]I wonder what kind of things could be in the update...\w8\e"
-		"\0\s[4]Huh,\w5 I didn't think Quonit would ever touch this ghost again after April Fools\w2.\w2.\w2.\w8\e"
 	}
 	if reference0 == "artificial"
 	{
-		"\0\s[1]\1* (The user cancelled the email check.)"
+		"\0%(surface0)\i[55]* (The user cancelled the email check.)"
 	}
 }
 OnUpdateReady
 {
-	"\0\s[1]\1* (There are %(reference[0]) new files.)\w8\e"
+	"\0%(surface0)\i[55]* (There are %(reference[0]) new files.)\w8\e"
 }
 OnUpdateComplete
 {
 	if reference0 == "none"
- 	{
- 		"\0\s[1]\1* (There are no new files.)\e"
+	{
+		"\0%(surface0)\i[55]* (There are no new files.)\e"
 		"\0\s[2]Doesn't look like there's anything new to update with.\e"
 	}
- 	else
+	else
 	{
-		"\0\s[1]\1* (Update successful!)\n\n\w8* (Do you want to read the changelog?)\n\n/
+		"\0%(surface0)\i[55]* (Update successful!)\n\n\w8* (Do you want to read the changelog?)\n\n/
 		\q[See Changelog,OnShowLog]   \q[No thanks,Cancel]"
- 	}
+		--
+		UpdateVars
+	}
 }
 OnShowLog
 {
-    "\![open,file,changelog.txt]\e"
+	"\![open,file,changelog.txt]\e"
 }
 
 OnUpdateFailure
 {
+	_file = SPLITPATH(reference1)[2] + SPLITPATH(reference1)[3] //This gets the name and extension of the offending file
 	if reference0 == "timeout"
- 	{
- 		"\0\s[1]\1* (The update connection timed out.)\e"
-	}
- 	elseif reference0 == "md5 miss"
 	{
-		"\0\s[1]\1* (The MD5 hash of the files don't match.)\e"
- 	}
+		"\0%(surface0)\i[55]* (The update connection timed out.)\e"
+	}
+	elseif reference0 == "md5 miss"
+	{
+		"\0%(surface0)\i[55]* (The MD5 hash of the files don't match. \w8There was an MD5 error on file %(_file)\e"
+	}
 	else //for other errors
- 	{
- 		"\0\s[1]\1* (The update could not be completed.)\w8\n\n* (The error is '%(reference0)'.)\e"
+	{
+		"\0%(surface0)\i[55]* (The update could not be completed.)\w8\n\n* (The error is '%(reference0)'.)\e"
 	}
 }
 OnUpdate.OnDownloadBegin
 {
- 	if "aitalk" _in_ reference0 
- 	{
- 		"\0\s[1]\1* (You get the feeling he might have more things to say.)\e"
- 	}
- 	else //for files not specified above
- 	{
-	"\0\s[1]\1* (...)\e"
+	if "aitalk" _in_ reference0
+	{
+		"\0%(surface0)\i[55]* (You get the feeling he might have more things to say.)\e"
+	}
+	else //for files not specified above
+	{
+	"\0\s[1]\i[55]* (...)\e"
 	}
 }
 
-OnUpdate.OnMD5CompareBegin
-{
-	"\0\s[1]\1* (Checking the MDI value...)\e"
-}
-OnUpdate.OnMD5CompareComplete
-{
-	"\0\s[1]\1* (MDI check positive).\e"
-}
+OnUpdate.OnMD5CompareBegin {}
+OnUpdate.OnMD5CompareComplete {}
 OnUpdate.OnMD5CompareFailure
- {
-	"\0\s[1]\1* (The MDI values don't seem to match.)\w8\e"
- }
+{
+	"\0%(surface0)\i[55]* (The MDI values don't seem to match.)\w8\e"
+}
 OnHeadlinesenseBegin
- {
-	"\0\s[1]\1* (You've selected %(reference0).)\e"
- }
+{
+	"\0%(surface0)\i[55]* (You've selected %(reference0).)\e"
+}
 OnHeadlinesense.OnFind
 {
- 	if reference2 == "First" || reference2 == "First and Last"
+	if reference2 == "First" || reference2 == "First and Last"
 	{
-		"\1\b2\s[10]%(reference0):"
- 	}
-	elseif reference2 == "Next"
- 	{
- 		"\10\b2\s[10]%(reference0):"
+		"\0%(surface0)\i[55]%(reference0):"
 	}
- 	elseif reference2 == "Last"
+	elseif reference2 == "Next"
 	{
-		"\10\b2\s[10]%(reference0):"
- 	}
+		"\0%(surface0)\i[55]%(reference0):"
+	}
+	elseif reference2 == "Last"
+	{
+		"\0%(surface0)\i[55]%(reference0):"
+	}
 	--
 	"\n\n%reference3\n"
- 	--
- 	if reference2 == "First" || reference2 == "Next"
+	--
+	if reference2 == "First" || reference2 == "Next"
 	{
 		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
- 	}
+	}
 	else
- 	{
- 		"\![*]\q[Stop,Headline_Cancel]\e"
- 	}
+	{
+		"\![*]\q[Stop,Headline_Cancel]\e"
+	}
 	
 }
 Select.Headline_Cancel
 {
-	"\1* (Headline viewing complete.)\e"
+	"\i[55]* (Headline viewing complete.)\e"
 }
 OnHeadlinesenseComplete
- {
-	"\0\s[1]\1* (No update. %(reference0).)\e"
- }
-OnHeadlinesenseFailure
-  {
-	"\0\s[1]\1* (The feed can't updated because " 
- 	--
-	if reference0 == "can't download"
- 	{
-		"it can't be downloaded.)"
- 	}
-	elseif reference0 == "can't analyze"
- 	{
-		"it can't be analyzed.)"
- 	}
-	else //other errors
- 	{
-		"...\w6 for an unknown cause.)"
- 	}
-	--
- 	"\e"
+{
+	"\0%(surface0)\i[55]* (No update. %(reference0).)\e"
 }
+OnHeadlinesenseFailure
+{
+	"\0%(surface0)\i[55]* (The feed can't updated because "
+	--
+	if reference0 == "can't download"
+	{
+		"it can't be downloaded.)"
+	}
+	elseif reference0 == "can't analyze"
+	{
+		"it can't be analyzed.)"
+	}
+	else //other errors
+	{
+		"...\w6 for an unknown cause.)"
+	}
+	--
+	"\e"
+}
+//UPDATE VARIABLES 
+//These are new variables to initialize after an update. By checking if the variable doesn't exist before initializing it, we prevent variables already in use from being overwritten. This is VERY IMPORTANT, or you risk resetting the user's progress on your new variables every time they update!
+//ISVAR is a built in YAYA function that checks if a variable exists (is initialized) or not. It returns 0 if the variable doesn't exist, and 1 if it does. -Zi
+UpdateVars
+{
+	if !ISVAR('menuname'); {menuname='off'}
+	if !ISVAR('hemisphere'); {hemisphere='Northern'}
+	if !ISVAR('metalpet'); {metalpet=0}
+	if !ISVAR('sittang'); {sittang='off'}
+	if !ISVAR('intodreams'); {intodreams='off'}
+	if !ISVAR('starcrownexpo'); {starcrownexpo='off'}
+	if !ISVAR('maremare'); {maremare='off'}
+	if !ISVAR('seensoul'); {seensoul='off'}
+}
+
 OnUpdatedataCreating
 {
-	"\0\s[1]\1* (* (Creating the updates2.dau file.))\e"
+	"\0%(surface0)\i[55]* (* (Creating the updates2.dau file.))\e"
 }
 OnUpdatedataCreated
 {
-	"\0\s[1]\1* (Successfully created updates2.dau.)\e"
+	"\0%(surface0)\i[55]* (Successfully created updates2.dau.)\e"
 }
 OnNarCreating
 {
-	"\0\s[1]\1* (Creating the .nar file.)\e"
+	"\0%(surface0)\i[55]* (Creating the .nar file.)\e"
 }
 OnNarCreated
 {
-	"\0\s[1]\1* (Successfully created '%(reference0)'.)\e"
+	"\0%(surface0)\i[55]* (Successfully created '%(reference0)'.)\e"
 }
 OnSNTPBegin
 {
-	"\0\s[1]\1* (Connecting to %(reference0) for the time.)\e"
+	"\0%(surface0)\i[55]* (Connecting to %(reference0) for the time.)\e"
 }
 OnSNTPCompare
 {
- 	"Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\n/
-	Your Time: %reference2[1]/%reference2[2]/%reference2[0] %reference2[3]:%reference2[4]:%reference2[5]\w2\n/
- 	\n"
+	"Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\n/
+	Your Time: %reference2[1]/%reference2[2]/%reference2[0] %reference2[3]:%reference2[4]:%reference2[5]\w2\n\n"
 	--
- 	if reference3 == 0 
+	if reference3 == 0
 	{
- 		"\0\s[1]\1* (The clock is accurate.)\e"
+		"\0%(surface0)\i[55]* (The clock is accurate.)\e"
 	}
- 	else
+	else
 	{
- 		"\0\s[1]\1\s[10]\b[1]* (Your clock doesn't match.\w6\nDo you want it fixed?)\n\n/
+		"\0\s[1]\i[55]\s[10]\b[1]* (Your clock doesn't match.\w6\nDo you want it fixed?)\n\n/
 		\![*]\q[Fix it,OnSNTPEXECUTE]\n/
- 		\![*]\q[Leave it alone,OnSNTPCANCEL]\e"
+		\![*]\q[Leave it alone,OnSNTPCANCEL]\e"
 	}
 }
 OnSNTPEXECUTE
 {
-	"\0\s[1]\1* (The clock has been fixed.)\6\e"
+	"\0%(surface0)\i[55]* (The clock has been fixed.)\6\e"
 }
 OnSNTPCANCEL
 {
-	"\0\s[1]\1* (You decide to leave it alone.)\e"
+	"\0%(surface0)\i[55]* (You decide to leave it alone.)\e"
 }
 OnSNTPFailure
 {
-	"\0\s[1]\1* (The clock wasn't changed. \w8Something went wrong.)\e"
+	"\0%(surface0)\i[55]* (The clock wasn't changed. \w8Something went wrong.)\e"
 }
 OnDisplayChange
 {
-	displaybpp    = reference0
- 	displaywidth  = reference1
+	displaybpp	= reference0
+	displaywidth  = reference1
 	displayheight = reference2
 }
 OnScreenSaverStart
@@ -435,7 +431,7 @@ OnScreenSaverEnd
 {
 	if Edgybitch == "on"
 	{
-		"\0\s[5]What the hell was that??\e" 
+		"\0\s[5]What the hell was that??\e"
 	}
 	else
 	{
@@ -444,25 +440,27 @@ OnScreenSaverEnd
 }
 OnApplicationBoot
 {
-	"\0\s[0]\1* (%(reference0) just started.)\e"
+	"\0%(surface0)\i[55]* (%(reference0) just started.)\e"
 }
 OnApplicationClose
 {
-	"\0\s[1]\1* (%(reference0) has closed.)\e"
+	"\0%(surface0)\i[55]* (%(reference0) has closed.)\e"
 }
 OnApplicationFileOpen
 {
-	"\0\s[0]Opening %(reference1).\e"
-}OnBatteryLow
+	"\0%(surface0)\i[55]Opening %(reference1).\e"
+}
+OnBatteryLow
 {
-	"\0\s[1]\1* (The laptop's battery is low. \w8There is %(reference0) power left.)\e"
-} OnBatteryCritical
+	"\0%(surface0)\i[55]* (The laptop's battery is low. \w8There is %(reference0) power left.)\e"
+}
+OnBatteryCritical
 {
-	"\0\s[1]\1* (The laptop's battery is critically low.)\e"
+	"\0\s[1]\i[55]* (The laptop's battery is critically low.)\e"
 }
 OnSysResourceLow
 {
-	"\0\s[1]\1* (The system resources are low.)\e"
+	"\0%(surface0)\i[55]* (The system resources are low.)\e"
 }
 OnShellScaling
 {
@@ -476,8 +474,8 @@ OnShellScaling
 		else
 		{
 		"\0\s[3]Dunno why you'd want me to take up so much of your screen\w3.\w3.\w3. \w4But okay.\e"
-		"\0\s[1]\1* (He doesn't seem to have noticed.)\e"
-		"\0\s[1]\1* (Big size sans.)\e"
+		"\0%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
+		"\0%(surface0)\i[55]* (Big size sans.)\e"
 		}
 		
 	}
@@ -489,9 +487,9 @@ OnShellScaling
 		}
 		else
 		{
-		"\0\s[1]\1* (He doesn't seem to have noticed.)\e"
+		"\0%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
 		"\0\s[4]Back to normal...\e"
-		"\0\s[1]\1* (Normal sized sans.)\e"
+		"\0%(surface0)\i[55]* (Normal sized sans.)\e"
 		}
 	}
 	elseif reference0 == 50
@@ -503,31 +501,31 @@ OnShellScaling
 		}
 		else
 		{
-		"\0\s[0]Um\w3.\w3.\w3. \w8\0\s[13]\n\nEverything is really big now.\e"
-		"\0\s[1]\1* (He doesn't seem to have noticed.)\e"
-		"\0\s[1]\1* (Smol sans.\w8 Fun sized sans.)\e"
+		"\0\s[7]Um\w3.\w3.\w3. \w8\0\s[13]\n\nEverything is really big now.\e"
+		"\0%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
+		"\0%(surface0)\i[55]* (Smol sans.\w8 Fun sized sans.)\e"
 		}
 	}
 }
 
 BalloonCheck
 {
-    if ASEARCH("Status",var.req.key) != -1
-    {
-        _currentstatus = var.req.value[ASEARCH("Status",var.req.key)]
-        if "balloon" _in_ _currentstatus; 1
-        else; 0
-    }
-    else; 0
+	if ASEARCH("Status",var.req.key) != -1
+	{
+		_currentstatus = var.req.value[ASEARCH("Status",var.req.key)]
+		if "balloon" _in_ _currentstatus; 1
+		else; 0
+	}
+	else; 0
 }
 
 MenuCheck
 {
-    if ASEARCH("Status",var.req.key) != -1
-    {
-        _currentstatus = var.req.value[ASEARCH("Status",var.req.key)]
-        if "choosing" _in_ _currentstatus; 1
-        else; 0
-    }
-    else; 0
+	if ASEARCH("Status",var.req.key) != -1
+	{
+		_currentstatus = var.req.value[ASEARCH("Status",var.req.key)]
+		if "choosing" _in_ _currentstatus; 1
+		else; 0
+	}
+	else; 0
 }

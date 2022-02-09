@@ -2,6 +2,7 @@
 {
 	//Basics
  	lastTalk = "" //Last peice of dialogue
+	passhour = 0 //How many hours have passed
 	passmin = 0 //How many minutes have passed
 	passsec = 0 //How many seconds have passed
  	username = "User" //Default Username
@@ -14,6 +15,7 @@
 	deleteshitai = "OFF" //???
 	nowshell = "Dreamtale Sans" //Current shell. Not even sure if this works...
 	menuname = "off" //If you're changing your name from the menu
+	menusphere = "Northern" //What Hemisphere you're in
 	//Constants
 	//Good
 	nightynight = "off" //If his name is Nightmare or Nighty
@@ -22,6 +24,7 @@
 	blushiemode = "off" //If blushiemode is on or off
 	ily = 0 //If you've told him you like him
 	gooppets = 0 //How many times you've pet goomare
+	metalpet = 0 //Times pet Dream?
 	//Bad
 	privacyrespecter = "off" //If you've been mean to him?
 	Edgybitch = "off" //Goopmare mode
@@ -29,9 +32,10 @@
 	punchout = 0 //How many times you've hit him
 	//Natural
 	nicesadlevel = 0 //Relationship variable
-	hessodreamy = "off" //If you've seen Dream or not
+	sodreamy = "off" //If you've seen Dream or not
 	sleepingmode = "off" //If he's sleeping
-	wasemo = "off" //If you've seen goopmare before. I could honestly just replace this and use only hessodreamy
+	maremare = "off" //If you've seen Mare before. Under friendly circumstances.
+	wasemo = "off" //If you've seen goopmare before under bad circumstances.
 	sittang = "off" //if he is sitting
 	intodreams = "off" //If Dream is here
 	//Items
@@ -45,13 +49,14 @@
 	momstreeexpo = "off" //If he's talked about his momstreeexpo
 	brotherexpo = "off" //If you've asked about Dream
 	askaboutnamee = "off" //If you asked about his name
+	seensoul = "off" //If you've seen Night's soul
 	dontmovestatsitshalloween = "off" //If it's halloween so that your stats won't reset when he gets out of goopmode
 	givesleepyblankie = "off" //If you give him a blanket while he's sleeping
 	starcrownexpo = "off" //Ask Dream about the star crown
 	
 	if reference0 == 0
  	{
-		"\![enter,passivemode]\0\s[1]\w8\w8\w8*\w4 (\w4. \w4. \w4.\w4)\w8\w8\i[7]\w8\w8\1\s[93]\n\n\w8\n\n\w8\1\s[10]\0\s[1]\i[7]\n\n\0\s[16]\w8\w8\w8\0\s[3]\i[55]* (He views his surroundings uncomfortably.\w8 It's obvious he doesn't know where he is.)\n\n\w8Um\w2.\w2.\w2.\w8 You-\w8 I don't know you,\w5 do I?\n\n\w8Do you... Have a name?\![leave,passivemode] \![open,inputbox,OnNameTeach,-1]"
+		"\![enter,passivemode]\0\s[1]\w8\w8\w8*\w4 (\w4. \w4. \w4.\w4)\w8\w8\i[7]\w8\w8\i[55]\s[93]\n\n\w8\n\n\w8\i[55]\s[10]\0\s[1]\i[7]\n\n\0\s[16]\w8\w8\w8\0\s[3]\i[55]* (He views his surroundings uncomfortably.\w8 It's obvious he doesn't know where he is.)\n\n\w8Um\w2.\w2.\w2.\w8 You-\w8 I don't know you,\w5 do I?\n\n\w8Do you... Have a name?\![leave,passivemode] \![open,inputbox,OnNameTeach,-1]"
  	}
 	else
  	{
@@ -91,6 +96,29 @@ GetTimeSlot
 		"midnight"
 	}
 }
+season
+{
+    if month > 2 && month < 6
+    {
+        if menusphere != "Southern"; "Spring"
+        else; "Autumn"
+    }
+    elseif month > 5 && month < 9
+    {
+        if menusphere != "Southern"; "Summer"
+        else; "Winter"
+    }
+    elseif month > 8 && month < 12
+    {
+        if menusphere != "Southern"; "Autumn"
+        else; "Spring"
+    }
+    else
+    {
+        if menusphere != "Southern"; "Winter"
+        else; "Summer"
+    }
+}
 GetDaySlot
 {
 	"%(month)month %(day)day"
@@ -106,7 +134,8 @@ OnBoot
 	lastTalk = ""
 	passmin = 0
 	passsec = 0
-	sleepingmode = off
+	sleepingmode = "off"
+	sittang = "off"
 	"\0\s[0]"
 	}
 	--	
@@ -134,7 +163,7 @@ OnBoot
 		{
 		"\0\s[6]Happy birthday %(username)!!\0\s[29]\e"
 		}
-		if hessodreamy == true
+		if sodreamy == "on"
 		{
 		"%(dreambday)\e"
 		}
@@ -149,11 +178,11 @@ OnBoot
 		"\0\s[4]I'm pretty sure Quonit told me something about today\w2.\w2.\w2.\w5\0\s[2] I forgot what it was, though.\e"
 	}
 	/*
-	elseif dayslot == "12month 21day" //If hessodreamy == "on" Dream appears
+	elseif dayslot == "12month 21day" //If sodreamy == "on" Dream appears
 	{
 		intodreams == "on"
 		"Aah! Where...! I'm looking for someone... Do you- maybe know... (hand on head) sorry! :looks around: I- I'm sorry... My name is Dream, yours is...? (something clicks). %(username)? Okay..."
-			"\0\s[1]\i[14]\1\w8\w8\w8*\w4 ( \w4. \w4. \w4.\w4)\w8\w8\n\n* (He looks to be enjoying his book.)\w8\w8\w8\n\n* (Disturb him?)\e"
+			"\0\s[1]\i[14]\i[55]\w8\w8\w8*\w4 ( \w4. \w4. \w4.\w4)\w8\w8\n\n* (He looks to be enjoying his book.)\w8\w8\w8\n\n* (Disturb him?)\e"
 			--
 			"\n\n/
 			\![*]\q[Yes,disturbhimbdayyes]\n/
@@ -166,7 +195,7 @@ OnBoot
 				}
 				else
 				{
-				"0\s[1]\1\w8\w8\w8*\w4 (\w4. \w4. \w4.\w4)\w8\w8\i[7]\w8\w8\n\n\0\w8\n\n\w8\1\0\s[1]\i[7]!\n\n\w8Oh, \w5hello!\0\s[16]\n\n\w8\w8\0\s[20]Today is me and my brother's birthday. \w6\0\s[13]I\w3.\w3.\w3. \w6really wish I can spend it with them, \w4sense they've always loved their birthday.\n\n"
+				"0\s[1]\i[55]\w8\w8\w8*\w4 (\w4. \w4. \w4.\w4)\w8\w8\i[7]\w8\w8\n\n\0\w8\n\n\w8\i[55]\0\s[1]\i[7]!\n\n\w8Oh, \w5hello!\0\s[16]\n\n\w8\w8\0\s[20]Today is me and my brother's birthday. \w6\0\s[13]I\w3.\w3.\w3. \w6really wish I can spend it with them, \w4sense they've always loved their birthday.\n\n"
 				--
 				if blushiemode == "on" && privacyrespecter == "off"|| nightynight == "on" && privacyrespecter == "off"
 				{
@@ -208,156 +237,127 @@ normalboottalk //All temp dialogue
 	}
 	elseif RAND(100) < 40
 	{
-	if blushiemode == "on" && privacyrespecter == "off" 
-	{
-	"\0\s[20]Hello again, %(username).\e"
-	"\0\s[13]Oh,\w4 back here again?\e"
-	"\0\s[6]Hello %(username)!\e"
-	"\0\s[1]\i[8]\i[14]It's nice to see you again %(username).\e"
-	}
-	else
-	{
-		//if RAND(100) < 70
-		//{
-		"\0\s[4]Oh- \w8Hi again %(username).\e"
-		//}
-		//else
-		//{
-		//sittang = "on"
-		//"\0\s[1]\1* (It doesn't look like he's noticed you.)\e" //sitmode == on?
-		//}
-	"\0\s[0]Huh, \w4looks like I'm back here again.\e"
-	"\0\s[1]Hello again %(username).\e"
-	}
+		"\0\s[1]\i[55]* (It doesn't look like he's noticed you.)\e:eval=sittang='on'"
+		"\0\s[0]Huh, \w4looks like I'm back here again.\e"
+		"\0\s[0]\i[14]\i[15]Hello again %(username).\e"
+		if blushiemode == "on" && privacyrespecter == "off" 
+		{
+		"\0\s[20]Hello again, %(username).\e"
+		"\0\s[13]Oh,\w4 back here again?\e"
+		"\0\s[6]Hello %(username)!\e"
+		"\0\s[6]It's nice to see you again %(username).\e"
+		}
+		if nicesadlevel >= 75 && maremare == "off"
+		{
+		"\0\s[0]\i[11]\i[10]\i[16]-that's not how it works, \w3Mare-\n\n\w8\w8\s[7]\i[2]!\w8\w5\s[7]\i[3]\n\n\w8\w8\w5\s[3].\w3.\w3.\w4Uhm\w3.\w3.\w3.\w8 Hi %(username).\e:eval=maremare='on'"
+		}
 	}
  	else
  	{
-		if timeslot == "earlymorning"  
+	if timeslot == "earlymorning"  
+	{
+		if privacyrespecter == "on"
 		{
-		if privacyrespecter == true
-		{
-		//sitmode == "on"
-		"\0\s[1]\1* (It doesn't seem like he's going to say anything to you.)\e"
-		"\0\s[1]\1* (He seems tired.)\w8\n\n\w3.\w3.\w3.\n\n\w8\i[6]* (It doesn't seem like he's going to talk to you.)\e"
+			"\0\s[1]\i[55]* (It doesn't seem like he's going to say anything to you.)\e:eval=sittang='on'"
+			"\0\s[1]\i[55]* (He seems tired.)\w8\n\n\w3.\w3.\w3.\n\n\w8\i[6]* (It doesn't seem like he's going to talk to you.)\e:eval=sittang='on'"
 		}
-		if blushiemode == "on" && privacyrespecter == "off" 
+		else
 		{
-		//All boring
-		"\0\s[1]\i[8]\i[14]Hello username, \w4hows your morning going?\e"
-		"\0\s[1]\i[8]\i[14]Are you doing well %(username)?\e"
-		"\0\s[20]I hope you are well this morning.\e"
-		}
-		if nicesadlevel >= 50
-		{
-		sleepingmode = "on"
-		"\0\s[5]zzz\w3.\w3.\w3.\n\n\w8\w8* (Aw... \w5You found him while he was sleeping.)\e"		
-		"\0\s[5].\w6.\w6.\n\n\w8* (It looks like he's sleeping.)\e"
-		}
-		"\0\s[1].\w3.\w3.\w3\i[7]\w8Oh, good morning %(username).\e" //Get up animation?
+			if blushiemode == "on" && privacyrespecter == "off" 
+			{
+				//All boring
+				"\0\s[1]\i[8]\i[14]Hello username, \w4hows your morning going?\e:eval=sittang='on'"
+				"\0\s[0]\i[14]\i[15]Are you doing well %(username)?\e"
+				"\0\s[20]I hope you are well this morning.\e"
+			}
+			if nicesadlevel >= 50
+			{
+			"\0\s[5]zzz\w3.\w3.\w3.\n\n\w8\w8* (Aw... \w5You found him while he was sleeping.)\e:eval=sleepingmode='on'"
+			"\0\s[5].\w6.\w6.\n\n\w8* (It looks like he's sleeping.)\e:eval=sleepingmode='on'"
+			}
+		"\0\s[1].\w3.\w3.\w3\i[7]\w8Oh, good morning %(username).\w8\0\s[16]\e"
 		//"\0\s[0]Oh, you're still up too?\e"		
 		//"\0\s[1]\i[8]Do you usually stay up this late?\e"		
-		"\0\s[8]It's the middle of the night, what are you doing up?\n\n\w8*(You tell him it's early morning.)\n\n\w8\0\s[11]Wait, really?\e"
-		"\0\s[1]\1 (It doesn't look like he's slept at all.)\e"
-		"\0\s[1]\1 (Looks like he pulled an allnighter.)\e"
+		"\0\s[8]It's the middle of the night,\w5 what are you doing up?\n\n\w8*(You tell him it's early morning.)\n\n\w8\0\s[11]Wait, really?\e:eval=sittang='on'"
+		//"\0\s[1]\i[55] (It doesn't look like he's slept at all.)\e" //Sleepy Tired
+		//"\0\s[1]\i[55] (Looks like he pulled an allnighter.)\e" //Sleepy Tired
 		}
+	}
 		elseif timeslot == "morning"
 		{
 		if privacyrespecter == "on"
 		{
-		//"\0\s[1]\1* (It doesn't seem like he's got anything to say to you this morning.)\e"
+		"\0\s[1]\i[55]* (It doesn't seem like he's got anything to say to you this morning.)\e:eval=sittang='on'"
 		}
 		else
 		{
-		"\0\s[1]Good morning.\e"
-		"\0\s[1].\w3.\w3.\w3\i[7]\w8Oh, good morning %(username).\e"
-		"\0\s[1]\1* (You wonder how much he slept last night.)\e"
-		}
-		if blushiemode == "on" && privacyrespecter == "off" 
-		{
-		"\0\s[1]\i[8]\i[14]Good morning,\w2 %(username).\e"
-		"\0\s[6]Morning.\w5 Did you sleep well?\e"
+			"\0\s[1].\w3.\w3.\w3\i[7]\w8Oh, good morning %(username).\e:eval=sittang='on'"
+			//"\0\s[1]\i[55]* (You wonder how much he slept last night.)\e" //tired pose
+			"\0\s[0]\i[14]\i[15]Enjoying the sun?\e"
+			"\0\s[4]Hope I don't miss out on any lessons...\e"
+			if blushiemode == "on" && privacyrespecter == "off" 
+			{
+			"\0\s[0]\i[14]\i[15]Good morning,\w2 %(username).\e"
+			"\0\s[6]Morning.\w5 Did you sleep well?\e"
+			}
 		}
 		}
 		elseif timeslot == "lunch"
 		{
-		if blushiemode == "on" && privacyrespecter == "off" 
-		{
-		"\0\s[6]Hello %(username)!\w8\n\nHave you eaten today?\e"
-		"\0\s[1]\i[8]Oh,\w4 hi.\n\n\w8Did you eat yet?\e"
-		"\0\s[1]\i[8]Enjoying the sun?\e"
-		}
-		else
-		{
-		"\0\s[1]* (Mid-day.)\e"
-		"\0\s[1]* (You wonder if he's gotten around to eating lunch or not.)\e"
+		"\0\s[0]Oh,\w4 hi.\n\n\w8Did you eat yet?\e"
 		"\0\s[4]Suns pry pretty bright around now...\e"
-		}
+		"\0\s[4]anDream's out right now,\w4 so there's not much to do...\n\n\w8So I guess I can hang out.\e"
+		"\0\s[0]* (You wonder if he's gotten around to eating lunch or not.)\e"
+			if blushiemode == "on" && privacyrespecter == "off" 
+			{
+			"\0\s[6]Hello %(username)!\w8\n\nHave you eaten today?\e"
+			}
 		}
 		elseif timeslot == "afternoon"
 		{
-		if blushiemode == "on" && privacyrespecter == "off" 
-		{
-		"\0\s[6]Hottest part of the day, right?\w8\n\nStay safe!!\w5 I don't wanna lose you!\e"
-		"\0\s[4]Snack time yet?\e"
-		"\0\s[1]\i[8]Hello %(username),\w4 is your afternoon going well.\e"
-		"\0\s[1]\i[8]Good afternoon %(username)...\w5 make sure to relax.\e"
-		}
-		else
-		{
-		"\0\s[1]'Afternoon.\e"
-		"\0\s[1]\1* (Good afternoon.)\e"
-		"\0\s[4]\1It's the hottest part of the day right now, right?\e"
-		}
+			"\0\s[4]It's the hottest part of the day right now, right?\e"
+			"\0\s[4]Dream's busy right now\w2.\w2.\w2.\e"
+			"\0\s[0]\i[8]Hello %(username),\w4 is your afternoon going well?\e"
+			"\0\s[0]* (Good afternoon.)\e"
+			if blushiemode == "on" && privacyrespecter == "off" 
+			{
+			"\0\s[6]Hottest part of the day, right?\w8\n\nStay safe!!\w5 I don't wanna lose you!\e"
+			"\0\s[4]Snack time yet?\e"
+			}
 		}
 		elseif timeslot == "evening"
 		{
-		if blushiemode == "on" && privacyrespecter == "off" 
-		{
-		"\0\s[20]Is your evening going well?\e"
-		"\0\s[1]\i[8]\i[14]Hello %(username),\w4 is your afternoon going well\e"
-		"\0\s[1]\i[8]Good afternoon %(username)...\w5 make sure to relax.\e"
-		}
-		else
-		{
-		"\0\s[1]Day's coming to an end...\e"
-		"\0\s[1]\1* (He's being quite quiet.)\e"
-		"\0\s[1]\1* (You wonder if he took a nap.)\e"
-		}
+		"\0\s[4]Day's coming to an end...\e"
+		"\0\s[0]Oh...\n\n\w8How's your evening going?\e"
+			if blushiemode == "on" && privacyrespecter == "off" 
+			{
+			"\0\s[0]\i[14]Hello %(username),\w4 is your afternoon going well?\e"
+			}
 		}
 		elseif timeslot == "latenight"
 		{
-		if blushiemode == "on" && privacyrespecter == "off" 
-		{
-		"\0\s[1]\i[8]\i[14]You heading to bed soon?\e"
-		"\0\s[20]How's the night,\w2 %(username)?\e"
-		"\0\s[20]If you're gonna sleep...\w5 sleep well!!\e"
-		}
-		else
-		{
-		"\0\s[1]\i[8]You heading to bed soon?\e"
+		"\0\s[1]\i[8]You heading to bed soon?\e:eval=sittang='on'"
 		"\0\s[6]Where I'm from,\w3 during the night you can see a lotta stars!\e"
-		"\0\s[1]\1* (He's quietly reading.)\e"
-		}
+		"\0\s[0]You heading to bed soon?\e"
+			if blushiemode == "on" && privacyrespecter == "off" 
+			{
+			"\0\s[20]How's the night,\w2 %(username)?\e"
+			}
 		}
 		else //Midnight
 		{
+		"\0\s[1]\i[55]* (Looks like he's staying up.)\e:eval=sittang='on'"
+		"\0\s[1]\i[55]* (Looks like he doesn't sleep either.)\e:eval=sittang='on'"
+		"\0\s[1]\i[55]* (It's quiet.)\e:eval=sittang='on'"
 		if blushiemode == "on" && privacyrespecter == "off" 
 		{
 		"\0\s[20]Heh, \w3you staying up to?\e"
-		"\0\s[1]\i[8]\i[14]You gonna pull out a good book to read?\e"
-		"\0\s[1]\i[8]\i[14]How's your night going %(username)?\e"
-		}
-		else
-		{
-		"\0\s[1]\1* (Looks like he's staying up.)\e"
-		"\0\s[1]\1* (Looks like he doesn't sleep either.)\e"
-		"\0\s[1]\1* (It's quiet.)\e"
+		"\0\s[0]\i[14]\i[15]How's your night going %(username)?\e"
 		}
 		}
 	}
 }
 
-//--OnClose
 OnClose
 {
 timeslot = GetTimeSlot
@@ -370,22 +370,29 @@ timeslot = GetTimeSlot
 		}
 		elseif RAND(100) < 40
 		{
-		"\0\s[3]Bye\w3.\w3.\w3.\w8"
-		"\0\s[4]I wonder when I'm coming back there again.\w8"
-		"\0\s[8]See you\w3.\w3.\w3. \w6Maybe.\w8"
-		"\0\s[1]Hm.\w8"
-		"\0\s[4]I hope my brother's okay...\w8"
+			if sittang == "on"
+			{
+			"\0\s[1]Hm.\w8"
+			}
+			elseif sleepingmode == "on"
+			{
+			"z\w4z\w4z\w4.\w4.\w4.\w8\w8"
+			"* (You send him back home to maybe sleep more comfortably.)\w8\w8"
+			"\i[55]* (Nighty-night.)\w8"
+			}
+			else
+			{	
+			"\0\s[3]Bye\w3.\w3.\w3.\w8"
+			"\0\s[4]I wonder when I'm coming back there again.\w8"
+			"\0\s[8]See you\w3.\w3.\w3. \w6Maybe.\w8"
+			"\0\s[3]I'm gonna go check on my brother.\w8"
+			}
 		}
 		elseif VillageLevel >= 150
 		{
 		"\0\s[19]* (He must be happy.)\w8"
 		"\0\s[19]* (He should be thankful.)\w8"
 		"\0\s[19]Th- Thanks,\w8"
-		}
-		elseif sleepingmode == "on"
-		{
-		"z\w4z\w4z\w4.\w4.\w4.\w8\w8"
-		"* (You send him back home to maybe sleep more comfortably.)\w8\w8"
 		}
 		else
 		{
@@ -396,41 +403,43 @@ timeslot = GetTimeSlot
 			"z\w4z\w4z\w4.\w4.\w4.\w8\w8"
 			"* (It's still early,\w4 hopefully he can still get some rest before morning.)\w8\w8"
 			}
+			elseif sittang == "on"
+			{
+			"\0\s[1]\i[55]* (You wonder if he's going to bed after you close him.)\w8"
+			"\0\s[1]\i[8]\i[14]See you during the day,\w3 %(username).\w8"
+			}
 			else
 			{
-			"\0\s[1]\1* (You wonder if he's going to bed after you close him.)\w8"
-			"\0\s[1]\1'Night.\w8"
+			"\0\s[0]\i[14]\i[15]\i[55]'Night.\w8"
 				if blushiemode == "on" && privacyrespecter == "off" 
 				{
 				"\0\s[20]Make sure to have a good night for me,\w3 %(username).\w8"
 				"\0\s[20]Make sure to take care of yourself %(username).\w8"
-				"\0\s[1]\i[8]\i[14]See you during the day,\w3 %(username).\w8"
 				}
 			}
 		}
 		elseif timeslot == "morning"
 		{
-		if sleepingmode == "on"
-		{
-		"z\w4z\w4z\w4.\w4.\w4.\w8\w8"
-		"* (Hopefully he'll get a little more sleep before anDream wakes him up...)\w8\w8"
-		"hmm\w4.\w4.\w4.\w8\w8"
-		}
-		else
-		{
-			if blushiemode == "on" && privacyrespecter == "off" 
+			if sleepingmode == "on"
 			{
-			"\0\s[20]Have a lovely morning for me.\w8"
-			"\0\s[20]I hope the sky is pretty for you this morning,\w3 %(username).\w8"
+			"z\w4z\w4z\w4.\w4.\w4.\w8\w8"
+			"* (Hopefully he'll get a little more sleep before anDream wakes him up...)\w8\w8"
+			"hmm\w4.\w4.\w4.\w8\w8"
+			}
+			elseif sittang == "on"
+			{
 			"\0\s[1]\i[8]\i[14]See you again soon?\w8"
 			}
 			else
 			{
+				if blushiemode == "on" && privacyrespecter == "off" 
+				{
+				"\0\s[20]Have a lovely morning for me.\w8"
+				"\0\s[20]I hope the sky is pretty for you this morning,\w3 %(username).\w8"
+				}
 			"\0\s[9]...Hope your morning's okay.\w8\w8"
 			"\0\s[0]Go eat or something.\w8\w8"
-			"\0\s[9]Time to go home...\w8\w8"
 			}
-		}
 		}
 		elseif timeslot == "lunch"
 		{
@@ -440,18 +449,21 @@ timeslot = GetTimeSlot
 			"* (He'll probably get woken up,\w3 sense it's midday.)\w8\w8"
 			"* (You wish he could get more sleep before he went back out.)\w8\w8"
 		}
+		elseif sittang == "on"
+		{
+		"\0\s[1]\i[55]* (You wonder if he's going to go eat or something.)\w8\w8"
+			if nicesadlevel >= 50
+			{
+			"\0\s[1]\i[8]\i[14]Stay safe!\w8"
+			}
+		}
 		else
 		{
+			"\0\s[4]I wonder if your foods are any different from ours.\w8\w8"
+			"\0\s[13]I should go eat...\n\n\w8Kind of hard to remember to do that,\w4 sometimes.\w8"
 			if blushiemode == "on" && privacyrespecter == "off" 
 			{
 			"\0\s[20]Go eat something?\w8"
-			"\0\s[13]I should go eat...\n\n\w8I forget to,\w4 sometimes.\w8"
-			"\0\s[1]\i[8]\i[14]Make sure to stay safe for me.\w8"
-			}
-			else
-			{
-			"\0\s[1]\1* (You wonder if he's going to go eat or something.)\w8\w8"
-			"\0\s[4]I wonder if your foods are any different from ours.\w8\w8"
 			}
 		}
 		}
@@ -463,19 +475,19 @@ timeslot = GetTimeSlot
 			"* (You wonder if people noticed him gone.)\w8\w8"
 			"* (Hopefully he gets some more rest before being woken up.)\w8\w8"
 		}
+		elseif sittang == "on"
+		{
+			"\0\s[1]Thing's 'll pry be pretty quiet when I get back home...\w8 So I'll get more time to read.\w8"
+		}
 		else
 		{
+			"\0\s[4]Hope things aren't too busy back at home...\w8"
+			"\0\s[9]anDream's usually out during this time of day...\w8 \0\s[4]Pry won't be home till later,\w5 but I can see...\w8"
 			if blushiemode == "on" && privacyrespecter == "off" 
 			{
 			"\0\s[6]Have a good afternoon!!\w8"
 			"\0\s[20]Have a snack or something!\w8"
 			"\0\s[1]\i[8]\i[14]I bet it's gonna be nice and warm when I get home.\w8"
-			}
-			else
-			{
-			"\0\s[3]See you later...\w8"
-			"\0\s[4]It'll probably be pretty hot when I get home.\w8"
-			"\0\s[9]anDream usually goes out during this time of day...\w8"
 			}
 		}
 		}
@@ -487,25 +499,19 @@ timeslot = GetTimeSlot
 			"* (It's pretty late,\w4 so people might leave him be.)\w8\w8"
 			"* (Hopefully he doesn't get woken up.)\w8\w8"
 		}
+		elseif sittang == "on"
+		{
+			"\0\s[43]I wonder if I'll be able to see the sunset...\w8"
+		}
 		else
 		{
-			if weekday == 6
-			{
-			"\0\s[4]I wonder if my brother's doing anything right now.\w8"
-			}
-			elseif blushiemode == "on" && privacyrespecter == "off" 
+			if blushiemode == "on" && privacyrespecter == "off" 
 			{
 			"\0\s[6]Have a good evening!\w8"
-			"\0\s[4]I wonder if my brother is home yet.\w8"
-			"\0\s[1]\i[8]\i[14]See you %(username).\w8"
-			"\0\s[1]\i[8]\i[14]I wish I could watch the sunset with you,\w3 %(username).\w8"
+			"\0\s[0]\i[14]I wish I could watch the sunset with you,\w3 %(username).\w8"
 			}
-			else
-			{
-			"\0\s[0]Evening.\w8"
 			"\0\s[4]Maybe I'll get to watch the sunset.\w8"
-			"\0\s[9]I hope my brother's back home...\w8"
-			}
+			"\0\s[4]I wonder if my brother's home by now\w2.\w2.\w2.\n\n\w8It might be a bit too early,\w5 though.\w8"
 		}
  		}
 		elseif timeslot == "latenight"
@@ -517,24 +523,19 @@ timeslot = GetTimeSlot
 			"* (Goodnight %(nightname).)\w8\w8"
 			"* (Hopefully he'll get some good shut-eye.)\w8\w8"
 		}
+		elseif sittang == "on"
+		{
+		"\0\s[1]'Night.\w8"
+		"\0\s[1]\i[8]\i[14]Sleep well.\w8"
+		}
 		else
 		{
-			if weekday == 6 
-			{
-			"\0\s[4]Hope my brother's home now.\w8"
-			"\0\s[13]My brother should be home by now\w3.\w3.\w3.\w8\0\s[3] Otherwise something bad might've happened to him.\w8"
-			}
-			elseif blushiemode == "on" && privacyrespecter == "off" 
+			if blushiemode == "on" && privacyrespecter == "off" 
 			{
 			"\0\s[20]Have a good rest %(username).\w8"
 			"\0\s[4]I wonder if the stars are out yet.\w8"
-			"\0\s[1]\i[8]\i[14]Sleep well.\w8"
 			}
-			else
-			{
-			"\0\s[1]'Night.\w8"
-			"\0\s[1]\1* (Nighty-night.)\w8"
-			}
+			"\0\s[4]I hope anDream is back home\w2.\w2.\w2.\n\n\w8Otherwise someone might be trying to keep them from going home.\w8"
 		}
 		}
 		else //Midnight
@@ -546,75 +547,66 @@ timeslot = GetTimeSlot
 			"* (Goodnight %(nightname).)\w8\w8"
 			"* (It's about time he went to bed anyways.)\w8\w8"
 		}
+		elseif sittang == "on"
+		{
+		"\0\s[1]\i[8]\i[14]Hopefully you can get some rest now.\w8"
+		}
 		else
 		{
-			if weekday == 0 //checking if it's the middle of the night on Sunday
-			{
-			"\0\s[3]I'm gonna go check on my brother.\w8"
-			}
-			elseif blushiemode == "on" && privacyrespecter == "off" 
+			if blushiemode == "on" && privacyrespecter == "off" 
 			{
 			"\0\s[20]Make sure to sleep well.\w8"
 			"\0\s[30]Ni-ni.\w8"
-			"\0\s[1]\i[8]\i[14]Hopefully you can get some rest now.\w8"
 			}
 			else
 			{
-			"\0\s[1]\1\s[10]\b[1]* (Nighty-night.)\w8"
-			"\0\s[1]\1\s[10]\b[1]* (Nini.)\w8"
+			"\0\s[0]\i[14]\i[15]Nighty-night!\w8"
 			"\0\s[0]'Night.\w8"
 			}
 		}
 		}
 		}				
- 		}	
+ 		}
  	else //Five Minute dialogue
  	{
 		if sleepingmode == "on"
 		{
-			"z\w4z\w4z\w4.\w4.\w4.\w8\w8"
-			"* (He must've been real tired to go down that quick.)\w8\w8"
+		"z\w4z\w4z\w4.\w4.\w4.\w8\w8"
+		"* (He must've been real tired to go down that quick.)\w8\w8"
+		"z\w4z\w4z\w4.\w4.\w4.\w8\w8"
+		"* (You send him back home to maybe sleep more comfortably.)\w8\w8"
 		}
-		else
+		elseif sittang == "on"
 		{
-		if VillageLevel >= 150
+ 		"\0\s[1]\i[8]Goodbye already?\w8\w8"
+		}
+		elseif VillageLevel >= 150
 		{
 		"\0\s[19]* (Least it wasn't long for him.)\w8"
 		"\0\s[19]* (He's probably happy it was so short.)\w8"
 		"\0\s[19]* (You're done with him already.)\w8"
 		}
-		elseif sleepingmode == "on"
-		{
-		"z\w4z\w4z\w4.\w4.\w4.\w8\w8"
-		"* (You send him back home to maybe sleep more comfortably.)\w8\w8"
-		}
 		else
 		{
- 		"\0\s[1]\i[8]Goodbye already?\w8\w8"
- 		"\0\s[13]Oh\w3.\w3.\w3. \w6Already?\w8\w8"
+		"\0\s[13]Oh\w3.\w3.\w3. \w6Already?\w8\w8"
  		"\0\s[12]See you soon...\w8\w8"
  		"\0\s[12]Must've misclicked.\w8\w8"
  		"\0\s[7]It hasn't even been five minutes!\w8\w8"
-		if blushiemode == "on" && privacyrespecter == "off" 
-		{
-		"\0\s[20]Well it was nice to see you while you were around!\w8"
-		"\0\s[20]See you again soon!\w8"
-		"\0\s[20]Later maybe?\w8"
-		"\0\s[20]Hopefully I get to spend more time with you later.\w8"
-		}
-		}
+			if blushiemode == "on" && privacyrespecter == "off" 
+			{
+			"\0\s[20]Well it was nice to see you while you were around!\w8"
+			"\0\s[20]See you again soon!\w8"
+			"\0\s[20]Later maybe?\w8"
+			"\0\s[20]Hopefully I get to spend more time with you later.\w8"
+			}
 		}
 	}
  	--
 	"\-\e"
- }
+}
 
- //-------------------------State Changing--------------------
- //The stuff here has to do with changing states and I'm scared //Dont be
- 
-//--OnWindowStateRestore
 OnWindowStateRestore
- {
+{
 	if Edgybitch == "on"
 	{
 	"\0\s[5]What the hell was that???\e"
@@ -622,55 +614,74 @@ OnWindowStateRestore
 	}
 	else
 	{
-	"\0\s[8]Back here...\e"
-	"\0\s[1]\1* (He is no longer minimized.)\e"
+		if sittang == "on"
+		{ "\0\s[1]"	}
+		else
+		{ "\0\s[0]"	}
+		--
+		"\i[55]* (He is no longer minimized.)\e"
 	}
 }
 
-//--OnGhostChanging
 OnGhostChanging
- {
+{
 	if reference0 == "Dreamtale Sans"
 	{
-		"\0\s[0]Switching...\w8\w8\e"
-		"\0\s[1]\1* (Reestablishing %(nightname))\w8\w8\e"
-		"\0\s[1]\1* (Switching to %(nightname)?)\w8\w8\e"
-		"\0\s[1]\1* (Are we switching or reloading??)\w8\w8\e"
+		"\0\s[0]Reloading...\w8\w8\e"
+		"\0\s[0]\i[55]* (You reload %(nightname).)\w8\w8\e"
 	}
  	else
 	{
-		if blushiemode == "on" && privacyrespecter == "off"
-		{
-		"\0\s[20]Make sure not to forget about me when playing with %(reference0),\w5 okay?\e"
-		}
-		elseif VillageLevel >= 150
+		//I would like to put an OnClose here but can't rn
+		if VillageLevel >= 150
 		{
 		"\0\s[19]* (You open %(reference0) instead of this garbage.)"
 		"\0\s[19]* (Maybe %(reference0) will actually talk to you...)"
 		}
 		elseif Edgybitch == "on"
 		{
-		"\0\s[4]Go play with your friend,\w4 %(reference0).\e"
+		"\0\s[4]Go play with your friend,\w4 %(reference0)."
 		"\0\s[1]Scat.\e"
+		}
+		elseif sittang == "on"
+		{
+		"\0\s[1]\i[55]* (Switching to %(reference0).)"
+		"\0\s[1]Maybe I can find a better place to read while you catch up with %(reference0)..."
+		}
+		elseif nicesadlevel >= 10
+		{
+		"\0\s[0]\i[13]Maybe I can find some better ways to spend my time while you're distracting yourself with %(reference0) instead."
+		"\0\s[0]\i[13]\i[15]Hope you aren't as much of a jerk to %(reference0)."
 		}
 		else
 		{
-		"\0\s[1]\1* (Switching to %(reference0).)\e"
-		"\0\s[1]Have fun with %(reference0).\e"
+		"\0\s[0]\i[55]* (Switching to %(reference0).)"
+		"\0\s[0]Oh\w3.\w3.\w3.\w4Goodbye?"
+		"\0\s[13]Maybe I can catch up on some of my stuff while you have %(reference0) out instead."
+		if blushiemode == "on" && privacyrespecter == "off"
+		{
+		"\0\s[20]Make sure not to forget about me when playing with %(reference0),\w5 okay?"
+		}
 		}
 	}
 }
 
 OnGhostChanged
 {
-	"\0\s[0]\1\s[10]"
+	"\0\s[0]\i[55]\s[10]"
 	--
 	if reference0 == "Dreamtale Sans"
 	{
-		"\0\s[0]There are a few reasons this could've happened, \w4so I'm gonna be nonspecific.\w8\w8\e"
+		"\0\s[7]\i[55]* (He seems kind of confused...)\n\n\w8\s[7]Uhm\w2.\w2.\w2. \w8Hi again?\e"
+		"\0%(surface0)\i[55]* (He doesn't seem to have noticed he was reloaded.)\n\n\w8\s[0]?\e"
+		if sittang == "on"
+		{
+		"\0\s[1]\i[55]* (He doesn't seem to have noticed he was reloaded.)"
+		}
 	}
 	else
 	{
+		"%(normalboottalk)"
 		if blushiemode == "on" && privacyrespecter == "off"
 		{
 		"\0\s[20]Did you have fun with %(reference0) %(username)?\e"
@@ -686,9 +697,9 @@ OnGhostChanged
 		}
 		else
 		{
-		"\0\s[1]\1* (Switched from %(reference0).)\e"
-		"\0\s[1]Guess I'm here again.\e"
-		"\0\s[3]Bye %(reference0).\e"
+		"\0\s[0]\i[55]* (Switched from %(reference0).)\e"
+		"\0\s[4]\i[55]* (%(reference0) whisped away...)\e"
+		"\0\s[0]\i[55]* (He doesn't seem to have noticed %(reference0)..)\n\n\w8\0\s[0]Hi %(username)!\e"
 		}
 	}
 }

@@ -1,13 +1,36 @@
 Changelong for Dreamtale Sans!
 --------------------------------------------------------------------------------------------------------------------
 
-7th January 2022
+
+--- 9th February 2022 ---
+Additions:
+-Sit Mode! Now Nighty doesn't go up and down all the time.
+-New Main Pose
+-Status Menu (Replacing the config menu)
+-Additional Item Dialogue
+-More Questions (About Soul/Crown/Weird Boot)
+-Additional/Replaced Random Dialogue (Some of it no longer fit the lore)
+-Additional Bootend Dialogue
+-Positive Route pick-up pose
+-Show on all pick-up poses
+-Updated Yaya
+
+Bugfixes:
+-Fixed Randomtalk not displaying all dialogue (which locked off required story progression locks)
+-As seen above ^ fixed access to the rest of the positive route
+-Fixed Sleepmode
+-Strange sitting animations while talking
+-Stopped Blushiemode from locking off positive route dialogue
+
+
+--- 7th January 2022 ---
 Bugfixes:
 -Small patch to fix the User not being given a name
 -Removed option to ask about soul, which was unfinished
 -Minor Typo fixes
 
-6th January 2022
+
+--- 6th January 2022 ---
 Additions:
 -Added this Changelog!
 -Redid the OnFirstBoot sequence

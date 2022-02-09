@@ -1,81 +1,4 @@
-﻿nightname //Decides which name to use for him
-{
-	if nightynight == "on"
-	{
-	"Nighty"
-	}
-	else
-	{
-	"Nightmare"
-	}
-}
-
-VillageLevel //Negative variable that also catches if you've hit him or not. Used so that you can't unlock goopmare without hurting him
-{
-punchout - nicesadlevel
-}
-
-internalenvelope //???
-{
-	"Internal Envelope Dialogue 1 - %(exampleenvelope)"
-	"%(username)'s computer"
-	"Here is a blanklist object - %(blanklist)."
-}
-
-ItemMOO //Put this at the end of the item menu instead of typing this out 30 times
-{
-	"\n\n\![*]\q[Give him something different,itemsmenu]\n/
-	\![*]\q[Back to main menu,BACKTOMENU]\n/
-	\![*]\q[Nevermind,CANCEL]\e"
-}
-actigon //Put this at the end of the act menu instead of typing this out 30 times
-{
-	"\n\n\![*]\q[Choose another ACTion,Onyouact]\n/
-	\![*]\q[Back to main menu,BACKTOMENU]\n/
-	\![*]\q[Nevermind,CANCEL]\e"
-}
-backask //Put this at the end of the ask menu instead of typing this out 30 times
-{
-	"\n\n\![*]\q[Ask something else,youtalk]\n/
-	\![*]\q[Back to main menu,BACKTOMENU]\n/
-	\![*]\q[Nevermind,CANCEL]\e"
-}
-backmenu //Put at the end of settings
-{
-	"\n\n\![*]\q[Back to Settings,configmenu]\n/
-	\![*]\q[Back to main menu,BACKTOMENU]\n/
-	\![*]\q[Nevermind,CANCEL]\e"
-}
-
-blanklist //I put blanklist in blanklist lol
-{
-	"Quo crashed their computer once putting an envelope in an envelope..."
-}
-
-pickup //why is this here instead of mouse.dic
-{
-	if punchout >= 15 && Edgybitch == "off"
-	{
-	"\0\s[39]"
-	}
-	elseif Edgybitch == "on"
-	{
-	"\0\s[12]"
-	}
-	elseif sleepingmode == "on"
-	{
-	"\0\s[5]"
-		if givesleepyblankie == "on"
-		{
-		"\0\s[5]\i[48]"
-		}
-	}
-	else
-	{
-	"\0\s[38]"
-	}
-}
-
+﻿//Funny Envelopes
 bookstoread //Stolen from Zarla's hs ghost. Some are written by me.
 {
 	"a very large looking book about skeleton history"
@@ -154,11 +77,6 @@ bookstoread //Stolen from Zarla's hs ghost. Some are written by me.
 	"an autobiography written by the guy that harrassed people into singing with him"
 }
 
-dreambday //dream's one other appearence lol
-{
-	"\0\s[13]Oh,\w4 it's %(bornmonthprint) %(borndayprint), \w3right?\w8\n\nThat's your birthday, \w4so uh-\0\s[7]\w8\1\s[1625]\w8\w8*\w5 (\w4.\w4.\w4.\w4)\w8\0\s[36]\n\nanDream what are you doing here!!\1\n\nComing to say hi to %(username).\0\n\nBut-\n\n\w5\1\n\n%(username) already knows about me though,\w4 so it's fine!\n\n\0\s[8]Fine but you can't stay here...\n\n\w8\1Okay!\w7\n\n\1\s[1626]Hello %(username),\w4 are you having a good birthday?\w6 I hope you are cause I dunno how to tell from here. \w8\1\s[1625]Nightmare this place is really weird.\0\s[8]\w8I know that,\w4 I live here.\1\w8\n\nOkay.\w7\1\s[1626]Happy birthday %(username)!\w8\w8\w8\1\s[10]\e"
-}
-
 usersfolder //Different folders for the computer
 {
 	"Downloads folder"
@@ -172,6 +90,190 @@ usersfolder //Different folders for the computer
 	"Recycle Bin"
 	"SSP folder"
 	"System 32"
+}
+
+tea
+{
+	"Constant Comment"
+	"Double Spice"
+	"White Rasberry"
+	"Earl Gray"
+	"Honey Lemon Ginger"
+	"Black Cherry"
+	"Herbal Mint"
+	"Blood Orange"
+	"Chai"
+	"Chamomile"
+	"Honey Lavender"
+	"Cucumber Mint"
+	"Citrus Mint"
+	"Ginger Lemongrass"
+	"Green Mango Peach"
+	"Ginger"
+	"Mango Peach"
+	"Lemon Lavender"
+	"Kiwi Lime"
+	"Vanilla Peach"
+}
+
+
+//Coding Envelopes
+nightname //Decides which name to use for him
+{
+	if nightynight == "on"
+	{
+	"Nighty"
+	}
+	else
+	{
+	"Nightmare"
+	}
+}
+
+VillageLevel //Negative variable that also catches if you've hit him or not. Used so that you can't unlock goopmare without hurting him
+{
+punchout - nicesadlevel
+}
+
+internalenvelope //???
+{
+	"Internal Envelope Dialogue 1 - %(exampleenvelope)"
+	"%(username)'s computer"
+	"Here is a blanklist object - %(blanklist)."
+}
+
+ItemMOO //Put this at the end of the item menu instead of typing this out 30 times
+{
+	"\n\n\![*]\q[Give him something different,itemsmenu]\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+actigon //Put this at the end of the act menu instead of typing this out 30 times
+{
+	"\n\n\![*]\q[Choose another ACTion,Onyouact]\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+backask //Put this at the end of the ask menu instead of typing this out 30 times
+{
+	"\n\n\![*]\q[Ask something else,youtalk]\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+backmenu //Put at the end of settings
+{
+	"\n\n\![*]\q[Back to Settings,configmenu]\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+pickup //why is this here instead of mouse.dic
+{
+	if punchout >= 15 && Edgybitch == "off" || nicesadlevel <= -50 && Edgybitch == "off" 
+	{
+	"\0\s[39]"
+	}
+	elseif Edgybitch == "on"
+	{
+	"\0\s[12]"
+	}
+	elseif sleepingmode == "on"
+	{
+	"\0\s[5]"
+		if givesleepyblankie == "on"
+		{
+		"\0\s[5]\i[48]"
+		}
+	}
+	elseif sittang == "on"
+	{
+		"\0\s[1]"
+	}
+	else
+	{
+	"\0\s[38]"
+		if nicesadlevel >= 75
+		{
+			if blushiemode == "on"
+			{
+			"\0\s[45]\i[2]\i[3]"
+			}
+			else
+			{
+			"\0\s[45]\i[1]"
+			}
+		}
+	}
+}
+
+surface0
+{
+	if nicesadlevel <= -25
+	{
+		if sittang == "on"
+		{
+		"\0\s[1]"
+		}
+		else
+		{
+		"\0\s[0]\i[12]"
+		}
+	}
+	elseif nicesadlevel >= 25
+	{
+		if sittang == "on"
+		{
+		"\0\s[1]\i[14]"
+		}
+		else
+		{
+		"\0\s[0]\i[14]\i[15]"
+		}
+	}
+	else
+	{
+	"\0\s[0]\i[10]"
+	"\0\s[0]\i[15]"
+	}
+}
+
+annoyed
+{
+	if sittang == "on"
+	{
+	"\0\s[1]\i[9]"
+	}
+	else
+	{
+	"\0\s[0]\i[11]\i[10]"
+	"\0\s[0]\i[13]\i[10]"
+	}
+}
+
+scared
+{
+	"\0\s[0]\i[12]"
+}
+
+MUNCH
+{
+	if sittang == "on"
+	{
+		"\0\s[1]\i[39]"
+	}
+	elseif nicesadlevel <= -20
+	{
+		"\0\s[25]" //Temp dialogue
+	}
+	else
+	{
+		"\0\s[25]"
+	}
+}
+
+dreambday //dream's one other appearence lol
+{
+	"\0\s[13]Oh,\w4 it's %(bornmonthprint) %(borndayprint), \w3right?\w8\n\nThat's your birthday, \w4so uh-\0\s[7]\w8\1\s[1625]\w8\w8*\w5 (\w4.\w4.\w4.\w4)\w8\0\s[36]\n\nanDream what are you doing here!!\1\n\nComing to say hi to %(username).\0\n\nBut-\n\n\w5\1\n\n%(username) already knows about me though,\w4 so it's fine!\n\n\0\s[8]Fine but you can't stay here...\n\n\w8\1Okay!\w7\n\n\1\s[1626]Hello %(username),\w4 are you having a good birthday?\w6 I hope you are cause I dunno how to tell from here. \w8\1\s[1625]Nightmare this place is really weird.\0\s[8]\w8I know that,\w4 I live here.\1\w8\n\nOkay.\w7\1\s[1626]Happy birthday %(username)!\w8\w8\w8\1\s[10]\e"
 }
 
 On_\person //idk what this is

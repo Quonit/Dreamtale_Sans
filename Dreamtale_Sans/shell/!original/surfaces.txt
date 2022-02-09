@@ -14,32 +14,93 @@ collision1,40,50,102,84,Book
 surface0
 {
 //Collision
-collision0,116,21,182,42,Crown
-collision2,114,55,172,89,Face
+collision0,120,27,193,63,Crown
+collision2,114,62,172,93,Face
 
 element0,overlay,surface0.png,0,0
 //--Talking-----------------------------------------------------------------------------
-1interval,talk,4
-1pattern0,0,0,alternativestart,[2.3.4]
-2interval,never
-2pattern0,1102,10,overlay,0,0
-2pattern0,1101,13,overlay,0,0
-2pattern1,-1,10,overlay,0,0
+//1interval,talk,4
+//1pattern0,0,0,alternativestart,[2.3.4]
+//2interval,never
+//2pattern0,1102,10,overlay,0,0
+//2pattern0,1101,13,overlay,0,0
+//2pattern1,-1,10,overlay,0,0
 
-3interval,never
-3pattern0,1101,14,overlay,0,0
-3pattern1,-1,10,overlay,0,0
+//3interval,never
+//3pattern0,1101,14,overlay,0,0
+//3pattern1,-1,10,overlay,0,0
 
-4interval,never
-4pattern0,1102,14,overlay,0,0
-4pattern1,-1,10,overlay,0,0
-//Blushies
-100interval,bind
-100pattern0,100,0,add,0,0
+//4interval,never
+//4pattern0,1102,14,overlay,0,0
+//4pattern1,-1,10,overlay,0,0
 
 //Stop Talking-----------------------------------------------------------------------------
 55interval,never
 55pattern0,0,0,stop,1
+
+//Eyes
+//Neutral
+7interval,runonce
+7pattern0,1122,0,overlay,0,0
+//Annoyed
+11interval,never
+11pattern1,0,0,stop,7
+11pattern0,1121,0,overlay,0,0
+//Worried Eyes
+12interval,never
+12pattern1,0,0,stop,7
+12pattern0,1120,0,overlay,0,0
+//Angry Eyes
+13interval,never
+13pattern1,0,0,stop,7
+13pattern0,1123,0,overlay,0,0
+//happy Eyes
+14interval,never
+14pattern1,0,0,stop,7
+14pattern0,1124,0,overlay,0,0
+//wip
+//14interval,random,4
+//14pattern0,-1,10,overlay,0,0
+//14pattern1,1127,5,overlayfast,0,0
+//14pattern2,1128,10,overlayfast,0,0
+//14pattern3,-1,3,overlay,0,0
+
+//Right Arms
+//Hold Arm
+9interval,runonce
+9pattern0,1207,0,overlay,0,0
+//On hip
+10interval,never
+10pattern0,0,0,stop,9
+10pattern2,1208,0,overlay,0,0
+//Limp Arm
+15interval,never
+15pattern0,0,0,stop,9
+15pattern2,1210,0,overlay,0,0
+
+//Left Arms
+//limp arm
+8interval,runonce
+8pattern0,1209,0,overlay,0,0
+
+//Tentacles
+16interval,never
+16pattern0,1304,0,interpolate,0,0
+16pattern1,1305,66,interpolate,0,0
+16pattern2,1304,50,interpolate,0,0
+16pattern3,1305,50,interpolate,0,0
+16pattern4,0,0,start,16
+
+//Pull In
+17interval,never
+17pattern1,1305,0,interpolate,0,0
+17pattern2,1302,8,interpolate,0,0
+17pattern3,1303,8,interpolate,0,0
+17pattern3,0,8,interpolate,0,0
+
+//Blushies
+100interval,bind
+100pattern0,1600,0,add,0,0
 }
 
 //Reading
@@ -48,7 +109,7 @@ surface1
 collision0,138,116,218,141,Crown
 collision1,115,206,186,246,Book
 
-element0,overlay,surface1501.png,0,0
+element0,overlay,surface1001.png,0,0
 //--Page Flip--
 0interval,random,5
 0pattern1,1202,5,replace,113,188
@@ -82,49 +143,54 @@ element0,overlay,surface1501.png,0,0
 7pattern0,1111,0,overlay,0,0
 //At you Judge
 8interval,never
-9pattern0,1113,0,overlay,0,0
+8pattern0,1113,0,overlay,0,0
+//Angry
+9interval,never
+9pattern0,1132,0,overlay,0,0
 
 //--Mouth Expressions--
 //Slight Smile
 14interval,never
-14pattern0,1013,0,overlay,0,0
+14pattern0,1131,0,overlay,0,0
 //Nom nom
 39interval,never
 39pattern0,1110,0,overlay,0,0
 
 //talk
-10interval,talk,4
-10pattern0,0,0,alternativestart,[11.12.13]
+20interval,talk,4
+20pattern0,0,0,alternativestart,[21.22.23]
 
-11interval,never
-11pattern0,1012,10,overlay,0,0
-11pattern1,1011,13,overlay,0,0
-11pattern2,-1,10,overlay,0,0
+21interval,never
+21pattern0,1130,10,overlay,0,0
+21pattern1,1129,13,overlay,0,0
+21pattern2,-1,10,overlay,0,0
 
-12interval,never
-12pattern0,1011,14,overlay,0,0
-12pattern1,-1,10,overlay,0,0
+22interval,never
+22pattern0,1129,14,overlay,0,0
+22pattern1,-1,10,overlay,0,0
 
-13interval,never
-13pattern0,1012,14,overlay,0,0
-13pattern1,-1,10,overlay,0,0
-//Blushies
-100interval,bind
-100pattern0,101,0,add,0,0
+23interval,never
+23pattern0,1130,14,overlay,0,0
+23pattern1,-1,10,overlay,0,0
 
 //Stop Talking-----------------------------------------------------------------------------
 55interval,never
-55pattern0,0,0,stop,10
+55pattern0,0,0,stop,22
+
+//Blushies
+100interval,bind
+100pattern0,1601,0,add,0,0
+
 }
 
 //Shrug
 surface2
 {
 //Collision
-collision0,114, 34, 189, 51,Crown
-collision2,114, 55, 172, 89,Face
+collision0,114,34,189,51,Crown
+collision2,114,55,172,89,Face
 
-element0,overlay,surface1502.png,0,0
+element0,overlay,surface1002.png,0,0
 //talk
 15interval,talk,4
 15pattern0,0,0,alternativestart,[16.17.18]
@@ -141,13 +207,15 @@ element0,overlay,surface1502.png,0,0
 18interval,never
 18pattern0,1104,14,overlay,0,0
 18pattern1,-1,10,overlay,0,0
-//Blushies
-100interval,bind
-100pattern0,102,0,add,0,0
 
 //Stop Talking-----------------------------------------------------------------------------
 55interval,never
 55pattern0,0,0,stop,15
+
+//Blushies
+100interval,bind
+100pattern0,1602,0,add,0,0
+
 }
 
 //Worried Sideglance
@@ -157,7 +225,7 @@ surface3
 collision0,113,31,189,53,Crown
 collision1,130,58,183,84,Face
 
-element0,overlay,surface1503.png,0,0
+element0,overlay,surface1003.png,0,0
 //talk
 19interval,talk,4
 19pattern0,0,0,alternativestart,[20.21.22]
@@ -174,13 +242,14 @@ element0,overlay,surface1503.png,0,0
 22interval,never
 22pattern0,1106,14,overlay,0,0
 22pattern1,-1,10,overlay,0,0
-//Blushies
-100interval,bind
-100pattern0,103,0,add,0,0
 
 //Stop Talking-----------------------------------------------------------------------------
 55interval,never
 55pattern0,0,0,stop,19
+
+//Blushies
+100interval,bind
+100pattern0,1603,0,add,0,0
 }
 
 //Thinking
@@ -190,7 +259,7 @@ surface4
 collision0,105,25,182,42,Crown
 collision1,111,54,171,86,Face
 
-element0,overlay,surface1504.png,0,0
+element0,overlay,surface1004.png,0,0
 //talk
 23interval,talk,4
 23pattern0,0,0,alternativestart,[24.25.26]
@@ -207,13 +276,14 @@ element0,overlay,surface1504.png,0,0
 26interval,never
 26pattern0,1108,14,overlay,0,0
 26pattern1,-1,10,overlay,0,0
-//Blushies
-100interval,bind
-100pattern0,104,0,add,0,0
 
 //Stop Talking-----------------------------------------------------------------------------
 55interval,never
 55pattern0,0,0,stop,23
+
+//Blushies
+100interval,bind
+100pattern0,1604,0,add,0,0
 }
 
 //Sleeping
@@ -223,20 +293,21 @@ surface5
 collision0,121,122,201,147,Crown
 collision1,146,271,191,293,Book
 
-element0,overlay,surface1505.png,0,0
+element0,overlay,surface1005.png,0,0
 //breath
 27interval,always,10
 27pattern0,-1,50,base,0,0
-27pattern1,1605,50,base,0,0
-27pattern2,1605,50,base,0,0
+27pattern1,1505,50,base,0,0
+27pattern2,1505,50,base,0,0
 27pattern3,-1,3,base,0,0
 
 //Blankie
 48interval,never
 48pattern0,1116,0,overlay,0,0
+
 //Blushies
 100interval,bind
-100pattern0,105,0,add,0,0
+100pattern0,1605,0,add,0,0
 }
 
 //Happy
@@ -245,7 +316,7 @@ surface6
 //Collision
 collision0,111,39,187,57,Crown
 collision1,113,70,173,96,Face
-element0,overlay,surface1506.png,0,0
+element0,overlay,surface1006.png,0,0
 
 //talk
 28interval,talk,4
@@ -263,13 +334,14 @@ element0,overlay,surface1506.png,0,0
 31interval,never
 31pattern0,1115,14,overlay,0,0
 31pattern1,-1,10,overlay,0,0
-//Blushies
-100interval,bind
-100pattern0,106,0,add,0,0
 
 //Stop Talking-----------------------------------------------------------------------------
 55interval,never
 55pattern0,0,0,stop,28
+
+//Blushies
+100interval,bind
+100pattern0,1606,0,add,0,0
 }
 
 //Shock
@@ -278,7 +350,7 @@ surface7
 //Collision
 collision0,123,34,192,66,Crown
 collision1,118,63,179,95,Face
-element1,overlay,surface1507.png,0,0
+element1,overlay,surface1007.png,0,0
 
 //Tentacles!?
 2interval,never
@@ -297,7 +369,7 @@ element1,overlay,surface1507.png,0,0
 
 //Blushies
 100interval,bind
-100pattern0,107,0,add,0,0
+100pattern0,1607,0,add,0,0
 }
 
 //Shame
@@ -306,11 +378,11 @@ surface8
 //Collision
 collision0,104,32,174,51,Crown
 collision1,108,63,169,87,Face
-element1,overlay,surface1508.png,0,0
+element1,overlay,surface1008.png,0,0
 
 //Blushies
 100interval,bind
-100pattern0,108,0,add,0,0
+100pattern0,1608,0,add,0,0
 }
 
 //sad lookdown
@@ -319,10 +391,11 @@ surface9
 //Collision
 collision0,94,42,162,61,Crown
 collision1,99,63,158,86,Face
-element1,overlay,surface1509.png,0,0
+element1,overlay,surface1009.png,0,0
+
 //Blushies
 100interval,bind
-100pattern0,109,0,add,0,0
+100pattern0,1609,0,add,0,0
 }
 
 //Keep empty
@@ -336,11 +409,11 @@ surface11
 //Collision
 collision0,95,34,166,48,Crown
 collision1,98,62,162,85,Face
-element1,overlay,surface1511.png,0,0
+element1,overlay,surface1011.png,0,0
 
 //Blushies
 100interval,bind
-100pattern0,111,0,add,0,0
+100pattern0,1611,0,add,0,0
 }
 
 //Cross arms
@@ -349,11 +422,11 @@ surface12
 //Collision
 collision0,115,53,185,76,Crown
 collision1,116,75,173,98,Face
-element1,overlay,surface1512.png,0,0
+element1,overlay,surface1012.png,0,0
 
 //Blushies
 100interval,bind
-100pattern0,112,0,add,0,0
+100pattern0,1612,0,add,0,0
 }
 
 //Shy
@@ -362,10 +435,10 @@ surface13
 //Collision
 collision0,119,47,190,75,Crown
 collision1,140,68,192,100,Face
-element1,overlay,surface1513.png,0,0
+element1,overlay,surface1013.png,0,0
 //Blushies
 100interval,bind
-100pattern0,113,0,add,0,0
+100pattern0,1613,0,add,0,0
 }
 
 //hahahaha could you believe
@@ -374,10 +447,10 @@ surface14
 //Collision
 collision0,114,45,185,57,Crown
 collision1,140,68,192,100,Face
-element1,overlay,surface1514.png,0,0
+element1,overlay,surface1014.png,0,0
 //Blushies
 100interval,bind
-100pattern0,114,0,add,0,0
+100pattern0,1614,0,add,0,0
 }
 
 //hum
@@ -386,10 +459,37 @@ surface15
 //Collision
 collision0,113,20,183,42,Crown
 collision1,113,40,166,83,Face
-element1,overlay,surface1515.png,0,0
+element1,overlay,surface1015.png,0,0
 //Blushies
 100interval,bind
-100pattern0,115,0,add,0,0
+100pattern0,1615,0,add,0,0
+}
+
+//Slow up 1
+surface160
+{
+element0,overlay,surface1500.png,0,0
+}
+//Slow up 2
+surface161
+{
+element0,overlay,surface1501.png,0,0
+}
+//Slow up 3
+surface162
+{
+element0,overlay,surface1502.png,0,0
+}
+
+//Stand Up
+surface16
+{
+element0,overlay,surface1500.png,0,0
+32interval,runonce
+32pattern1,160,10,base,0,0
+32pattern2,161,15,base,0,0
+32pattern3,162,15,base,0,0
+32pattern4,1533,15,base,0,0
 }
 
 //protect the crown
@@ -397,43 +497,17 @@ surface17
 {
 //Collision
 collision1,116,45,165,93,Face
-element1,overlay,surface1517.png,0,0
+element1,overlay,surface1017.png,0,0
 //Blushies
 100interval,bind
-100pattern0,107,0,add,0,0
+100pattern0,1607,0,add,0,0
 }
 
-//Slow up 1
-surface160
-{
-element0,overlay,surface1600.png,0,0
-}
-//Slow up 2
-surface161
-{
-element0,overlay,surface1601.png,0,0
-}
-//Slow up 3
-surface162
-{
-element0,overlay,surface1602.png,0,0
-}
-
-//Stand Up
-surface16
-{
-element0,overlay,surface1600.png,0,0
-32interval,runonce
-32pattern1,160,10,base,0,0
-32pattern2,161,15,base,0,0
-32pattern3,162,15,base,0,0
-32pattern4,0,15,base,0,0
-}
 
 //Dont hit me
 surface18
 {
-element1,overlay,surface1518.png,0,0
+element1,overlay,surface1018.png,0,0
 }
 
 //Scared
@@ -442,10 +516,10 @@ surface19
 //Collision
 collision0,94,42,162,61,Crown
 collision1,99,66,154,88,Face
-element1,overlay,surface1519.png,0,0
+element1,overlay,surface1019.png,0,0
 //Blushies
 100interval,bind
-100pattern0,119,0,add,0,0
+100pattern0,1619,0,add,0,0
 }
 
 //Thank you
@@ -454,10 +528,12 @@ surface20
 //Collision
 collision0,109,28,178,68,Crown
 collision1,112,52,170,85,Face
-element1,overlay,surface1520.png,0,0
+
+element1,overlay,surface1020.png,0,0
+
 //Blushies
 100interval,bind
-100pattern0,120,0,add,0,0
+100pattern0,1620,0,add,0,0
 }
 
 //Beg fool
@@ -466,13 +542,15 @@ surface21
 //Collision
 collision0,110,26,181,44,Crown
 collision1,108,46,168,87,Face
-element1,overlay,surface1521.png,0,0
-//Blushies
-100interval,bind
-100pattern0,121,0,add,0,0
+element1,overlay,surface1021.png,0,0
+
 //but its a joke
 40interval,never
 40pattern0,1114,0,overlay,0,0
+
+//Blushies
+100interval,bind
+100pattern0,1621,0,add,0,0
 }
 
 //Face Away
@@ -480,33 +558,33 @@ surface22
 {
 //Collision
 collision1,135,26,182,94,Face
-element1,overlay,surface1522.png,0,0
+element1,overlay,surface1022.png,0,0
 }
 
 //Sniff
 surface23
 {
-element1,overlay,surface1523.png,0,0
+element1,overlay,surface1023.png,0,0
 //Sniffly
 33interval,random,2
 33pattern0,-1,46,base,0,0
-33pattern1,1603,25,base,0,0
-33pattern2,1603,30,base,0,0
+33pattern1,1503,25,base,0,0
+33pattern2,1503,30,base,0,0
 33pattern3,-1,3,base,0,0
 }
 
 //Push
 surface24
 {
-element1,overlay,surface1604.png,0,0
+element1,overlay,surface1504.png,0,0
 34interval,runonce
-34pattern0,1606,20,base
-34pattern0,1607,20,base,0,0
-34pattern1,1608,20,base,0,0
-34pattern1,1609,20,base,0,0
-34pattern1,1610,25,base,0,0
-34pattern1,1611,25,base,0,0
-34pattern1,1612,25,base,0,0
+34pattern0,1506,20,base
+34pattern0,1507,20,base,0,0
+34pattern1,1508,20,base,0,0
+34pattern1,1509,20,base,0,0
+34pattern1,1510,25,base,0,0
+34pattern1,1511,25,base,0,0
+34pattern1,1512,25,base,0,0
 }
 
 //Eat
@@ -514,10 +592,10 @@ surface25
 {
 collision0,116,42,186,72,Crown
 collision1,118,77,172,96,Face
-element1,overlay,surface1524.png,0,0
+element1,overlay,surface1024.png,0,0
 //Blushies
 100interval,bind
-100pattern0,124,0,add,0,0
+100pattern0,1624,0,add,0,0
 }
 
 //Dream doll
@@ -526,23 +604,23 @@ surface26
 collision0,115,30,186,51,Crown
 collision1,108,46,168,87,Face
 collision1,136,95,171,130,Dollie
-element1,overlay,surface1525.png,0,0
+element1,overlay,surface1025.png,0,0
 //Blushies
 100interval,bind
-100pattern0,125,0,add,0,0
+100pattern0,1625,0,add,0,0
 }
 
 //Mug
 surface27
 {
-element1,overlay,surface1526.png,0,0
+element1,overlay,surface1026.png,0,0
 //Blushies
 100interval,bind
-100pattern0,126,0,add,0,0
+100pattern0,1526,0,add,0,0
 //Steam
 48interval,always,30
 48pattern0,-1,75,base,0,0
-48pattern1,1627,66,base,0,0
+48pattern1,1527,66,base,0,0
 }
 
 //Flush
@@ -550,7 +628,7 @@ surface28
 {
 collision0,112,35,186,57,Crown
 collision1,112,59,168,89,Face
-element1,overlay,surface1527.png,0,0
+element1,overlay,surface1027.png,0,0
 }
 
 //Blow Kiss
@@ -558,31 +636,31 @@ surface29
 {
 collision0,115,34,186,47,Crown
 collision1,114,59,171,87,Face
-element0,overlay,surface1528.png,0,0
+element0,overlay,surface1028.png,0,0
 41interval,runonce
-41pattern1,1618,60,base,0,0
+41pattern1,1518,60,base,0,0
 }
 
 //Panche
 surface290
 {
-element0,overlay,surface1529.png,0,0
+element0,overlay,surface1029.png,0,0
 42interval,runonce
-42pattern1,1619,60,base,0,0
+42pattern1,1519,60,base,0,0
 }
 
 //Rarer Ponch
 surface30
 {
-element0,overlay,surface1530.png,0,0
+element0,overlay,surface1030.png,0,0
 43interval,runonce
-43pattern1,1620,45,base,0,0
+43pattern1,1520,45,base,0,0
 }
 
 //19 but like happy
 surface31
 {
-element0,overlay,surface1531.png,0,0
+element0,overlay,surface1031.png,0,0
 }
 
 //Yay pet!
@@ -590,23 +668,23 @@ surface32
 {
 collision0,107,39,186,61,Crown
 collision1,112,72,168,91,Face
-element0,overlay,surface1532.png,0,0
+element0,overlay,surface1032.png,0,0
 }
 
 //Don steal crownnn
 surface33
 {
 collision1,119,48,168,87,Face
-element0,overlay,surface1533.png,0,0
+element0,overlay,surface1033.png,0,0
 }
 
 //OW fall
 surface34
 {
-element0,overlay,surface1534.png,0,0
+element0,overlay,surface1034.png,0,0
 44interval,runonce
-44pattern0,1621,35,base
-44pattern0,1622,35,base,0,0
+44pattern0,1521,35,base
+44pattern0,1522,35,base,0,0
 }
 
 //<3
@@ -614,37 +692,37 @@ surface35
 {
 collision0,115,27,186,48,Crown
 collision1,111,49,168,87,Face
-element0,overlay,surface1535.png,0,0
+element0,overlay,surface1035.png,0,0
 }
 
 //Dream No
 surface36
 {
-element0,overlay,surface1536.png,0,0
+element0,overlay,surface1036.png,0,0
 }
 
 //Tired 5
 surface37
 {
-element0,overlay,surface1537.png,0,0
+element0,overlay,surface1037.png,0,0
 //Blankie
 48interval,never
 48pattern0,1116,0,overlay,0,0
 //Blushies
 100interval,bind
-100pattern0,105,0,add,0,0
+100pattern0,1605,0,add,0,0
 }
 
 //Pick Up Normal
 surface38
 {
-element0,overlay,surface1538.png,0,0
+element0,overlay,surface1038.png,0,0
 }
 
 //Pick Up Mean
 surface39
 {
-element0,overlay,surface1539.png,0,0
+element0,overlay,surface1039.png,0,0
 }
 
 //Flowers
@@ -652,7 +730,7 @@ surface40
 {
 collision0,118,20,186,40,Crown
 collision1,115,46,171,83,Face
-element0,overlay,surface1540.png,0,0
+element0,overlay,surface1040.png,0,0
 }
 
 //Drinking boy
@@ -660,7 +738,7 @@ surface41
 {
 collision0,119,34,199,56,Crown
 collision1,118,60,174,91,Face
-element0,overlay,surface1541.png,0,0
+element0,overlay,surface1041.png,0,0
 //Add initial arms
 1interval,runonce
 1pattern0,1118,0,overlay,0,0
@@ -677,7 +755,77 @@ surface42
 {
 collision0,118,34,197,53,Crown
 collision1,118,60,179,93,Face
-element0,overlay,surface1540.png,0,0
+collision2,136,108,165,140,Soul
+element0,overlay,surface1042.png,0,0
+
+//SOUL
+1interval,always
+1pattern2,1216,50,overlay,0,0
+1pattern3,1217,50,overlay,0,0
+1pattern4,0,0,start,1
+}
+
+//Sit-Side
+surface43
+{
+collision0,118,34,197,53,Crown
+collision1,118,60,179,93,Face
+element0,overlay,surface1043.png,0,0
+
+//Eyes
+//Neutral
+7interval,runonce
+7pattern0,1125,0,overlay,0,0
+//At You
+8interval,never
+8pattern1,0,0,stop,7
+8pattern0,1126,0,overlay,0,0
+
+//Right Arms
+//At Side
+9interval,runonce
+9pattern0,1211,0,overlay,0,0
+//Inside
+11interval,never
+11pattern1,0,0,stop,9
+11pattern0,1213,0,overlay,0,0
+
+//Left Arms
+//At Side
+10interval,runonce
+10pattern0,1212,0,overlay,0,0
+}
+
+//Slight Down
+surface44
+{
+element0,overlay,surface1044.png,0,0
+//Crown
+1interval,never
+1pattern0,1218,0,overlay,0,0
+//Put on
+2interval,never
+2pattern0,1219,0,overlay,0,0
+2pattern0,1220,50,overlay,0,0
+}
+
+//Positive Pick-Up
+surface45
+{
+element0,overlay,surface1045.png,0,0
+//Normal
+1interval,never
+1pattern0,1133,0,overlay,0,0
+//Blushie
+2interval,never
+2pattern0,1134,0,overlay,0,0
+//Hearts
+3interval,never
+3pattern2,1214,0,interpolate,0,0
+3pattern2,1215,50,interpolate,0,0
+3pattern2,1214,50,interpolate,0,0
+3pattern3,1215,25,interpolate,0,0
+3pattern4,0,0,start,3
 }
 
 //  ________  _ _____  ____  ____  ____ 
@@ -687,60 +835,60 @@ element0,overlay,surface1540.png,0,0
 // \____\/__/\\  \_/  \_/\_\\_/ \|\____/
 
 //Sleeping 2
-surface1605
+surface1505
 {
 //Collision
 collision0,121,122,201,147,Crown
 collision1,146,271,191,293,Book
-element0,overlay,surface1605.png,0,0
+element0,overlay,surface1505.png,0,0
 }
 
 //Sniff 2
-surface1603
+surface1503
 {
-element0,overlay,surface1603.png,0,0
+element0,overlay,surface1503.png,0,0
 }
 
 //Fall in-between
-surface1604
+surface1504
 {
-element0,overlay,surface1604.png,0,0
+element0,overlay,surface1504.png,0,0
 }
 
 //Turn 1
-surface1606
+surface1506
 {
-element0,overlay,surface1606.png,0,0
+element0,overlay,surface1506.png,0,0
 }
 //Turn 2
-surface1607
+surface1507
 {
-element0,overlay,surface1607.png,0,0
+element0,overlay,surface1507.png,0,0
 }
 //Turn 3
-surface1608
+surface1508
 {
-element0,overlay,surface1608.png,0,0
+element0,overlay,surface1508.png,0,0
 }
 //Turn 4
-surface1609
+surface1509
 {
-element0,overlay,surface1609.png,0,0
+element0,overlay,surface1509.png,0,0
 }
 //Turn 5
-surface1610
+surface1510
 {
-element0,overlay,surface1610.png,0,0
+element0,overlay,surface1510.png,0,0
 }
 //Turn 6
-surface1611
+surface1511
 {
-element0,overlay,surface1611.png,0,0
+element0,overlay,surface1511.png,0,0
 }
 //Turn 7
-surface1612
+surface1512
 {
-element0,overlay,surface1612.png,0,0
+element0,overlay,surface1512.png,0,0
 //Smile
 35interval,never
 35pattern0,1203,14,overlay,57,220
@@ -756,98 +904,98 @@ element0,overlay,surface1612.png,0,0
 }
 
 //Goopmare because I fucked up
-surface1613
+surface1513
 {
-element0,overlay,surface1613.png,0,0
+element0,overlay,surface1513.png,0,0
 //woggle
 45interval,always,10
 45pattern0,-1,75,base,0,0
-45pattern1,1614,66,base,0,0
-45pattern2,1614,50,base,0,0
+45pattern1,1514,66,base,0,0
+45pattern2,1514,50,base,0,0
 45pattern3,-1,3,base,0,0
 }
-surface1614
+surface1514
 {
-element0,overlay,surface1614.png,0,0
+element0,overlay,surface1514.png,0,0
 }
 //Goopmare because I fucked up
-surface1615
+surface1515
 {
-element0,overlay,surface1615.png,0,0
+element0,overlay,surface1515.png,0,0
 //woggle
 46interval,always,10
 46pattern0,-1,75,base,0,0
-46pattern1,1616,66,base,0,0
-46pattern2,1616,50,base,0,0
+46pattern1,1516,66,base,0,0
+46pattern2,1516,50,base,0,0
 46pattern3,-1,3,base,0,0
 }
-surface1616
+surface1516
 {
-element0,overlay,surface1616.png,0,0
+element0,overlay,surface1516.png,0,0
 }
-surface1617
+surface1517
 {
-element0,overlay,surface1617.png,0,0
+element0,overlay,surface1517.png,0,0
 }
-surface1618 //Blow kiss 2
+surface1518 //Blow kiss 2
 {
-element0,overlay,surface1618.png,0,0
+element0,overlay,surface1518.png,0,0
 }
-surface1619 //Mad Panch
+surface1519 //Mad Panch
 {
-element0,overlay,surface1619.png,0,0
+element0,overlay,surface1519.png,0,0
 }
-surface1620 //Hurt ponch
+surface1520 //Hurt ponch
 {
-element0,overlay,surface1620.png,0,0
+element0,overlay,surface1520.png,0,0
 }
-surface1621 //Fall 1
+surface1521 //Fall 1
 {
-element0,overlay,surface1621.png,0,0
+element0,overlay,surface1521.png,0,0
 }
-surface1622 //Fall 2
+surface1522 //Fall 2
 {
-element0,overlay,surface1622.png,0,0
+element0,overlay,surface1522.png,0,0
 //breath
 47interval,always,10
 47pattern0,-1,75,base,0,0
-47pattern1,1623,66,base,0,0
-47pattern2,1623,50,base,0,0
+47pattern1,1523,66,base,0,0
+47pattern2,1523,50,base,0,0
 47pattern3,-1,3,base,0,0
 }
-surface1623 //Fall 2 1 :D
+surface1523 //Fall 2 1 :D
 {
-element0,overlay,surface1623.png,0,0
+element0,overlay,surface1523.png,0,0
 }
 
-surface1627 //Tea 2
+surface1527 //Tea 2
 {
-element0,overlay,surface1627.png,0,0
+element0,overlay,surface1527.png,0,0
 }
 
-surface1628 //This is a joke
+surface1528 //This is a joke
 {
-element0,overlay,surface1628.png,0,0
+element0,overlay,surface1528.png,0,0
 }
 
-surface1629 //Or a feature idk
+surface1529 //Or a feature idk
 {
-element0,overlay,surface1629.png,0,0
+element0,overlay,surface1529.png,0,0
 }
 
-surface1630 //When did I draw this one
+surface1530 //When did I draw this one
 {
-element0,overlay,surface1630.png,0,0
+element0,overlay,surface1530.png,0,0
 }
 
-surface1631 //Hey look its mine!
+surface1531 //Hey look its mine!
 {
-element0,overlay,surface1631.png,0,0
+element0,overlay,surface1531.png,0,0
 }
 
-surface1632 //SwapDream
+surface1532 //SwapDream
 {
-element0,overlay,surface1632.png,0,0
+element0,overlay,surface1532.png,0,0
 }
 
 //      :::::::::  :::::::::  ::::::::::     :::       :::   :::
@@ -931,4 +1079,18 @@ element0,overlay,surface2631.png,0,0
 surface2632 //SwapDream
 {
 element0,overlay,surface2632.png,0,0
+}
+
+
+
+
+
+//ToolTips HotSpots <3 <3 <3
+sakura.tooltips 
+{ 
+Crown,* (You consider petting him...)
+Face,* (You consider hitting him...)  
+Book,* (What is he reading...?)
+Dollie,* (It's the doll of Dream you gave him!)  
+StarCrown,* (You consider petting them...)
 }

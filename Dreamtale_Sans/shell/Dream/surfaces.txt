@@ -1,0 +1,180 @@
+//      :::::::::  :::::::::  ::::::::::     :::       :::   :::
+//     :+:    :+: :+:    :+: :+:          :+: :+:    :+:+: :+:+:
+//    +:+    +:+ +:+    +:+ +:+         +:+   +:+  +:+ +:+:+ +:+
+//   +#+    +:+ +#++:++#:  +#++:++#   +#++:++#++: +#+  +:+  +#+
+//  +#+    +#+ +#+    +#+ +#+        +#+     +#+ +#+       +#+
+// #+#    #+# #+#    #+# #+#        #+#     #+# #+#       #+#
+//#########  ###    ### ########## ###     ### ###       ###
+surface0
+{
+//Collision
+collision0,151,92,215,130,StarCrown
+element0,overlay,surface0.png,0,0
+}
+
+//Side non look
+surface1
+{
+//Collision
+collision0,164,88,219,129,StarCrown
+element0,overlay,surface1001.png,0,0
+}
+
+//Cross arms
+surface2
+{
+//Collision
+collision0,160,87,221,128,StarCrown
+element0,overlay,surface1002.png,0,0
+}
+
+//Null
+surface3
+{
+element0,overlay,surface1003.png,0,0
+}
+
+//It's just a prank breh
+surface4
+{
+//Collision
+collision0,157,92,214,132,StarCrown
+element0,overlay,surface1004.png,0,0
+}
+
+//Mad!
+surface5
+{
+//Collision
+collision0,137,91,199,132,StarCrown
+element0,overlay,surface1005.png,0,0
+}
+
+//Happy
+surface6
+{
+//Collision
+collision0,137,96,193,130,StarCrown
+element0,overlay,surface1006.png,0,0
+}
+
+//Laugh
+surface7
+{
+collision0,166,85,220,115,StarCrown
+element1,overlay,surface1007.png,0,0
+}
+
+//scawy
+surface8
+{
+collision0,151,90,216,118,StarCrown
+element1,overlay,surface1008.png,0,0
+}
+
+//sad lookdown
+surface9
+{
+element1,overlay,surface1009.png,0,0
+}
+
+//Cross arms
+surface110
+{
+collision0,151,92,219,124,StarCrown
+element0,overlay,surface1010.png,0,0
+}
+
+//Unused
+surface11
+{
+element1,overlay,surface1011.png,0,0
+}
+
+//Cross arms
+surface12
+{
+element0,overlay,surface1012.png,0,0
+}
+
+//Encounter
+surface13
+{
+element1,overlay,surface1013.png,200,0
+}
+
+//hahahaha could you believe
+surface14
+{
+element1,overlay,surface1014.png,0,0
+}
+
+//hum
+surface15
+{
+element1,overlay,surface1015.png,0,0
+}
+
+//protect the crown
+surface17
+{
+element1,overlay,surface1016.png,0,0
+}
+
+//Grab Crown
+surface17
+{
+element1,overlay,surface1017.png,0,0
+}
+
+//Dont hit me
+surface18
+{
+element1,overlay,surface1018.png,0,0
+}
+
+//tired
+surface19
+{
+element1,overlay,surface2009.png,0,0
+}
+
+// 88888888b            dP
+// 88                   88
+// 88aaaa    dP.  .dP d8888P 88d888b. .d8888b. .d8888b.
+// 88         `8bd8'    88   88'  `88 88'  `88 Y8ooooo.
+// 88         .d88b.    88   88       88.  .88       88
+// 88888888P dP'  `dP   dP   dP       `88888P8 `88888P'
+
+surface1600
+{
+element0,overlay,surface1600.png,0,0
+}
+surface1601
+{
+element0,overlay,surface1601.png,0,0
+}
+surface1602
+{
+element0,overlay,surface1602.png,0,0
+}
+surface1603
+{
+element0,overlay,surface1603.png,0,0
+}
+surface1604
+{
+element0,overlay,surface1604.png,0,0
+}
+surface1605
+{
+element0,overlay,surface1605.png,0,0
+}
+surface1606
+{
+element0,overlay,surface1606.png,0,0
+}
+surface1607
+{
+element0,overlay,surface1607.png,0,0
+}

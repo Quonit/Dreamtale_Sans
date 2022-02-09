@@ -1,0 +1,23 @@
+charset,UTF-8
+version,1
+option,DisableNoDefineSurfaces
+
+group,G
+{
+scope,0
+
+0,Default
+1,Null
+2,Surprise!
+3,Shy
+4,Wave
+5,Scared
+6,Cute Sit
+7,Happy
+12,Pick Up
+1600,DimDream
+1601,DreamSwap
+1602,Flowerie
+1603,Soft
+1604,SwapDream
+}

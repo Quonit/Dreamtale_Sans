@@ -8,7 +8,8 @@ name,Dreamtale Sans
 craftman,quonit
 craftmanurl,later
 menu,hidden
-seriko.use_self_alpha,1
+//get rid of that stupid shell master error
+seriko.defaultsurfacedirectoryname,!original
 
 //Balloon Co-Coodinates
 sakura.balloon.offsetx,0

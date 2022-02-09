@@ -48,38 +48,42 @@ scope,0
 39,Pick Up Mean
 40,Flowers
 41,Drink
+42,Soul
+43,Sit Side
+45,Positive Pick-Up
 1600,up1
-1601,up2
-1602,up3
-1603,Sniff2
-1604,Fall in-between
-1605,Sleeping2
-1606,Fall 1
-1607,Fall 2
-1608,Fall 3
-1609,Fall 4
-1610,Fall 5
-1611,Fall 6
-1612,Fall 7
-1613,Goop 0
-1614,Goop 0.2
-1615,Goop 1
-1616,Goop 1.2
-1617,Goop Up
-1618,Blow Kiss 2
-1619,Cheek Hit 2
-1620,Eye Hit 2
-1621,Fall hit 2
-1622,Fall hit 3
-1623,Fall hit 4
-1624,Dream Surprise
-1625,Dream Shy
-1626,Dream Happy
-1627,Tea
-1628,Dreamswap
-1629,Dim
-1630,Flower
-1631,Fancy
+1501,up2
+1502,up3
+1503,Sniff2
+1504,Fall in-between
+1505,Sleeping2
+1506,Fall 1
+1507,Fall 2
+1508,Fall 3
+1509,Fall 4
+1510,Fall 5
+1511,Fall 6
+1512,Fall 7
+1513,Goop 0
+1514,Goop 0.2
+1515,Goop 1
+1516,Goop 1.2
+1517,Goop Up
+1518,Blow Kiss 2
+1519,Cheek Hit 2
+1520,Eye Hit 2
+1521,Fall hit 2
+1522,Fall hit 3
+1523,Fall hit 4
+1524,Dream Surprise
+1525,Dream Shy
+1526,Dream Happy
+1527,Tea
+1528,Dreamswap
+1529,Dim
+1530,Flower
+1531,Fancy
+1532,Dreanswap
 2001,D!Suprise
 2002,D!Shy
 2003,D!Wave
