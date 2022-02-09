@@ -228,7 +228,7 @@ OnUpdateBegin
 	}
 	if reference0 == "artificial"
 	{
-		"\0%(surface0)\i[55]* (The user cancelled the email check.)"
+		"\0%(surface0)\i[55]* (The user cancelled the update manually.)"
 	}
 }
 OnUpdateReady
@@ -528,4 +528,10 @@ MenuCheck
 		else; 0
 	}
 	else; 0
+}
+
+Onsittangoffsleepingmodeon
+{
+	sittang = "off"
+	sleepingmode = "on"
 }

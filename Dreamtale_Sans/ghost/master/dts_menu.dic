@@ -2095,6 +2095,7 @@ Select.nomoresits
 }
 Select.testvariable
 {
-	nicesadlevel = 50
+	nicesadlevel = 100
+	nightynight = "on"
 	"..."
 }

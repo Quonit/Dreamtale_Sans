@@ -272,8 +272,8 @@ normalboottalk //All temp dialogue
 			}
 			if nicesadlevel >= 50
 			{
-			"\0\s[5]zzz\w3.\w3.\w3.\n\n\w8\w8* (Aw... \w5You found him while he was sleeping.)\e:eval=sleepingmode='on'"
-			"\0\s[5].\w6.\w6.\n\n\w8* (It looks like he's sleeping.)\e:eval=sleepingmode='on'"
+			"\0\s[5]zzz\w3.\w3.\w3.\n\n\w8\w8* (Aw... \w5You found him while he was sleeping.)\![raise,Onsittangoffsleepingmodeon]"
+			"\0\s[5].\w6.\w6.\n\n\w8* (It looks like he's sleeping.)\![raise,Onsittangoffsleepingmodeon]"
 			}
 		"\0\s[1].\w3.\w3.\w3\i[7]\w8Oh, good morning %(username).\w8\0\s[16]\e"
 		//"\0\s[0]Oh, you're still up too?\e"		

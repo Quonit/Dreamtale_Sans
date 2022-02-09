@@ -1,6 +1,12 @@
 Changelong for Dreamtale Sans!
 --------------------------------------------------------------------------------------------------------------------
 
+--- 10th Febuary 2022 ---
+Bugfixes:
+-His mouth no longer moves when speaking during narrator text while sitting
+-He no longer flips back and forth between sit and sleep mode
+-Fixed booting as the wrong character
+-Stopped him from announcing every MD5 check while updating
 
 --- 9th February 2022 ---
 Additions:

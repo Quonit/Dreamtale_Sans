@@ -2,6 +2,7 @@
 charset,UTF-8
 name,Dreamtale Sans
 type,ghost
+seriko.defaultsurfacedirectoryname,!original
 
 sakura.name,Dreamtale Sans
 kero.name, 

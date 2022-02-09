@@ -3,17 +3,17 @@ ghost/master/Extras/beep.wav88b3e2141eac4b16e03a5de9504bcc57size=151278date=2
 ghost/master/Extras/bell ring sound.mp3a7e979f6aff67a2fb87a338d13816470size=51963date=2020-03-09T16:56:30
 ghost/master/Extras/hessodreamy.pngc7cf53bebb2b47456ed25000e07b0668size=7951date=2020-02-28T20:54:34
 ghost/master/Extras/mydeadmom.png972bc10a962625207f355c23f278b67dsize=8800date=2020-02-29T00:04:28
-ghost/master/changelog.txtb64cc55ce2e48196147af4688d448b06size=1649date=2022-02-08T23:49:58
+ghost/master/changelog.txt246c7c3d667de65c9f4e497ebe31d8easize=1927date=2022-02-09T15:09:00
 ghost/master/delete.txtd41d8cd98f00b204e9800998ecf8427esize=0date=2021-10-30T22:23:48
-ghost/master/descript.txt9dd0b05d70486f6c3a8aff9c9bedcc9asize=247date=2021-10-30T22:33:00
-ghost/master/dts_aitalk.dic56d785c60fc50aa7391704e0af00d874size=39716date=2022-02-08T23:54:23
+ghost/master/descript.txt9c6866e718b9db372d1468fbe2806720size=293date=2022-02-09T15:01:23
+ghost/master/dts_aitalk.dic746d80f7c3a129f775cd2d1d0962fea0size=39738date=2022-02-09T15:06:46
 ghost/master/dts_anchor.dic4267125d95553d495a5f0b8d6a79b096size=6268date=2022-02-06T15:17:28
-ghost/master/dts_bootend.dic613c0d36a9f7bfcd744212d8859567d4size=21746date=2022-02-08T21:33:53
+ghost/master/dts_bootend.dicb7807664c556176597ceb3e2435f4293size=21768date=2022-02-09T15:07:09
 ghost/master/dts_commu.dic5e95df84001d684047e8ac6fbec58b38size=307date=2021-12-24T21:15:54
 ghost/master/dts_dreamtalk.dic763a9592c5524b4a60f8c2a4a09eb160size=890date=2022-02-08T15:55:30
-ghost/master/dts_etc.dica6426f98e82e7f39e2ef7a964d0a6d48size=12783date=2022-02-08T21:34:16
+ghost/master/dts_etc.dic10159ebe5208115dd15dbf9e2b6c272dsize=12863date=2022-02-09T15:10:21
 ghost/master/dts_gooptalk.dica476ecc57656a87c9ef693a0f3e95199size=13344date=2022-02-08T15:55:39
-ghost/master/dts_menu.dicbe11743a68ce7ea0c514860581f4b056size=74104date=2022-02-09T11:32:58
+ghost/master/dts_menu.dic2dd070b2930784e4537ce77dc91727f6size=74126date=2022-02-09T13:32:21
 ghost/master/dts_mouse.dicea2b0d81055657548b35fd3863221056size=14640date=2022-02-08T23:38:28
 ghost/master/dts_nameteach.dic0e6971e41a3f5ea68ce92751de0f6301size=2997date=2022-02-08T23:40:47
 ghost/master/dts_word.dic40e5209f48735569bd01ffe2c669fcc4size=8010date=2022-02-08T19:03:29
@@ -32,7 +32,7 @@ ghost/master/yaya.txtfadff1b7e9cabbe5a6591d98150718f8size=802date=2022-02-06T
 ghost/master/yaya_config.txt134ca91eba1f7864526eaa3a2142dd20size=3920date=2021-10-30T22:24:00
 install.txt4e4992291bd2f1cba66a2a9bc8a1057bsize=108date=2022-01-08T19:36:08
 readme.txt03c8504ecf7cf891a0a40a66054d1a1asize=2448date=2020-03-13T19:50:26
-shell/!original/descript.txt09cf8a805d5e30dce7a4f480e962deafsize=2265date=2022-02-08T20:17:53
+shell/!original/descript.txt8f407723d058362513bec01eaae0560bsize=2174date=2022-02-09T14:55:16
 shell/!original/menu_background.png0c070fc4f250637c3fc02208315e7e64size=88413date=2021-10-30T22:24:06
 shell/!original/menu_foreground.pngfbc6ab9447927c766b97999734987392size=23896date=2021-10-30T22:24:08
 shell/!original/menu_sidebar.png63ea611f0e3737d8f3b2be8fffc6006dsize=6737date=2021-10-30T22:24:08
@@ -205,7 +205,7 @@ shell/!original/surface2003.png85380f508ccb1beb5d9e98cd6f0fa8d5size=39645date
 shell/!original/surface2004.png1c49b1b0d29cefb2517db04c3f14b236size=46125date=2021-10-30T22:25:24
 shell/!original/surface2005.png3254fae4c0678416b93c47181d5856c3size=27627date=2021-10-30T22:25:26
 shell/!original/surface2006.pngdae4b7bac262b7804e288504e60f63d5size=50584date=2021-10-30T22:25:26
-shell/!original/surfaces.txtfc81fe41bbd6dfb4e7bdd4d3b7432fb1size=20320date=2022-02-08T23:00:50
+shell/!original/surfaces.txte16e759ed7d67a94ecfc81079fd73a17size=20320date=2022-02-09T14:13:38
 shell/!original/surfacetable.txt0edef93f96d0ae681a62a1574a6aee6csize=1314date=2022-02-07T00:08:24
 shell/!original/thumbnail.pngb3abbdf9ba558ecb11fd65da059fa0d0size=184823date=2021-10-30T22:25:32
 shell/Dream/descript.txt0779048fa7fdaae3c71920303228f9cesize=2064date=2022-01-08T15:51:28

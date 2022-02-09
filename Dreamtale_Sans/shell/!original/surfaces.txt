@@ -175,7 +175,7 @@ element0,overlay,surface1001.png,0,0
 
 //Stop Talking-----------------------------------------------------------------------------
 55interval,never
-55pattern0,0,0,stop,22
+55pattern0,0,0,stop,20
 
 //Blushies
 100interval,bind

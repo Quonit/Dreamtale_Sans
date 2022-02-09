@@ -79,7 +79,7 @@ RandomTalk : nonoverlap_pool
 			"\0\s[16]* (He gets back up.)\e:eval=sittang='off'"
 		if nicesadlevel >= 25
 		{
-			"\0\s[1]\i[55]\w8.\w8.\w8.\n\n\w8\w8\w8\w8\0\s[5]\i[55]\w8\w8\w8Z\w6Z\w6Z\w6.\w6.\w6.\w8\w8\w8\n\n* (It looks like he fell asleep.)\w8\n\n* (Poor thing\w3.\w3.\w3.\w8 He must've not slept during night.)\e:eval=sleepingmode='on'"
+			"\0\s[1]\i[55]\w8.\w8.\w8.\n\n\w8\w8\w8\w8\0\s[5]\i[55]\w8\w8\w8Z\w6Z\w6Z\w6.\w6.\w6.\w8\w8\w8\n\n* (It looks like he fell asleep.)\w8\n\n* (Poor thing\w3.\w3.\w3.\w8 He must've not slept during night.)\![raise,Onsittangoffsleepingmodeon]"
 		}
 		if nicesadlevel >= 50
 		{
@@ -506,7 +506,7 @@ RandomTalk : nonoverlap_pool
 			"\0\s[0]\i[15]\i[55]* (You tell %(nightname) he should be getting to bed,\w8 it's important to get the rest you need.)\n\n\w8Yeah\w3.\w3.\w3.Probably.\w8\0\s[0]\i[11] Bet anDream would be happier if I could just sleep instead of whatever this is.\e"
 			if sadnicelevel >= 50
 			{
-			"\0\s[5]\i[55]\w8\w8\w8\w8*( \w4.\w4.\w4.)\n\n\w8zzz\w4.\w4.\w4.\n\n\w8\w8* (Wow,\w3 he actually managed to sleep.)\e:eval=sleepingmode='on'"
+			"\0\s[5]\i[55]\w8\w8\w8\w8*( \w4.\w4.\w4.)\n\n\w8zzz\w4.\w4.\w4.\n\n\w8\w8* (Wow,\w3 he actually managed to sleep.)\![raise,Onsittangoffsleepingmodeon]"
 			}
 		}	
 	//}	
