@@ -1745,7 +1745,7 @@ Select.looksoul
 		"\0\s[0]\i[11]Well\w2.\w2.\w2.\w8\n\n\w8\i[55]* (He still seems hesitent,\w8 but he thinks about it.)\n\n\w8\s[0]\i[12]As long as you promise not to touch it.\n\n"
 		"\0\s[4]Hm\w2.\w2.\w2.\w8\n\n\i[55]* (He considers it.)\n\n\w8\s[13]\w2.\w2.\w2.\w8Only if you promise not to touch it."
 		--
-		"\![*]\q[Promise,notouchsoul]\n/
+		"\![*]\q[Promise,Onnotouchsoul]\n/
 		\![*]\q[Do Not,dotouchsoul]\e"
 		}
 	}

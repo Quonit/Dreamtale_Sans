@@ -14,7 +14,7 @@ file,ghost/master/dts_commu.dic5e95df84001d684047e8ac6fbec58b38size=307date=2
 file,ghost/master/dts_dreamtalk.dic763a9592c5524b4a60f8c2a4a09eb160size=890date=2022-02-08T15:55:30
 file,ghost/master/dts_etc.dica6426f98e82e7f39e2ef7a964d0a6d48size=12783date=2022-02-08T21:34:16
 file,ghost/master/dts_gooptalk.dica476ecc57656a87c9ef693a0f3e95199size=13344date=2022-02-08T15:55:39
-file,ghost/master/dts_menu.dic923ad64c6b19cbf51c8e5a61628291c0size=74102date=2022-02-09T00:13:15
+file,ghost/master/dts_menu.dicbe11743a68ce7ea0c514860581f4b056size=74104date=2022-02-09T11:32:58
 file,ghost/master/dts_mouse.dicea2b0d81055657548b35fd3863221056size=14640date=2022-02-08T23:38:28
 file,ghost/master/dts_nameteach.dic0e6971e41a3f5ea68ce92751de0f6301size=2997date=2022-02-08T23:40:47
 file,ghost/master/dts_word.dic40e5209f48735569bd01ffe2c669fcc4size=8010date=2022-02-08T19:03:29
