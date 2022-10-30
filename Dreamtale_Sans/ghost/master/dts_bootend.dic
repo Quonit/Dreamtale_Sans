@@ -599,7 +599,7 @@ OnClose
 					if blushiemode == "on" && privacyrespecter == "off" 
 					{
 						"\0\s[20]Make sure to sleep well.\w8"
-						"\0\s[30]Ni-ni.\w8"
+						"\0\s[0]\i[14]Ni-ni.\w8"
 					}
 					else
 					{
