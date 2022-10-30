@@ -1,13 +1,11 @@
-.gitattributes05bdb783ee6514c8c072e47680af8ff7size=66date=2022-09-16T13:01:57charset=OSNative
-.gitignore595119da4b8d5db9be52a15965b566bfsize=234date=2022-09-25T18:49:39
-ghost/master/DTS.icodd259948564e4da011026872b06bdcbbsize=154453date=2022-09-19T21:30:21
+ghost/master/DTS.icodd259948564e4da011026872b06bdcbbsize=154453date=2022-09-19T21:30:21charset=OSNative
 ghost/master/Extras/aliteralfoxmotheroftwo.png4a3b3801ad50be80a7e9bd95f0945ea9size=11815date=2020-02-29T17:33:02
 ghost/master/Extras/beep.wav88b3e2141eac4b16e03a5de9504bcc57size=151278date=2015-09-22T11:19:50
 ghost/master/Extras/bell ring sound.mp3a7e979f6aff67a2fb87a338d13816470size=51963date=2020-03-09T16:56:30
 ghost/master/Extras/hessodreamy.pngc7cf53bebb2b47456ed25000e07b0668size=7951date=2020-02-28T20:54:34
 ghost/master/Extras/mydeadmom.png972bc10a962625207f355c23f278b67dsize=8800date=2020-02-29T00:04:28
 ghost/master/Extras/srevents.cgib1305b888befd9083732343fe58a5460size=7104date=2022-09-22T15:52:29
-ghost/master/changelog.txteb69ab195df9caa1329339cdeb22f554size=2755date=2022-10-30T04:07:07
+ghost/master/changelog.txtbea764cf52acf82aa7ed21d5114197f4size=2741date=2022-10-30T03:39:37
 ghost/master/delete.txt2b24f81f08e79c9d70383b1047ac11d2size=103date=2022-09-17T20:09:43
 ghost/master/descript.txt9c6866e718b9db372d1468fbe2806720size=293date=2022-10-30T04:32:46
 ghost/master/dts_aitalk.dic0dbc50bf92330b6c533155dd26236e28size=43242date=2022-10-30T00:52:01
@@ -18,7 +16,7 @@ ghost/master/dts_dreamtalk.dic51bbcf280f4935a0c571034199432bf3size=893date=20
 ghost/master/dts_etc.dic2ebfe19795a3e77777c266c688e36cd1size=15786date=2022-10-29T15:41:41
 ghost/master/dts_gooptalk.dic7abb96cf17ff07114674b4abe594e5d9size=24283date=2022-10-30T00:52:59
 ghost/master/dts_menu.diccb4b0fbdca1d0a6e0a6ac8fc89b43ee5size=92288date=2022-10-30T00:53:16
-ghost/master/dts_mouse.dicabb72af6ee6aa4af54f8ba4813ec2808size=15667date=2022-10-30T05:00:12
+ghost/master/dts_mouse.dic7d851c3a5812bbf254ef0fee3916de34size=15659date=2022-10-29T17:57:27
 ghost/master/dts_nameteach.dic47949919551e72d9ff42ae6eec23f1b9size=3160date=2022-10-27T17:48:11
 ghost/master/dts_word.dic57201a379ce5467d9b0c1deed54f79f9size=15056date=2022-10-29T18:38:37
 ghost/master/gomi.dll51fe9597398db01e684a0f9d52c63242size=13312date=2004-06-01T17:00:04
