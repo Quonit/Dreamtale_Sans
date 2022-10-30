@@ -1,0 +1,3 @@
+//surface0.pna
+
+//idk how the delete.txt actually works worm make it delete surface0.pna in nm folder

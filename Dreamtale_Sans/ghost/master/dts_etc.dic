@@ -9,7 +9,7 @@
 		{
 			Wallpaperfile = reference0
 			
-			"\0\s[0]The file you dropped is %(_filename)%(_fileext).\w8\i[55]\s[10]How would you like us to set this picture as your wallpaper?\n\n[half]/
+			"\0\s[0]The file you dropped is %(_filename)%(_fileext).\w8\i[55]How would you like to set this picture as your wallpaper?\n\n[half]/
 			\q[Centered,SetWallpaper_0]\n/
 			\q[Tiled,SetWallpaper_1]\n/
 			\q[Stretched,SetWallpaper_2]\n\n/
@@ -17,54 +17,55 @@
 		}
 		when ".mid", ".wav", ".mp3", ".wma", ".au" //Other file formats you might want to give your ghost a specific response to.
 		{
-			if Edgybitch == "on"
+			if nowmode == "Edgybitch"
 			{
-			"\0\s[0]\i[13]What, \w4do you want me to sing for you or something?\e"
+				"\0\s[0]\i[13]What, \w4do you want me to sing for you or something?\e"
+				"Pfft. Should I be flattered?"
 			}
-			elseif intodreams == "on"
+			elseif nowmode == "intodreams"
 			{
-			"\0\s[2002]* (Dream doesn't seem to know what it is...)\0\s[2002]Um\w2.\w2.\w2.\w8 Thank you\w2.\w2.\w2.\w2?\e"
+				"\0\s[2002]* (Dream doesn't seem to know what it is...)\0\s[2002]Um\w2.\w2.\w2.\w8 Thank you\w2.\w2.\w2.\w2?\e"
 			}
 			else
 			{
-			"\0\s[8]%(_filename)%(_fileext) is a music file...\n\n\w8I can't do anything with those, \w8sorry.\n\n\w8Maybe try another ghost?\e"
+				"\0\s[8]%(_filename)%(_fileext) is a music file...\n\n\w8I can't do anything with those, \w8sorry.\n\n\w8Maybe try another ghost?\e"
 			}
 		}
 		others
 		{
-			"\0\s[0]This is %(_filename)%(_fileext).\w8\e"
+			"%(surface0)This is %(_filename)%(_fileext).\w8\e"
 		}
 	}
 }
 //This set of options sets the wallpaper up.
 Select.SetWallpaper_0
 {
-	"\![set,wallpaper,%(Wallpaperfile),center]\0\s[1]* (The image is centered.)\e"
+	"\![set,wallpaper,%(Wallpaperfile),center]\i[55]* (The image is centered.)\e"
 }
 Select.SetWallpaper_1
 {
-	"\![set,wallpaper,%(Wallpaperfile),tile]\0\s[1]* (The image is tiled.)\e"
+	"\![set,wallpaper,%(Wallpaperfile),tile]\i[55]* (The image is tiled.)\e"
 }
 Select.SetWallpaper_2
 {
-	"\![set,wallpaper,%(Wallpaperfile),stretch]\0\s[0]* (The image is stretched.)\e"
+	"\![set,wallpaper,%(Wallpaperfile),stretch]\i[55]* (The image is stretched.)\e"
 }
 Select.SetWallpaper_Cancel
 {
-	"\i[55]\s[10]\b[1]* (The wallpaper was canceled.)\e"
+	"\i[55]* (The wallpaper was canceled.)\e"
 }
  //---- OnInstallBegin -------------------------------------------------------
 OnInstallBegin
 {
-	if Edgybitch == "on"
+	if nowmode == "Edgybitch"
 	{
-		"\0\s[1]Ah,\w4 somebody to replace me I see?\w8\n\n\0\s[4]Oh don't worry, \w4I'm not mad about it.\w5 Here, I'll even install it for you.\e"
+		"\0\s[1]Ah,\w4 somebody to replace me, I see?\w8\n\n\0\s[4]Oh don't worry, \w4I'm not mad about it.\w5 Here, I'll even install it for you.\e"
 		"\0\s[1]* (Installing file\w4.\w4.\w4.\w4)\e"
 	}
 	else
 	{
-	"\0\s[4]A ghost...? \w8Sure, I'll install it.\e"
-	"\0%(surface0)* (Installing file\w4.\w4.\w4.\w4)\e"
+		"\0\s[4]A ghost...? \w8Sure, I'll install it.\e"
+		"%(surface0)* (Installing file\w4.\w4.\w4.\w4)\e"
 	}
 }
 OnInstallComplete
@@ -75,13 +76,13 @@ OnInstallComplete
 	{	
 		if reference1 == "Nightmare"
 		{
-		Edgybitch = "on"
-		wasemo = "on"
-		"\0\s[1]This should come with the ghost.\w8 Wonder what Quonit screwed up this time.\e"
+			nowmode = "Edgybitch"
+			wasemo = "on"
+			"\0\s[1]This should come with the ghost.\w8 Wonder what Quonit screwed up this time.\e"
 		}
 		else //For any other shell they may install.
 		{
-		"%(surface0)\i[55]* (%(reference1) was installed.)\e" 
+			"%(surface0)\i[55]* (%(reference1) was installed.)\e" 
 		}
 	}
 	elseif reference0 == "ghost"
@@ -100,44 +101,44 @@ OnInstallComplete
 
 OnInstallFailure
 {
-	if Edgybitch == "on"
+	if nowmode == "Edgybitch"
 	{
 		"\0\s[0]* (The installation has failed.)\n\n\w5"
-		"\0\s[0]How sad.\w5 It didn't work.\n\n\w5"
+		"\0\s[0]How sad.\w5 It didn't work.\w8 Tch.\n\n\w5"
 	}
 	else
 	{
-	"%(surface0)\i[55]* (The installation has failed.)\n\n\w5"
-	"\0\s[8]I couldn't install it, sorry.\n\n\w5"
+		"%(surface0)\i[55]* (The installation has failed.)\n\n\w5"
+		"\0\s[8]I couldn't install it, sorry.\n\n\w5"
 	}
 	--
 	if reference0 == "unsupported"
 	{
-	"%(surface0)\i[55]* (The file is unsupported.)\e"
+		"%(surface0)\i[55]* (The file is unsupported.)\e"
 	}	
 	elseif reference0 == "extraction"
 	{
-	"%(surface0)\i[55]* (The file could not be extracted properly.)\e"
+		"%(surface0)\i[55]* (The file could not be extracted properly.)\e"
 	}
 }
  
 OnInstallRefuse
 {
 	"\0\s[8]I can't install this. \w4I think it's for %(reference0) instead.\e"
-	"\0%(surface0)\i[55]* (This file is for %(reference0))\e"
+	"%(surface0)\i[55]* (This file is for %(reference0))\e"
 }
  
 OnVanishSelecting
 {
-	"\0%(surface0)\i[55]* (Do you wish to uninstall Dreamtale Sans from your computer?)\e"
+	"%(surface0)\i[55]* (Do you wish to uninstall Dreamtale Sans from your computer?)\e"
 }
 OnVanishSelected
 {
-	"\0%(surface0)\i[55]* (You've decided to uninstall Dreamtale Sans.)\e"
+	"%(surface0)\i[55]* (You've decided to uninstall Dreamtale Sans.)\e"
 }
 OnVanishCancel
 {
-	"\0%(surface0)\i[55]* (You've decided not to uninstall Dreamtale Sans.)\e"
+	"%(surface0)\i[55]* (You've decided not to uninstall Dreamtale Sans.)\e"
 }
 TalkVanishButtonHold
 {
@@ -145,35 +146,42 @@ TalkVanishButtonHold
 }
 OnVanished
 {
-	"\0\s[3]Huh\w2.\w2.\w2.\w8\n\nI swear I saw someone,\w8 guess they disappeared\w2.\w2.\w2."
+	"\0\s[3]Huh\w2.\w2.\w2.\w8\n\nI swear I saw someone.\w8 Guess they disappeared\w2.\w2.\w2."
 }
 
 OnBIFFBegin
 {
-	"\0%(surface0)\i[55]* (Checking the e-mail\w4.\w4.\w4.)\e"
+	if nowmode != "Edgybitch"
+	{
+		"%(surface0)\i[55]* (Checking e-mail\w4.\w4.\w4.)\e"
+	}
+	else
+	{
+		"\C\w8\w8Yeah,\w5 yeah.\w5%(lps(4))"
+	}
 }
 
 OnBIFFComplete
 {
 	if reference0 == 0
 	{
-		"\0%(surface0)\i[55]* (There is no new mail.)\e"
+		"%(surface0)\i[55]* (There is no new mail.)\e"
 	}
 	elseif reference0 == 1
 	{
-		"\0%(surface0)\i[55]* (There is one new email.)\e"
+		"%(surface0)\i[55]* (There is one new email.)\e"
 	}
 	elseif reference0 > 1 && reference0 < 11
 	{
-		"\0%(surface0)\i[55]* (There are %(reference0) emails.)\e"
+		"%(surface0)\i[55]* (There are %(reference0) emails.)\e"
 	}
 	elseif reference0 > 100
 	{
-		"\0%(surface0)\i[55]* (There are %(reference0) emails unread.)\e"
+		"%(surface0)\i[55]* (There are %(reference0) emails unread.)\e"
 	}
 	else
 	{
-		"\0%(surface0)\i[55]* (There are %(reference0) emails.)\e"
+		"%(surface0)\i[55]* (There are %(reference0) emails.)\e"
 	}
 }
 
@@ -196,55 +204,62 @@ OnBIFFFailure
 	}
 	elseif reference0 == "defect"
 	{
-		"\0\s[0]\i[55]* (The email account was not set up properly.)\w8\n\n* (It can be reset at the POP menu.)\![open,configurationdialog]\e"
+		if nowmode != "Edgybitch"
+		{
+			"\0\s[0]\i[55]* (The email account was not set up properly.)\w8\n\n* (It can be reset at the POP menu.)\![open,configurationdialog]\e"
+		}
+		else
+		{
+			"Ain't working.\w5 Might wanna reset your account at the POP menu.\w8\![open,configurationdialog]\w8\n\n* (He's smirking for some reason)"
+		}
 	}
 	elseif reference0 == "artificial"
 	{
-		"\0%(surface0)\i[55]* (Email check was canceled.)"
+		"%(surface0)\i[55]* (Email check was canceled.)"
 	}
 	else
 	{
-		if Edgybitch == "on"
+		if nowmode == "Edgybitch"
 		{
 			"\0\s[4]I only got an error code '%(reference[0])'.\w8\n\nHow sad.\e"
 		}
-		if Edgybitch == "off"
+		else
 		{
-		"\0\s[8]I only got an error code '%(reference[0])'.\w8\n\nSorry.\e"
+			"\0\s[8]I only got an error code '%(reference[0])'.\w8\n\nSorry.\e"
 		}
 	}
 }
 
 OnUpdateBegin
 {
-	if Edgybitch == "on"
+	if nowmode == "Edgybitch"
 	{
-		"\0%(surface0)\i[55]* (Starting the update process.)\e"
+		"%(surface0)\i[55]* (Starting the update process.)\e"
 	}
-	if Edgybitch == "off"
+	else
 	{
-		"\0%(surface0)\i[55]* (Starting the update process.)\w8\e"
+		"%(surface0)\i[55]* (Starting the update process.)\w8\e"
 		"\0\s[4]I wonder what kind of things could be in the update...\w8\e"
 	}
 	if reference0 == "artificial"
 	{
-		"\0%(surface0)\i[55]* (The user cancelled the update manually.)"
+		"%(surface0)\i[55]* (The user cancelled the update manually.)"
 	}
 }
 OnUpdateReady
 {
-	"\0%(surface0)\i[55]* (There are %(reference[0]) new files.)\w8\e"
+	"%(surface0)\i[55]* (There are %(reference[0]) new files.)\w8\e"
 }
 OnUpdateComplete
 {
 	if reference0 == "none"
 	{
-		"\0%(surface0)\i[55]* (There are no new files.)\e"
+		"%(surface0)\i[55]* (There are no new files.)\e"
 		"\0\s[2]Doesn't look like there's anything new to update with.\e"
 	}
 	else
 	{
-		"\0%(surface0)\i[55]* (Update successful!)\n\n\w8* (Do you want to read the changelog?)\n\n/
+		"%(surface0)\i[55]* (Update successful!)\n\n\w8* (Do you want to read the changelog?)\n\n/
 		\q[See Changelog,OnShowLog]   \q[No thanks,Cancel]"
 		--
 		UpdateVars
@@ -260,22 +275,22 @@ OnUpdateFailure
 	_file = SPLITPATH(reference1)[2] + SPLITPATH(reference1)[3] //This gets the name and extension of the offending file
 	if reference0 == "timeout"
 	{
-		"\0%(surface0)\i[55]* (The update connection timed out.)\e"
+		"%(surface0)\i[55]* (The update connection timed out.)\e"
 	}
 	elseif reference0 == "md5 miss"
 	{
-		"\0%(surface0)\i[55]* (The MD5 hash of the files don't match. \w8There was an MD5 error on file %(_file)\e"
+		"%(surface0)\i[55]* (The MD5 hash of the files don't match. \w8There was an MD5 error on file %(_file).)\e"
 	}
 	else //for other errors
 	{
-		"\0%(surface0)\i[55]* (The update could not be completed.)\w8\n\n* (The error is '%(reference0)'.)\e"
+		"%(surface0)\i[55]* (The update could not be completed.)\w8\n\n* (The error is '%(reference0)'.)\e"
 	}
 }
 OnUpdate.OnDownloadBegin
 {
 	if "aitalk" _in_ reference0
 	{
-		"\0%(surface0)\i[55]* (You get the feeling he might have more things to say.)\e"
+		"%(surface0)\i[55]* (You get the feeling he might have more things to say.)\e"
 	}
 	else //for files not specified above
 	{
@@ -287,25 +302,25 @@ OnUpdate.OnMD5CompareBegin {}
 OnUpdate.OnMD5CompareComplete {}
 OnUpdate.OnMD5CompareFailure
 {
-	"\0%(surface0)\i[55]* (The MDI values don't seem to match.)\w8\e"
+	"%(surface0)\i[55]* (The MDI values don't seem to match.)\w8\e"
 }
 OnHeadlinesenseBegin
 {
-	"\0%(surface0)\i[55]* (You've selected %(reference0).)\e"
+	"%(surface0)\i[55]* (You've selected %(reference0).)\e"
 }
 OnHeadlinesense.OnFind
 {
 	if reference2 == "First" || reference2 == "First and Last"
 	{
-		"\0%(surface0)\i[55]%(reference0):"
+		"%(surface0)\i[55]%(reference0):"
 	}
 	elseif reference2 == "Next"
 	{
-		"\0%(surface0)\i[55]%(reference0):"
+		"%(surface0)\i[55]%(reference0):"
 	}
 	elseif reference2 == "Last"
 	{
-		"\0%(surface0)\i[55]%(reference0):"
+		"%(surface0)\i[55]%(reference0):"
 	}
 	--
 	"\n\n%reference3\n"
@@ -326,11 +341,11 @@ Select.Headline_Cancel
 }
 OnHeadlinesenseComplete
 {
-	"\0%(surface0)\i[55]* (No update. %(reference0).)\e"
+	"%(surface0)\i[55]* (No update. %(reference0).)\e"
 }
 OnHeadlinesenseFailure
 {
-	"\0%(surface0)\i[55]* (The feed can't updated because "
+	"%(surface0)\i[55]* (The feed can't updated because "
 	--
 	if reference0 == "can't download"
 	{
@@ -347,40 +362,112 @@ OnHeadlinesenseFailure
 	--
 	"\e"
 }
+
 //UPDATE VARIABLES 
 //These are new variables to initialize after an update. By checking if the variable doesn't exist before initializing it, we prevent variables already in use from being overwritten. This is VERY IMPORTANT, or you risk resetting the user's progress on your new variables every time they update!
 //ISVAR is a built in YAYA function that checks if a variable exists (is initialized) or not. It returns 0 if the variable doesn't exist, and 1 if it does. -Zi
 UpdateVars
 {
+	/*
+	//already set in onboot:
+	lastTalk = ""
+	lasttalked = 0
+	passmin = 0
+	passsec = 0
+	sleepingmode = "off"
+	sittang = "off"
+	*/
 	if !ISVAR('menuname'); {menuname='off'}
-	if !ISVAR('hemisphere'); {hemisphere='Northern'}
-	if !ISVAR('metalpet'); {metalpet=0}
 	if !ISVAR('sittang'); {sittang='off'}
-	if !ISVAR('intodreams'); {intodreams='off'}
-	if !ISVAR('starcrownexpo'); {starcrownexpo='off'}
+	
+	if !ISVAR('nowmode')
+	{
+		if Edgybitch == "on"; {nowmode == "Edgybitch"}
+		elseif intodreams == "on"; {nowmode == "intodreams"}
+		else; {nowmode='purpleman'}
+	}
+	
+	if !ISVAR('mikireflag'); {mikireflag=0}
+	if !ISVAR('givesleepyblankie'); {givesleepyblankie='off'}
+	if !ISVAR('dontmovestatsitshalloween'); {dontmovestatsitshalloween='off'}
+	if !ISVAR('nowshell'); {nowshell = SHIORI3FW.ShellName}
+	
+	//toggleable
+	if !ISVAR('menusphere'); {menusphere='Northern'}
+	if !ISVAR('username'); {username='User'}
+	if !ISVAR('birthdayprint'); {birthdayprint='????'}
+	if !ISVAR('talktime'); {birthdayprint='5 minutes'}
+	//single-use
+	if !ISVAR('nightynight'); {nightynight='off'}
+	if !ISVAR('blushiemode'); {blushiemode='off'}
+	if !ISVAR('privacyrespecter'); {privacyrespecter='off'}
 	if !ISVAR('maremare'); {maremare='off'}
 	if !ISVAR('seensoul'); {seensoul='off'}
+	if !ISVAR('wasemo'); {wasemo='off'}
+	if !ISVAR('sodreamy'); {sodreamy='off'}
+	if !ISVAR('talkaboutlater'); {talkaboutlater='off'}
+	if !ISVAR('headbandexpo'); {headbandexpo='off'}
+	if !ISVAR('momstreeexpo'); {momstreeexpo='off'}
+	if !ISVAR('brotherexpo'); {brotherexpo='off'}
+	if !ISVAR('askaboutnamee'); {askaboutnamee='off'}
+	if !ISVAR('starcrownexpo'); {starcrownexpo='off'}
+	if !ISVAR('hasdreamplush'); {hasdreamplush='off'}
+	if !ISVAR('hasmareplush'); {hasmareplush='off'}
+	if !ISVAR('hastea'); {hastea='off'}
+	if !ISVAR('hasblankie'); {hasblankie='off'}
+	if !ISVAR('hasviolin'); {hasviolin='off'}
+	//counters
+	
+	if !ISVAR("posact") && !ISVAR("negact")
+	{
+		if nicesadlevel > 0
+		{
+			posact = nicesadlevel
+			negact = 0
+		}
+		else
+		{
+			negact = nicesadlevel
+			posact = 0
+		}
+	}
+	elseif !ISVAR("posact") || !ISVAR("negact")
+	{
+		if !ISVAR("posact"); {posact = 0}
+		if !ISVAR("negact"); {negact = 0}
+	}
+	
+	if !ISVAR('ily'); {ily=0}
+	if !ISVAR('stroke'); {stroke=0}
+	if !ISVAR('gooppets'); {gooppets=0}
+	if !ISVAR('metalpet'); {metalpet=0}
+	if !ISVAR('punchout'); {punchout=0}
+	if !ISVAR('flirtlevel'); {flirtlevel=0}
+	if !ISVAR('snoop'); {snoop=0}
+	if !ISVAR('respect'); {respect=0}
+	if !ISVAR('betrayalvar'); {betrayalvar=0}
+	if !ISVAR('apologized'); {apologized=0}
 }
 
 OnUpdatedataCreating
 {
-	"\0%(surface0)\i[55]* (* (Creating the updates2.dau file.))\e"
+	"%(surface0)\i[55]* (* (Creating the updates2.dau file.))\e"
 }
 OnUpdatedataCreated
 {
-	"\0%(surface0)\i[55]* (Successfully created updates2.dau.)\e"
+	"%(surface0)\i[55]* (Successfully created updates2.dau.)\e"
 }
 OnNarCreating
 {
-	"\0%(surface0)\i[55]* (Creating the .nar file.)\e"
+	"%(surface0)\i[55]* (Creating the .nar file.)\e"
 }
 OnNarCreated
 {
-	"\0%(surface0)\i[55]* (Successfully created '%(reference0)'.)\e"
+	"%(surface0)\i[55]* (Successfully created '%(reference0)'.)\e"
 }
 OnSNTPBegin
 {
-	"\0%(surface0)\i[55]* (Connecting to %(reference0) for the time.)\e"
+	"%(surface0)\i[55]* (Connecting to %(reference0) for the time.)\e"
 }
 OnSNTPCompare
 {
@@ -389,7 +476,7 @@ OnSNTPCompare
 	--
 	if reference3 == 0
 	{
-		"\0%(surface0)\i[55]* (The clock is accurate.)\e"
+		"%(surface0)\i[55]* (The clock is accurate.)\e"
 	}
 	else
 	{
@@ -400,15 +487,15 @@ OnSNTPCompare
 }
 OnSNTPEXECUTE
 {
-	"\0%(surface0)\i[55]* (The clock has been fixed.)\6\e"
+	"%(surface0)\i[55]* (The clock has been fixed.)\6\e"
 }
 OnSNTPCANCEL
 {
-	"\0%(surface0)\i[55]* (You decide to leave it alone.)\e"
+	"%(surface0)\i[55]* (You decide to leave it alone.)\e"
 }
 OnSNTPFailure
 {
-	"\0%(surface0)\i[55]* (The clock wasn't changed. \w8Something went wrong.)\e"
+	"%(surface0)\i[55]* (The clock wasn't changed. \w8Something went wrong.)\e"
 }
 OnDisplayChange
 {
@@ -418,7 +505,7 @@ OnDisplayChange
 }
 OnScreenSaverStart
 {
-	if Edgybitch == "on"
+	if nowmode == "Edgybitch"
 	{
 		"\0\s[5]What the hell is this???\e"
 	}
@@ -429,7 +516,7 @@ OnScreenSaverStart
 }
 OnScreenSaverEnd
 {
-	if Edgybitch == "on"
+	if nowmode == "Edgybitch"
 	{
 		"\0\s[5]What the hell was that??\e"
 	}
@@ -440,19 +527,19 @@ OnScreenSaverEnd
 }
 OnApplicationBoot
 {
-	"\0%(surface0)\i[55]* (%(reference0) just started.)\e"
+	"%(surface0)\i[55]* (%(reference0) just started.)\e"
 }
 OnApplicationClose
 {
-	"\0%(surface0)\i[55]* (%(reference0) has closed.)\e"
+	"%(surface0)\i[55]* (%(reference0) has closed.)\e"
 }
 OnApplicationFileOpen
 {
-	"\0%(surface0)\i[55]Opening %(reference1).\e"
+	"%(surface0)Opening %(reference1).\e"
 }
 OnBatteryLow
 {
-	"\0%(surface0)\i[55]* (The laptop's battery is low. \w8There is %(reference0) power left.)\e"
+	"%(surface0)\i[55]* (The laptop's battery is low. \w8There is %(reference0) power left.)\e"
 }
 OnBatteryCritical
 {
@@ -460,50 +547,50 @@ OnBatteryCritical
 }
 OnSysResourceLow
 {
-	"\0%(surface0)\i[55]* (The system resources are low.)\e"
+	"%(surface0)\i[55]* (The system resources are low.)\e"
 }
 OnShellScaling
 {
 	if reference0 >= 150
 	{
-		if Edgybitch == "on"
+		if nowmode == "Edgybitch"
 		{
-			"\0\s[1]You know\w3.\w3.\w3.\n\n\w8I wonder if I can change my side on my own.\e"
-			"\0\s[1]* (Biggest sized goop.)\e"
+			"\0\s[1]You know\w3.\w3.\w3.\n\n\w8I wonder if I can change my size on my own.\e"
+			"\0\s[2]\i[5]\i[107]* (Biggest-sized goop.)\e"
 		}
 		else
 		{
-		"\0\s[3]Dunno why you'd want me to take up so much of your screen\w3.\w3.\w3. \w4But okay.\e"
-		"\0%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
-		"\0%(surface0)\i[55]* (Big size sans.)\e"
+			"\0\s[3]Dunno why you'd want me to take up so much of your screen\w3.\w3.\w3. \w4But okay.\e"
+			"%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
+			"%(surface0)\i[55]* (Big size sans.)\e"
 		}
 		
 	}
 	elseif reference0 == 100
 	{
-		if Edgybitch == "on"
+		if nowmode == "Edgybitch"
 		{
-		"\0\s[1]Normal sized. \w8How boring.\e"
+			"\0\s[1]Normal-sized. \w8\s[8]How boring.\e"
 		}
 		else
 		{
-		"\0%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
-		"\0\s[4]Back to normal...\e"
-		"\0%(surface0)\i[55]* (Normal sized sans.)\e"
+			"%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
+			"\0\s[4]Back to normal...\e"
+			"%(surface0)\i[55]* (Normal sized sans.)\e"
 		}
 	}
 	elseif reference0 == 50
 	{
-		if Edgybitch == "on"
+		if nowmode == "Edgybitch"
 		{
-			"\0\s[5]Trying to get me out of the way so you don't have to think about what you did??\e"
-			"\0\s[1]Either you're trying to get me out of the way or you just have a really shitty screen.\e"
+			"\0\s[2]\i[5]Trying to get me out of the way so you don't have to think about what you did??\e"
+			"\0\s[8]Either you're trying to get me out of the way or you just have a really shitty screen.\e"
 		}
 		else
 		{
-		"\0\s[7]Um\w3.\w3.\w3. \w8\0\s[13]\n\nEverything is really big now.\e"
-		"\0%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
-		"\0%(surface0)\i[55]* (Smol sans.\w8 Fun sized sans.)\e"
+			"\0\s[7]Um\w3.\w3.\w3. \w8\0\s[13]\n\nEverything is really big now.\e"
+			"%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
+			"%(surface0)\i[55]* (Smol sans.\w8 Fun-sized sans.)\e"
 		}
 	}
 }
@@ -532,6 +619,52 @@ MenuCheck
 
 Onsittangoffsleepingmodeon
 {
+	sleptiem = 1
 	sittang = "off"
 	sleepingmode = "on"
+	"\C\![bind,Blanket,cape,0]\w8"
+}
+
+OnSelfStand
+{
+	sittang = "off"
+	lasttalked = 0
+}
+
+upsiedaisy
+{
+	"\s[16]"
+}
+
+OnWakeyWake
+{
+	sleepingmode='off'
+	lasttalked = 0
+	--
+	"\C\![bind,Blanket,cape,0]"
+}
+
+
+reversetalktime
+{
+	if "30" _in_ talktime
+	{
+		aitalkinterval = 30
+	}
+	elseif "5" _in_ talktime
+	{
+		aitalkinterval = 300
+	}
+	elseif "guess" _in_ TOLOWER(talktime)
+	{
+		aitalkinterval = 0
+	}
+	elseif "3" _in_ talktime
+	{
+		aitalkinterval = 180
+	}
+	else //every minute is just 'minute'
+	{
+		aitalkinterval = 60
+	}
 }

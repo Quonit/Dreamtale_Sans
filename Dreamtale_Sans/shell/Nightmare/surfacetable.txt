@@ -14,7 +14,7 @@ scope,0
 5,Angrr Goop
 6,bubble cheeck
 7,Laugh
-8,Scawy
+8,Eyeroll
 12,Pick Up
 110,Oh no
 20,Dream shoots

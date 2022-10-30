@@ -1,5 +1,6 @@
 ﻿//Goopmare
 seriko.alignmenttodesktop,free
+seriko.zorder,1,0
 seriko.use_self_alpha,1
 menu,hidden
 

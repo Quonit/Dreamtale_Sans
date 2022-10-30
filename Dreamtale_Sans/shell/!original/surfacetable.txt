@@ -4,94 +4,106 @@ option,DisableNoDefineSurfaces
 
 group,G
 {
-scope,0
-0,Neutral
-1,Reading
-2,Shrug
-3,Worried Sideglance
-4,Thinking
-5,Sleeping
-6,Excited
-7,Shock
-8,Shame
-9,sad lookdown
-16,Up0
-10,Null
-11,Slight Disgust
-12,Minor Annoyence
-13,Shy
-14,Joking
-15,hum
-16,up
-17,Protect crown
-18,don hit meee
-19,Scared
-20,Happy smile
-21,Begging
-22,Facing away
-23,Sniff
-25,nom nom
-26,Dream doll
-27,Mug
-28,Flush
-29,Blow Kiss
-290,Angry panch
-30,Eye ponch
-31,19 but happy
-32,Yay pet!
-33,take crown
-34,Falls down
-35,touch cheek blush
-36,Dream No
-37,Tired 5
-38,Pick Up Normal
-39,Pick Up Mean
-40,Flowers
-41,Drink
-42,Soul
-43,Sit Side
-45,Positive Pick-Up
-1600,up1
-1501,up2
-1502,up3
-1503,Sniff2
-1504,Fall in-between
-1505,Sleeping2
-1506,Fall 1
-1507,Fall 2
-1508,Fall 3
-1509,Fall 4
-1510,Fall 5
-1511,Fall 6
-1512,Fall 7
-1513,Goop 0
-1514,Goop 0.2
-1515,Goop 1
-1516,Goop 1.2
-1517,Goop Up
-1518,Blow Kiss 2
-1519,Cheek Hit 2
-1520,Eye Hit 2
-1521,Fall hit 2
-1522,Fall hit 3
-1523,Fall hit 4
-1524,Dream Surprise
-1525,Dream Shy
-1526,Dream Happy
-1527,Tea
-1528,Dreamswap
-1529,Dim
-1530,Flower
-1531,Fancy
-1532,Dreanswap
-2001,D!Suprise
-2002,D!Shy
-2003,D!Wave
-2004,D!Worried
-2628,D!Dreamswap
-2629,D!Dawn
-2631,D!Mine
-2632,D!Dreamswap
+	scope,0
+	0,Neutral
+	1,Reading
+	2,Shrug
+	3,Worried Sideglance
+	4,Thinking
+	5,Sleeping
+	6,Excited
+	7,Shock
+	8,Shame
+	9,sad lookdown
+	16,Up0
+	10,Null
+	11,Slight Disgust
+	12,Minor Annoyance
+	13,Shy
+	14,Joking
+	15,hum
+	16,up
+	17,Protect crown
+	18,don hit meee
+	19,Scared
+	20,Happy smile
+	21,Begging
+	22,Facing away
+	23,Sniff
+	25,nom nom
+	26,Dream doll
+	27,Mug
+	28,Flush
+	29,Blow Kiss
+	290,Angry panch
+	30,Eye ponch
+	31,19 but happy
+	32,Yay pet!
+	33,take crown
+	34,Falls down
+	35,touch cheek blush
+	36,Dream No
+	37,Tired 5
+	38,Pick Up Normal
+	39,Pick Up Mean
+	40,Flowers
+	41,Drink
+	42,Soul
+	43,Sit Side
+	45,Positive Pick-Up
+	1527,Tea
+	1528,Dreamswap
+	1529,Dim
+	1530,Flower
+	1531,Fancy
+	1532,Dreamswap
+}
+
+group,Frames
+{
+	1600,up1
+	1501,up2
+	1502,up3
+	1503,Sniff2
+	1504,Fall in-between
+	1505,Sleeping2
+	1506,Fall 1
+	1507,Fall 2
+	1508,Fall 3
+	1509,Fall 4
+	1510,Fall 5
+	1511,Fall 6
+	1512,Fall 7
+	1513,Goop 0
+	1514,Goop 0.2
+	1515,Goop 1
+	1516,Goop 1.2
+	1517,Goop Up
+	1518,Blow Kiss 2
+	1519,Cheek Hit 2
+	1520,Eye Hit 2
+	1521,Fall hit 2
+	1522,Fall hit 3
+	1523,Fall hit 4
+	100000,Pieces
+}
+
+group,D
+{
+	1524,Dream Surprise
+	1525,Dream Shy
+	1526,Dream Happy
+	2000
+	2001,Suprise
+	2002,Shy
+	2003,Wave
+	2004,Worried
+	2005
+	2006
+	2628,Dreamswap
+	2629,Dawn
+	2631,Mine
+	2632,Dreamswap
 }
 
 group,__disabled

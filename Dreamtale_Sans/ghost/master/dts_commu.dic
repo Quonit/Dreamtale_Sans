@@ -19,6 +19,6 @@ ReplyToGhost
 {
  	res_reference0 = reference0
 	{
-	"\0\i[55]* (He doesn't seem to notice...\w8 Maybe they're invisable to him?)\e"
+		"\0\i[55]* (He doesn't seem to notice...\w8 Maybe they're invisible to him?)\e"
 	}
 }

@@ -1,206 +1,229 @@
 ﻿OnMouseMove
 {
-  	if nowmode != "QUIZ"
- 	{
-		if reference3 == 0
-		{
-			MouseMoveSakura
-		} else 
-		{
-			MouseMoveKero
-		}
+
+	if reference3 == 0
+	{
+		MouseMoveSakura
+	}
+	else 
+	{
+		MouseMoveKero
 	}
 }
+
 MouseMoveSakura
 {
-if reference4 != ""
-{
-	stroke++ 
-	if stroke >= 40 
+	if reference4 != ""
 	{
-		stroke = 0
-		if reference4 == "Crown" 
+		stroke++
+		
+		if reference4 == "Tentacle"
 		{
-			metalpet += 1
-			lasttalked = 0
-			if sleepingmode == "on"
+			if stroke >= 200
 			{
-				nicesadlevel += 1
-				if nicesadlevel <= -20 && punchout >= 20
-				{
-				"zzz\w4.\w4.\w4.\w8\w8 No\w4.\w4.\w4.\e"
-				"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.Give it back\w4.\w4.\w4.\e"
-				"* (Some invisible force is preventing you from taking the crown.)\e"
-				"Stop\w4.\w4.\w4.\w8\w8 zzz\w4.\w4.\w4.\e"
-				"zzz\w4.\w4.\w4.\w8\w8 's\w4.\w4.\w4.\w8\w8 's mine\w4.\w4.\w4.\n\n\w8\w8* (He seems really stressed out.)"
-				}
-				if privacyrespecter == "on"
-				{
-				"zzz\w4.\w4.\w4.\w8\w8 No\w4.\w4.\w4.\e"
-				"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.\w8 Go away\w4.\w4.\w4.\e"
-				"Stop it\w4.\w4.\w4.\w8\w8 's not yurs\w4.\w4.\w4.\e"
-				"zzz\w4.\w4.\w4.\w8\w8 Don't\w4.\w4.\w4.\e"
-				"zzz\w4.\w4.\w4.\w8\w8 's\w4.\w4.\w4.\w8\w8 's mine\w4.\w4.\w4.\e"
-				}
-				else
-				{
-				if nicesadlevel >= 50
-				{
-				"Hmm\w4.\w4.\w4.\w8\w8 %(username)?\e"
-				"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.%(username)?\e"
-				"zzz\w4.\w4.\w4.\e"
-				"* (He smiles a little.)\e"
-				"zzz\w4.\w4.\w4.\n\n* (He seems calm.)\e"
-				}
-				if nightynight == "on"
-				{
-				"zzz\w4.\w4.\w4.\w8\w8 %(username)?\e"
-				"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.Don't tuch\w4.\w4.\w4.\e"
-				"zzz\w4.\w4.\w4.\e"
-				"'s mine\w4.\w4.\w4.\w8\w8 Don't take\w4.\w4.\w4.\e"
-				"hmm\w4.\w4.\w4.\w8\w8 *(username)\w4.\w4.\w4.\w4?\e"
-				}
-				if nicesadlevel <= 10
-				{
-				"zzz\w4.\w4.\w4.\w8\w8 Stop it\w4.\w4.\w4.\w8 don't touch my head\w4.\w4.\w4.\w4?"
-				"zzz\w4.\w4.\w4.\w8\w8 Don't\w4.\w4.\w4.\w8 Don't touch 		me-!!\w8\n\n\w8\w8\w8\w4z\w4z\w4z\w4.\w4.\w4.\w4"
-				}
-				"zzz\w4.\w4.\w4.\w8\w8 Hmm\w4.\w4.\w4.\w8 Dream\w4.\w4.\w4.\w4?"
-				"zzz\w4.\w4.\w4.\w8\w8 Wha\w4.\w4.\w4.\w8 Wha's touchin me\w4.\w4.\w4.\w4?"
-				}
+				"(Touch fluffy tentacle ^_^)\e"
+				stroke = 0
 			}
-			else //Not sleeping
+		}
+		else
+		{
+			if stroke >= 40 
 			{
-				//Positive
-				if nicesadlevel >= 25
+				stroke = 0
+				
+				if reference4 == "Crown" || reference4 == "Skull"
 				{
-					nicesadlevel += 1
-					if sittang == "on"
+					metalpet += 1
+					lasttalked = 0
+					
+					if sleepingmode == "on"
 					{
-						"\0\s[1]\i[14]\i[55]* (He smiles faintly.)"
-						"\0\s[1]\i[14]Thanks."
-						"\0\s[1]\i[14]\i[55]* (He hums while being pet.)"
-						"\0\s[1]\i[14]You know,\w4 you're being nice and all\w2.\w2.\w2.\w5 but I'm trying to read,\w6 if that's okay."
+						posact += 1
+						
+						if nicesadlevel <= -20 && punchout >= 20
+						{
+							"zzz\w4.\w4.\w4.\w8\w8 No\w4.\w4.\w4.\e"
+							"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.Give it back\w4.\w4.\w4.\e"
+							"* (Some invisible force is preventing you from taking the crown.)\e"
+							"Stop\w4.\w4.\w4.\w8\w8 zzz\w4.\w4.\w4.\e"
+							"zzz\w4.\w4.\w4.\w8\w8 's\w4.\w4.\w4.\w8\w8 's mine\w4.\w4.\w4.\n\n\w8\w8* (He seems really stressed out.)"
+						}
+						if privacyrespecter == "on"
+						{
+							"zzz\w4.\w4.\w4.\w8\w8 No\w4.\w4.\w4.\e"
+							"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.\w8 Go away\w4.\w4.\w4.\e"
+							"Stop it\w4.\w4.\w4.\w8\w8 's not yurs\w4.\w4.\w4.\e"
+							"zzz\w4.\w4.\w4.\w8\w8 Don't\w4.\w4.\w4.\e"
+							"zzz\w4.\w4.\w4.\w8\w8 's\w4.\w4.\w4.\w8\w8 's mine\w4.\w4.\w4.\e"
+						}
+						else
+						{
+							if nicesadlevel >= 50
+							{
+								"Hmm\w4.\w4.\w4.\w8\w8 %(username)?\e"
+								"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.%(username)?\e"
+								"zzz\w4.\w4.\w4.\e"
+								"* (He smiles a little.)\e"
+								"zzz\w4.\w4.\w4.\n\n* (He seems calm.)\e"
+							}
+							if nightynight == "on"
+							{
+								"zzz\w4.\w4.\w4.\w8\w8 %(username)?\e"
+								"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.Don't touch\w4.\w4.\w4.\e"
+								"zzz\w4.\w4.\w4.\e"
+								"'s mine\w4.\w4.\w4.\w8\w8 Don't take\w4.\w4.\w4.\e"
+								"hmm\w4.\w4.\w4.\w8\w8 %(username)\w4.\w4.\w4.\w4?\e"
+							}
+							if nicesadlevel <= 10
+							{
+								"zzz\w4.\w4.\w4.\w8\w8 Stop it\w4.\w4.\w4.\w8 don't touch my head\w4.\w4.\w4.\w4?"
+								"zzz\w4.\w4.\w4.\w8\w8 Don't\w4.\w4.\w4.\w8 Don't touch 		me-!!\w8\n\n\w8\w8\w8\w4z\w4z\w4z\w4.\w4.\w4.\w4"
+							}
+							
+							"zzz\w4.\w4.\w4.\w8\w8 Hmm\w4.\w4.\w4.\w8 Dream\w4.\w4.\w4.\w4?"
+							"zzz\w4.\w4.\w4.\w8\w8 Wha\w4.\w4.\w4.\w8 Wha's touchin' me\w4.\w4.\w4.\w4?"
+						}
+					}
+					else //Not sleeping
+					{
+						//Positive
+						if nicesadlevel >= 25
+						{
+							posact += 1
+							if sittang == "on"
+							{
+								"\0\s[1]\i[14]\i[55]* (He smiles faintly.)"
+								"\0\s[1]\i[14]Thanks."
+								"\0\s[1]\i[14]\i[55]* (He hums while being pet.)"
+								"\0\s[1]\i[14]You know,\w4 you're being nice and all\w2.\w2.\w2.\w5 but I'm trying to read,\w6 if that's okay."
+							}
+							else
+							{
+								if blushiemode == "on" && privacyrespecter == "off"
+								{
+									"\0\s[32]Hmm...\e"
+									"\0\s[32]Thank you %(username)...\e"
+									"\0\s[32]...\e"
+									"\0\s[32]Feels nice...\e"
+									"\0\s[32]heheh!\e"
+									"\0\s[32]Thanks...\e"
+								}
+								if nicesadlevel >= 50
+								{
+									"\i[55]* (He seems really happy.)\e" //temp dialogue
+								}
+								if nicesadlevel >= 25
+								{
+									"\0\s[32]* (%(nightname) seems happy.)"
+									"\0\s[13]Hm...\e"
+									"\0\s[32]...Feels kinda nice...\e"
+									"\0\s[32]...\e"
+									"\0\s[15]* (He hums while being pet.)\e"
+									"\0\s[31]Heh...\w5 I'm not used to gentle touches...\e"
+								}
+							}
+						}
+						elseif nicesadlevel <= -25 || privacyrespecter == "on" //If you were rude to him
+						{
+							"\0\s[12]Don't touch me.\0\s[17]\e"
+							"\0\s[12]Stop it.\0\s[17]\e"
+							"\0\s[8]Could you stop touching me?\e"
+							"\0\s[3]* (He bats your hand away.)\n\n\w8Don't...\e"
+							"\0\s[12]* (He doesn't respond to the pets.)\e"
+							"\0\s[12]* (He's suspicious.)\e"
+							"\0\s[9]I told you not to...\e"
+							
+							if blushiemode == "on"
+							{
+								"\0\s[22]I'll never trust you.\e"
+								"\0\s[22]* (You try to get %(nightname) to forgive you.)\n\n\w8* (He's lot listening...)\e"
+							}
+							if nicesadlevel <= -50 && punchout >= 25 //big dislike
+							{
+								negact += 1
+								"\0\s[19]* (Stupid oversenssitive hitboxes.)\e"
+								"\0\s[19]* (He shudders as he tries to avoid your cursor.)\e"
+								"\0\s[19]Stop...\e"
+							}
+						}
+						else
+						{
+							posact += 1
+							if sittang == "on"
+							{
+								"\0\s[1]I'm trying to read."
+								"\0\s[1]Hm."
+								"\0\s[1]Sigh..."
+							}
+							else
+							{
+								"\0\s[13]* (He's letting you pet him,\w4 but is still wary.)\e"
+								"\0\s[13]* (Looks like he's still not sure what to make of you.)"
+								//temp dialogue
+								//"Why are you petting me?"
+								//"* (His skull feels smooth.) Why are you doing that..."
+								//"* (You wonder if he fuzzes.)\n\n\w8Could you stop?"
+							}
+						}
+					}
+				}
+				elseif reference4 == "Petspot" //Pet Goopmare
+				{
+					gooppets += 1
+					lasttalked = 0
+					if gooppets <= 25
+					{
+						"\0\s[6]Oh,\w2 so you're one of \f[italic,true]those\f[italic,false] idiots.\e"
+						"\0\s[4]Yes yes, continue with your stupid petting thing.\e"
+						"\0\s[0]* (Your hand gets all sticky...)\e"
+						"\0\s[5]\f[italic,true]HISSSSSSSSSSSSSSS!\f[italic,false]\e"
+						"\0\s[6]* (You pet the goop.)\e"
+						"\0\s[6]* (The goop is not happy about being pet.)\e"
+						"\0\s[8]* (Your hand gets all sticky\w2.\w2.\w2.)\e"
+						"\0\s[6]Why did Quonit even allow this...\e"
+						"\0\s[6]* (He begrudgingly put up with it.\w3 He doesn't have much of a choice,\w2 though.)\e"
+						"\0\s[2]* (He is very grumpy.)\e"
+						"\0\s[2]You know,\w3 there's better things you could be doing right about now.\e"
+						"\0\s[8]Usually,\w3 humans are too busy bleeding out to try to touch me.\e"
+						"\0\s[2]* (He is completely defenseless to your touches.)\e"
+						"\0\s[2]* (He is very annoyed that he's been forced to put up with this.)\e"
+						"\0\s[5]With all your stupid petting\w3 it's no %#*&ing wonder Nightmare hated you!\e"
+						if blushiemode == "on"
+						{
+							"\0\s[4]I'm sure you did this to your old friend quite a lot.\w6 \0\s[1]I'm sure that he misses it~\e"
+						}
 					}
 					else
 					{
-					if blushiemode == "on" && privacyrespecter == "off"
-					{
-					"\0\s[32]Hmm...\e"
-					"\0\s[32]Thank you %(username)...\e"
-					"\0\s[32]...\e"
-					"\0\s[32]Feels nice...\e"
-					"\0\s[32]heheh!\e"
-					"\0\s[32]Thanks...\e"
-					}
-					if nicesadlevel >= 50
-					{
-					"* (He seems really happy.)\e" //temp dialogue
-					}
-					if nicesadlevel >= 25
-					{
-					"\0\s[32]* (%(nightname) seems happy.)"
-					"\0\s[13]Hm...\e"
-					"\0\s[32]...Feels kinda nice...\e"
-					"\0\s[32]...\e"
-					"\0\s[15]* (He hums while being pet.)\e"
-					"\0\s[31]Heh...\w5 I'm not used to gentle touches...\e"
-					}
+						"\0\s[2]* (He annoyedly puts up with it.)\e"
+						"\0\s[2]* (He grumbles, but doesn't protest.)\e"
+						"\0\s[2]Why do you even do this anyways,\w3 weirdo...\e"
+						"\0\s[2]There are a lot more interesting things you could do with your time then trying to show me affection.\e"
+						"\0\s[2]If you're trying to be nice,\w3 at the very least you could insult me instead...\e"
+						"\0\s[6]Honestly with all the affection you're attempting to show me you might as well just go play with the purple idiot instead.\n\n\w8I'm sure he'd enjoy it muuuuch more.\e"
+						"\0\s[5]I'm literally a being of negativity,\w4 why are you trying to be nice to me???\e"
+						"\0\s[6]You fleshy idiots are so weird.\e"
 					}
 				}
-				elseif nicesadlevel <= -25 || privacyrespecter == "on" //If you were rude to him
+				elseif reference4 == "StarCrown" //Pet Dream
 				{
-				"\0\s[12]Don't touch me.\0\s[17]\e"
-				"\0\s[12]Stop it.\0\s[17]\e"
-				"\0\s[8]Could you stop touching me?\e"
-				"\0\s[3]* (He bats your hand away.)\n\n\w8Don't...\e"
-				"\0\s[12]* (He doesn't respond to the pets.)\e"
-				"\0\s[12]* (He's suspicious.)\e"
-				"\0\s[9]I told you not to...\e"
-					if blushiemode == "on"
-					{
-					"\0\s[22]I'll never trust you.\e"
-					"\0\s[22]* (You try to get %(nightname) to forgive you.)\n\n\w8* (He's lot listening...)\e"
-					}
-					if nicesadlevel <= -50 && punchout >= 25 //big dislike
-					{
-					nicesadlevel -= 1
-					"\0\s[19]* (Your mouse must have slipped.)\e"
-					"\0\s[19]* (He tries to avoid your touch,\w4 but can't.)\e"
-					"\0\s[19]Stop...\e"
-					}
-				}
-				else
-				{
-					nicesadlevel += 1
-					if sittang == "on"
-					{
-						"\0\s[1]I'm trying to read."
-						"\0\s[1]Hm."
-						"\0\s[1]Sigh..."
-					}
-					else
-					{
-					"\0\s[13]* (He's letting you pet him,\w4 but is still weary.)\e"
-					}
+					//* (Dream seems a bit confused.) Oh- I mean, if you want to I suppose you can...
+					//^^
 				}
 			}
-		}
- 		elseif reference4 == "Petspot" //Pet Goopmare
- 		{
-		gooppets += 1
-		lasttalked = 0
-			if gooppets <= 25
-			{
-			"\0\s[6]Oh,\w2 so you're one of \f[italic,true]those\f[italic,false] idiots.\e"
-			"\0\s[4]Yes yes, continue with your stupid petting thing.\e"
-			"\0\s[0]* (Your hand gets all sticky...)\e"
-			"\0\s[5]\f[italic,true]HISSSSSSSSSSSSSSS!\f[italic,false]\e"
-			"\0\s[6]* (You pet the goop.)\e"
-			"\0\s[6]* (The goop is not happy about being pet.)\e"
- 			"\0\s[8]* (Your hand gets all sticky\w2.\w2.\w2.)\e"
- 			"\0\s[6]Why did Quonit even allow this...\e"
- 			"\0\s[6]* (He begrudgingly put up with it,\w3 though he doesn't have much of a choice,\w2 though.)\e"
- 			"\0\s[2]* (He is very grumpy.)\e"
- 			"\0\s[2]You know,\w3 there's better things you could be doing right about now.\e"
- 			"\0\s[8]Usually,\w3 humans are too busy bleeding out to try and touch me.\e"
- 			"\0\s[2]* (He is completely defenseless to your touches.)\e"
- 			"\0\s[2]* (He is very annoyed that he's been forced to put up with this.)\e"
- 			"\0\s[5]With all your stupid petting it's no %#*&ing wonder Nightmare hated you!\e"
-			if blushiemode = "on"
-			{
-			"\0\s[4]I'm sure you did this to your old friend quiet a lot.\w6 \0\s[1]I'm sure that he misses it~\e"
-			}
-			}
-			else
-			{
-			"\0\s[2]* (He annoyedly puts up with it.)\e"
-			"\0\s[2]* (He grumbles, but doesn't protest.)\e"
-			"\0\s[2]Why do you even do this anyways,\w3 weirdo...\e"
-			"\0\s[2]There are a lot more interesting things you could do with your time then trying to show be affection.\e"
-			"\0\s[2]If you're trying to be nice,\w3 at the very least you could insult me instead...\e"
-			"\0\s[6]Honestly with all the affection you're attempting to show me you might as well just go play with the purple idiot instead.\n\n\w8I'm sure he'd enjoy it muuuuch more.\e"
-			"\0\s[5]I'm literally a being of negativity,\w4 why are you trying to be nice to me???\e"
-			"\0\s[6]You fleshy idiots are so weird.\e"
-			}
-		}
-		elseif reference4 == "StarCrown" //Pet Dream
-		{
-			//* (Dream seems a bit confused.) Oh- I mean, if you want to I suppose you can...
-			//^^
 		}
 	}
+	else
+	{
+		stroke = 0
+	}
 }
-else
-{
-stroke = 0
-}
-}
+
 OnMouseDoubleClick
 {	
  	if reference3 == 0
 	{
-	MouseDoubleClickSakura
+		MouseDoubleClickSakura
  	}
 	else
  	{
@@ -215,6 +238,7 @@ OnMouseDragStart
 		if BalloonCheck == 1 //If Balloon is open
 		{
 			""
+			
 			if MenuCheck == 1
 			{
 				"%(pickup)"
@@ -224,7 +248,8 @@ OnMouseDragStart
 		{
 			"%(pickup)"
 		}
-	} else //Other bitch. Dead.
+	}
+	else //Other bitch. Dead.
 	{
 		"\i[55]\s[118]"
 	}
@@ -241,22 +266,15 @@ OnMouseDragEnd
 			{
 				if sleepingmode == "on"
 				{
-					if givesleepyblankie == "on"
-					{
-					"\0\s[5]\i[48]"
-					}
-					else
-					{
 					"\0\s[5]"
-					}
 				}
 				elseif sittang == "on"
 				{
-				"\0\s[1]"
+					"\0\s[1]"
 				}
 				else
 				{
-				"%(surface0)"
+					"%(surface0)"
 				}
 			}
 		}
@@ -264,60 +282,53 @@ OnMouseDragEnd
 		{
 			if sleepingmode == "on"
 			{
-				if givesleepyblankie == "on"
-				{
-				"\0\s[5]\i[48]"
-				}
-				else
-				{
 				"\0\s[5]"
-				}
 			}
 			elseif sittang == "on"
 			{
-			"\0\s[1]"
+				"\0\s[1]"
 			}
 			else
 			{
-			"%(surface0)"
+				"%(surface0)"
 			}
 		}
 		
 	}
 	else
  	{
- 		"\i[55]\s[10]"
+ 		"\i[55]"
 	}
 }
 
 MouseDoubleClickSakura
 {
 	lasttalked = 0
- 	if reference4 == "Book" //If sleeping mode == on he wont notice you clicking the book.
+ 	if reference4 == "Book" //If sleeping mode == on he won't notice you clicking the book.
 	{
-		if privacyrespecter == "on"
+		if sleepingmode == "on"
 		{
-		"\0\s[1]\i[8]Stop looking through my stuff. \w5It's not very interesting anyways.\e"
-		"\0\s[1]\i[55]* (He tilts the book in a way you can't see the back.)\e"
+			"* (He's sleeping. \w4Do you want to see what the blurb on the back of the book says?)\w8\n\n* (He won't notice you snooping.)\n\n\![*]\q[Yes,readfunnyblurbsleepmode]\n\![*]\q[No,repsecttoyoumysirsleepmode]\e"
+		}
+		elseif privacyrespecter == "on"
+		{
+			"\0\s[1]\i[8]Stop looking through my stuff. \w5It's not very interesting anyways.\e"
+			"\0\s[1]\i[55]* (He tilts the book in a way you can't see the back.)\e"
 		}
 		elseif blushiemode == "on" && privacyrespecter == "off"
 		{
-		"\0\s[1]\i[7]Oh, %(username) did you want to see my book?\n\n\w8\0\s[1]It's about %(bookstoread).\n\n"
-		--
-		"\w8It's kinda weird,\w3 but I like it.\e"
-		"\w8It's really interesting,\w3 you should give it a read.\e"
-		"\w8I don't know if I'm gonna finish it to be honest.\e"
-		"\w8I kinda think it's something Dream would like reading,\w3 but who knows if they'd be able to get through that much reading material...\e"
-		"\w8It's really good,\w2 I've read it a few times already sense just like coming back to it.\e"
-		"\w8I wish I had my Mom to read it with me...\e"
-		}
-		elseif sleepingmode == "on"
-		{
-		"* (He's sleeping. \w4Do you want to see what the blurb on the back of the book says?)\w8\n\n* (He won't notice you snooping.)\n\n\![*]\q[Yes,readfunnyblurbsleepmode]\n\![*]\q[No,repsecttoyoumysirsleepmode]\e"
+			"\0\s[1]\i[7]Oh, %(username) did you want to see my book?\n\n\w8\0\s[1]It's %(bookstoread).\n\n"
+			--
+			"\w8It's kinda weird,\w3 but I like it.\e"
+			"\w8It's really interesting,\w3 you should give it a read.\e"
+			"\w8I don't know if I'm gonna finish it to be honest.\e"
+			"\w8I kinda think it's something Dream would like reading,\w3 but who knows if they'd be able to get through that much reading material...\e"
+			"\w8It's really good,\w2 I've read it a few times already since I just like coming back to it.\e"
+			"\w8I wish I had my Mom to read it with me...\e"
 		}
 		else
 		{
-		"\0\s[1]\i[55]* (He's reading a book.\w5 Do you want to see what the blurb on the back says?)\n\n\![*]\q[Yes,readfunnyblurb]\n\![*]\q[No,repsecttoyoumysir]\e"
+			"\0\s[1]\i[55]* (He's reading a book.\w5 Do you want to see what the blurb on the back says?)\n\n\![*]\q[Yes,readfunnyblurb]\n\![*]\q[No,repsecttoyoumysir]\e"
 		}
 	}
 	elseif reference4 == "Dollie"
@@ -326,15 +337,16 @@ MouseDoubleClickSakura
 	}
 	elseif reference4 == "Crown" //Double click crown
 	{
-		if nicesadlevel >= 25
+		
+		if nicesadlevel >= 25 && punchout < 1
 		{
 			"\s[7]\i[55]"
 			--
 			"* (You click his crown again.)\n\n\w8"
-			"* (You tap at his circlet.)\n\n\w8\e"
-			"* (You bap the crown.)\n\n\w8\e"
+			"* (You tap at his circlet.)\n\n\w8"
+			"* (You bap the crown.)\n\n\w8"
 			--
-			"\s[8]You're super interested in seeing what's under there still,\w4 aren't you\w2.\w2.w2.\e"
+			"\s[8]You're super interested in seeing what's under there still,\w4 aren't you\w2.\w2.w2."
 			"\s[4]Why are you still trying to touch it?"
 			"* (It makes a little 'clink' sound.)"
 			"* (He sighs audibly.)"
@@ -343,90 +355,91 @@ MouseDoubleClickSakura
 			"\e"
 			if nicesadlevel >= 50 || nightynight == "on"
 			{
-			"\i[55]* (You ask if you can touch it.)\n\n\w8\s[8]Fine\w2.\w2.\w2.\n\n\w8\i[55]* (You put your hand on the metal.\w8 It is cold.)\e"
+				"\i[55]* (You ask if you can touch it.)\n\n\w8\s[8]Fine\w2.\w2.\w2.\n\n\w8\i[55]* (You put your hand on the metal.\w8 It is cold.)\e"
 			}
 			if blushiemode == "on" || nicesadlevel >= 100
 			{
-			"\0\s[0]\i[55]* (You ask if you can see what he looks like without the crown on.)\n\n\w8\0\s[13]Well\w2.\w2.\w2.\w8 Only for a second.\n\n\w8\s[44]\i[1]* (He takes it off.)\n\n\w8It feels kind of bare without it on\w2.\w2.\w2.\w8\n\n\s[44]\i[2]* (He puts it back on.)\e"
+				"\0\s[0]\i[55]* (You ask if you can see what he looks like without the crown on.)\n\n\w8\0\s[13]Well\w2.\w2.\w2.\w8 Only for a second.\n\n\w8\s[26]\i[1]* (He takes it off.)\n\n\w8It feels kind of bare without it on\w2.\w2.\w2.\w8\n\n\s[26]\i[2]* (He puts it back on.)\e"
 			}
 		}
 		else //Default text
 		{
-		if sittang == "on"
-		{
-		"\0\s[1]\i[9]Hands off."
-		"\0\s[1]\i[9]Don't touch it."
-		"\0\s[1]\i[9]Stop tryna' grab it."
-		"\0\s[1]\i[9]* (He grumbles.)"
-		}
-		else
-		{
-		"\0\s[17]Ah-"
-		"\0\s[17]Hey!!"
-		"\0\s[17]Don't do that!!"
-		"\0\s[17]I already told you to stop %(username)!"
-		"\0\s[17]Eep!"
-		"\0\s[17]Hey-!"
-		"\0\s[7]\i[55]* (You tap at his crown.)\n\n\w8Hey!!"
-		--
-		" \w8"
-		--
-		"Don't touch that!\n\n/
-		\![*]\q[* (Ask him what it is.),whatstupidheadband]\n/
-		\![*]\q[* (Leave him alone.),leadstonowhere]\e"
-		"\s[12]Don't take my crown!\e"
-		"\0\s[3]Please don't touch it.\n\n\w8It's very important to me.\e"
-		"\s[12]You know you shouldn't try and take things that don't belong to you,\w3 right?\e"
-		"\n\n* (He seems to think you're trying to steal it.)\e"
-		"\s[12]Don't touch it!\e"
-		"\s[12]That thing is mine,\w4 y'know\w2.\w2.\w2.\e"
-			if nicesadlevel <= -25 && punchout >= 25 //Very mean
+			if sittang == "on"
 			{
-			nicesadlevel -= 1
-			"\0\s[3]Can you stop touching my crown?\w6 It's rude.\e"
-			"\0\s[33]Ah-!\w8\s[17]\e"
-			"\0\s[33]Hey-!\w8\s[17] That's mine!!!\e"
-				if nicesadlevel <= 50
+				"\0\s[1]\i[9]Hands off."
+				"\0\s[1]\i[9]Don't touch it."
+				"\0\s[1]\i[9]Stop tryna' grab it."
+				"\0\s[1]\i[9]* (He grumbles.)"
+			}
+			else
+			{
+				"\0\s[17]Ah-"
+				"\0\s[17]Hey!!"
+				"\0\s[17]Don't do that!!"
+				"\0\s[17]I already told you to stop %(username)!"
+				"\0\s[17]Eep!"
+				"\0\s[17]Hey-!"
+				"\0\s[7]\i[55]* (You tap at his crown.)\n\n\w8Hey!!"
+				--
+				" \w8"
+				--
+				"Don't touch that!\n\n/
+				\![*]\q[* (Ask him what it is.),whatstupidheadband]\n/
+				\![*]\q[* (Leave him alone.),leadstonowhere]\e"
+				"\s[12]Don't take my crown!\e"
+				"\0\s[3]Please don't touch it.\n\n\w8It's very important to me.\e"
+				"\s[12]You know you shouldn't try and take things that don't belong to you,\w3 right?\e"
+				"\n\n* (He seems to think you're trying to steal it.)\e"
+				"\s[12]Don't touch it!\e"
+				"\s[12]That thing is mine,\w4 y'know\w2.\w2.\w2.\e"
+				
+				if nicesadlevel <= -25 && punchout >= 5 //Very mean
 				{
-				"\0\s[33]Ah-!\w8\s[17]\e"
-				"\0\s[33]Hey-!\w8\s[17] That's mine!!!\e"
+					negact += 1
+					"\0\s[3]Can you stop touching my crown?\w6 It's rude.\e"
+					"\0\s[33]Ah-!\w8\s[17]\e"
+					"\0\s[33]Hey-!\w8\s[17] That's mine!!!\e"
+					if nicesadlevel <= -50
+					{
+						"\0\s[33]Ah-!\w8\s[17]\e"
+						"\0\s[33]Hey-!\w8\s[17] That's mine!!!\e"
+					}
 				}
 			}
-		}
 		}
 	}
 	elseif reference4 == "Face" //Punching animations get worse as there are more.
 	{
-		if punchout > 15 //&& <= 10
-		{
-		nicesadlevel -= 1
-		punchout += 1
-		"\0\s[290]Ah-\w5\0\s[23] Stop it!!!\e"
-		"\0\s[290]Hghk-! \w9\w9nnn...\e"
-		"\0\s[30]Ah-\w5 Ow!! \w7\0\s[1619]Stop it!!\e"
-		"\0\s[30]Hey!\w7\w7\n\nOw...\w5 Ow...\w5 This hurts...\e"
-		"\0\s[30]Nngh-! \w9\w9hnnggg...\e"
-		"\0\s[290]!! \w9\w9Ow-\w4 Stop it!\e"
-		"\0\s[290]!! \w9\w9Don't do that!!\e"
-		}
 		if punchout >= 30
 		{
-		nicesadlevel -= 1
-		punchout += 1
-		"\0\s[34]Ah-!!!\0\s[1622]\n\n\w8\w8Ow-\w6 ow,\w4 nngghh...\n\n\w8\w4* (That crack on his skull is bleeding.)\e"
-		"\0\s[34]\w8\w8Oh-!!!\s[1622]\n\n\w8\w8Ack-\w8 ow,\w5 It hurts...\n\n\w8\w8* (Just add to the scars, \w4why don't you?)\e"
-		"\0\s[30]Ah! \w8\w8Ow...\w6\w8\w6 Ow...\e"
-		"\0\s[34]\w8\w8Oh-!!!\0\s[1622]\n\n\w8\w8Ack-\w8 ow,\w5 It hurts...\n\n\w8\w8* (He's not going to last super long...)\e"
-		"\0\s[30]Ah! \w8\w8Ow...\w6\w8\w6 Ow...\e"
-		"\0\s[30]!! ... \w9\w9Ghk...\e"
-		"\0\s[34]\w8\w8Ow!\w8\w8 Ow...\w8\w8 Ow...\n\n\w8\w8* (It's fun to see him hurt,\w5 what with the new animation.)\e"
+			negact += 1
+			punchout += 1
+			"\0\s[34]Ah-!!!\0\s[1622]\n\n\w8\w8Ow-\w6 ow,\w4 nngghh...\n\n\w8\w4* (That crack on his skull is bleeding.)\e"
+			"\0\s[34]\w8\w8Oh-!!!\s[1622]\n\n\w8\w8Ack-\w8 ow,\w5 It hurts...\n\n\w8\w8* (Just add to the scars, \w4why don't you?)\e"
+			"\0\s[30]Ah! \w8\w8Ow...\w6\w8\w6 Ow...\e"
+			"\0\s[34]\w8\w8Oh-!!!\0\s[1622]\n\n\w8\w8Ack-\w8 ow,\w5 It hurts...\n\n\w8\w8* (He's not going to last super long...)\e"
+			"\0\s[30]Ah! \w8\w8Ow...\w6\w8\w6 Ow...\e"
+			"\0\s[30]!! ... \w9\w9Ghk...\e"
+			"\0\s[34]\w8\w8Ow!\w8\w8 Ow...\w8\w8 Ow...\n\n\w8\w8* (It's fun to see him hurt,\w5 what with the new animation.)\e"
+		}
+		elseif punchout > 15 //&& <= 10
+		{
+			negact += 1
+			punchout += 1
+			"\0\s[290]Ah-\w5\0\s[23] Stop it!!!\e"
+			"\0\s[290]Hghk-! \w9\w9nnn...\e"
+			"\0\s[30]Ah-\w5 Ow!! \w7\0\s[1619]Stop it!!\e"
+			"\0\s[30]Hey!\w7\w7\n\nOw...\w5 Ow...\w5 This hurts...\e"
+			"\0\s[30]Nngh-! \w9\w9hnnggg...\e"
+			"\0\s[290]!! \w9\w9Ow-\w4 Stop it!\e"
+			"\0\s[290]!! \w9\w9Don't do that!!\e"
 		}
 		else
 		{
-		"\i[55]* (Are you sure you want to hit him?)\n\n"
-		--
-		"\![*]\q[Yes,punchnighty]\n/
-		\![*]\q[No!!,dontpunchnighty]\e"
+			"\i[55]* (Are you sure you want to hit him?)\n\n"
+			--
+			"\![*]\q[Yes,punchnighty]\n/
+			\![*]\q[No!!,dontpunchnighty]\e"
 		}
  	}
 	elseif reference4 == "StarCrown" //Double click crown
@@ -438,6 +451,7 @@ MouseDoubleClickSakura
  		OpenSakuraMenu
 	}
 }
+
 Select.whatstupidheadband
 {
 	headbandexpo = "on"
@@ -446,19 +460,28 @@ Select.whatstupidheadband
 Select.whatstarheadband
 {
 	starcrownexpo = "on"
-	"\0\s[0]It's my crown\w2.\w2.\w2.\w4\s[4] Or,\w3 uhm\w2.\w2.\w2. \s[13]Well,\w3 I had this sense I was little,\w4 and my brother has a matching one.\w8\w4\n\nI just\w2.\w2.\w2. \w5I feel really sentimental to it is all.\w8\s[8] I've only taken it off a few times myself, \w5let alone let other people do it.\e"
+	"\0\s[0]It's my crown\w2.\w2.\w2.\w4\s[4] Or,\w3 uhm\w2.\w2.\w2. \s[13]Well,\w3 I had this since I was little,\w4 and my brother has a matching one.\w8\w4\n\nI just\w2.\w2.\w2. \w5I feel really sentimental about it is all.\w8\s[8] I've only taken it off a few times myself, \w5let alone let other people do it.\e"
 }
+
 Select.punchnighty
 {
-	if blushiemode == "on" && privacyrespecter == "off" || nightynight == "on"
+	if punchout == 0 && nicesadlevel > 0
 	{
-	nicesadlevel -= 1
-	punchout += 1
-	"\0\s[290]Ack-! %(username)??\w4\0\s[21] Why did you do that???\e"
-	"\0\s[30]Ow!! Wait,\w3\0\s[21] %(username)???\e"
-	"\0\s[30]Ah-!! Ow!!!\w4 %(username)?!\n\n\w8\0\s[21]Why did you do that???\w6 I-\w3 I thought you were my friend!\e"
+		betrayalvar += ABS(1 - nicesadlevel)
 	}
-	nicesadlevel -= 1
+	--
+	if privacyrespecter == "off" && (blushiemode == "on" || nightynight == "on")
+	{
+		if nicesadlevel > 25; {negact += 10}
+		else; {negact += 1}
+		punchout += 1
+		"\0\s[290]Ack-! %(username)??\w4\0\s[21] Why did you do that???\e"
+		"\0\s[30]Ow!! Wait,\w3\0\s[21] %(username)???\e"
+		"\0\s[30]Ah-!! Ow!!!\w4 %(username)?!\n\n\w8\0\s[21]Why did you do that???\w6 I-\w3 I thought you were my friend!\e"
+	}
+	
+	if nicesadlevel > 25; {negact += 10}
+	else; {negact += 1}
 	punchout += 1
 	"\0\s[290]Ow! \w3Why did you do that??"
 	"\0\s[290]Ow-! \w3Stop it!"
@@ -466,18 +489,20 @@ Select.punchnighty
 	"\0\s[30]Ack- \w3that hurt!"
 	"\0\s[290]Ah- \w3Don't do that!"
 }
+
 Select.dontpunchnighty
 {
 	"\i[55]* (Your relationship with %(nightname) has been preserved.)\e"
 	"\i[55]* (Are you a coward or did you misclick?)\e"
 	"\i[55]* (Peace has been restored.)\e"
 }
+
 Select.readfunnyblurbsleepmode
 {
 	"\i[55]* (It says it's %(bookstoread).)\e"
 }
 Select.repsecttoyoumysirsleepmode
 {
-	respect +1
+	respect += 1
 	"\0\s[1]\i[55]* (There is no reason not to,\w4 but good job anyways.)\e"
 }

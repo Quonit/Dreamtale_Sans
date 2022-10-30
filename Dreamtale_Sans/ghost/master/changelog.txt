@@ -1,5 +1,28 @@
-Changelong for Dreamtale Sans!
+Changelog for Dreamtale Sans!
 --------------------------------------------------------------------------------------------------------------------
+
+--- 30th October 2022 ---
+Additions:
+-Wormspawn helps with the ghost now!!
+-Completely revamped goopmode for Halloween!
+-Replaced shrug pose
+-Replaced doll pose + added new doll pose + added new doll
+-Changed some of the ACT menu options
+-Replaced *many* pieces of dialogue to fit with the Black Apple Blues lore, fanfic series... about him: https://archiveofourown.org/series/2690965
+-Added more references to Night's books
+-Rewrote the readme.txt
+
+Tweaks:
+-Touched up the right click menu because it was fuzzy
+-Negative route rebalanced to be faster
+
+Bugfixes:
+-Fixed the Talk function in the menu doing nothing
+-Cutscenes now work... Again.
+-skeleton will no longer fall into the superposition of being both asleep and awake
+-Various ones I forgot
+-Idk. Typos? There's always typo fixes
+
 
 --- 10th Febuary 2022 ---
 Bugfixes:

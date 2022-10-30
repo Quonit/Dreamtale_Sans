@@ -29,14 +29,33 @@ On_sakura.recommendsites //Top Menu Option Websites
 	"Quonit's Deviantart"
 	--
 	"%ASC(1)http://www.deviantart.com/quonit37//%ASC(2)"
+	--
+	"Worm's Ukagaka"
+	--
+	"%ASC(1)https://khittyhawk.github.io/ukagaka/index.html%ASC(2)"
 }
 On_portalrootbutton.caption //The second option from the top's caption
 {
-	"Nothing here."
+	"Black Apple Blues"
 }
 On_sakura.portalsites //Websites in the Second Option
 {
- 	"Why did you right click me"
+ 	"BwB on Archive of Our Own"
+	--
+	"%ASC(1)https://archiveofourown.org/series/2690965%ASC(2)"
+	--
+	"Ghost Timeline Index"
+	--
+	"%ASC(1)https://the-kk-crow.tumblr.com/post/672929079630200832/ghost-timeline-index-ghost-timeline-is-a%ASC(2)"
+	--
+	"Wyrm in the Apple"
+	--
+	"%ASC(1)https://wyrm-in-the-apple.tumblr.com/%ASC(2)"
+	--
+	"BwB Extras on AO3"
+	--
+	"%ASC(1)https://archiveofourown.org/series/2974086%ASC(2)"
+	
 }
 On_kero.recommendbuttoncaption //Top Menu Option in the Second Character
 {

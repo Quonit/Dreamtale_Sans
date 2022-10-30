@@ -1,9 +1,69 @@
+version,1
+
 //--surface.append-------------------------------------------------------------------
 surface.append500-590 
 {
-collision0,15,16,111,48,Face
-collision1,40,50,102,84,Point
+	collision0,15,16,111,48,Face
+	collision1,40,50,102,84,Point
 }
+
+surface.append0-9
+{
+	//i wanna pet the tentacle
+	collisionex6,Tentacle,polygon,30,63,30,331,129,332,150,246,145,214,151,176,144,161,136,100,160,76,185,79,205,105,203,127,196,136,208,150,230,234,214,252,222,317,229,331,331,331,331,63
+	
+	//woggle
+	animation100.interval,always
+	animation100.pattern0,interpolate,1000,0,0,0
+	animation100.pattern1,interpolate,1001,1000,0,0
+	animation100.pattern2,interpolate,1000,1000,0,0
+	
+	//droopy
+	animation102.interval,never
+	animation102.pattern0,stop,100
+	animation102.pattern1,interpolate,1002,0,0,0
+	animation102.pattern2,interpolate,1003,1000,0,0
+	animation102.pattern3,interpolate,1002,1000,0,0
+	animation102.pattern4,start,102
+	
+	//ANGRYCLES
+	animation103.interval,never
+	animation103.pattern0,stop,100
+	animation103.pattern1,interpolate,1007,0,0,0
+	animation103.pattern2,interpolate,1008,100-500,0,0
+	animation103.pattern3,interpolate,1007,100-500,0,0
+	animation103.pattern4,start,103
+	
+	//Pull in
+	animation105.interval,never
+	animation105.pattern0,stop,100
+	animation105.pattern1,interpolate,1006,0,0,0
+	animation105.pattern2,interpolate,1005,80,0,0
+	animation105.pattern3,interpolate,1004,80,0,0
+	animation105.pattern4,interpolate,-1,80,0,0
+	
+	//Pull out
+	animation106.interval,never
+	animation106.pattern0,stop,100
+	animation106.pattern1,interpolate,1004,0,0,0
+	animation106.pattern2,interpolate,1005,80,0,0
+	animation106.pattern3,interpolate,1006,80,0,0
+	animation106.pattern4,start,100
+	
+	//curly
+	animation107.interval,never
+	animation107.pattern0,stop,100
+	animation107.pattern1,interpolate,1011,0,0,0
+	animation107.pattern2,interpolate,1012,1000,0,0
+	animation107.pattern3,interpolate,1011,1000,0,0
+	animation107.pattern4,start,107
+}
+
+sakura.cursor
+{
+	mouseup10,Tentacle,system:arrow
+}
+
 //@@@  @@@  @@@   @@@@@@@@  @@@  @@@  @@@@@@@  @@@@@@@@@@    @@@@@@   @@@@@@@   @@@@@@@@
 //@@@@ @@@  @@@  @@@@@@@@@  @@@  @@@  @@@@@@@  @@@@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@@@@@@
 //@@!@!@@@  @@!  !@@        @@!  @@@    @@!    @@! @@! @@!  @@!  @@@  @@!  @@@  @@!
@@ -15,260 +75,218 @@ collision1,40,50,102,84,Point
 // ::   ::   ::   ::: ::::  ::   :::     ::    :::     ::   ::   :::  ::   :::   :: ::::
 //::    :   :     :: :: :    :   : :     :      :      :     :   : :   :   : :  : :: ::
 
+//bro idk whats up in here. just. idk
+
 surface0
 {
-//Collision
-collision0,151,92,215,130,Petspot
-element0,overlay,surface0.png,0,0
-//woggle
-1interval,always,10
-1pattern0,-1,75,base,0,0
-1pattern1,1000,66,base,0,0
-1pattern2,1000,50,base,0,0
-1pattern3,-1,3,base,0,0
-}
-//the woggle
-surface1000
-{
-//Collision
-collision0,151,92,215,130,Petspot
-element0,overlay,surface1000.png,0,0
+	//Collision
+	collisionex0,Petspot,polygon,138,113,138,98,147,80,164,74,187,74,203,90,209,112,182,115,138,111
+
+	element0,overlay,surface0.png,0,0	
+
+	//Blink
+	animation3.interval,random,4
+	animation3.pattern0,overlay,-1,100,0,0
+	animation3.pattern1,overlayfast,1200,50,0,0
+	animation3.pattern2,overlayfast,1201,100,0,0
+	animation3.pattern3,overlay,-1,30,0,0
+	
+	animation4.interval,never
+	animation4.pattern0,stop,100
+	animation4.pattern1,interpolate,1000,0,0,0
+	animation4.pattern2,interpolate,1001,500-800,0,0
+	animation4.pattern3,interpolate,1000,500-800,0,0
+	animation4.pattern4,start,4
+
 }
 
 //Side non look
 surface1
 {
-//Collision
-collision0,164,88,219,129,Petspot
-element0,overlay,surface1501.png,0,0
-//woggle
-2interval,always,10
-2pattern0,-1,75,base,0,0
-2pattern1,1001,66,base,0,0
-2pattern2,1001,50,base,0,0
-2pattern3,-1,3,base,0,0
+	//Collision
+	collisionex0,Petspot,polygon,136,122,138,99,144,85,160,79,181,84,191,100,172,111,154,123
+	element0,overlay,surface1.png,0,0
 }
-//waggle 1
-surface1001
-{
-//Collision
-collision0,164,88,219,129,Petspot
-element0,overlay,surface1001.png,0,0
-}
+
 
 //Cross arms
 surface2
 {
-//Collision
-collision0,160,87,221,128,Petspot
-element0,overlay,surface1502.png,0,0
-//waggle
-3interval,always,10
-3pattern0,-1,75,base,0,0
-3pattern1,1002,66,base,0,0
-3pattern2,1002,50,base,0,0
-3pattern3,-1,3,base,0,0
-}
-surface1002
-{
-//Collision
-collision0,160,87,221,128,Petspot
-element0,overlay,surface1002.png,0,0
+	//Collision
+	collision0,160,87,221,128,Petspot
+	element0,overlay,surface2.png,0,0
+	
+	//Arms
+	//On Cheek
+	animation0.interval,runonce
+	animation0.pattern0,overlay,1300,0,0,0
+	//Crossed
+	animation2.interval,never
+	animation2.pattern0,stop,0
+	animation2.pattern1,overlay,1301,0,0,0
+	
+	//Expressions
+	//Smirk
+	animation1.interval,runonce
+	animation1.pattern0,overlay,1203,0,0,0
+	//grr
+	animation3.interval,never
+	animation3.pattern0,stop,1
+	animation3.pattern1,overlay,1204,0,0,0
+	//scawy
+	animation5.interval,never
+	animation5.pattern0,stop,1
+	animation5.pattern1,overlay,1205,0,0,0
+
 }
 
 //Null
 surface3
 {
-element0,overlay,surface1503.png,0,0
+	element0,overlay,surface3.png,0,0
 }
 
 //It's just a prank breh
 surface4
 {
-//Collision
-collision0,157,92,214,132,Petspot
-element0,overlay,surface1504.png,0,0
-//woggle
-4interval,always,10
-4pattern0,-1,75,base,0,0
-4pattern1,1004,66,base,0,0
-4pattern2,1004,50,base,0,0
-4pattern3,-1,3,base,0,0
-}
-surface1004
-{
-//Collision
-collision0,157,92,214,132,Petspot
-element0,overlay,surface1004.png,0,0
+	//Collision
+	collision0,157,92,214,132,Petspot
 }
 
 //Mad!
 surface5
 {
-//Collision
-collision0,137,91,199,132,Petspot
-element0,overlay,surface1505.png,0,0
-//woggle
-5interval,always,10
-5pattern0,-1,75,base,0,0
-5pattern1,1005,66,base,0,0
-5pattern2,1005,50,base,0,0
-5pattern3,-1,3,base,0,0
-}
-surface1005
-{
-//Collision
-collision0,137,91,199,132,Petspot
-element0,overlay,surface1005.png,0,0
+	//Collision
+	collision0,137,91,199,132,Petspot
+	element0,overlay,surface5.png,0,0
+	
+	//cat hair. make go faster pls
+	animation0.interval,always
+	animation0.pattern0,interpolate,1101,0,0,0
+	animation0.pattern1,interpolate,1102,150,0,0
+	animation0.pattern2,interpolate,1101,150,0,0
+	
+	animation1.interval,runonce
+	animation1.pattern0,start,103
 }
 
 //Happy
 surface6
 {
-//Collision
-collision0,137,96,193,130,Petspot
-element0,overlay,surface1506.png,0,0
-//woggle
-6interval,always,10
-6pattern0,-1,75,base,0,0
-6pattern1,1006,66,base,0,0
-6pattern2,1006,50,base,0,0
-6pattern3,-1,3,base,0,0
-}
-surface1006
-{
-//Collision
-collision0,137,96,193,130,Petspot
-element0,overlay,surface1006.png,0,0
+	//Collision
+	collision0,137,96,193,130,Petspot
+	element0,overlay,surface6.png,0,0
 }
 
 //Laugh
 surface7
 {
-collision0,166,85,220,115,Petspot
-element1,overlay,surface1507.png,0,0
-//woggle
-7interval,always,10
-7pattern0,-1,75,base,0,0
-7pattern1,1007,66,base,0,0
-7pattern2,1007,50,base,0,0
-7pattern3,-1,3,base,0,0
-}
-surface1007
-{
-collision0,166,85,220,115,Petspot
-element0,overlay,surface1007.png,0,0
+	collision0,166,85,220,115,Petspot
+	element0,overlay,surface7.png,0,0
+
 }
 
-//scawy
+//eyeroll
 surface8
 {
-collision0,151,90,216,118,Petspot
-element1,overlay,surface1508.png,0,0
-//Blanket
-11interval,never
-11pattern0,1100,0,overlay,0,0
+	collision0,151,90,216,118,Petspot
+	element0,overlay,surface8.png,0,0
+	
+	animation0.interval,runonce
+	animation0.pattern0,stop,100
+	animation0.pattern1,start,102
 
-//waggle
-8interval,always,10
-8pattern0,-1,75,base,0,0
-8pattern1,1008,66,base,0,0
-8pattern2,1008,50,base,0,0
-8pattern3,-1,3,base,0,0
-}
-surface1008
-{
-collision0,151,90,216,118,Petspot
-element0,overlay,surface1008.png,0,0
 }
 
 //sad lookdown
 surface9
 {
-element1,overlay,surface1509.png,0,0
+	element0,overlay,surface9.png,0,0
+	
+	//Eye looking away
+	animation11.interval,never
+	animation11.pattern0,overlay,1202,0,0,0
 }
 
-//Cross arms
+//Cross arms. FIX THIS i want it to be 10 but stupid stupid stupid kero
 surface110
 {
-collision0,151,92,219,124,Petspot
-element0,overlay,surface1510.png,0,0
-//waggle
-10interval,always,10
-10pattern0,-1,75,base,0,0
-10pattern1,1010,66,base,0,0
-10pattern2,1010,50,base,0,0
-10pattern3,-1,3,base,0,0
-}
-surface1002
-{
-collision0,151,92,219,124,Petspot
-element0,overlay,surface1002.png,0,0
+	collision0,151,92,219,124,Petspot
+	element0,overlay,surface1510.png,0,0
+	//waggle
+	animation10.interval,always,10
+	animation10.pattern0,base,-1,750,0,0
+	animation10.pattern1,base,1010,660,0,0
+	animation10.pattern2,base,1010,500,0,0
+	animation10.pattern3,base,-1,30,0,0
 }
 
 //Unused
 surface11
 {
-element1,overlay,surface1511.png,0,0
+	element1,overlay,surface1511.png,0,0
 }
 
-//Cross arms
+//Pickup
 surface12
 {
-element0,overlay,surface1512.png,0,0
-//waggle
-12interval,always,10
-12pattern0,-1,75,base,0,0
-12pattern1,1012,66,base,0,0
-12pattern2,1012,50,base,0,0
-12pattern3,-1,3,base,0,0
+	element0,overlay,surface12.png,0,0
+	
+	animation0.interval,always
+	animation0.pattern0,interpolate,1009,0,0,0
+	animation0.pattern1,interpolate,1010,1000,0,0
+	animation0.pattern2,interpolate,1009,1000,0,0
+	
 }
+
 surface1012
 {
-element0,overlay,surface1012.png,0,0
+	element0,overlay,surface1012.png,0,0
 }
 
 //Encounter
 surface13
 {
-element1,overlay,surface1513.png,200,0
+	element1,overlay,surface1513.png,200,0
 }
 
 //hahahaha could you believe
 surface14
 {
-element1,overlay,surface1514.png,0,0
+	element1,overlay,surface1514.png,0,0
 }
 
 //hum
 surface15
 {
-element1,overlay,surface1515.png,0,0
+	element1,overlay,surface1515.png,0,0
 }
 
 //protect the crown
-surface17
+surface16
 {
-element1,overlay,surface1516.png,0,0
+	element1,overlay,surface1516.png,0,0
 }
 
 //Grab Crown
 surface17
 {
-element1,overlay,surface1517.png,0,0
+	element1,overlay,surface1517.png,0,0
 }
 
 //Dont hit me
 surface18
 {
-element1,overlay,surface1518.png,0,0
+	element1,overlay,surface1518.png,0,0
 }
 
 //tired
 surface19
 {
-element1,overlay,surface2509.png,0,0
+	element1,overlay,surface2509.png,0,0
 }
+
+
 // 88888888b            dP
 // 88                   88
 // 88aaaa    dP.  .dP d8888P 88d888b. .d8888b. .d8888b.
@@ -279,112 +297,239 @@ element1,overlay,surface2509.png,0,0
 //Dream Shoots
 surface20
 {
-element1,overlay,surface1600.png,0,0
-34interval,runonce
-34pattern0,1600,20,base,0,0
-34pattern0,1601,20,base,0,0
-34pattern0,1602,30,base,0,0
-34pattern0,1603,30,base,0,0
-34pattern0,1604,20,base,0,0
-34pattern0,1605,20,base,0,0
-34pattern0,1606,20,base,0,0
-34pattern0,1607,20,base,0,0
+	element1,overlay,surface1600.png,0,0
+	animation34.interval,runonce
+	animation34.pattern0,base,1600,200,0,0
+	animation34.pattern1,base,1601,200,0,0
+	animation34.pattern2,base,1602,300,0,0
+	animation34.pattern3,base,1603,300,0,0
+	animation34.pattern4,base,1604,200,0,0
+	animation34.pattern5,base,1605,200,0,0
+	animation34.pattern6,base,1606,200,0,0
+	animation34.pattern7,base,1607,200,0,0
 }
 
 //NM Gets shot
 surface21
 {
-element1,overlay,surface1503.png,0,0
-35interval,runonce
-35pattern0,1611,20,base,0,0
-35pattern0,1612,20,base,0,0
-35pattern0,1613,30,base,0,0
-35pattern0,1614,30,base,0,0
+	animation35.interval,runonce
+	animation35.pattern0,base,1611,0,0,0
+	animation35.pattern1,base,1612,200,0,0
+	animation35.pattern2,base,1613,300,0,0
+	animation35.pattern3,base,1614,300,0,0
+}
+
+//open eyes
+surface22
+{
+	element0,overlay,surface1615.png,0,0
+	
+	//blink blink
+	animation1.interval,never
+	animation1.pattern0,overlay,1209,0,0,0
+	//no blink
+	animation2.interval,never
+	animation2.pattern0,stop,1
+}
+
+//DREAM GO AWAY
+surface23
+{
+	element0,overlay,surface1616.png,0,0
+	
+	//talk
+	animation20.interval,talk,4
+	animation20.pattern0,alternativestart,(21,22,23)
+
+	animation21.interval,never
+	animation21.pattern0,overlay,1207,100,0,0
+	animation21.pattern1,overlay,1206,130,0,0
+	animation21.pattern2,overlay,-1,100,0,0
+
+	animation22.interval,never
+	animation22.pattern0,overlay,1206,140,0,0
+	animation22.pattern1,overlay,-1,100,0,0
+
+	animation23.interval,never
+	animation23.pattern0,overlay,1207,140,0,0
+	animation23.pattern1,overlay,-1,100,0,0
+
+	//Stop Talking-----------------------------------------------------------------------------
+	animation55.interval,never
+	animation55.pattern0,stop,20
+}
+
+//Copy of Night's 44
+surface24
+{
+	element0,overlay,surface1617.png,0,0
+	//Arms
+	//Holding Crown
+	animation1.interval,never
+	animation1.pattern0,stop,30
+	animation1.pattern1,stop,4
+	animation1.pattern2,overlay,1318,0,0,0
+	//Put on
+	animation22.interval,never
+	animation22.pattern0,stop,30
+	animation22.pattern1,stop,4
+	animation22.pattern2,overlay,1319,0,0,0
+	animation22.pattern3,overlay,1320,500,0,0
+	//Normal Crown
+	animation30.interval,runonce
+	animation30.pattern0,overlay,1321,0,0,0
+	//Crossed arms
+	animation4.interval,runonce
+	animation4.pattern0,overlay,1322,0,0,0
+	
+	//Eyes
+	//Closed eyes
+	animation8.interval,never
+	animation8.pattern0,overlay,1208,0,0,0
 }
 
 surface1600
 {
-element0,overlay,surface1600.png,0,0
+	element0,overlay,surface1600.png,0,0
 }
 surface1601
 {
-element0,overlay,surface1601.png,0,0
+	element0,overlay,surface1601.png,0,0
 }
 surface1602
 {
-element0,overlay,surface1602.png,0,0
+	element0,overlay,surface1602.png,0,0
 }
 surface1603
 {
-element0,overlay,surface1603.png,0,0
+	element0,overlay,surface1603.png,0,0
 }
 surface1604
 {
-element0,overlay,surface1604.png,0,0
+	element0,overlay,surface1604.png,0,0
 }
 surface1605
 {
-element0,overlay,surface1605.png,0,0
+	element0,overlay,surface1605.png,0,0
 }
 surface1606
 {
-element0,overlay,surface1606.png,0,0
+	element0,overlay,surface1606.png,0,0
 }
 surface1607
 {
-element0,overlay,surface1607.png,0,0
+	element0,overlay,surface1607.png,0,0
 }
 
 //Shy Dream
 surface1608
 {
-element0,overlay,surface1608.png,0,0
+	element0,overlay,surface1608.png,0,0
 }
 
 //AAA Dream
 surface1609
 {
-element0,overlay,surface1609.png,0,0
+	element0,overlay,surface1609.png,0,0
 }
 
 //Leave Dream
 surface1610
 {
-element0,overlay,surface1610.png,0,0
+	element0,overlay,surface1610.png,0,0
 }
 
 //NM Get shoot 1
 surface1611
 {
-element0,overlay,surface1611.png,0,0
+	element0,overlay,surface1611.png,0,0
 }
 //NM Get shoot 2
 surface1612
 {
-element0,overlay,surface1612.png,0,0
+	element0,overlay,surface1612.png,0,0
 }
 //NM Get shoot 3
 surface1613
 {
-element0,overlay,surface1613.png,0,0
+	element0,overlay,surface1613.png,0,0
 }
 //NM Get shoot 4
 surface1614
 {
-element0,overlay,surface1614.png,0,0
-}
-//open eyes
-surface1615
-{
-element0,overlay,surface1615.png,0,0
-}
-//DREAM GO AWAY
-surface1616
-{
-element0,overlay,surface1616.png,0,0
+	element0,overlay,surface1614.png,0,0
 }
 //Surface 8
 surface1617
 {
-element0,overlay,surface1617.png,0,0
+	element0,overlay,surface1617.png,0,0
+}
+//pickup crown
+surface1618
+{
+	element0,overlay,surface1618.png,0,0
+}
+
+//bluh bluh
+surface100000
+{
+	animation0.interval,never
+	animation0.pattern0,overlay,1004,0,0,0
+	
+	animation1.interval,never
+	animation1.pattern0,overlay,1005,0,0,0
+	
+	animation2.interval,never
+	animation2.pattern0,overlay,1006,0,0,0
+	
+	animation3.interval,never
+	animation3.pattern0,overlay,1007,0,0,0
+	
+	animation4.interval,never
+	animation4.pattern0,overlay,1008,0,0,0
+	
+	animation5.interval,never
+	animation5.pattern0,overlay,1009,0,0,0
+	
+	animation6.interval,never
+	animation6.pattern0,overlay,1010,0,0,0
+	
+	animation7.interval,never
+	animation7.pattern0,overlay,1012,0,0,0
+	
+	animation8.interval,never
+	animation8.pattern0,overlay,1100,0,0,0
+	
+	animation9.interval,never
+	animation9.pattern0,overlay,1501,0,0,0
+	
+	animation10.interval,never
+	animation10.pattern0,overlay,1502,0,0,0
+	
+	animation11.interval,never
+	animation11.pattern0,overlay,1504,0,0,0
+	
+	animation12.interval,never
+	animation12.pattern0,overlay,1505,0,0,0
+	
+	animation13.interval,never
+	animation13.pattern0,overlay,1506,0,0,0
+	
+	animation14.interval,never
+	animation14.pattern0,overlay,1507,0,0,0
+	
+	animation15.interval,never
+	animation15.pattern0,overlay,1508,0,0,0
+	
+	animation16.interval,never
+	animation16.pattern0,overlay,1509,0,0,0
+	
+	animation17.interval,never
+	animation17.pattern0,overlay,1510,0,0,0
+	
+	animation18.interval,never
+	animation18.pattern0,overlay,1512,0,0,0
+	
+	animation19.interval,never
+	animation19.pattern0,overlay,1100,0,0,0
 }

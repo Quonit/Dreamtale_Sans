@@ -1,19 +1,22 @@
 ﻿OnTeachName	
 {
-	if reference0 == "TEACHNAME" //ignore this
-	{
 	menuname = "on"
-		if sittang == "on"
-		{
-		sittang == "off"
-		"\0\s[16]\w8\w8What do you want to be called?\![open,inputbox,OnNameTeach,-1]\e"
-		}
-		else
-		{
-		"\0%(surface0)What do you want to be called?\![open,inputbox,OnNameTeach,-1]\e"
-		}
-	}	else	{	} //idk what this else is even here for it's always left empty
+	--
+	if sittang == "on"
+	{
+		sittang = "off"
+		"\0\s[16]\w8\w8What do you want to be called?\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif nowmode == "Edgybitch"
+	{
+		"\0\s[0]I don't care about your name.%(backmenu)"
+	}
+	else
+	{
+		"%(surface0)What do you want to be called?\![open,inputbox,OnNameTeach,-1]"
+	}
 }
+
 OnNameTeach
 {
 	tempname = reference0
@@ -21,41 +24,44 @@ OnNameTeach
 	reference0 = REPLACE(reference0," ","") //removes spaces
 	reference0 = REPLACE(reference0,".","") //removes periods
 	reference0 = REPLACE(reference0,"-","") //removes dashes
-	if reference0 == "Nightmare" || reference0 == "Nighty" || reference0 == "Night"
+	
+	if reference0 == "nightmare" || reference0 == "nighty" || reference0 == "night"
 	{
 		"\0\s[13]Um\w2.\w2.\w2.\w4 That's my name,\w5\s[8] so that could end up really confusing.\![open,inputbox,OnNameTeach,-1]"
 	}
-	elseif reference0 == "Dream"
+	elseif reference0 == "dream"
 	{
-		username = tempname
 		"\0\s[12]That's my brother's name. \w8You can't use it.\![open,inputbox,OnNameTeach,-1]"
 	}
-	elseif reference0 == "Ink" || reference0 == "Error"
+	elseif reference0 == "mare"
+	{
+		"\0\s[12]\w8Yeah\0\s[8]... I... No,\w4 \0\s[3]It's... \0\s[8]still too close to my name.\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "ink" || reference0 == "error"
 	{
 		username = tempname
 		"\0\s[4]\w8I\w3.\w3.\w3. \w6\0\s[8]I guess you can use that.\n\n\w8"
 	}	
-	elseif reference0 == "Quonit"
+	elseif reference0 == "quonit"
 	{
 		username = tempname
 		"\0\s[6]Hi Quonit!!!"
 	}
-	elseif reference0 == "Radic" || reference0 == "Worm"
+	elseif reference0 == "radic" || reference0 == "worm"
 	{
 		username = tempname
 		"\0\s[4]I think I recognize that from somewhere...?\w8\n\n\s[2]Whatever."
 	}
-	elseif reference0 == "Jockey"
+	elseif reference0 == "jockey"
 	{
 		username = tempname
 		"\0\s[3]I think I met somebody named that once...\w8 Anyways."
 	}
-	elseif reference0 == "Mom" || reference0 == "Mommy"
+	elseif reference0 == "mom" || reference0 == "mommy"  || reference0 == "mum"
 	{
-		username = tempname
 		"\0\s[11]...weirdo.\![open,inputbox,OnNameTeach,-1]"
 	}
-	elseif reference0 == "Levidre" || reference0 == "Levi"
+	elseif reference0 == "levidre" || reference0 == "levi"
 	{
 		username = tempname
 		"\0\s[6]Merci de votre aide!" //levi is french lol. It says ""
@@ -68,20 +74,24 @@ OnNameTeach
 	else
 	{
 		username = tempname
-		if menuname == "on"
-		{
-		"Cool...%(backmenu)" //\e put here to stop it from playing the rest of the intro dialogue.
-		}
-		else
-		{
 		"Cool..."
-		}
 	}
 	--
-	"\w8\s[4]\n\nSo what do you go by?\n\n/
-	\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
-	\![*]\q[She/Her/Hers,choicefirstsheher]\n/
-	\![*]\q[They/Them/Their,choicefirsttheythem]\e"
+	if menuname == "on"
+	{
+		"%(backmenu)" //\e put here to stop it from playing the rest of the intro dialogue.
+	}
+	else
+	{
+		"\nCool..."
+	
+		--
+		"\w8\s[4]\n\nSo what do you go by?\n\n/
+		\w5\_q/
+		\![*]\q[He/Him/His,choicefirsthehim]\n/
+		\![*]\q[She/Her/Hers,choicefirstsheher]\n/
+		\![*]\q[They/Them/Their,choicefirsttheythem]\e"
+	}
 }
 
 Select.choicefirsthehim
@@ -104,6 +114,7 @@ Select.choicefirstsheher
 }
 Select.choicefirsttheythem
 {
+	presuffix = "undefine"
 	himher = "them"
 	heshe = "they"
 	hisher = "theirs"
@@ -115,7 +126,10 @@ FirstBootDone
 {
 	"\0\s[0]Neat\w2.\w2.\w2. \w8I'm Nightmare.\e"
 }
+
 NameDone
-{
+{		
 	"\0\s[0]I'll call you %(username).\w8 If you ever want to change your name, \w8just go back into the Configuration menu.\e"
 }
+
+

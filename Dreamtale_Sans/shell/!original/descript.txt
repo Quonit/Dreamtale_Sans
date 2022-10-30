@@ -58,10 +58,10 @@ menu.sidebar.bitmap.filename,menu_sidebar.png
 //--Dress-up Code
 //Blushies
 sakura.bindgroup100.name,Costume,Blushies
-kero.bindgroup100.name,Costume,Blushies
 sakura.bindgroup100.default,0
-kero.bindgroup100.default,0
+
+sakura.bindgroup48.name,Blanket,cape
+sakura.bindgroup48.default,0
 
 sakura.menuitem0,100
-kero.menuitem0,100
 sakura.menu,hidden

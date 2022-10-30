@@ -1,8 +1,9 @@
 //AITalk
 DreamTalk : nonoverlap_pool
 {
-""
+	""
 }
+
 //Menu
 DreamMenu
 {
