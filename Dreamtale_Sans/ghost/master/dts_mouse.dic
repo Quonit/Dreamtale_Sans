@@ -21,7 +21,7 @@ MouseMoveSakura
 		{
 			if stroke >= 200
 			{
-				"(Touch fluffy tentacle ^_^)\e"
+				"\s[5](Touch fluffy tentacle ^_^)\e"
 				stroke = 0
 			}
 		}
@@ -40,7 +40,7 @@ MouseMoveSakura
 					{
 						posact += 1
 						
-						if nicesadlevel <= -20 && punchout >= 20
+						if nicensadlevel <= -20 && punchout >= 20
 						{
 							"zzz\w4.\w4.\w4.\w8\w8 No\w4.\w4.\w4.\e"
 							"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.Give it back\w4.\w4.\w4.\e"
@@ -58,7 +58,7 @@ MouseMoveSakura
 						}
 						else
 						{
-							if nicesadlevel >= 50
+							if nicensadlevel >= 50
 							{
 								"Hmm\w4.\w4.\w4.\w8\w8 %(username)?\e"
 								"zzz\w4.\w4.\w4.\w8\w8 \w4.\w4.\w4.%(username)?\e"
@@ -74,7 +74,7 @@ MouseMoveSakura
 								"'s mine\w4.\w4.\w4.\w8\w8 Don't take\w4.\w4.\w4.\e"
 								"hmm\w4.\w4.\w4.\w8\w8 %(username)\w4.\w4.\w4.\w4?\e"
 							}
-							if nicesadlevel <= 10
+							if nicensadlevel <= 10
 							{
 								"zzz\w4.\w4.\w4.\w8\w8 Stop it\w4.\w4.\w4.\w8 don't touch my head\w4.\w4.\w4.\w4?"
 								"zzz\w4.\w4.\w4.\w8\w8 Don't\w4.\w4.\w4.\w8 Don't touch 		me-!!\w8\n\n\w8\w8\w8\w4z\w4z\w4z\w4.\w4.\w4.\w4"
@@ -87,7 +87,7 @@ MouseMoveSakura
 					else //Not sleeping
 					{
 						//Positive
-						if nicesadlevel >= 25
+						if nicensadlevel >= 25
 						{
 							posact += 1
 							if sittang == "on"
@@ -107,12 +107,14 @@ MouseMoveSakura
 									"\0\s[32]Feels nice...\e"
 									"\0\s[32]heheh!\e"
 									"\0\s[32]Thanks...\e"
+									"\0\s[31]\i[55]* (Touch-starved...)"
 								}
-								if nicesadlevel >= 50
+								if nicensadlevel >= 50
 								{
-									"\i[55]* (He seems really happy.)\e" //temp dialogue
+									"\s[32]\i[55]* (He seems really happy.)\e" //temp dialogue
+									"\0\s[31]%(lps(5))I don't know if anyone's touched me this gently this anDream...\e"
 								}
-								if nicesadlevel >= 25
+								if nicensadlevel >= 25
 								{
 									"\0\s[32]* (%(nightname) seems happy.)"
 									"\0\s[13]Hm...\e"
@@ -123,7 +125,7 @@ MouseMoveSakura
 								}
 							}
 						}
-						elseif nicesadlevel <= -25 || privacyrespecter == "on" //If you were rude to him
+						elseif nicensadlevel <= -25 || privacyrespecter == "on" //If you were rude to him
 						{
 							"\0\s[12]Don't touch me.\0\s[17]\e"
 							"\0\s[12]Stop it.\0\s[17]\e"
@@ -138,7 +140,7 @@ MouseMoveSakura
 								"\0\s[22]I'll never trust you.\e"
 								"\0\s[22]* (You try to get %(nightname) to forgive you.)\n\n\w8* (He's lot listening...)\e"
 							}
-							if nicesadlevel <= -50 && punchout >= 25 //big dislike
+							if nicensadlevel <= -50 && punchout >= 25 //big dislike
 							{
 								negact += 1
 								"\0\s[19]* (Stupid oversenssitive hitboxes.)\e"
@@ -333,12 +335,12 @@ MouseDoubleClickSakura
 	}
 	elseif reference4 == "Dollie"
 	{
-		"* (You ask him if he likes the doll.)\n\n\w8It's nice and all but\w2.\w2.\w2.\w6 Where did you get this?\e"
+		"\0\s[26]* (You ask him if he likes the doll.)\n\n\w8It's nice and all but\w2.\w2.\w2.\w6 Where did you get this?\e"
 	}
 	elseif reference4 == "Crown" //Double click crown
 	{
 		
-		if nicesadlevel >= 25 && punchout < 1
+		if nicensadlevel >= 25 && punchout < 1
 		{
 			"\s[7]\i[55]"
 			--
@@ -353,11 +355,11 @@ MouseDoubleClickSakura
 			"* (The metal is cold to the touch.)"
 			--
 			"\e"
-			if nicesadlevel >= 50 || nightynight == "on"
+			if nicensadlevel >= 50 || nightynight == "on"
 			{
 				"\i[55]* (You ask if you can touch it.)\n\n\w8\s[8]Fine\w2.\w2.\w2.\n\n\w8\i[55]* (You put your hand on the metal.\w8 It is cold.)\e"
 			}
-			if blushiemode == "on" || nicesadlevel >= 100
+			if blushiemode == "on" || nicensadlevel >= 100
 			{
 				"\0\s[0]\i[55]* (You ask if you can see what he looks like without the crown on.)\n\n\w8\0\s[13]Well\w2.\w2.\w2.\w8 Only for a second.\n\n\w8\s[26]\i[1]* (He takes it off.)\n\n\w8It feels kind of bare without it on\w2.\w2.\w2.\w8\n\n\s[26]\i[2]* (He puts it back on.)\e"
 			}
@@ -393,13 +395,13 @@ MouseDoubleClickSakura
 				"\s[12]Don't touch it!\e"
 				"\s[12]That thing is mine,\w4 y'know\w2.\w2.\w2.\e"
 				
-				if nicesadlevel <= -25 && punchout >= 5 //Very mean
+				if nicensadlevel <= -25 && punchout >= 5 //Very mean
 				{
 					negact += 1
 					"\0\s[3]Can you stop touching my crown?\w6 It's rude.\e"
 					"\0\s[33]Ah-!\w8\s[17]\e"
 					"\0\s[33]Hey-!\w8\s[17] That's mine!!!\e"
-					if nicesadlevel <= -50
+					if nicensadlevel <= -50
 					{
 						"\0\s[33]Ah-!\w8\s[17]\e"
 						"\0\s[33]Hey-!\w8\s[17] That's mine!!!\e"
@@ -465,14 +467,14 @@ Select.whatstarheadband
 
 Select.punchnighty
 {
-	if punchout == 0 && nicesadlevel > 0
+	if punchout == 0 && nicensadlevel > 0
 	{
-		betrayalvar += ABS(1 - nicesadlevel)
+		betrayalvar += ABS(1 - nicensadlevel)
 	}
 	--
 	if privacyrespecter == "off" && (blushiemode == "on" || nightynight == "on")
 	{
-		if nicesadlevel > 25; {negact += 10}
+		if nicensadlevel > 25; {negact += 10}
 		else; {negact += 1}
 		punchout += 1
 		"\0\s[290]Ack-! %(username)??\w4\0\s[21] Why did you do that???\e"
@@ -480,7 +482,7 @@ Select.punchnighty
 		"\0\s[30]Ah-!! Ow!!!\w4 %(username)?!\n\n\w8\0\s[21]Why did you do that???\w6 I-\w3 I thought you were my friend!\e"
 	}
 	
-	if nicesadlevel > 25; {negact += 10}
+	if nicensadlevel > 25; {negact += 10}
 	else; {negact += 1}
 	punchout += 1
 	"\0\s[290]Ow! \w3Why did you do that??"

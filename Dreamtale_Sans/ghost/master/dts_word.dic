@@ -139,14 +139,14 @@ nightname //Decides which name to use for him
 	}
 }
 
-nicesadlevel
+nicensadlevel
 {
 	posact - negact
 }
 
 VillageLevel //Negative variable that also catches if you've hit him or not. Used so that you can't unlock goopmare without hurting him
 {
-	//punchout - nicesadlevel
+	//punchout - nicensadlevel
 	
 	if apologized == 0
 	//if you haven't apologized
@@ -160,8 +160,8 @@ VillageLevel //Negative variable that also catches if you've hit him or not. Use
 		if punchout == 0
 		//if you've apologized for punching him, punches might get reset to 0
 		{
-			if apologized >= 2; {betrayalvar + apologized*negact} //if you've punched then apologized repeatedly
-			else; {apologized*negact} 
+			if apologized >= 2; {betrayalvar + apologized + negact} //if you've punched then apologized repeatedly
+			else; {apologized + negact} 
 		}
 		//if you've apologized to him, but have punched him far too much
 		else; {betrayalvar + punchout + negact}
@@ -216,7 +216,7 @@ pickup //why is this here instead of mouse.dic
 	{
 		"\0\s[12]"
 	}
-	elseif (punchout >= 15 || nicesadlevel <= -50) && Edgybitch == "off" 
+	elseif (punchout >= 15 || nicensadlevel <= -50) && Edgybitch == "off" 
 	//now you don't have to check Edgybitch twice
 	{
 		"\0\s[39]"
@@ -231,10 +231,10 @@ pickup //why is this here instead of mouse.dic
 	}
 	else
 	{
-		//if nicesadlevel >= 75, will randomly choose between >=75 pose and default
+		//if nicensadlevel >= 75, will randomly choose between >=75 pose and default
 		"\0\s[38]"
 		
-		if nicesadlevel >= 75
+		if nicensadlevel >= 75
 		{
 			if blushiemode == "on"
 			{
@@ -258,7 +258,7 @@ surface0
 	{
 		"\0\s[5]"
 	}
-	elseif nicesadlevel <= -25
+	elseif nicensadlevel <= -25
 	{
 		if sittang == "on"
 		{
@@ -269,7 +269,7 @@ surface0
 			"\0\s[0]\i[12]"
 		}
 	}
-	elseif nicesadlevel >= 25
+	elseif nicensadlevel >= 25
 	{
 		if sittang == "on"
 		{
@@ -304,7 +304,7 @@ attn
 	{
 		"\0\s[5]"
 	}
-	elseif nicesadlevel <= -25
+	elseif nicensadlevel <= -25
 	{
 		if sittang == "on"
 		{
@@ -315,7 +315,7 @@ attn
 			"\0\s[0]\i[12]"
 		}
 	}
-	elseif nicesadlevel >= 25
+	elseif nicensadlevel >= 25
 	{
 		if sittang == "on"
 		{
@@ -364,7 +364,7 @@ MUNCH
 	{
 		"\0\s[1]\i[39]"
 	}
-	elseif nicesadlevel <= -20
+	elseif nicensadlevel <= -20
 	{
 		"\0\s[25]" //Temp dialogue
 	}
@@ -455,10 +455,15 @@ OnES
 	_year = GETTIME()[0]
 	
 	if _argv[0] != ""
+	//another one where you can set it to a custom year. this can be baleted
 	{
 		_year = _argv[0]
 	}
 	
+	//save the year this function is checking as a variable so the ghost doesn't have to search this file every time we ask it for the season
+	seasonevalyear = _year
+	
+	//regex to search through the file
 	regex_spr = "\s+(\d{4}).*3\/(\d{2,3})\s{0,3}(\d+):"
 	regex_sum = "\s+(\d{4}).*6\/(\d{2,3})\s{0,3}(\d+):"
 	regex_aut = "\s+(\d{4}).*9\/(\d{2,3})\s{0,3}(\d+):"
@@ -467,6 +472,7 @@ OnES
 	_file = "Extras\\srevents.cgi"
 	_buff = ""
 	
+	//placeholder values to save the first day of each month
 	_spr = ""
 	_sum = ""
 	_aut = ""
@@ -515,44 +521,52 @@ OnES
 	--
 	FCLOSE(_file)
 	--
+	//we save the four first days of the seasons as an array because i feel like it
 	astro_events = (_spr,_sum,_aut,_win)
 }
 
 
 season
 {
+	if GETTIME()[0] != seasonevalyear
+	//if the current year doesn't match seasonevalyear
+	{
+		OnES
+		//check the srevents file to get the astronomical season
+	}
+	
 	_month = GETTIME[1]
 	_day = GETTIME[2]
 	
-	LOGGING("%_month and %_day")
-	LOGGING("%_argv")
-	
 	if _argv[0] != ""
+	//this was just put in if you wanted to figure out what season a certain date would be. you can ignore it or delete this if check as you please
 	{
 		_month = _argv[0]
 		_day = _argv[1]
 	}
 	
-	
+	//setting temporary variables so I can easily do the southern hemisphere switcheroo
 	_winter = "Winter"
 	_spring = "Spring"
 	_summer = "Summer"
 	_autumn = "Autumn"
 	
-	if hemisphere == 's'
+	if menusphere == 'Southern'
 	{
-		LOGGING("it is the southern hemisphere")
 		_winter = "Summer"
 		_spring = "Autumn"
 		_summer = "Winter"
 		_autumn = "Spring"
 	}
 	
+	//if the file decided not to work for whatever reason, the first day of each season is set to the 21st by default
 	_dspr = 21
 	_dsum = 21
 	_daut = 21
 	_dwin = 21
 	
+	//if the file is working (i.e., is returning the first day of each season as a potential integer) convert them to integers
+	//you have to make the check, or else strings will automatically be converted to the integer 0 (iirc)
 	if ISINTSTR(astro_events[0]) == 1
 	{
 		_dspr = TOINT(astro_events[0])
@@ -569,21 +583,21 @@ season
 	{
 		_dwin = TOINT(astro_events[3])
 	}
-	
-	LOGGING("%astro_events")
-	LOGGING("%GETTYPE(_dwin)")
-	
+
 	switch _month
+	//looooong switch statement, but surprisingly simple once you get past that
 	{
 		"" //nothing for month 0
 		_winter
 		_winter
 		{
 			if _day < _dspr
+			//it's march! if the day is smaller than the first day of spring, then it is still winter!
 			{
 				_winter
 			}
 			else
+				//and vice versa
 			{
 				_spring
 			}

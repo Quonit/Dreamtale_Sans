@@ -504,23 +504,3 @@ Select.touchfluffytail
 {
 	"\0\s[5]They're tentacles you sick %$#*&!"
 }
-
-
-Select.edgytiem
-{
-	nowmode = "Edgybitch"
-	dontmovestatsitshalloween = "on"
-	"\![change,Shell,Nightmare]"
-}
-
-Select.ungoop
-{
-	nowmode = "purpleman"
-	"\![enter,passivemode]\0\s[1]Suppose it's time to leave now, \w4huh?\w8\w8\w8\w6\_v[Extras\\bell ring sound.mp3]\n\n\0\s[3]\i[103]Huh- \w8\1\s[20]\![move,--X=100]\![move,--base=0,--Y=50]\w8\w8\w8\w8\w5\0\s[21]\w8\w8\0\s[1614]\w3\1\s[1608]\w4\0\s[22]\w5\i[2]\w6\s[22]\w6\i[2]\w6\s[22]\1\w5*\w5 (\w5. \w5. \w5.\w5)\0\s[23]\n\n\w8anDream you're not supposed to be here!!\1\s[1609]\0\w6This was supposed to be my ghost because of the whole Dreamtale sa-\w7 Stop stealing all the attention!!!\1\s[1610]\w4\s[7876]\w4\w8\0\n\n\w8\w8\0\s[1618]\w8\w8\w8\w8\s[24]\i[1]\i[8]\w8\0\s[24]\i[22]\i[8]\w8.\w5.\w5.\w8Sorry you had to deal with them, %(username)\w2.\w2.\w2.\n\n\w8Hopefully things go back to normal now.\![leave,passivemode]\![change,shell,Dreamtale Sans]\e"
-
-}
-
-Select.dreammove
-{
-	"\1\s[20]\![move,--X=100]\![move,--base=0,--Y=50]"
-}

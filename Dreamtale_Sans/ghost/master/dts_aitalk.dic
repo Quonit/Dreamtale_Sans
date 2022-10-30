@@ -64,7 +64,7 @@ RandomTalk : nonoverlap_pool
 	}
 	elseif sittang == "on" && sleepingmode == "off"
 	{
-		if nicesadlevel <= -25
+		if nicensadlevel <= -25
 		{
 			"\0\s[1]Least I'm allowed to sit down while I'm here." //Add pose
 			"\0\s[1]\i[55]\i[9]* (He looks annoyed...)"
@@ -88,13 +88,13 @@ RandomTalk : nonoverlap_pool
 			"\0\s[1]\i[55]* (He's being quite quiet.)\e"
 			"\0\s[1]\i[55]* (He's quietly reading.)\e"
 			"\0\s[16]* (He gets back up.)\![raise,OnSelfStand]"
-			if nicesadlevel >= 25
+			if nicensadlevel >= 25
 			{
 				"\0\s[1]\i[55]\w8.\w8.\w8.\n\n\w8\w8\w8\w8\0\s[5]\i[55]\w8\w8\w8Z\w6Z\w6Z\w6.\w6.\w6.\w8\w8\w8\n\n* (It looks like he fell asleep.)\w8\n\n* (Poor thing\w3.\w3.\w3.\w8 He must've not slept during night.)\w6\![raise,Onsittangoffsleepingmodeon]\w8"
 				"\0\s[1]\i[55]* (He's humming something as he reads.)\e"
 				
 			}
-			if nicesadlevel >= 50
+			if nicensadlevel >= 50
 			{
 				"\0\s[1]\i[14]\i[55]* (He seems pretty happy here.)"
 				"\0\s[1]\i[14]\i[7]\i[55]* (He smiles at you a bit.)"
@@ -202,12 +202,12 @@ RandomTalk : nonoverlap_pool
 			}
 		}
 	}
-	elseif nicesadlevel <= -120 && punchout >= 80 && nowmode != "Edgybitch" //IT ADDS UP TO 200 OK
-	//VillageLevel >= 200 && punchout > 1 && (nicesadlevel < 1 || betrayalvar > 1)
+	elseif nicensadlevel <= -120 && punchout >= 80 && nowmode != "Edgybitch" //IT ADDS UP TO 200 OK
+	//VillageLevel >= 200 && punchout > 1 && (nicensadlevel < 1 || betrayalvar > 1)
 	{
 		"\t\*\0\s[22]* (You hear sniffing.)\w8\w8\0\s[23]\n\n* \f[italic,true]sniff sniff\f[italic,false] *\n\n\w8\w4I want to go home-\w5 why can't I just go home?\n\n\w8\![*]\q[Push him over.,Goopmare]\e"
 	}
-	elseif nicesadlevel >= 50 && nightynight != "on" && talkaboutlater != "on" //This is a failsafe if it still hasn't triggered the dialogue, somehow.
+	elseif nicensadlevel >= 50 && nightynight != "on" && talkaboutlater != "on" //This is a failsafe if it still hasn't triggered the dialogue, somehow.
 	{
 		"\0\s[9]\i[55]* (He looks upset.)\w8\w8\n\n* (Ask him what's wrong?)\n\n/
 		\![*]\q[Yes,whatswronglilbb]\n/
@@ -247,22 +247,23 @@ RandomTalk : nonoverlap_pool
 		"\0\s[0]\i[55]* (You ask him for the time.)\n\n\w8\s[4]It's\w3.\w3.\w3.\w8 Um\w3.\w3.\w3.\n\n\w8\i[55]* (You ask him why he doesn't know the time.\w8 There's a clock right in his menu.)\n\n\w8\i[23]Huh?"
 		//if dialogue
 		//Negative Route
-		if nicesadlevel <= -10
+		if nicensadlevel <= -10
 		{
 			"\0\s[4]I wonder how I'll be able to get back home\w2.\w2.\w2.\e"
 			"\0\s[8]Maybe once I get home I can take a nap\w2.\w2.\w2.\e"
 			"\0\s[12]Why was I even dragged out here anyways\w2.\w2.\w2.\w2?\w8\n\nDon't you have other ways to entertain yourself?\e"
 			"\0\s[11]\i[55]*(He seems uncomfortable.)\e"
 		}
-		if nicesadlevel <= -25
+		if nicensadlevel <= -25
 		{
 			"\0\s[12]Why do I even have to be here...\e"
 			"\0\s[12]Y'know,\w5 you'd probably have a lot more fun if you just closed me.\w8\n\nThen I wouldn't take up as much of your screen.\e"
 			"\0\s[3]\i[55]* (He's looking around your screen oddly.)\n\n\w8* (Maybe he's trying to find somewhere else to be?)\e"
 		}
 		//Positive Route
-		if nicesadlevel >= 15
+		if nicensadlevel >= 15
 		{
+			"\0\s[4]Hope I don't have to deal with...\w5 \s[0]\i[19]any of \f[italic,1]them\f[italic,0]\w3 when I get back.\e"
 			"\0\s[4]You know,\w5 swimming sounds kinda fun. \w6\0\s[6]Me and anDream do it sometimes!\n\n\w8\0\s[9]Though I had to stop 'cause.\w3\w3.\w3.\w5 later people anDream knows would start inviting themselves along,\w4 and they-\n\n\w8\w4.\w4.\w4.\w5\0\s[12]I don't want to talk about it.\e"
 			//Neither of these things work
 			"\0\s[13]I read poetry sometimes\w2.\w2.\w2.\w6 There's so much really good out there,\w4 and I think maybe I could try writing some at some point? \0\s[8]\w8Not like anybody would read it...\e"
@@ -273,7 +274,7 @@ RandomTalk : nonoverlap_pool
 				\![*]\q[No,lethimbeplsfortheloveofgod]\e"
 			}
 		}
-		if nicesadlevel >= 50
+		if nicensadlevel >= 50
 		{
 			"\0\s[13].\w2.\w2.\w2Hey,\w4 %(username)?\n\n\w8\w2.\w2.\w2.\w4Thanks for letting me stay here, \w4I guess."
 			"\0\s[9]Hey,\w4 %(username),\w4 if I'm distracting you from your work you should pry just...\w5 close me,\w3 so you can get back to it.\e"
@@ -421,7 +422,7 @@ RandomTalk : nonoverlap_pool
 			\![*]\q[No,Novacation]\e"
 			"\0\s[4]I liked swimming with Dream before\0\s[8]%(lps(4)) Well,\w3 I'd really end up just walking along the bottom of the lake because of bone density and all that.\w8\e"
 			"\0\s[13]Lots of people describe that it feels like they're melting when it's super hot\w2.\w2.\w2. \w5\0\s[19]I really hope they don't mean it\w2.\w2.\w2.\e"
-			if nicesadlevel >= 25
+			if nicensadlevel >= 25
 			{
 				"\0\s[4]It doesn't rain that heavily in summer back in the village, but when it does...\w5 Sometimes we get thunderstorms.\w8 I've always liked them.\w5 The noise,\w3 and the%(lps(3))\s[13]\w8 Dream tends to stay in the treehouse with me,\w3 when they can.\w8"
 			}
@@ -450,12 +451,12 @@ RandomTalk : nonoverlap_pool
 			//"\0\s[13]Hope that the year hasn't been too mean to you %(username)...\e"
 			"\0\s[4]While researching your world I found out that a lot of people make special kinds of beverages for winter, \w4like 'apple cider' and things like that. \w8\n\nI keep having to remind myself that there are non-magic apples in other places,\w6 even with how often you casually eat things with apples in them.\e:chain=ciderchain"
 			"\0\s[13]I heard that in some places, during winter all the plants die and the trees lose their leaves.\w8\n\n\0\s[4].\w2.\w2.\w2That doesn't happen here,\w5 though.\n\n\w8There are kinda seasons,\w5 but it's more of a 'which part of the year is slightly colder or warmer' thing\w2.\w2.\w2.\e"
-			if nicesadlevel <= -10
+			if nicensadlevel <= -10
 			{
 				"\0\s[0]\i[11]\i[55]* (He feels cold.)\e"
 				"\0\s[8]If it snowed where I lived then my brother would probably have a lot of fun.\w8\0\s[12]\n\nToo bad I have to hang out here instead of with them.\e"
 			}
-			if nicesadlevel >= 25
+			if nicensadlevel >= 25
 			{
 				"\0\s[0]\i[14]I think if it snowed where we lived,\w4 me and anDream would've liked to play in it more when we were younger\w2.\w2.\w2.\n\n\w8\0\s[0]\i[11]I also bet that like most things,\w4 someone would've pushed me down into it and I wouldn't feel safe playing out there anymore.\e"
 				//"It's the rainy season back home.\w5 Summer tends to have light rains,\w3 but in winter,\w3 they're a lot more vigorous.\w5"
@@ -489,12 +490,12 @@ RandomTalk : nonoverlap_pool
 		if weekday == 6 //Saturday
 		{
 			"\0\s[0]Did you get to stay home today?\n\n\w8\0\s[4]I wonder actually,\w4 am I in your home?\w4 Or did you take me somewhere?\e"
-			"\0\s[8]anDream's always out hanging out with other people on Saturdays,\w4 so even if you let me leave I wouldn't have much to do\w4.\w4.\w4.\n\n\w8\w8\0\s[0]\i[11]Well\w4.\w4.\w4.\w8\i[10]It's more like other people are taking up all their time on Saturday,\w5 and would get back at them for leaving.\e"
+			"\0\s[8]anDream's always out hanging out with other people on Saturdays,\w4 so even if you let me leave I wouldn't have much to do\w4.\w4.\w4.\n\n\w8\w8\0\s[0]\i[11]Well\w4.\w4.\w4.\w8\i[10]It's more like other people are take up all their time on Saturday,\w5 and anDream can't really leave without those people getting back at them.\e"
 		}
 		if weekday == 7 //Sunday
 		{
 			"\0\s[4]I heard a lot of stuff closes on Sundays.\w8\n\nWe don't really have a lot of stores where we live so stuff doesn't really close\w2.\w2.\w2.\e"
-			if nicesadlevel <= -10
+			if nicensadlevel <= -10
 			{
 				"\0\s[0]Hey %(username),\w4 you got any errands to run?\n\n\w8* (You ask %(nightname) why he's asking.)\n\n\w8\0\s[13]I dunno...\w5 kinda wanna go home, \w2maybe.\e"
 			}
@@ -506,7 +507,7 @@ RandomTalk : nonoverlap_pool
 		{
 			"\0\s[4]Is it morning for you now?\w8 It's hard to tell from in here.\e"		
 			"\0\s[0]* (You ask him for the time.)\w8\w8\n\nIt's still night, right?\w8\n\n* (You tell him to check the clock.)\w8\n\n\0\s[4]\i[55]\w2*\w4(\w4.\w4.\w4.\w4)\w8\n\n\w8\0\s[8]I need to keep better track of time...\e"
-			if nicesadlevel >= 25
+			if nicensadlevel >= 25
 			{
 				"\0\s[0]\i[14]So,\w3 %(username),\w3 did you watch the sunrise as well?\n\n\w8Of course they're different sunrises,\w3 but it's still pretty.\e"
 			}
@@ -524,7 +525,7 @@ RandomTalk : nonoverlap_pool
 			{
 				"\0\s[27]* (He drinks some early morning tea.)\e"
 			}
-			if nicesadlevel >= 25
+			if nicensadlevel >= 25
 			{
 				"\0\s[0]Mornings can get pretty lonely\w3.\w3.\w3.\w8\n\n\s[0]\i[10]\i[11]anDream's always up before me,\w4 but we don't usually get much time to talk or anything before we have to leave.\w8\n\nThey have more to do than me,\w4\s[0]\i[7] and sometimes we barely see each other all day before we go to sleep\w3.\w3.\w3.\e"
 			}
@@ -537,7 +538,7 @@ RandomTalk : nonoverlap_pool
 		}
 		if timeslot == "afternoon"
 		{
-			if nicesadlevel >= 25
+			if nicensadlevel >= 25
 			{
 				"\0\s[8]\i[55]* (He looks tired.)\w8\n\n* (That's strange,\w4 it's the middle of the afternoon.)\e"
 				"\0\s[8]\i[55]* (%(nightname) is acting tired..)\w8\n\n* (You ask him if he's going to take a nap.)\n\n\w8Maybe\w4.\w4.\w4.\n\n\w8\0\s[1]\i[55]* (He sits down.)\e:eval=sittang='on'"
@@ -555,7 +556,7 @@ RandomTalk : nonoverlap_pool
 			{
 				"\0\s[0]\i[55]* (You tell %(nightname) the night reminds you of him.)\n\n\w8\0\s[28]\i[55]*(He completely flushes\w2.\w2.\w2.)\e"
 			}
-			if nicesadlevel >= 25
+			if nicensadlevel >= 25
 			{
 				"\0\s[20]Hope your day went well, \w2%(username).\e"
 			}
@@ -564,7 +565,7 @@ RandomTalk : nonoverlap_pool
 		{
 			"\0\s[0]\i[15]\i[55]* (You wonder if a spooky ghost will pop out in the middle of the night.)\n\n\w8\w8* (Oh look,\w8 a ghost's right here.)\e"
 			"\0\s[0]\i[15]\i[55]* (You tell %(nightname) he should be getting to bed,\w8 it's important to get the rest you need.)\n\n\w80Yeah\w3.\w3.\w3.Probably.\w8\i[11] Bet anDream would be happier if I could just sleep instead of whatever this is.\e"
-			if nicesadlevel >= 50
+			if nicensadlevel >= 50
 			{
 				"\0\s[5]\i[55]\w8\w8\w8\w8*( \w4.\w4.\w4.)\n\n\w8zzz\w4.\w4.\w4.\n\n\w8\w8* (Wow,\w3 he actually managed to sleep.)\![raise,Onsittangoffsleepingmodeon]"
 			}
@@ -897,15 +898,10 @@ OnMinuteChange
 	{
 		MikireTalk
 	}
-	elseif nicesadlevel <= -25 //Might change later. what is this.
+	elseif nicensadlevel <= -25 //Might change later. what is this.
 	{
 		privacyrespecter = "on"
 	}
-	--
-	LOGGING("=======================")
-	LOGGING("=======================")
-	LOGGING("sittang is %(sittang)")
-	LOGGING("passmin is %(passmin)")
 	/*
 	//mode shell check?
 	if nowmode == "Edgybitch"

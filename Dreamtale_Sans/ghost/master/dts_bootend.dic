@@ -246,7 +246,7 @@ OnBoot
 			--
 			"\n\n\w8\s[10002]\i[107]\i[1]I hear you've been giving a certain skeleton a bad time.\w8\w8\n\n\i[5]Well,\w6 congratulations.\w6\s[10002]\i[102]\w8\w7 You get to deal with me\w6 now.\w8"
 			--
-			if nicesadlevel >= 25
+			if nicensadlevel >= 25
 			{
 				"\n\n\w8\w8\w8* (You try to explain that you haven't been mistreating %(nightname), \s[10002]\i[5]\i[103]but the goop isn't having it.)"
 			}
@@ -286,7 +286,7 @@ normalboottalk //All temp dialogue
 			"\0\s[6]Hello %(username)!\e"
 			"\0\s[6]It's nice to see you again %(username).\e"
 		}
-		if nicesadlevel >= 75 && maremare == "off"
+		if nicensadlevel >= 75 && maremare == "off"
 		{
 			"\0\s[0]\i[11]\i[10]\i[16]-that's not how it works, \w3Mare-\n\n\w8\w8\s[7]\i[2]!\w8\w5\s[7]\i[3]\n\n\w8\w8\w5\s[3].\w3.\w3.\w4Uhm\w3.\w3.\w3.\w8 Hi %(username).\e:eval=maremare='on'"
 		}
@@ -309,7 +309,7 @@ normalboottalk //All temp dialogue
 					"\0\s[0]\i[14]\i[15]Are you doing well %(username)?\e"
 					"\0\s[20]I hope you are well this morning.\e"
 				}
-				if nicesadlevel >= 50
+				if nicensadlevel >= 50
 				{
 					"\0\s[5]zzz\w3.\w3.\w3.\n\n\w8\w8* (Aw... \w5You found him while he was sleeping.)\![raise,Onsittangoffsleepingmodeon]"
 					"\0\s[5].\w6.\w6.\n\n\w8* (It looks like he's sleeping.)\![raise,Onsittangoffsleepingmodeon]"
@@ -394,7 +394,7 @@ normalboottalk //All temp dialogue
 				"\0\s[0]\i[14]\i[15]How's your night going, %(username)?\e"
 			}
 		}
-		if (hour >= 21 || hour < 3) && nicesadlevel > 80
+		if (hour >= 21 || hour < 3) && nicensadlevel > 80
 		{
 			"Oh! Oh- wait wait!\w8\w7\s[15] ''Well met by moonlight,\w4 proud Titania.''\n\n* (You comment that the quote is ''ill-met''.)\n\nWell yeah,\w5 but I don't think this is a particularly 'ill' meeting,\w5 y'know?\w8\e"
 		}
@@ -495,7 +495,7 @@ OnClose
 				elseif sittang == "on"
 				{
 					"\0\s[1]\i[55]* (You wonder if he's going to go eat or something.)\w8\w8"
-					if nicesadlevel >= 50
+					if nicensadlevel >= 50
 					{
 						"\0\s[1]\i[8]\i[14]Stay safe!\w8"
 					}
@@ -695,7 +695,7 @@ OnGhostChanging
 			"\0\s[1]\i[55]* (Switching to %(reference0).)"
 			"\0\s[1]Maybe I can find a better place to read while you catch up with %(reference0)..."
 		}
-		elseif nicesadlevel <= -10
+		elseif nicensadlevel <= -10
 		{
 			"\0\s[0]\i[13]Maybe I can find some better ways to spend my time while you're distracting yourself with %(reference0) instead."
 			"\0\s[0]\i[13]\i[15]Hope you aren't as much of a jerk to %(reference0)."

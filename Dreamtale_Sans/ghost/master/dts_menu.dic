@@ -20,7 +20,7 @@
 			"[*]\q[Give him a blanket,givesleepblankie]\n"
 		}
 		--
-		if nicesadlevel > 50
+		if nicensadlevel > 50
 		{
 			"\![*]\q[Tell him something nice,nicewords]\n"
 		}
@@ -46,7 +46,7 @@
 			MenuRun
 		}
 	}
-	elseif nicesadlevel <= -20 && punchout >= 30 && nowmode == "purpleman"
+	elseif nicensadlevel <= -20 && punchout >= 30 && nowmode == "purpleman"
 	{
 		if RAND(100) < 50
 		{
@@ -75,7 +75,7 @@
 	}
 	else
 	{
-		if nicesadlevel <= -10
+		if nicensadlevel <= -10
 		{
 			"%(annoyed)What do you want...?"
 			"%(annoyed)What?"
@@ -86,7 +86,7 @@
 			"\0\s[6]What do you need %(username)?"
 			"\0\s[20]What is it you need?"
 		}
-		elseif nicesadlevel >= 15
+		elseif nicensadlevel >= 15
 		{
 			"\0\s[0]\i[14]\i[15]Yeah %(username)?"
 			"%(surface0)Do you need something?"
@@ -251,7 +251,7 @@ TalkConfig
 	}
 	else
 	{
-		"Relationship Points: %(nicesadlevel)\n/
+		"Relationship Points: %(nicensadlevel)\n/
 		Times Pet: %(metalpet)\n/
 		Times Hit: %(punchout)\n\n"
 	}
@@ -268,7 +268,7 @@ TalkConfig
 	"Birthday: %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n/
 	Talk Rate: every %(talktime) \f[sup,1](\q[Change it?,talkinter])\f[sup,0]\n/
 	Hemisphere: %(menusphere) \f[sup,1](\q[Change it?,changelovation])\f[sup,0]\n/
-	Updated: 9th February 2022 \f[sup,1](\q[Check for Updates?,Oncheckupdate])\f[sup,0]\n\n"
+	Updated: 30th October 2022 \f[sup,1](\q[Check for Updates?,Oncheckupdate])\f[sup,0]\n\n"
 	//temp dialogue
 	--
 	if nowmode == "Edgybitch" && dayslot != "10month 31day"
@@ -335,7 +335,6 @@ Select.choiceneither
 
 Select.removegoo
 {
-	cutscene = "on"
 	sittang = "off"
 	reversetalktime
 	
@@ -826,7 +825,7 @@ Select.CANCEL
 			"\0\s[6]Just open the menu again if you want me to do something!\e"
 			"\0\s[20]Okay.\e"
 		}
-		if nicesadlevel >= 15
+		if nicensadlevel >= 15
 		{
 			"%(surface0)Cool..."
 			"%(surface0)Ask if you need something..."
@@ -836,7 +835,7 @@ Select.CANCEL
 				"\0\s[0]\i[14]\i[15]'Kay."
 			}
 		}
-		if nicesadlevel <= -10
+		if nicensadlevel <= -10
 		{
 			"%(annoyed)Whatever..."
 			"%(annoyed)Fine..."
@@ -1052,7 +1051,7 @@ Select.bugreport
 	{
 		"\0\s[8]Please, \w4this thing is no doubt riddled with bugs and balancing issues.\w8\0\s[0] Go bug Quonit to fix it if you care that much:\n\n\w8\_qDiscord:   Quonit#9934\nTumblr: @Quonit\e"
 	}
-	elseif nicesadlevel <= -50 && punchout >= 20
+	elseif nicensadlevel <= -50 && punchout >= 20
 	{
 		"\0\s[22]\_qDiscord:   Quonit#9934\nTumblr:   @Quonit"
 	}
@@ -1148,7 +1147,7 @@ Onyouact
 		"\![*]\q[Apologize,sayyouresorry] "
 	}
 	--
-	if nicesadlevel >= 69 && nightynight == "on" && privacyrespecter == "off"
+	if nicensadlevel >= 69 && nightynight == "on" && privacyrespecter == "off"
 	{
 		"\![*]\q[Flirt,flirtyflirt] "
 	}
@@ -1270,7 +1269,7 @@ Select.checkinguout //Use this to give hints at stats
 		"* (Even the punching dialogue is different this route.)\n\n"
 		"* (Quonit is very happy you ended up here. They put a lot of effort into this dialogue.)\n\n"
 	}
-	if nicesadlevel <= 25 && nicesadlevel >= -25
+	if nicensadlevel <= 25 && nicensadlevel >= -25
 	{
 		"* (%(TOUPPER(nightname)) - ATK ?? DEF ??)\n"
 		--
@@ -1318,7 +1317,7 @@ Select.checkinguout //Use this to give hints at stats
 		"* (His face hurts.)\n\n"
 		"* (You're on the track to something.)\n\n"
 	}
-	if privacyrespecter == "off" && nightynight == "on" && nicesadlevel >= 25
+	if privacyrespecter == "off" && nightynight == "on" && nicensadlevel >= 25
 	{
 		"* (%(TOUPPER(nightname)) - ATK ?? DEF ??)\n"
 		--
@@ -1352,7 +1351,7 @@ Select.checkinguout //Use this to give hints at stats
 		"* (He's got quite an interesting book.)\n\n"
 		"* (Why is he reading that?)\n\n"
 	}
-	if nicesadlevel <= -5
+	if nicensadlevel <= -5
 	{
 		if punchout >= 20
 		{
@@ -1457,7 +1456,7 @@ Oncomplementee
 		"\0\s[0]\i[55]* (You tell him you like his cute little boots.)\0\s[20]\n\n\w8Aww\w2.\w2.\w2.\w4 Thank you,\w5 They are comfy.\n\n"
 		"\0\s[0]\i[55]* (You tell him you like the little moon pin he wears.)\0\s[6]\n\n\w8Yes! \w4anDream has one too,\w6 but theirs is a star!\n\n"
 		"\0\s[0]\i[55]* (You tell him you like all the crescents on his clothes.)\n\n\w8\0\s[20]Thanks,\w5 I was trying to make it look nice.\n\n"
-		if nicesadlevel >= 25 && privacyrespecter == "off"
+		if nicensadlevel >= 25 && privacyrespecter == "off"
 		{
 			"\0\s[0]\i[55]* (You tell him he is adorable.)\n\n\0\s[20]Thank you...\n\n"
 			"\0\s[0]\i[55]* (You tell him he looks huggable.)\0\s[4]\n\nUm,\w5 what?\n\n\w8\i[55]* (It means you want to-)\n\n\w5\0\s[4]I know what it means,\w4 that's just a little funny to say to people, \w5maybe?\n\n"
@@ -1486,7 +1485,7 @@ Select.sayafunny
 	--
 	if punchout >=4
 	{
-		if nicesadlevel > 25; {negact += 10}
+		if nicensadlevel > 25; {negact += 10}
 		else; {negact += 1}
 		"\0\s[19]* (You joke about how stupid he is.)\w8\n\n* (Surprising with how many books he reads.\w6 Then again,\w6 it's not like he has a brain.)\n\n"
 		"\0\s[19]* (You talk about how funny it is that he takes himself so seriously but his AU doesn't even make any sense.)\n\n\0\s[11]* (Looks like he understands he was insulted,\w4 but not how.)\w8\n\n"
@@ -1644,7 +1643,7 @@ Select.storytime
 	{
 		"\i[55]* (You tell him about a child forced to complete impossible tasks for a witch,\w6 who only succeeds through the help of an enchanted doll from her dead mother.)\n\n\w8*\s[4]\i[55] (He keeps very attentive to the parts where she entreats her mother's spirit.)\n\n"
 		--
-		if nicesadlevel >= 25
+		if nicensadlevel >= 25
 		{
 			"\s[4]When I was younger,\w4 I sometimes thought I could hear my mom talking to me from anTree...\n\n\w8\w8\s[8]\i[55]* (He seems like he's going to elaborate,\w5 but doesn't.)"
 		}
@@ -1668,7 +1667,7 @@ Select.storytime
 
 Select.iwantgoopy
 {
-	if nicesadlevel > 25; {negact += 10}
+	if nicensadlevel > 25; {negact += 10}
 	else; {negact += 1}
 	"%(attn)"
 	--
@@ -1692,7 +1691,7 @@ Select.iwantgoopy
 		--
 		"\w8\w8\n\n"
 		--
-		if nicesadlevel > 0
+		if nicensadlevel > 0
 		{
 			"\0\s[7]What?\w8\s[0]\i[12] What are you-?\w5 Where did this come from?"
 			"\0\s[3]...This isn't like you,\w5 %(username)."
@@ -1702,10 +1701,10 @@ Select.iwantgoopy
 		}
 		else
 		{
-			"\n\n\0\s[9]..."
+			"\0\s[9]..."
 		}
 	}
-	if nicesadlevel < 0
+	if nicensadlevel < 0
 	{
 		"\i[55]* (You tell\s[0]\i[12]\i[55] him the people who hurt him don't deserve to live.)\w8\n\n\s[3]E-everyone deserves to...\w8\n\n\i[55]* (You ask him if he really\s[0]\i[12]\i[55] believes that.)\n\n\w8\w8\s[3]\i[55]...\w8"
 		"\i[55]* (You tell him he's\s[11]\i[55] boring like this.)\n\n\s[12]Why'd you bring me here, then?\n\n\i[55]* (You tell him\s[11]\i[55] you have a hunch he knows exactly\s[3]\i[55] how to become more interesting.)\s[9]...\w8"
@@ -1717,7 +1716,7 @@ Select.iwantgoopy
 
 Select.nitpicktheboy
 {
-	if nicesadlevel > 25; {negact += 10}
+	if nicensadlevel > 25; {negact += 10}
 	else; {negact += 1}
 	flirtlevel -= 1
 	if sittang == "on"
@@ -1726,7 +1725,7 @@ Select.nitpicktheboy
 		"\0\s[16]"
 	}
 	--
-	if nicesadlevel <= -25 && punchout <= 15
+	if nicensadlevel <= -25 && punchout <= 15
 	{
 		"\0\s[12]\i[55]* (You ask how he's able to cry without tear ducts.)\0\s[7]\n\n\w8Hey-!\w5 That's nothing to do with you, okay!?\n\n\w8\0\s[9]\i[55]* (He got super defensive about it\w2.\w2.\w2.)\n\n"
 		"\0\s[9]\i[55]* (You ponder outloud if skeletons are able to bleed.)\0\s[7]\w8\w8\0\s[19]\i[55]\n\n* (He starts tugging his sleeve uncomfortably.)\n\n"
@@ -1744,7 +1743,7 @@ Select.nitpicktheboy
 		"\0\s[12]\i[55]* (You complain that the moon on his crown is facing the wrong way.)\n\n\w8\0\s[17]N-no?\w7\n\n\0\s[8]Not as far as I know...\n\n"
 		if blushiemode == "on" && privacyrespecter == "off"
 		{
-			if nicesadlevel > 25; {negact += 10}
+			if nicensadlevel > 25; {negact += 10}
 			else; {negact += 1}
 			flirtlevel -= 1
 			"\0\s[7]\i[55]* (You ask why he's able to blush even though he doesn't have skin.)\n\n\w8\w8\0\s[14]Magic?\w8 \0\s[8]I'm basically just a ball of magic so%(lps(2))\n\n\w8* (You ask how he can be a ball of magic if he's a skeleton.)\n\n\w8\0\s[15]It's because-\w5\0\s[12] nevermind, whatever.\n\n"
@@ -1757,7 +1756,7 @@ Select.nitpicktheboy
 
 Select.bemean
 {
-	if nicesadlevel > 25; {negact += 10}
+	if nicensadlevel > 25; {negact += 10}
 	else; {negact += 1}
 	if sittang == "on"
 	{
@@ -1765,7 +1764,7 @@ Select.bemean
 		"\0\s[16]"
 	}
 	--
-	if nicesadlevel <= -25
+	if nicensadlevel <= -25
 	{
 		{
 		"* (You tell him what a garbage brother he is, that he can't even protect Dream from being abused.)\w8\n\n"
@@ -1779,7 +1778,7 @@ Select.bemean
 				"...\n\n"
 			}
 		}
-		if nicesadlevel <= -50
+		if nicensadlevel <= -50
 		{
 			"\0\s[9]\i[55]* (You tell him that not even his brother should love him.)\n\n\w8\0\s[19]...\n\n"
 			"\0\s[19]\i[55]* (You tell him nobody needs him, \w4and nobody will ever need him.)\w8\n\n* (He is a useless guardian.)\n\n"
@@ -1857,7 +1856,7 @@ Select.bemean
 
 Select.youtalk
 {
-	if nicesadlevel <= -50 && punchout >= 20
+	if nicensadlevel <= -50 && punchout >= 20
 	{
 		"\0\s[19]...\n\n"
 	}
@@ -1916,11 +1915,11 @@ Select.reexplaincrown
 	{
 		"\0\s[2]\i[3]\i[107]The crowns were really meaningful to anDream, \w2too.\n\n\w8\s[2]It's why I got rid of it."
 	}
-	elseif blushiemode == "on" || nicesadlevel >= 100
+	elseif blushiemode == "on" || nicensadlevel >= 100
 	{
 		"\0\s[0]\i[55]* (You ask if you could see him without his crown.)\n\n\w8\0\s[13]Well\w2.\w2.\w2.\n\n\w8Maybe for just a second.\n\n\w8\s[26]\i[1]* (He takes it off.)\n\n\w8It feels kind of bare without it on\w2.\w2.\w2.\w8\n\n\s[26]\i[2]* (He puts it back on.)"
 	}
-	elseif nicesadlevel >= 25
+	elseif nicensadlevel >= 25
 	{
 		"\0\s[4]\w2.\w2.\w2.\w2I think anDream is more attached to their crown than I am to mine.\w8\n\n\s[15]I think it's cool and all,\w5 pretty as well,\w4\s[13] but I'm fine with taking it off every once in a while.\w8 \s[4]I have a mark on my head anyways\w2.\w2.\w2.\w8\s[13] But I don't think I've ever really seen anDream take theirs off."
 	}
@@ -1975,11 +1974,11 @@ Select.reexplaindream
 		}
 		else
 		{
-			if nicesadlevel <= -10
+			if nicensadlevel <= -10
 			{
 				"\0\s[12]They're somebody.\n\n"
 			}
-			elseif nicesadlevel <= 25
+			elseif nicensadlevel <= 25
 			{
 				"\s[4]I hope I'm not worrying them too much\w2.\w2.\w2. \w8\s[8]Well,\w4 actually,\w8 there's no doubt I am.\n\n\w8\s[9]I really shouldn't be staying away from them like this...\n\n\w8\s[13]Oh,\w4 but it's not your fault %(username).\w8\s[8] Don't worry about it."
 			}
@@ -2020,7 +2019,7 @@ Select.whataboutmyname
 	{
 		"\0\s[12]It's just what I go by.\w8 Not like you'd care about it.\n\n"
 	}
-	elseif nicesadlevel >= 25
+	elseif nicensadlevel >= 25
 	{
 		"\0\s[9]\i[55]* (He seems somewhat upset about this.)\n\n\w8Well\w4.\w4.\w4. \w6my name is Nightmare, because my brother's name is anDream\w4.\w4.\w4. \w6and we're supposed to be opposites.\n\n/
 		\![*]\q[Ask him why he's upset over it,nameextrayes]\n"	
@@ -2062,13 +2061,13 @@ Select.waxingandwaining
 
 Select.looksoul
 {
-	if nicesadlevel <= -10 //Bad
+	if nicensadlevel <= -10 //Bad
 	{
-		if nicesadlevel <= -50 || punchout >= 10 //sad below 50
+		if nicensadlevel <= -50 || punchout >= 10 //sad below 50
 		{
 			"\0\s[19]\i[55]* (He seems scared.)\n\n\w8n...\w8 no."
 		}
-		elseif nicesadlevel <= -25 || punchout >= 1 && punchout <= 9 // sad below 25
+		elseif nicensadlevel <= -25 || punchout >= 1 && punchout <= 9 // sad below 25
 		{
 			"\0\s[0]\i[13]Absolutely not.\n\n\w8\s[12]\i[55]* (He moves away from you...)\n\n\w8\s[12]Why are you interested in it anyways?"
 		}
@@ -2078,7 +2077,7 @@ Select.looksoul
 		}
 	}
 	//Good
-	elseif nicesadlevel >= 25 && privacyrespecter == "off" //good route lol
+	elseif nicensadlevel >= 25 && privacyrespecter == "off" //good route lol
 	{
 		if blushiemode == "on" //blushie mode
 		{
@@ -2131,7 +2130,7 @@ Select.itemsmenu
 		"\0\s[16]\w5"
 	}
 	--
-	if nicesadlevel <= -50 && punchout >= 20
+	if nicensadlevel <= -50 && punchout >= 20
 	{
 		"\0\s[19]* (He'd object,\w4 but is afraid you'll hurt him.)\n\n"
 		"\0\s[19]. . .\n\n"
@@ -2263,12 +2262,12 @@ Select.giveblankie
 Select.rude
 {
 	"\0\s[0]\i[55]* (...You gently place a rock next to his feet.)\0\s[4]\n\n\w8Huh?"
-	if nicesadlevel <= -25
+	if nicensadlevel <= -25
 	{
 		negact += 2
 		"* (You toss the rock at him, but he catches it.)\n\n\w8What was that for!?"
 	}
-	elseif nicesadlevel <= -50
+	elseif nicensadlevel <= -50
 	{
 		negact += 5
 	}
@@ -2321,7 +2320,7 @@ Select.nightyneedstoeat
 			"\0\s[0]\i[55]* (You offer him a cookie.)\w8\n\n\0\s[12]* (He's reluctant,\w5 but takes it anyways.)\0\s[25]\w8\e"
 		}
 	}
-	elseif nicesadlevel <= -50 && punchout >= 20
+	elseif nicensadlevel <= -50 && punchout >= 20
 	{
 		if sittang == "on"
 		{
@@ -2352,7 +2351,7 @@ Select.nightyneedstoeat
 		//No modifiers, can be gotten any time of day.
 		//if it is winter
 		//{
-			//if nicesadlevel >= 50
+			//if nicensadlevel >= 50
 			//{
 		//"\0\s[0]\i[55]* (You slide him a bowl with six pomegranate seeds.)\w8\n\n\0\s[13]\i[55]* (He seems\w2.\w2.\w2. \w4suspicious?)\n\n\w8\0\s[4]What for?\n\n\w8\i[55]* (You tell him it's seasonal.)\n\n\w8* (He seems content with that explanation.)"
 			//}
@@ -2598,7 +2597,7 @@ Select.testgoo
 	--
 	"\n\n\w8\s[10002]\i[107]\i[1]I hear you've been giving a certain skeleton a bad time.\w8\w8\n\n\i[5]Well,\w6 congratulations.\w6\s[10002]\i[102]\w8\w7 You get to deal with me\w6 now.\w8"
 	--
-	if nicesadlevel >= 25
+	if nicensadlevel >= 25
 	{
 		"\n\n\w8\w8\w8* (You try to explain that you haven't been mistreating %(nightname), \s[10002]\i[5]\i[103]but the goop isn't having it.)"
 	}

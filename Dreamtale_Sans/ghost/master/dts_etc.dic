@@ -427,7 +427,7 @@ UpdateVars
 		}
 		else
 		{
-			negact = nicesadlevel
+			negact = TOINT(ABS(nicesadlevel))
 			posact = 0
 		}
 	}
