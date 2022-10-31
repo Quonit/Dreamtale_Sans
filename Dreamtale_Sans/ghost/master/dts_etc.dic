@@ -377,6 +377,16 @@ UpdateVars
 	sleepingmode = "off"
 	sittang = "off"
 	*/
+	if dontmovestatsitshalloween == 'on'
+	{
+		dontmovestatsitshalloween = 'off'
+		nowmode = 'purpleman'
+		if SHIORI3FW.ShellName == 'Nightmare'
+		{
+			"\![change,Shell,Dreamtale Sans]"
+		}
+	}
+	
 	if !ISVAR('menuname'); {menuname='off'}
 	if !ISVAR('sittang'); {sittang='off'}
 	

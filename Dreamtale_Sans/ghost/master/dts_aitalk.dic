@@ -42,7 +42,7 @@ RandomTalk : nonoverlap_pool
 	{
 		DreamTalk
 	}
-	elseif VillageLevel >= 150 && punchout <= 30 && nowmode != "Edgybitch"
+	elseif VillageLevel >= 150 && nowmode != "Edgybitch"
 	{
 		"\0\s[22]\i[55]* (Despite everything you've done to him, \w4his life here might be better than at home.)\e"
 		"\0\s[22]\i[55]* (Might not last too much longer.)\e"
@@ -202,7 +202,8 @@ RandomTalk : nonoverlap_pool
 			}
 		}
 	}
-	elseif nicensadlevel <= -120 && punchout >= 80 && nowmode != "Edgybitch" //IT ADDS UP TO 200 OK
+	elseif VillageLevel >= 200 && nowmode != "Edgybitch"
+	//nicensadlevel <= -120 && punchout >= 80 && nowmode != "Edgybitch" //IT ADDS UP TO 200 OK
 	//VillageLevel >= 200 && punchout > 1 && (nicensadlevel < 1 || betrayalvar > 1)
 	{
 		"\t\*\0\s[22]* (You hear sniffing.)\w8\w8\0\s[23]\n\n* \f[italic,true]sniff sniff\f[italic,false] *\n\n\w8\w4I want to go home-\w5 why can't I just go home?\n\n\w8\![*]\q[Push him over.,Goopmare]\e"
@@ -236,7 +237,7 @@ RandomTalk : nonoverlap_pool
 		"\0\s[4]I wonder when I'll get to go back home.\w8 Not that I was really gonna do anything... \w4But...\e"
 		"\0\s[13]\i[55]* (He's fiddling with his hands.)\e"
 		"\0\s[4]Would having wings even be all that fun?\w8\n\nI feel like they'd just get in the way of everything.\e"
-		"\0\s[4]Maybe I should go out and get more outfits at some point.\w8 This ones gettin' kinda old.\e"
+		"\0\s[4]Maybe I should go out and get more outfits at some point.\w8 This one's gettin' kinda old.\e"
 		"\0\s[4]I hope nobody sneaks up on Mom's tree while I'm not there\w2.\w2.\w2.\e"
 		"\0\s[0]\i[11]Been thinking about cuckoos a lot lately...\w5\s[4]Not sure why.\w8"
 		"\0\s[0]\i[11]\i[55]* (He's pretty quiet today.)\e"

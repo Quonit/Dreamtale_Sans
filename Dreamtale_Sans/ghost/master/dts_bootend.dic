@@ -251,7 +251,7 @@ OnBoot
 				"\n\n\w8\w8\w8* (You try to explain that you haven't been mistreating %(nightname), \s[10002]\i[5]\i[103]but the goop isn't having it.)"
 			}
 			--
-			"\n\n\w8\w8\w8\s[10002]\i[2]\i[3]* (You get the feeling things might go back to normal after Halloween%(lps(5)))\w8\w8\x\![leave,passivemode]\x\s[10002]\i[2]\i[3]\i[105]\w8\![change,Shell,Nightmare]"
+			"\n\n\w8\w8\w8\s[10002]\i[2]\i[3]* (You get the feeling things might go back to normal after Halloween%(lps(5)))\w8\w8\![leave,passivemode]\x\s[10002]\i[2]\i[3]\i[105]\w8\![change,Shell,Nightmare]"
 		}
 		else
 		{
@@ -612,7 +612,11 @@ OnClose
  	}
  	else //Five Minute dialogue
  	{
-		if sleepingmode == "on"
+		if nowmode == "Edgybitch"
+		{
+			OnGoopSleep
+		}
+		elseif sleepingmode == "on"
 		{
 			"z\w4z\w4z\w4.\w4.\w4.\w8\w8"
 			"* (He must've been real tired to go down that quick.)\w8\w8"
