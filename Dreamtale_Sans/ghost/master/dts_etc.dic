@@ -254,7 +254,7 @@ OnUpdateBegin
 	--
 	if nowmode == "intodreams"
 	{
-		"\s[0]\i[1]uhm%(lps(3)) \w5You want me to update?\n\n\w8* (clearly they have no idea what that means, but the ghost updates itself anyways.)"
+		"\s[0]\i[1]uhm%(lps(3)) \w5You want me to update?\n\n\w8\s[4]* (Clearly they have no idea what that means,\w5 but the ghost updates itself anyways.)"
 	}
 	elseif nowmode == "Edgybitch"
 	{

@@ -504,7 +504,7 @@ DreamMenu
 	
 	Ondreambox //Items
 	{
-		"* (GIFTing in progress.)\e"
+		"* (GIFTing in progress.)"
 		--
 		"\![*]\q[Food,Ondreamyact]\n/
 		\![*]\q[Gift,Ondreambox]\n/
