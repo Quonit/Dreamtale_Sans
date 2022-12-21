@@ -13,7 +13,8 @@ Onnotonfirstboot
 	sodreamy = "on" //if you've seen dream
 	sparklepet = 0 //pet counter
 	stonemode = "off"
-	"\![change,Shell,Dream]"
+	nowmode = "intodreams"
+	specildreamboot = 0
 	--
 	if RAND(2) == 1
 	{
@@ -23,10 +24,9 @@ Onnotonfirstboot
 	{
 		"\![bind,Costume,Cape,false]"
 	}
-	--
-	"\0\s[17]%(lps(8))\n\n\w8\w8* (You say hi.)\w8\w8\n\n* (%(lps(3))They are not paying attention.)\w8\w8\n\n/
-	\![*]\q[Say hello again,dreamintronext1]\n/
-	\![*]\q[Call their name,dreamintronext1]"
+	-- 
+	"\0\s[-1]\![change,Shell,Dream]"
+	//moving this to OnShellChanged because HARD MAKE FUNCTION WORK
 }
 
 	Select.dreamintronext1
@@ -285,8 +285,8 @@ DreamMenu
 		\![*]\q[Use some items,Ondreambox]\n/
 		\![*]\q[Stats,configmenu]\n/
 		\![*]\q[Use some functions,dosomething]\n\n"
-		//--
-		//"\![*]\q[Testvariable,dreamtestvariable]\n\n"
+		--
+		"\![*]\q[Testvariable,dreamtestvariable]\n\n"
 		
 	}
 	--
@@ -529,7 +529,7 @@ DreamMenu
 			Select.givedreamgift
 			{
 				"\s[17]\i[2000]* (You place a blanket on them.)\n\n\w8Oh,\w4 this is the same one from earlier.\w8 It is quite soft%(lps(2))\w8 I can keep it."
-				"\s[0]* (You hand them a bouquet of flowers.)\n\nThese are nice.\w8 I could probably get my brother to tell them apart%(lps(2))\w8\i[6] I'm not very good at remembering the names.\w8 But I like them!"
+				"\s[0]* (You hand them a bouquet of flowers.)\n\n\w8These are nice.\w8 I could probably get my brother to tell them apart%(lps(2))\w8\i[6] I'm not very good at remembering the names.\w8 But I like them!"
 				--
 				"%(itemmeow)\e"
 			}
@@ -565,7 +565,7 @@ DreamMenu
 
 Select.dreamtestvariable
 {
-	"\![change,Shell,Dreamtale Sans]"
+	"%(Onnotonfirstboot)"
 }
 
 //Word.dic

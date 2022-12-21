@@ -1065,6 +1065,20 @@ OnShellChanged //I hope this doesn't kill the ghost
 	{
 		"\C\0\s[0]\i[106]"
 	}
+	if nowshell == "Dream"
+	{
+		if specildreamboot == 0
+		{
+			specildreemboot = 1
+			"\w8\s[17]%(lps(8))\n\n\w8\w8* (You say hi.)\w8\w8\n\n* (%(lps(3))They are not paying attention.)\w8\w8\n\n/
+			\![*]\q[Say hello again,dreamintronext1]\n/
+			\![*]\q[Call their name,dreamintronext1]"
+		}
+		else
+		{
+			"\C%(OnDreamBoot)"
+		}
+	}
 	else
 	{
 		"\C\0\s[0]"

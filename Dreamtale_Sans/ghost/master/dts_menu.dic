@@ -424,7 +424,7 @@ Select.summondream
 	"* (You tell %(nightname) goodbye.)\n\n\w8%(surface0)Oh,\w4 goodbye."
 	"Bye.\n\n\w8*(He doesn't seem to know you're switching him out for Dream.)"
 	--
-	"\w8\s[-1]\![change,Shell,Dream]\w8\w8%(OnDreamBoot)"
+	"\w8\s[-1]\![change,Shell,Dream]\w8\w8"
 }
 
 
