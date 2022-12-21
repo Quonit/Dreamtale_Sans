@@ -4,7 +4,7 @@ name,Dreamtale Sans
 type,ghost
 seriko.defaultsurfacedirectoryname,!original
 
-sakura.name,Dreamtale Test Man
+sakura.name,Dreamtale Sans
 kero.name, 
 
 craftman,Quonit

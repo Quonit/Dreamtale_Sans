@@ -19,6 +19,24 @@ ReplyToGhost
 {
  	res_reference0 = reference0
 	{
-		"\0\i[55]* (He doesn't seem to notice...\w8 Maybe they're invisible to him?)\e"
+		if nowmode == "Edgybitch"
+		{
+			"\0\i[55]* (The goop stares menacingly at the other ghost.)"
+		}
+		elseif nowmode == "intodreams"
+		{
+			if stonemode == "on"
+			{
+				"\0\s[1621]* (They don't seem to notice.\w8 Not surprising...)"
+			}
+			else
+			{
+				"\0\i[55]* (They don't seem to notice...\w8 Maybe they're invisible to them?)"
+			}
+		}
+		else
+		{
+			"\0\i[55]* (He doesn't seem to notice...\w8 Maybe they're invisible to him?)\e"
+		}
 	}
 }

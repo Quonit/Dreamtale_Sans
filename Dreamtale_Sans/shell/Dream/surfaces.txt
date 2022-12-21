@@ -5,41 +5,227 @@
 //  +#+    +#+ +#+    +#+ +#+        +#+     +#+ +#+       +#+
 // #+#    #+# #+#    #+# #+#        #+#     #+# #+#       #+#
 //#########  ###    ### ########## ###     ### ###       ###
+
+version,1
+
 surface0
 {
 	//Collision
-	collision0,151,92,215,130,StarCrown
+	collision0,148,73,176,93,StarCrown
+	collisionex1,StarFace,polygon,138,91,160,86,189,96,181,126,154,129,142,117
+	collisionex2,StarSkull,polygon,139,80,155,63,171,57,200,71,205,84,169,94,138,91
 	element0,overlay,surface0.png,0,0
+	
+	//Eyes
+	//Calm
+	animation0.interval,always
+	animation0.pattern0,overlay,1200,0,0,0
+	//Scared
+	animation1.interval,never
+	animation1.pattern0,stop,0
+	animation1.pattern1,overlay,1201,0,0,0
+	//Pensive emoji
+	animation3.interval,never
+	animation3.pattern0,stop,0
+	animation3.pattern1,overlay,1208,0,0,0
+	//^^
+	animation5.interval,never
+	animation5.pattern0,stop,0
+	animation5.pattern1,overlay,1212,0,0,0
+	//^^;;
+	animation6.interval,never
+	animation6.pattern0,stop,0
+	animation6.pattern1,overlay,1211,0,0,0
+	//grrr
+	animation7.interval,never
+	animation7.pattern0,stop,0
+	animation7.pattern1,overlay,1213,0,0,0
+	
+	//Cape
+	//Cape top
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1000,0,0,0
+	//Cape bottom
+	animation1001.interval,bind
+	animation1001.pattern0,interpolate,1001,0,0,0
+	
+	//Arms
+	//Polite Behind Back
+	animation2.interval,always
+	animation2.pattern0,interpolate,1300,0,0,0
+	//clasped
+	animation8.interval,never
+	animation8.pattern2,overlay,1311,0,0,0
+	//crossed
+	animation9.interval,never
+	animation9.pattern0,stop,2
+	animation9.pattern1,overlay,1315,0,0,0
 }
 
-//Side non look
+//meditative sitting
 surface1
 {
 	//Collision
-	collision0,164,88,219,129,StarCrown
-	element0,overlay,surface1001.png,0,0
+	collisionex0,StarCrown,polygon,143,159,163,153,171,174,146,177
+	collisionex1,StarFace,polygon,140,174,176,169,183,195,162,207,147,203
+	collisionex2,StarSkull,polygon,137,170,145,148,158,143,179,143,193,153,172,173,151,175
+	element0,overlay,surface1.png,0,0
+	
+	//Cape
+	//Cape top
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1012,0,0,0
+	//Cape bottom
+	animation1001.interval,bind
+	animation1001.pattern0,interpolate,1013,0,0,0
 }
 
-//Cross arms
+//Sigh
 surface2
 {
 	//Collision
-	collision0,160,87,221,128,StarCrown
-	element0,overlay,surface1002.png,0,0
+	collision0,151,75,176,91,StarCrown
+	collisionex1,StarFace,polygon,145,90,164,92,190,98,181,127,157,128,143,117,140,96
+	collisionex2,StarSkull,polygon,139,89,151,67,168,62,194,64,206,87,177,92
+	
+	element0,overlay,surface2.png,0,0
+	
+	animation0.interval,runonce
+	animation0.pattern0,base,1622,650,0,0
+	
+	//Cape
+	//Cape top
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1010,0,0,0
+	//Cape bottom
+	animation1001.interval,bind
+	animation1001.pattern0,interpolate,1011,0,0,0
 }
 
-//Null
+//Worried Side Look
 surface3
 {
-	element0,overlay,surface1003.png,0,0
+	//Collision
+	collisionex0,StarCrown,polygon,137,76,145,75,201,74,198,79,141,96,137,75
+	collisionex1,StarFace,polygon,140,83,174,88,184,96,177,125,147,127,138,114
+	collisionex2,StarSkull,polygon,136,86,151,66,169,59,203,80,168,86
+	
+	element0,overlay,surface3.png,0,0
+	
+	//Eyes
+	animation0.interval,always
+	animation0.pattern0,overlay,1203,0,0,0
+	//Spaced out
+	animation1.interval,never
+	animation1.pattern0,stop,0
+	animation1.pattern1,overlay,1204,0,0,0
+	//Curious
+	animation4.interval,never
+	animation4.pattern0,stop,0
+	animation4.pattern1,overlay,1205,0,0,0
+	//Smile
+	animation5.interval,never
+	animation5.pattern0,stop,0
+	animation5.pattern1,overlay,1215,0,0,0
+	
+	//Cape top
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1004,0,0,0
+	
+	
+	//Arms
+	//Fiddling
+	animation2.interval,always
+	animation2.pattern0,overlay,1303,0,0,0
+	animation2.pattern1,overlay,1304,1000,0,0
+	animation2.pattern2,overlay,1303,1000,0,0
+	//Behind Back
+	animation3.interval,never
+	animation3.pattern0,stop,2
+	animation3.pattern1,interpolate,1305,0,0,0
+	
+	//Cape bottom
+	animation1001.interval,bind
+	animation1001.pattern0,interpolate,1005,0,0,0
 }
 
-//It's just a prank breh
+//Looks down a little thoughtful
 surface4
 {
 	//Collision
-	collision0,157,92,214,132,StarCrown
-	element0,overlay,surface1004.png,0,0
+	collisionex0,StarCrown,polygon,139,86,172,80,202,83,180,96,138,107
+	collisionex1,StarFace,polygon,137,96,184,92,184,121,170,134,151,128,137,110
+	collisionex2,StarSkull,polygon,133,96,140,76,157,63,184,63,202,81,174,99,151,101
+	
+	element0,overlay,surface4.png,0,0
+	
+	//Eyes
+	animation0.interval,always
+	animation0.pattern0,overlay,1202,0,0,0
+	//Suspicious
+	animation1.interval,never
+	animation1.pattern0,stop,0
+	animation1.pattern1,overlay,1206,0,0,0
+	//eeeeep
+	animation9.interval,never
+	animation9.pattern0,stop,0
+	animation9.pattern1,overlay,1207,0,0,0
+	//Sentimental
+	animation10.interval,never
+	animation10.pattern0,stop,0
+	animation10.pattern1,overlay,1214,0,0,0
+	//Sad
+	animation11.interval,never
+	animation11.pattern0,stop,0
+	animation11.pattern1,overlay,1216,0,0,0
+	
+	//Arms
+	animation2000.interval,always
+	animation2000.pattern0,overlay,1302,0,0,0
+	//behind back
+	animation3.interval,never
+	animation3.pattern0,stop,2000
+	animation3.pattern1,stop,2
+	animation3.pattern2,interpolate,1306,0,0,0
+	
+	//rub hand
+	animation4.interval,never
+	animation4.pattern0,parallelstop,(2,2000)
+	animation4.pattern1,parallelstart,(5,6,7)
+	
+	animation5.interval,never
+	animation5.pattern1,overlay,1307,0,0,0
+	
+	animation6.interval,never
+	animation6.pattern1,interpolate,1310,0,0,0
+	
+	//rub
+	animation7.interval,never,4
+	animation7.pattern0,overlay,1309,0,0,0
+	animation7.pattern1,overlay,1308,1000,0,0
+	animation7.pattern2,overlay,1309,1000,0,0
+	animation7.pattern3,overlay,-1,1000,0,0
+	animation7.pattern4,start,8
+	
+	animation8.interval,never,4
+	animation8.pattern0,overlay,1309,0,0,0
+	animation8.pattern1,overlay,1308,1000,0,0
+	animation8.pattern2,overlay,1309,1000,0,0
+	animation8.pattern3,overlay,-1,1000,0,0
+	animation8.pattern4,start,7
+	
+	//Cape top
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1002,0,0,0
+	
+	//Sleeve
+	animation2.interval,always
+	animation2.pattern0,overlay,1301,0,0,0
+
+	//Cape bottom
+	animation1001.interval,bind
+	animation1001.pattern0,interpolate,1003,0,0,0
+
 }
 
 //Mad!
@@ -58,11 +244,26 @@ surface6
 	element0,overlay,surface1006.png,0,0
 }
 
-//Laugh
+//Surprise
 surface7
 {
-	collision0,166,85,220,115,StarCrown
-	element1,overlay,surface1007.png,0,0
+	//Collision
+	collision0,153,75,183,96,StarCrown
+	collisionex1,StarFace,polygon,142,88,187,92,187,123,158,126,147,122,143,97
+	collisionex2,StarSkull,polygon,143,83,157,64,176,60,197,69,209,88,179,88
+	
+	element1,overlay,surface7.png,0,0
+	
+	//Cape top
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1006,0,0,0
+	//Cape bottom
+	animation1001.interval,bind
+	animation1001.pattern0,interpolate,1007,0,0,0
+	
+	//Eyes
+	animation0.interval,never
+	animation0.pattern0,overlay,1217,0,0,0
 }
 
 //scawy
@@ -106,7 +307,21 @@ surface13
 //hahahaha could you believe
 surface14
 {
-	element1,overlay,surface1014.png,0,0
+	element1,overlay,surface14.png,0,0
+	
+	//Cape top
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1006,0,0,0
+	//Cape bottom
+	animation1001.interval,bind
+	animation1001.pattern0,interpolate,1007,0,0,0
+	
+	//Eyes
+	animation0.interval,always
+	animation0.pattern0,overlay,1218,0,0,0
+	//Arms
+	animation1.interval,always
+	animation1.pattern0,overlay,1316,0,0,0
 }
 
 //hum
@@ -116,21 +331,71 @@ surface15
 }
 
 //protect the crown
-surface17
+surface16
 {
 	element1,overlay,surface1016.png,0,0
 }
 
-//Grab Crown
+//Up Look
 surface17
 {
-	element1,overlay,surface1017.png,0,0
+	element1,overlay,surface17.png,0,0
+	//Cape top
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1016,0,0,0
+	//Cape bottom
+	animation1001.interval,bind
+	animation1001.pattern0,interpolate,1017,0,0,0
+	//HEADS
+	//Side
+	animation2.interval,always
+	animation2.pattern0,interpolate,1313,0,0,0
+	//Forward
+	animation4.interval,never
+	animation4.pattern1,stop,2
+	animation4.pattern0,interpolate,1314,0,0,0
+	
+	//Side
+	animation0.interval,always
+	animation0.pattern0,overlay,1209,0,0,0
+	//Forward
+	animation3.interval,never
+	animation3.pattern1,stop,0
+	animation3.pattern0,interpolate,1210,0,0,0
+	
+	//Arms
+	animation1.interval,always
+	animation1.pattern0,interpolate,1312,0,0,0
+	//Blanket Burry
+	animation2000.interval,never
+	animation2000.pattern1,overlay,1400,0,0,0
 }
 
 //Dont hit me
 surface18
 {
 	element1,overlay,surface1018.png,0,0
+	
+	//Cape top
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1018,0,0,0
+	//Cape bottom
+	animation1001.interval,bind
+	animation1001.pattern0,interpolate,1019,0,0,0
+}
+
+//tired
+surface38
+{
+	element1,overlay,surface38.png,0,0
+	
+	//Cape top
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1008,0,0,0
+	//Cape bottom
+	animation1001.interval,bind
+	animation1001.pattern0,interpolate,1009,0,0,0
+
 }
 
 //tired
@@ -166,15 +431,19 @@ surface1604
 {
 	element0,overlay,surface1604.png,0,0
 }
-surface1605
+
+//meditative sitting
+surface1621
 {
-	element0,overlay,surface1605.png,0,0
-}
-surface1606
-{
-	element0,overlay,surface1606.png,0,0
-}
-surface1607
-{
-	element0,overlay,surface1607.png,0,0
+	//Collision
+	collision0,157,92,214,132,StarCrown
+	element0,overlay,surface1621.png,0,0
+	
+	//Cape
+	//Cape top
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1014,0,0,0
+	//Cape bottom
+	animation1001.interval,bind
+	animation1001.pattern0,interpolate,1015,0,0,0
 }

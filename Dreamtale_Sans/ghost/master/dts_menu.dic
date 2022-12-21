@@ -247,7 +247,9 @@ TalkConfig
 	}
 	elseif nowmode == "intodreams"
 	{
-		"erm...\n\n" //Temp dialogue
+		"Relationship Points: %(sadnicelevel)\n/
+		Times Pet: %(sparklepet)\n/
+		Times Hit: %(starpunch)\n\n"
 	}
 	else
 	{
@@ -268,10 +270,17 @@ TalkConfig
 	"Birthday: %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n/
 	Talk Rate: every %(talktime) \f[sup,1](\q[Change it?,talkinter])\f[sup,0]\n/
 	Hemisphere: %(menusphere) \f[sup,1](\q[Change it?,changelovation])\f[sup,0]\n/
-	Updated: 30th October 2022 \f[sup,1](\q[Check for Updates?,Oncheckupdate])\f[sup,0]\n\n"
-	//temp dialogue
+	Updated: 21st December 2022 \f[sup,1](\q[Check for Updates?,Oncheckupdate])\f[sup,0]\n\n"
 	--
-	if nowmode == "Edgybitch" && dayslot != "10month 31day"
+	if nowmode != "intodreams" && ringringuthere == "on"
+	{
+		"* (Ring the bell?)\n\q[Yes,summondream] \q[No,CANCEL]\n\n"
+	}
+	if nowmode == "intodreams" && dayslot != "12month 21day"
+	{
+		"* (Swap back to %(nightname)?)\n\q[Yes,byedream] \q[No,CANCEL]\n\n"
+	}
+	elseif nowmode == "Edgybitch" && dayslot != "10month 31day"
 	{
 		"* (Exit out of Goopmode?)\n\q[Yes,removegoo] \q[No,CANCEL]\n\n"
 	}
@@ -377,13 +386,52 @@ Select.removegoo
 	}
 }
 
+Select.byedream
+{
+	if stonemode == "on"
+	{
+		"\s[1621]* (They say nothing as they leave.\s[-1]\w8\w8"
+	}
+	else
+	{
+		if ringringuthere != "on"
+		{
+			ringringuthere = "on"
+			"* (You decide to send Dream home.)\n\n\w8Oh,\w8 goodbye.\w8\s[-1]\w8\n\n* (\w3.\w3.\w3.\w4There's a small bell left behind!)\n\n\w8* (You add it to your inventory.)"
+		}
+		else
+		{
+			"* (You decide to send Dream home.)\n\n\w8Oh,\w8 goodbye.\w8\s[-1]"
+		}
+	}
+	
+	nowmode = oldmode
+	
+	if nowmode == "purpleman"
+	{
+		"\![change,Shell,Dreamtale Sans]%(OnBoot)"
+	}
+	elseif nowmode == "Edgybitch"
+	{
+		"\![change,Shell,Nightmare]%(GoopWake)"
+	}
+}
+
+Select.summondream
+{
+	changemode("intodreams")
+	--
+	"* (You tell %(nightname) goodbye.)\n\n\w8%(surface0)Oh,\w4 goodbye."
+	"Bye.\n\n\w8*(He doesn't seem to know you're switching him out for Dream.)"
+	--
+	"\w8\s[-1]\![change,Shell,Dream]\w8\w8%(OnDreamBoot)"
+}
 
 
 //    ___ ___ ___ _____ _  _ ___   ___   __  _____   ___   _   _   _  _ _____ ___ ___  _  _ 
 //   | _ )_ _| _ \_   _| || |   \ /_\ \ / / | __\ \ / /_\ | | | | | |/_\_   _|_ _/ _ \| \| |
 //   | _ \| ||   / | | | __ | |) / _ \ V /  | _| \ V / _ \| |_| |_| / _ \| |  | | (_) | .` |
 //   |___/___|_|_\ |_| |_||_|___/_/ \_\_|   |___| \_/_/ \_\____\___/_/ \_\_| |___\___/|_|\_|
-//                                                                                          
 
 Select.TEACHBDAY
 {
@@ -799,7 +847,15 @@ Select.TEACHNAME
 
 Select.CANCEL
 {
-	if nowmode == "Edgybitch"
+	if nowmode == "intodreams"
+	{
+		"%(surface0)Alright."
+		"\s[17]\i[3]\i[4]Click?\n\n\w8* (It sounds like they heard your computer mouse!)"
+		"\s[4]\i[4]Tell me if you need anything.\e"
+		--
+		"\e"
+	}
+	elseif nowmode == "Edgybitch"
 	{
 		"\0\s[8]Whatever.\e"
 		"\0\s[1]Go bother someone else.\e"
@@ -1146,6 +1202,7 @@ Onyouact
 	{
 		"\![*]\q[Apologize,sayyouresorry] "
 	}
+	--
 	--
 	if nicensadlevel >= 69 && nightynight == "on" && privacyrespecter == "off"
 	{
@@ -1934,7 +1991,15 @@ Select.reexplaincrown
 
 Select.reexplaintree
 {
-	if privacyrespecter == "on"
+	if nowmode == "intodreams"
+	{
+		"\s[0]\i[3]It's been stable. \w8There was one fallen apple discovered I burried this week,\w5 but that is all."
+	}
+	elseif nowmode == "Edgybitch"
+	{
+		"\_b[Extras\mydeadmom.png,125,10]\_l[0,60]\s[7]Hah. \w4\s[0]Dead person.\n\n\w8\s[8]now, \w2I know you think I'm nothin' to do with Nighty and just possessed him or whatever,\w3\0\s[0] but whatever you think, \w2the tree's still my 'Mom' too.\n\n\w8\s[1]Technically that'd make anDream and the purple one my half brothers \w3\s[0]when you think about it."
+	}
+	elseif privacyrespecter == "on"
 	{
 		"\0\s[12]...It's a magic tree."
 	}
@@ -1942,10 +2007,6 @@ Select.reexplaintree
 	{
 		momstreeexpo = "on"
 		"\_b[Extras\mydeadmom.png,125,10]\_l[0,60]\0\s[9]Mommy\w4.\w4.\w4. \w6I wish I knew her sometimes.\n\n\w8I\w3.\w3.\w3. \w4I think it's just my head,\w3 but I think she'd've helped me a lot on stuff.\w6If I also had her to talk to instead of just the villagers.\w6 But\w3.\w3.\w3.\n\n\w8Some of the villagers say she wouldn't have liked me, \w5but I don't know if I should just trust what they're saying or not. \w6Because I didn't know her, \w3but they did.\w5So I dunno what to think\w3.\w3.\w3."
-	}
-	elseif nowmode == "Edgybitch"
-	{
-		"\_b[Extras\mydeadmom.png,125,10]\_l[0,60]\s[7]Hah. \w4\s[0]Dead person.\n\n\w8\s[8]now, \w2I know you think I'm nothin' to do with Nighty and just possessed him or whatever,\w3\0\s[0] but whatever you think, \w2the tree's still my 'Mom' too.\n\n\w8\s[1]Technically that'd make anDream and the purple one my half brothers \w3\s[0]when you think about it."
 	}
 	else
 	{
@@ -2107,6 +2168,7 @@ Select.askboutgoopy
 {
 	"\0\s[7]!\w8\w8\n\n\s[9].\w2.\w2.\w2.\w2I don't wanna talk about it.\w8\n\n* (Disappointing.)"
 	"\0\s[7]!\w8\w8\n\n\s[13].\w2.\w2.\w2.\w5Just\w2.\w2.\w2.\w2.\w5 \s[8]Forget you saw anything."
+	//How to progress this interaction...
 	--
 	"\n\n\![*]\q[ASK another question,youtalk]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
@@ -2164,7 +2226,14 @@ Select.itemsmenu
 	}
 	--
 	" \![*]\q[A rock,rude]	 \![*]\q[Some food,nightyneedstoeat]\n/
-	\![*]\q[A book,givebook] 	\![*]\q[NOTHING,CANCEL]  \![*]\q[Go back,BACKTOMENU]\e"
+	\![*]\q[A book,givebook] 	\![*]\q[A toy,givetoy]\n"
+	--
+	if ringringuthere == "on"
+	{
+		"\![*]\q[A bell,ringbell]\n"
+	}
+	--
+	"\![*]\q[NOTHING,CANCEL]  \![*]\q[Go back,BACKTOMENU]\e"
 }
 
 Select.giveoutfit
@@ -2193,7 +2262,12 @@ Select.givegift
 	"\0\s[0]\i[55]* (You gift him with a color cube.)\n\n\w8\0\s[4]What is it?\n\n\w8\i[55]* (You tell him that it's a puzzle where you have to get each of the sides to be the same color.)\n\n\w8\0\s[13]\i[55]* (He attempts solving it,\w4 but he starts looking frustrated quickly.)\n\n\w8\0\s[3]Um, \w4thanks.\w6 I'll work at it."
 	"\0\s[0]\i[55]* (You give him a tiny,\w4 cute-looking music box.)\n\n\w8\0\s[4]Aw\w2.\w2.\w2.\w4 It's so adorable.\n\n\w8* (You tell him to turn the key in it.)\n\n\w8\0\s[13]\i[55]* (He does so, and soon enough it starts clicking a tune.\w6 He smiles.)\n\n\w8\0\s[6]Thank you %(username)!!"
 	"\0\s[0]\i[55]* (You gift him with some scented candles.)\0\s[4]\n\n\w8Aw,\w3 that's nice of you.\w6 I could put them around the treehouse."
-	"\0\s[0]\i[55]* (You hand him a small stack of paper to write on.)\w8\n\n\0\s[4]Huh...?\n\n\w8\i[55]* (He takes it in his hands.)\w8\n\n\s[4]This is really high quality for paper...\w6 I'll try not to use it up too fast."
+	"\0\s[0]\i[55]* (You hand him a small stack of paper to write on.)\w8\n\n\0\s[4]Huh...?\n\n\w8\i[55]* (He takes it in his hands.)\w8\n\n\s[4]This is really high quality for paper...\w6\0\s[0]\i[14] I'll try not to use it up too fast."
+	if hasviolin == "off"
+	{
+		hasviolin = "on"
+		"\0\s[0]\i[55]* (You hand him a violin.)\0\s[6]\n\n\w8Oh-\w3 Thank you,\w3 I'd play you something but I don't know how to use it.\n\n\w8\0\s[6]That was still very nice of you though!\n\n"
+	}
 	--
 	"%(ItemMOO)"
 }
@@ -2247,7 +2321,7 @@ Select.givhimdrank
 	"\s[4]\i[55]* (You give him some hot chocolate)\w8\n\n\s[32]Aww,\w4 Dream likes hot chocolate too!\w8\w8\s[41]"
 	"\s[4]\i[55]* (You hand him a soda.)\w8\n\n\s[4]What's this?\n\n\w8\i[55]* (You tell him it's a soda.\n\n\w8\s[8]Erm...\w6 I don't know what that is.\n\n\w8\s[0]\i[13]\i[55]* (He eyes you suspiciously a moment,\w3 before taking a sip.)\n\n\w8\s[4]Hmm\w2.\w2.\w2.\w8\w7\s[8] It's kind of weird,\w5 but okay I guess.\w8\w8\s[41]"
 	"\s[4]\i[55]* (You pour him a mug of hot tea.)\n\n\w8\s[7]Oh!\w8\s[0]\i[14] Thank you,\w6 what kind is it?\n\n\w8* (You tell him it's %(tea).)\n\n\w8* (He seems happy.)\w8\w8\s[41]"
-	//"* (You give him an iced tea.)\n\n\w8Oh... Something colder?\n\n\w8* (He takes a drink.)"
+	"\s[4]\i[55]* (You give him an iced tea.)\n\n\w8\i[20]Oh%(lps(5))\w8 Something colder?\n\n\w8\s[41]* (He takes a drink.)"
 	--
 	"%(ItemMOO)"
 }
@@ -2274,17 +2348,29 @@ Select.rude
 	--
 	"%(ItemMOO)"
 }
-/*
-Select.toybox
+
+Select.givetoy
 {
-	if hasviolin == "off"
-	{
-		hasviolin = "on"
-		"\0\s[0]\i[55]* (You hand him a violin.)\0\s[6]\n\n\w8Oh-\w3 Thank you,\w3 I'd play you something but I don't know how to use it.\n\n\w8\0\s[6]That was still very nice of you though!\n\n"
-	}
-	}
+	posact += 1
+	"\0\s[0]\i[55]* (You set down a small,\w2 plastic dinosoar toy.)\n\n\w8\s[4]\i[55]* (He picks it up and studies it.)\n\n\w8\i[23]It's got a weird texture%(lps(3))\w8 Does it do anything?\n\n\w8\i[55]* (You tell him it's just plastic. \w5Nothing special.)\n\n\w8\i[23]What's plastic?"
+	/*
+	//I'm not sure how to get this all to work ??? mmmm
+	"* (You bounce a rubber ball at him.)\w8\s[4]Ah!\w8\n\n\w8"
+	--
+	"* (Impressively,\w6 he manages to catch it."
+	"* (He doesn't catch it, and ends up running after it.)\n\n\w8"
+	--
+	"What's the point of this thing??\w8\n\n* (You tell him it's to bounce, and usually to try and catch when it goes back up.)\n\n\w8* (He tries this, \w5but he's going to need more practice%(lps(3)))"
+	*/
+	"%(ItemMOO)"
 }
-*/
+
+Select.ringbell
+{
+	"Summon Dream?\n\q[Yes,summondream] \q[No,itemsmenu]"
+	--
+	"%(ItemMOO)"
+}
 
 
 //    .-.                            ___  
@@ -2565,13 +2651,10 @@ Select.nomoresits
 }
 Select.testvariable
 {
-	/*
-	"\0\s[23]Ah-!\s[24]\w8\w8\w8\w8\w8\w8\w8\w8\n\n.\w8.\w8.\s[1512]\i[35]\w5\i[36]\i[37]\w8\w8\w8\w8\s[1517]\w8\w8\w5\s[1513]\w8\w8\w8\s[1514]Looks like you found me.\w4.\w4.\w5I'd say it's almost impressive.\w4 Especially if you didn't even know I was here, \w4the lengths you went through to torture him.\w8\n\nBut, here you are. \w5Doesn't much matter what you said to him before.\w8\s[1513] You get to talk to me now."
-	*/
-	"\n\n\q[Test again?,testvariable]/
-	\n\q[Test goo?,testgoo]/
-	\n\q[Put him back?,changeshell]/
-	\n\q[Close,CANCEL]"
+	changemode("intodreams")
+	"\![change,Shell,Dream]"
+	--
+	"\s[7]AAAAAA"
 }
 
 
@@ -2582,7 +2665,7 @@ Select.changeshell
 
 Select.testgoo
 {
-	nowmode = "Edgybitch"
+	changemode("Edgybitch")
 	dontmovestatsitshalloween = "on"
 	"\![enter,passivemode]\0\s[23]Ah-!\s[24]\w8\w8\w8\w8\w8\w8\w8\c\w8.\w8.\w8.\s[1512]\i[40]\w8\w8\w5\i[36]\w8\w8\w8\s[1517]\w8\w8\s[1513]\w8\w8\s[1514]\w8\w8Well, well.\w8\w8 "
 	--

@@ -18,6 +18,23 @@ surface.append500-590
 	collision0,15,16,111,48,Face
 	collision3,40,50,102,84,Book
 }
+//I don't know how this works but I'm doing to put tentacles here
+surface.append0-400
+{
+	animation500.interval,never
+	animation500.pattern0,interpolate,1304,0,0,0
+	animation500.pattern1,interpolate,1305,660,0,0
+	animation500.pattern2,interpolate,1304,500,0,0
+	animation500.pattern3,interpolate,1305,500,0,0
+	animation500.pattern4,start,500
+
+	//Pull In
+	animation501.interval,never
+	animation501.pattern0,interpolate,1305,0,0,0
+	animation501.pattern1,interpolate,1302,80,0,0
+	animation501.pattern2,interpolate,1303,80,0,0
+	animation501.pattern3,interpolate,0,80,0,0
+}
 
 
 //      ::::    ::: ::::::::::: ::::::::  :::    ::: ::::::::::: :::   :::
@@ -108,7 +125,6 @@ surface0
 	animation15.pattern0,stop,9
 	animation15.pattern1,overlay,1210,0,0,0
 
-
 	//Left Arms
 	//limp arm
 	animation8.interval,runonce
@@ -121,21 +137,11 @@ surface0
 	animation21.interval,never
 	animation21.pattern0,stop,8
 	animation21.pattern1,overlay,1226,0,0,0
-
-	//Tentacles
-	animation16.interval,never
-	animation16.pattern0,interpolate,1304,0,0,0
-	animation16.pattern1,interpolate,1305,660,0,0
-	animation16.pattern2,interpolate,1304,500,0,0
-	animation16.pattern3,interpolate,1305,500,0,0
-	animation16.pattern4,start,16
-
-	//Pull In
-	animation17.interval,never
-	animation17.pattern0,interpolate,1305,0,0,0
-	animation17.pattern1,interpolate,1302,80,0,0
-	animation17.pattern2,interpolate,1303,80,0,0
-	animation17.pattern3,interpolate,0,80,0,0
+	
+	//hold mug
+	animation23.interval,never
+	animation23.pattern0,stop,8
+	animation23.pattern1,overlay,1230,0,0,0
 
 	//testing annoyed eyes - 18, 19, 20
 	animation18.interval,never
@@ -427,7 +433,8 @@ surface7
 	animation2.pattern1,interpolate,1301,666,0,0
 	animation2.pattern2,interpolate,1300,500,0,0
 	animation2.pattern3,interpolate,1301,500,0,0
-	animation2.pattern4,start,2
+	animation2.pattern4,interpolate,1300,500,0,0
+	animation2.pattern5,start,2
 
 	//Pull In
 	animation3.interval,never
@@ -435,6 +442,14 @@ surface7
 	animation3.pattern1,interpolate,1302,80,0,0
 	animation3.pattern2,interpolate,1303,80,0,0
 	animation3.pattern3,interpolate,7,80,0,0
+
+	//Pull Out
+	animation4.interval,never
+	animation4.pattern0,interpolate,1303,0,0,0
+	animation4.pattern1,interpolate,1302,80,0,0
+	animation4.pattern2,interpolate,1301,80,0,0
+	animation4.pattern4,interpolate,-1,80,0,0
+	animation4.pattern5,start,2
 
 	//Blushies
 	animation100.interval,bind

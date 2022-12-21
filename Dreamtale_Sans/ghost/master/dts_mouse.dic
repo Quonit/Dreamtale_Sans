@@ -111,7 +111,7 @@ MouseMoveSakura
 								}
 								if nicensadlevel >= 50
 								{
-									"\s[32]\i[55]* (He seems really happy.)\e" //temp dialogue
+									"\s[32]\i[55]* (He seems really happy.)\e"
 									"\0\s[31]%(lps(5))I don't know if anyone touches me this gently other than anDream...\e"
 								}
 								if nicensadlevel >= 25
@@ -161,10 +161,9 @@ MouseMoveSakura
 							{
 								"\0\s[13]* (He's letting you pet him,\w4 but is still wary.)\e"
 								"\0\s[13]* (Looks like he's still not sure what to make of you.)"
-								//temp dialogue
-								//"Why are you petting me?"
-								//"* (His skull feels smooth.) Why are you doing that..."
-								//"* (You wonder if he fuzzes.)\n\n\w8Could you stop?"
+								"\s[0]\i[18]Why are you petting me?"
+								"\s[13]* (His skull feels smooth.)\w8\n\nWhy are you doing that..."
+								"\s[0]\i[18]* (You wonder if he fuzzes.)\n\n\w8Could you stop?"
 							}
 						}
 					}
@@ -209,8 +208,45 @@ MouseMoveSakura
 				}
 				elseif reference4 == "StarCrown" //Pet Dream
 				{
-					//* (Dream seems a bit confused.) Oh- I mean, if you want to I suppose you can...
-					//^^
+					if whorupanic == "on" //If they don't know you
+					{
+						"\s[18]Eep!\w8\n\n\w8\s[0]\i[3]Sorry...\w8 I just don't want anyone touching my crown."
+					}
+					elseif sadnicelevel <= 0
+					{
+						"\s[18]* (You brush against their crown,\w8 but they quickly cover it up.)"
+						"\s[18]* (They're being very protective of their crown...)"
+					}
+					else
+					{
+						"\s[18]* (You accidentally brush their crown.)\n\n\w8!!!\w8 Don't touch that!"
+						"\s[18]* (You mouse over their crown.)\n\n\w8\s[0]\i[1]Could you maybe avoid that?\w8 I don't want others getting too close to it."
+					}
+				}
+				elseif reference4 == "StarSkull" //Pet Dream
+				{
+					sparklepet += 1
+					if whorupanic == "on" //If they don't know you
+					{
+						niceact += 1
+						"\s[7]\i[0]* (Dream seems confused.)\w8\n\nOh- I mean,\w4\s[0]\i[3] if you want to I suppose you can."
+						"\s[0]\i[3]* (They quietly accept your petting.)"
+						"\s[0]\i[3]* (They let you keep petting,\w6 but are on-edge.)"
+					}
+					elseif sadnicelevel <= 0
+					{
+						"\s[18]* (Though you tried to be gentle,\w5 they avoid your touch regardless.)"
+						"\s[18]* (They're evading you...)"
+					}
+					else
+					{
+						niceact += 1
+						"%(surface0)* (You veeeeery gently pet Dream's head.)\n\n\w8\s[0]\i[5]Thank you."
+						"\s[0]\i[5]* (They seem comfortable.)"
+						"\s[0]\i[3]Hm..."
+						"\s[4]Do you also try to pet people at home?"
+						"\s[4]I know many of the furrier monsters like being pet and pet each other,\w5 but I'm a skeleton...\w8 I'm not sure what your motive is."
+					}
 				}
 			}
 		}
@@ -410,6 +446,21 @@ MouseDoubleClickSakura
 			}
 		}
 	}
+	elseif reference4 == "dremFace"
+	{
+		if starpunch == 0
+		{
+			"\i[55]* (Are you sure you want to hit them?)\n\n"
+			--
+			"\![*]\q[Yes,punchdreamy]\n/
+			\![*]\q[No!!,dontpunchdreamy]\e"
+		}
+		else
+		{
+			stonemode = "on"
+			"\s[18]* (You try hitting them again.)\n\n\w8\s[0]\i[1]\s[9]* (They're staring at you now%(lps(4))\w8 and%(lps(4))\w8\s[1] sitting down?\w8\s[1621]\e"
+		}
+	}
 	elseif reference4 == "Face" //Punching animations get worse as there are more.
 	{
 		if punchout >= 30
@@ -446,7 +497,7 @@ MouseDoubleClickSakura
  	}
 	elseif reference4 == "StarCrown" //Double click crown
 	{
-		"Ah- Sorry, I don't feel comfortable with you touching that... (ask more?)" //temp dialogue
+		"\s[7]Ah-!\w8\n\n\s[0]\i[1]Sorry,\w8 I don't feel comfortable with you touching that%(lps(2)) \n\![*]\q[Ask More?,dreamcrownwhy]"
 	}
 	else
  	{
@@ -497,6 +548,21 @@ Select.dontpunchnighty
 	"\i[55]* (Your relationship with %(nightname) has been preserved.)\e"
 	"\i[55]* (Are you a coward or did you misclick?)\e"
 	"\i[55]* (Peace has been restored.)\e"
+}
+
+Select.punchdreamy
+{
+	starpunch += 1
+	if sadnicelevel >= 25
+	{
+		sadact += 1
+		"\s[18]Eep!\n\n\w8* (They stare at you in disbelief.)\n\n\w8You tried to hit me..."
+	}
+	else
+	{
+		"\s[18]Eep!\n\n\w8* (They get more scared than they were before...)\n\n\w8* (You may not be able to recover from this.)"
+	}
+	//if ur relationship is over 25 it goes back to 0
 }
 
 Select.readfunnyblurbsleepmode

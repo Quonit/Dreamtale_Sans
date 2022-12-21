@@ -62,10 +62,22 @@ OnInstallBegin
 		"\0\s[1]Ah,\w4 somebody to replace me, I see?\w8\n\n\0\s[4]Oh don't worry, \w4I'm not mad about it.\w5 Here, I'll even install it for you.\e"
 		"\0\s[1]* (Installing file\w4.\w4.\w4.\w4)\e"
 	}
+	if nowmode == "intodreams"
+	{
+		//temp dialogue
+		"\0\s[4]I%(lps(2))\w5 Am not sure what to do with this.\n\n* (The file seems to install itself anyways.)"
+	}
 	else
 	{
-		"\0\s[4]A ghost...? \w8Sure, I'll install it.\e"
 		"%(surface0)* (Installing file\w4.\w4.\w4.\w4)\e"
+		if nicensadlevel <= -15
+		{
+			"\0\s[7]* (You bark at him to install the ghost.)\n\n\w8Okay!!\w8\w8\s[9]"
+		}
+		else
+		{
+			"\0\s[4]Files?\w8\n\n\i[55]* (He looks inside.)\n\n\w8\w8\s[7]Is there a person in here!?!?\w8\n\n\i[55]* (The new ghost is being installed.)\w8\w5\n\n\s[3]...\e"
+		}
 	}
 }
 OnInstallComplete
@@ -101,16 +113,22 @@ OnInstallComplete
 
 OnInstallFailure
 {
+	"%(surface0)\i[55]* (The installation has failed.)\n\n\w8"
+	--
 	if nowmode == "Edgybitch"
 	{
-		"\0\s[0]* (The installation has failed.)\n\n\w5"
-		"\0\s[0]How sad.\w5 It didn't work.\w8 Tch.\n\n\w5"
+		"\0\s[0]How sad.\w5 It didn't work.\w8 Tch."
+	}
+	elseif nowmode == "intodreams"
+	{
+		"\s[0]\i[55]* (Dream stares at you blankly.)\n\n\w8 * (The installation didn't work.)"
 	}
 	else
 	{
-		"%(surface0)\i[55]* (The installation has failed.)\n\n\w5"
-		"\0\s[8]I couldn't install it, sorry.\n\n\w5"
+		"\0\s[8]I couldn't install it, \w4sorry."
 	}
+	--
+	"\n\n\w5"
 	--
 	if reference0 == "unsupported"
 	{
@@ -232,14 +250,20 @@ OnBIFFFailure
 
 OnUpdateBegin
 {
-	if nowmode == "Edgybitch"
+	"%(surface0)\i[55]* (Starting the update process.)\w8\n\n"
+	--
+	if nowmode == "intodreams"
 	{
-		"%(surface0)\i[55]* (Starting the update process.)\e"
+		"\s[0]\i[1]uhm%(lps(3)) \w5You want me to update?\n\n\w8* (clearly they have no idea what that means, but the ghost updates itself anyways.)"
+	}
+	elseif nowmode == "Edgybitch"
+	{
+		//temp dialogue 4 dis & dreamy
+		"\s[8]Pshh,\w6 lets see if the update will actually work.\w8\w4\n\nDo you have any clue how many times Quo' has ruined this?\w8\n\n\s[7]I can't even say their full name because you'll click on it and interupt the update.\w8 \f[italic,1]That's\f[italic,0] how dumb this is.\w8\n\nThey should really fix it.\n\n\w8\s[8]* (You tell Mare to just start the update already.)"
 	}
 	else
 	{
-		"%(surface0)\i[55]* (Starting the update process.)\w8\e"
-		"\0\s[4]I wonder what kind of things could be in the update...\w8\e"
+		"\0\s[4]I wonder what kind of things could be in the update...\w8"
 	}
 	if reference0 == "artificial"
 	{
@@ -519,6 +543,13 @@ OnScreenSaverStart
 	{
 		"\0\s[5]What the hell is this???\e"
 	}
+	elseif nowmode == "intodreams"
+	{
+		if stonemode != "on"
+		{
+			"\s[17]\i[4]\i[3]...%(username)??\w8 Are you there?"
+		}
+	}
 	else
 	{
 		"\0\s[3]Um- \w8.\w8.\w8.\w8\n\n\0\s[7]what's going on??\e"
@@ -530,9 +561,16 @@ OnScreenSaverEnd
 	{
 		"\0\s[5]What the hell was that??\e"
 	}
+	elseif nowmode == "intodreams"
+	{
+		if stonemode != "on"
+		{
+			"\s[17]Eep!\w8\s[2]%(lps(3))okay,\w4 it's gone now."
+		}
+	}
 	else
 	{
-		"\0\s[8]Okay... good, it's gone.\e"
+		"\0\s[8]Okay\w3.\w3.\w3. \w8good, it's gone.\e"
 	}
 }
 OnApplicationBoot
@@ -568,6 +606,14 @@ OnShellScaling
 			"\0\s[1]You know\w3.\w3.\w3.\n\n\w8I wonder if I can change my size on my own.\e"
 			"\0\s[2]\i[5]\i[107]* (Biggest-sized goop.)\e"
 		}
+		elseif nowmode == "intodreams"
+		{
+			if stonemode != "on"
+			{
+				"\s[4]...This place is a little less intimidating when it's not toweringly high."
+				"* (Dream big.)"
+			}
+		}
 		else
 		{
 			"\0\s[3]Dunno why you'd want me to take up so much of your screen\w3.\w3.\w3. \w4But okay.\e"
@@ -582,6 +628,18 @@ OnShellScaling
 		{
 			"\0\s[1]Normal-sized. \w8\s[8]How boring.\e"
 		}
+		if nowmode == "intodreams"
+		{
+			if stonemode != "on"
+			{
+				if username == "Khitty"
+				{
+					"\s[17]Oh!\w8 \s[0]Bugtesting again?\e"
+				}
+				"\s[17]Eep!\w8\s[0]\i[3]\n\n%(lps(3))The size changes are sudden%(lps(3))\w8\s[0]\i[1] They frighten me :<"
+				"%(surface0)\i[55]* (They seem to have noticed.)\e"
+			}
+		}
 		else
 		{
 			"%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
@@ -595,6 +653,15 @@ OnShellScaling
 		{
 			"\0\s[2]\i[5]Trying to get me out of the way so you don't have to think about what you did??\e"
 			"\0\s[8]Either you're trying to get me out of the way or you just have a really shitty screen.\e"
+		}
+		elseif nowmode == "intodreams"
+		{
+			if stonemode != "on"
+			{
+				"\s[17]* (They flinch in surprise.)\n\n\w8Did I shrink??"
+				//if u treat them poorly they worry if this is permanent and ask to be changed back lol
+				"\s[17]* (One small Dream.)"
+			}
 		}
 		else
 		{

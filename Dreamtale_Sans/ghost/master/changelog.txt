@@ -1,6 +1,19 @@
 Changelog for Dreamtale Sans!
 --------------------------------------------------------------------------------------------------------------------
 
+--- 21 December 2022 ---
+Additions:
+-Dreamtale sans??? For real??? Boot ghost on Dec 21st to see!
+-Updated commu.dic to include ReplyToGhost for other modes.
+-Added more ect.dic flavor text.
+-Some new random dialogue
+
+Bugfixes:
+-Goopmare answering some questions as Nighty
+-Typo fixes as always
+-When you first boot him there were too many line breaks
+
+
 --- 30th October 2022 ---
 Additions:
 -Wormspawn helps with the ghost now!!

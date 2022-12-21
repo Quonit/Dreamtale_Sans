@@ -2,16 +2,16 @@ Charset,UTF-8
 __system_settings_version__,2
 char0.bind.savearray,100=0 48=0
 Char1.balloon.isleft,1
-balloon0.offset,92.112
-scriptbox.left,1247
-Char0.centery,721
+balloon0.offset,189.-140
+scriptbox.left,1339
+Char0.centery,612
 balloon1.offset,176.190
 Char0.balloon.isleft,1
-Char.VirtualDesktop,5d150ed2-b45f-4bfe-8552-a2448edca828
-Char0.center,1681
-scriptbox.top,341
-Char1.centery,503
-Char1.center,1041
+Char.VirtualDesktop,1bbdb7d2-9b8a-4436-936b-e0b6126d62ae
+Char0.center,1680
+scriptbox.top,784
+Char1.centery,621
+Char1.center,1091
 char1.bind.savearray,100=0
 seriko.scaling.percent.x,150
 seriko.scaling.percent.y,150

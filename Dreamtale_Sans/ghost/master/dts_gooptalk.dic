@@ -351,7 +351,7 @@ Select.nitpickthegoop
     "\0\s[0]* (You tell him he needs a bath.)\n\n\w8If you thought that,\w3 then maybe you should never have gotten me dirty in the first place."
 	"\0\s[0]* (You ask him why only sometimes his swears are censored.)\n\n\w8\s[8]Piss me off enough and maybe you'll learn the answer."
     --
-    "\n\n\![*]\q[Do another ACTtion...?,Ongoopact]\n/
+    "\n\n\![*]\q[Do another ACTion...?,Ongoopact]\n/
     \![*]\q[Again,nitpickthegoop]\n/
     \![*]\q[Nevermind,CANCEL]\e"
 }
@@ -487,7 +487,7 @@ Select.goopfood
     "\0\s[8]How about no?"
     "\0\s[0]* (You offer him some steak.)\n\n\w8\s[1]\i[102]I told you,\w3 I don't need to eat.\n\n\w8* (Picky...)"
     "\0\s[0]* (You hand him a piece of candy.)n\n\w8\0\s[8]No thanks,\w4 I'd never eat candy I can't verify was stolen from a kid or not."
-	"\0\s[0]* (You offer him an apple.)\n\n\s[8]\w8...\s[2]\[2]\i[5]I'll be sure to put razor blades in it.\w8"
+	"\0\s[0]* (You offer him an apple.)\n\n\s[8]\w8...\s[2]\i[2]\i[5]I'll be sure to put razor blades in it.\w8"
     --
     "\n\n\![*]\q[Give something else??,goopitemsmenu]\n/
     \![*]\q[Again...?,goopfood]\n/

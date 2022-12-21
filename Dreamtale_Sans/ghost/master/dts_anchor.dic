@@ -3,9 +3,11 @@ OnTranslate
 	_talk = reference0
 	_talk = REPLACE(_talk, "anDream", "\_a[Dream]Dream\_a")
 	_talk = REPLACE(_talk, "Mom's tree", "\_a[Mom's tree]Mom's tree\_a")
-	_talk = REPLACE(_talk, "anTree", "\_a[Mom's tree]the tree\_a")
+	_talk = REPLACE(_talk, "anTree", "\_a[Mom's tree]tree\_a")
 	_talk = REPLACE(_talk, "Quonit", "\_a[Quonit]Quonit\_a")
 	_talk = REPLACE(_talk, "anNight", "\_a[Nightmare]Nightmare\_a")
+	_talk = REPLACE(_talk, "anseal", "\_a[seal]seal\_a")
+	_talk = REPLACE(_talk, "Teasel", "\_a[Teasel]Teasel\_a")
 	
 	if reference1 == "" && reference2 == ""
 	{
@@ -52,13 +54,13 @@ OnAnchorSelect
 					}
 					else
 					{
-						if privacyrespecter == "on"
-						{
-							"\0\s[12]They're somebody.\e"
-						}
-						elseif nowmode == "Edgybitch"
+						if nowmode == "Edgybitch"
 						{
 							"\_b[Extras\hessodreamy.png,125,10]\_l[0,50]\s[7]Hah,\w4 that sap?\n\n\w8''Oh boo hoo, \w3I'm too stupid to think that people are being mean to my brother dearest, \w3\s[8]whom I love so much and definitely care enough to notice things like\s[2]\i[2]\i[5]\i[103] cuts on his arm!''\n\n\w8\0\s[7]Hah, \w5\s[0]bet they wouldn't be happy if they saw me.\e"
+						}
+						elseif privacyrespecter == "on"
+						{
+							"\0\s[12]They're somebody.\e"
 						}
 						elseif blushiemode == "on"
 						{
@@ -90,7 +92,11 @@ OnAnchorSelect
 			{
 				lasttalked = 0
 				
-				if sleepingmode == "on"
+				if nowmode == "intodreams"
+				{
+					"\0\s[0]\i[3]\i[8]\_b[Extras\aliteralfoxmotheroftwo.png,125,10]The Creator%(lps(3))"
+				}
+				elseif sleepingmode == "on"
 				{
 					"\0\s[5]\_b[Extras\aliteralfoxmotheroftwo.png,125,10]\_l[0,60]zzz\w4.\w4.\w4.\w8\w8 Fox person\w4.\w4.\w4.\w8\w8 thing\w4.\w4.\w4\e"
 				}
@@ -111,7 +117,19 @@ OnAnchorSelect
 			{
 				lasttalked = 0
 				
-				if sleepingmode == "on"
+				if nowmode == "intodreams"
+				{
+					if sadnicelevel >= 25
+					{
+						"\s[4]You wouldn't actually know anything about the tree,\w5 would you?"
+						//temp dialogue. not sure where to take this one
+					}
+					else
+					{
+						"\s[0]\i[1]The tree is fine.\w8 One gold apple fell and Night helped me bury it\w8\n\n ...That is all.\e"
+					}
+				}
+				elseif sleepingmode == "on"
 				{
 					"\0\s[5]\_b[Extras\mydeadmom.png,125,10]\_l[0,60]zzz\w4.\w4.\w4.\w8\w8 Mommy\w4.\w4.\.w4?\w8\w8\w8 Please don't hate me\w4.\w4.\w4.\w8\w8 I din't do anything wrong\w4.\w4.\w4.\e"
 				}
@@ -137,7 +155,20 @@ OnAnchorSelect
 			when "Nightmare"
 			{
 				lasttalked = 0
-				"\0\s[2002]My brother\w2.\w2.\w2. \w8\i[49]I don't know where's he's gone to\w2.\w2.\w2.\w8\n\n\s[2007]I hope he's alright.\e"
+				"\0\s[0]\i[1]My brother\w2.\w2.\w2. \w8\s[0]\i[3]I don't know where's he's gone to\w2.\w2.\w2.\w8\n\n\s[2]I hope he's alright.\e"
+			}
+			when "seal"
+			{
+				lasttalked = 0
+				"\0\s[0]\i[10]The seal?\w8 \s[4]Well%(lps(3))\w8 Basically the village has a magic spell around it, so anything on the outside can't go in.\w8\w5\n\n\s[2]It was created when the war was still going on,\w6 so I guess it makes sense why they put it there.\w8\n\n\s[4]Sometimes items flow in from outside the village though-\w8 \s[6]Once a camera came in and me and Dream took pictures of ourselves with it!\e"
+			}
+			when "Teasel"
+			{
+				lasttalked = 0
+				if nowmode == "intodreams"
+				{
+					"\0\s[0]He's...\w8\n\n* (They struggle for words.)\n\n\w8\0\s[0]\i[7]\i[8]He thinks he's my best friend.\w8\n\![*]\q[Ask to elaborate,dreamgrrteasel]\n\![*]\q[Let it be,leadstonowhere]\e"
+				}
 			}
 		}
 	}

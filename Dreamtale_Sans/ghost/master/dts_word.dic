@@ -144,6 +144,11 @@ nicensadlevel
 	posact - negact
 }
 
+sadnicelevel
+{
+	niceact - sadact
+}
+
 VillageLevel //Negative variable that also catches if you've hit him or not. Used so that you can't unlock goopmare without hurting him
 {
 	//punchout - nicensadlevel
@@ -210,9 +215,45 @@ funmenu //Put at the end of functions
 }
 
 
+changemode
+{
+	//take the new mode as an argument
+	//if the new mode is the same as the current mode, change nothing
+	//if the new mode is different from the current mode, save the current mode as oldmode; then change to the new mode
+	
+	LOGGING("------------------------")
+	LOGGING(_argv[0])
+	LOGGING("------------------------")
+	
+	_var = _argv[0]
+	//saving the argument as a variable
+	
+	_possiblemodes = ("purpleman","intodreams","Edgybitch")
+	
+	LOGGING(ASEARCH(_var,_possiblemodes))
+	
+	if ASEARCH(_var,_possiblemodes) != -1
+	{
+		if nowmode != _var
+		//if current mode is not the same as the new mode
+		{
+			oldmode = nowmode
+			nowmode = _var
+		}
+	}
+}
+
+
 pickup //why is this here instead of mouse.dic
 {	
-	if nowmode == "Edgybitch"
+	if nowmode == "intodreams"
+	{
+		if stonemode != "on"
+		{
+			"\0\s[38]"
+		}
+	}
+	elseif nowmode == "Edgybitch"
 	{
 		"\0\s[12]"
 	}
@@ -250,7 +291,22 @@ pickup //why is this here instead of mouse.dic
 
 surface0
 {
-	if nowmode == "Edgybitch"
+	if nowmode == "intodreams"
+	{
+		if stonemode == "on"
+		{
+			"\0\s[1621]"
+		}
+		elseif sadnicelevel >= 25
+		{
+			"\0\s[0]"
+		}
+		else
+		{
+			"\0\s[0]\i[1]"
+		}
+	}
+	elseif nowmode == "Edgybitch"
 	{
 		"\0\s[0]"
 	}
