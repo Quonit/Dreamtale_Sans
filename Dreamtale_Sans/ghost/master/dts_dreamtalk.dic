@@ -284,9 +284,9 @@ DreamMenu
 		"\![*]\q[ACT,Ondreamyact] or ask some \![*]\q[QUESTIONS,Oninterrogatedream]\n/
 		\![*]\q[Use some items,Ondreambox]\n/
 		\![*]\q[Stats,configmenu]\n/
-		\![*]\q[Use some functions,dosomething]\n\n"
+		\![*]\q[Use some functions,dosomething]\n\e"
 		--
-		"\![*]\q[Testvariable,dreamtestvariable]\n\n"
+		//"\![*]\q[Testvariable,dreamtestvariable]\n\n"
 		
 	}
 	--
