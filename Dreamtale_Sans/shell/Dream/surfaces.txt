@@ -374,7 +374,7 @@ surface17
 //Dont hit me
 surface18
 {
-	element1,overlay,surface1018.png,0,0
+	element1,overlay,surface18.png,0,0
 	
 	//Cape top
 	animation1000.interval,bind

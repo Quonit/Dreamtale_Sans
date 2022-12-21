@@ -399,7 +399,7 @@ DreamMenu
 			"\s[0]\i[5]Cute!"
 			"\s[3]\i[4]\i[3]I wonder if Nightmare would enjoy it..."
 			--
-			"\![*]\q[Again,dreamlikesstories]\n%(actmeow)"
+			"\n\![*]\q[Again,dreamlikesstories]%(actmeow)"
 		}
 		Select.scarethem //Tease
 		{
@@ -504,14 +504,15 @@ DreamMenu
 	
 	Ondreambox //Items
 	{
-		"* (GIFTing in progress.)"
+		"* (GIFTing in progress.)\n\n"
 		--
-		"\![*]\q[Food,Ondreamyact]\n/
-		\![*]\q[Gift,Ondreambox]\n/
+		"\![*]\q[Food,Ongivemunchiestodream]\n/
+		\![*]\q[Gift,givedreamgift]\n/
 		\![*]\q[Plushie,lilpushietoy]\e"
 		//\![*]\q[Outfit,uhgfinallyoutfit]\e"
 		//Food
-			Select.Ondreamyact
+	}
+			Ongivemunchiestodream
 			{
 				if sadnicelevel >= 25
 				{
@@ -557,7 +558,6 @@ DreamMenu
 			}
 		//Outfit
 			//Only use it if they like you. Discuss how they and Nightmare (Nightmare!) use costumes for ceremonies a lot.
-	}
 		Select.uhgfinallyoutfit
 		{
 			"I don't really do that..."
@@ -571,13 +571,13 @@ Select.dreamtestvariable
 //Word.dic
 itemmeow
 {
-	"\![*]\q[Choose a different item,Ondreambox]\n/
+	"\n\n\![*]\q[Choose a different item,Ondreambox]\n/
 	\![*]\q[Back to menu,DreamMenu]\n/
 	\![*]\q[I'm done,CANCEL]\e"
 }
 actmeow
 {
-	"\![*]\q[Say something else,Ondreamyact]\n/
+	"\n\n\![*]\q[Say something else,Ondreamyact]\n/
 	\![*]\q[Back to menu,DreamMenu]\n/
 	\![*]\q[I'm done,CANCEL]\e"
 }
