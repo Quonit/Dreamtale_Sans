@@ -47,6 +47,9 @@ Onnotonfirstboot
 OnDreamBoot
 //{
 {
+	dayslot = GetDaySlot
+	timeslot = GetTimeSlot
+	
 	if stonemode == "on"
 	{
 		"\s[1621](* Looks like they're still like that.)"
@@ -446,12 +449,13 @@ DreamMenu
 				--
 				repeatDream
 			}
-			Select.dreamlook1
+			Select.dreamlook1s
 			{
 				"\s[0]\i[1]It's my brother, you see%(lps(2))\w8\n\nI was just looking for him because we had something scheduled,\w5 and I somehow ended up here.\n\n\![*]\q[Ask what they had scheduled,dreamlook2]"
 			}
 			Select.dreamlook2
 			{
+				niceact += 1
 				"\s[4]Well it's me and my brother's birthday-\w8\i[11] We're twins,\w4 so we share one.\w8\n\n\s[3]\i[4]Usually when he's missing he's just out in the forest-\w5 or%(lps(2))\w8 That is how it used to be.\w8\n\nSome days I looked through and%(lps(2))\w8\s[0]\i[3]\n\nOh, I'm sorry. \w8I'm talking too much,\w4 aren't I?"
 				--
 				repeatDream
