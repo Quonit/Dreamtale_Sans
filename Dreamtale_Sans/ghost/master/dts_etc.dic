@@ -314,11 +314,11 @@ OnUpdate.OnDownloadBegin
 {
 	if "aitalk" _in_ reference0
 	{
-		"%(surface0)\i[55]* (You get the feeling he might have more things to say.)\e"
+		"\_q\i[55]* (You get the feeling he might have more things to say.)\e"
 	}
 	else //for files not specified above
 	{
-	"\0\s[1]\i[55]* (...)\e"
+	"\0\s[1]\i[55]\_q* (...)\e"
 	}
 }
 

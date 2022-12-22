@@ -277,14 +277,15 @@ DreamMenu
 		{
 			"\![*]\q[Repeat,OnLastTalk]\n\n"
 			"\![*]\q[Ask them to repeat themself,OnLastTalk]\n\n"
-			"\![*]\q[Ask them to repeat what he last said,OnLastTalk]\n\n"
-			"\![*]\q[Ask them to say what he just said,OnLastTalk]\n\n"
+			"\![*]\q[Ask them to repeat what they last said,OnLastTalk]\n\n"
+			"\![*]\q[Ask them to say what they just said,OnLastTalk]\n\n"
 		}
 		--
 		"\![*]\q[ACT,Ondreamyact] or ask some \![*]\q[QUESTIONS,Oninterrogatedream]\n/
 		\![*]\q[Use some items,Ondreambox]\n/
 		\![*]\q[Stats,configmenu]\n/
-		\![*]\q[Use some functions,dosomething]\n\e"
+		\![*]\q[Use some functions,dosomething]\n/
+		\![*]\q[Exit,CANCEL]\e"
 		--
 		//"\![*]\q[Testvariable,dreamtestvariable]\n\n"
 		
@@ -553,6 +554,7 @@ DreamMenu
 				}
 				else
 				{
+					"\s[55]* (You've already given them a plushie,\w5 and Quonit was too lazy to write more for this.)"
 				}
 			//You hand them a plush of %(nightname).) Ah- That's... This is my brother? (they look very concerned.) You know him... This is... * (They trail off and just look around more, like at the edges of the screen.)
 			}

@@ -276,11 +276,13 @@ TalkConfig
 	{
 		"* (Ring the bell?)\n\q[Yes,summondream] \q[No,CANCEL]\n\n"
 	}
+	--
 	if nowmode == "intodreams" && dayslot != "12month 21day"
 	{
 		"* (Swap back to %(nightname)?)\n\q[Yes,byedream] \q[No,CANCEL]\n\n"
 	}
-	elseif nowmode == "Edgybitch" && dayslot != "10month 31day"
+	--
+	if nowmode == "Edgybitch" && dayslot != "10month 31day"
 	{
 		"* (Exit out of Goopmode?)\n\q[Yes,removegoo] \q[No,CANCEL]\n\n"
 	}
@@ -390,7 +392,8 @@ Select.byedream
 {
 	if stonemode == "on"
 	{
-		"\s[1621]* (They say nothing as they leave.\s[-1]\w8\w8"
+		ringringuthere = "on"
+		"\s[1621]* (They say nothing as they leave.)\s[-1]\w8\w8"
 	}
 	else
 	{
@@ -404,9 +407,9 @@ Select.byedream
 			"* (You decide to send Dream home.)\n\n\w8Oh,\w8 goodbye.\w8\s[-1]"
 		}
 	}
-	
+	--
 	nowmode = oldmode
-	
+	--
 	if nowmode == "purpleman"
 	{
 		"\![change,Shell,Dreamtale Sans]%(OnBoot)"
@@ -930,6 +933,10 @@ Select.dosomething
 		"\0\s[0]\i[102]Hell is it you want?\n\n"
 		"\0\s[0]\i[102]What do you want?\n\n"
 		"\0\s[8]* (He grumbles.)\n\n"
+	}
+	elseif nowmode == "intodreams"
+	{
+		"%(surface0)\i[55]* (You look into your functions...)\n\n"
 	}
 	elseif VillageLevel >= 150
 	{

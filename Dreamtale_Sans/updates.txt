@@ -13,10 +13,10 @@ file,ghost/master/dts_aitalk.dic953690b1241fa241dc36052cf5ca678bsize=45689dat
 file,ghost/master/dts_anchor.dicae4b8a35f43c2d775ce4b651350dcc4asize=7861date=2022-12-20T00:55:27
 file,ghost/master/dts_bootend.dic69aaa1236a83cd7a59328cc0bf55fd9esize=24413date=2022-12-21T00:29:45
 file,ghost/master/dts_commu.dic6b4c6a70045a20395a5239f14e72b214size=686date=2022-12-20T21:36:13
-file,ghost/master/dts_dreamtalk.dica7f64c5354894f754b6c1b00008d6c30size=20477date=2022-12-21T13:09:15
-file,ghost/master/dts_etc.dicf0d7d8494ab77d14d07db93c44a18782size=18123date=2022-12-21T02:20:28
+file,ghost/master/dts_dreamtalk.dicc65108eaf620bf8ed45f2200e638fa8bsize=20612date=2022-12-22T16:50:04
+file,ghost/master/dts_etc.dic7e989ba70ef4d326f5b78e6aa415185asize=18118date=2022-12-22T16:22:42
 file,ghost/master/dts_gooptalk.dic9a1ba144d35c2795bb9e6b36cd0633dcsize=23279date=2022-12-11T18:55:00
-file,ghost/master/dts_menu.dic464a64d3bc8ad648557298d401a398absize=94388date=2022-12-21T02:09:46
+file,ghost/master/dts_menu.dic3a3f524c0cb7470c1e768c124b5aba5asize=94527date=2022-12-21T17:34:10
 file,ghost/master/dts_mouse.dic67f1c7ed994f48b4a485490d85a65246size=18146date=2022-12-21T00:20:53
 file,ghost/master/dts_nameteach.dic47949919551e72d9ff42ae6eec23f1b9size=3160date=2022-10-27T17:48:11
 file,ghost/master/dts_word.dic96e4017a77aa4e8926654485385b3d18size=17274date=2022-12-20T21:36:13
@@ -328,7 +328,7 @@ file,shell/Dream/surface3.png3c7c913256547d55212a6fa09c802a67size=27634date=2
 file,shell/Dream/surface38.png252e249a31a9f7dd1cc5ceddfcb05e64size=37960date=2022-12-09T03:38:06
 file,shell/Dream/surface4.png4026416e61167bf99123563b28b4b92dsize=28317date=2022-12-09T01:24:41
 file,shell/Dream/surface7.png604b5ad461f87cdd7916a54d05f0e295size=34237date=2022-12-09T02:23:38
-file,shell/Dream/surfaces.txt72bbcb86ec1b1c5691b57cc4e9e3d363size=10408date=2022-12-21T02:37:00
+file,shell/Dream/surfaces.txt112b3e13488a7f8dbf3bd215e708a807size=10434date=2022-12-21T17:34:10
 file,shell/Dream/surfacetable.txtec725ae39245a2ad676127dc16939a28size=296date=2022-12-19T17:38:34
 file,shell/Dream/thumbnail.pngb3abbdf9ba558ecb11fd65da059fa0d0size=184823date=2019-07-13T16:53:28
 file,shell/Nightmare/descript.txtdab08a4b7ed2fde6a542b8e385b5efdasize=2091date=2022-09-19T21:30:21

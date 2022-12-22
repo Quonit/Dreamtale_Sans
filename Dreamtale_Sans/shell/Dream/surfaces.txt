@@ -18,7 +18,7 @@ surface0
 	
 	//Eyes
 	//Calm
-	animation0.interval,always
+	animation0.interval,runonce
 	animation0.pattern0,overlay,1200,0,0,0
 	//Scared
 	animation1.interval,never
@@ -51,7 +51,7 @@ surface0
 	
 	//Arms
 	//Polite Behind Back
-	animation2.interval,always
+	animation2.interval,runonce
 	animation2.pattern0,interpolate,1300,0,0,0
 	//clasped
 	animation8.interval,never
@@ -113,7 +113,7 @@ surface3
 	element0,overlay,surface3.png,0,0
 	
 	//Eyes
-	animation0.interval,always
+	animation0.interval,runonce
 	animation0.pattern0,overlay,1203,0,0,0
 	//Spaced out
 	animation1.interval,never
@@ -160,7 +160,7 @@ surface4
 	element0,overlay,surface4.png,0,0
 	
 	//Eyes
-	animation0.interval,always
+	animation0.interval,runonce
 	animation0.pattern0,overlay,1202,0,0,0
 	//Suspicious
 	animation1.interval,never
@@ -180,7 +180,7 @@ surface4
 	animation11.pattern1,overlay,1216,0,0,0
 	
 	//Arms
-	animation2000.interval,always
+	animation2000.interval,runonce
 	animation2000.pattern0,overlay,1302,0,0,0
 	//behind back
 	animation3.interval,never
@@ -219,7 +219,7 @@ surface4
 	animation1000.pattern0,overlay,1002,0,0,0
 	
 	//Sleeve
-	animation2.interval,always
+	animation2.interval,runonce
 	animation2.pattern0,overlay,1301,0,0,0
 
 	//Cape bottom
@@ -252,7 +252,7 @@ surface7
 	collisionex1,StarFace,polygon,142,88,187,92,187,123,158,126,147,122,143,97
 	collisionex2,StarSkull,polygon,143,83,157,64,176,60,197,69,209,88,179,88
 	
-	element1,overlay,surface7.png,0,0
+	element0,overlay,surface7.png,0,0
 	
 	//Cape top
 	animation1000.interval,bind
@@ -270,13 +270,13 @@ surface7
 surface8
 {
 	collision0,151,90,216,118,StarCrown
-	element1,overlay,surface1008.png,0,0
+	element0,overlay,surface1008.png,0,0
 }
 
 //sad lookdown
 surface9
 {
-	element1,overlay,surface1009.png,0,0
+	element0,overlay,surface1009.png,0,0
 }
 
 //Cross arms
@@ -289,7 +289,7 @@ surface110
 //Unused
 surface11
 {
-	element1,overlay,surface1011.png,0,0
+	element0,overlay,surface1011.png,0,0
 }
 
 //Cross arms
@@ -301,13 +301,13 @@ surface12
 //Encounter
 surface13
 {
-	element1,overlay,surface1013.png,200,0
+	element0,overlay,surface1013.png,200,0
 }
 
 //hahahaha could you believe
 surface14
 {
-	element1,overlay,surface14.png,0,0
+	element0,overlay,surface14.png,0,0
 	
 	//Cape top
 	animation1000.interval,bind
@@ -317,29 +317,29 @@ surface14
 	animation1001.pattern0,interpolate,1007,0,0,0
 	
 	//Eyes
-	animation0.interval,always
+	animation0.interval,runonce
 	animation0.pattern0,overlay,1218,0,0,0
 	//Arms
-	animation1.interval,always
+	animation1.interval,runonce
 	animation1.pattern0,overlay,1316,0,0,0
 }
 
 //hum
 surface15
 {
-	element1,overlay,surface1015.png,0,0
+	element0,overlay,surface1015.png,0,0
 }
 
 //protect the crown
 surface16
 {
-	element1,overlay,surface1016.png,0,0
+	element0,overlay,surface1016.png,0,0
 }
 
 //Up Look
 surface17
 {
-	element1,overlay,surface17.png,0,0
+	element0,overlay,surface17.png,0,0
 	//Cape top
 	animation1000.interval,bind
 	animation1000.pattern0,overlay,1016,0,0,0
@@ -348,7 +348,7 @@ surface17
 	animation1001.pattern0,interpolate,1017,0,0,0
 	//HEADS
 	//Side
-	animation2.interval,always
+	animation2.interval,runonce
 	animation2.pattern0,interpolate,1313,0,0,0
 	//Forward
 	animation4.interval,never
@@ -356,7 +356,7 @@ surface17
 	animation4.pattern0,interpolate,1314,0,0,0
 	
 	//Side
-	animation0.interval,always
+	animation0.interval,runonce
 	animation0.pattern0,overlay,1209,0,0,0
 	//Forward
 	animation3.interval,never
@@ -364,7 +364,7 @@ surface17
 	animation3.pattern0,interpolate,1210,0,0,0
 	
 	//Arms
-	animation1.interval,always
+	animation1.interval,runonce
 	animation1.pattern0,interpolate,1312,0,0,0
 	//Blanket Burry
 	animation2000.interval,never
@@ -374,7 +374,7 @@ surface17
 //Dont hit me
 surface18
 {
-	element1,overlay,surface18.png,0,0
+	element0,overlay,surface18.png,0,0
 	
 	//Cape top
 	animation1000.interval,bind
@@ -387,7 +387,7 @@ surface18
 //tired
 surface38
 {
-	element1,overlay,surface38.png,0,0
+	element0,overlay,surface38.png,0,0
 	
 	//Cape top
 	animation1000.interval,bind
@@ -398,11 +398,11 @@ surface38
 
 }
 
-//tired
-surface19
-{
-	element1,overlay,surface2009.png,0,0
-}
+// //tired
+// surface19
+// {
+	// element0,overlay,surface2009.png,0,0
+// }
 
 // 88888888b            dP
 // 88                   88
