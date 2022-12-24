@@ -254,7 +254,7 @@ DreamTalk : nonoverlap_pool
 // 8  `888'   888   888    "     8     `88b.8   888       8  
 // 8    Y     888   888       o  8       `888   `88.    .8'  
 //o8o        o888o o888ooooood8 o8o        `8     `YbodP'    
-DreamMenu
+OnDreamMenu
 {
 	wd = GetWeekDay
 	ap = GetAP
@@ -296,295 +296,325 @@ DreamMenu
 	--
 	"\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 }
-	Ondreamyact //Act
+
+
+Ondreamyact //Act
+{
+	"* (ACTing in progress.)\n"
+	--
+	"\_q\![*]\q[Check,isitrealdream]\n"
+	--
+	if starpunch >= 1
 	{
-		"* (ACTing in progress.)\n"
-		--
-		"\_q\![*]\q[Check,isitrealdream]\n"
-		--
-		if starpunch >= 1
-		{
-			"\![*]\q[Apologize,dreamforgiveness] "
-		}
-		--
-		if sadnicelevel >= 69
-		{
-			//"\![*]\q[Flirt,dreamsacebutyoucantry] " uncomment for now bc i have other things to do!
-		}
-		--
-		"\![*]\q[Reassure,dreamhasanxiety]\n/
-		\![*]\q[Compliment,bnice2them]\n/
-		\![*]\q[Story,dreamlikesstories]\n/
-		\![*]\q[Tease,scarethem]\n/
-		//\![*]\q[Mock,nowurjustmean2dream]\n/ same with flirt, am busy :sob:
-		\![*]\q[Back to menu,DreamMenu]\n/
-		\![*]\q[Nevermind,CANCEL]\e"
+		"\![*]\q[Apologize,dreamforgiveness] "
 	}
-		Select.isitrealdream //CHECK
-		{
-			"* (The REAL Dreamtale Sans.)"
-			"* (They, not he.)"
-			"* (Stealing all the attention.)"
-			"* (Still not even a Sans?)"
-			"* (Knows more than they're letting on.)"
-			"* (Their outfit matches %(nightname)'s.)"
-			if whorupanic == "on"
-			{
-				"\s[0]\i[1]* (More suspicious of you than %(nightname).)"
-			}
-			--
-			"\n\n\![*]\q[Choose another ACTion,Ondreamyact]\n/
-			\![*]\q[Again,isitrealdream]\n/
-			\![*]\q[Nevermind,CANCEL]\e"
-		}
-		Select.dreamforgiveness //Apologize
-		{
-			if starpunch == 1
-			{
-			"\s[0]\i[9]\i[1]...\n\n\w8* (It doesn't look like they're going to listen.)\w8\n\n[*]\q[* (Try again?),begforforgiveness]\n\e"
-			}
-			else
-			{
-			"\s[0]\i[9]\i[1]...\n\n\w8* (It doesn't look like they're going to listen.)\w8\n\n* (They're aparently a lot less forgiving than %(nightname).)\e"
-			}
-			//If you hit them once I think they'd be pretty spooked and quiet down fast, so if you apologize then you might need to do it more than once even if you only hit them one time.
-		}
-		Select.dreamsacebutyoucantry //Flirt
-		{
-			//Yeah this'll go well
-			//o((⊙﹏⊙;))o.
-			--
-			"\n\n\![*]\q[Choose another ACTion,Ondreamyact]\n/
-			\![*]\q[Again,dreamsacebutyoucantry]\n/
-			\![*]\q[Nevermind,CANCEL]\e"
-		}
-		Select.dreamhasanxiety //Reassure
-		{
-			niceact += 1
-			if sadnicelevel >= 25
-			{
-				"\s[0]\i[3]* (You hum Dream a soft lullaby.)\n\n\w8\s[0]\i[5]* (They seem to enjoy it.)"
-			}
-			else
-			{
-				"\s[0]\i[1]* (You tell Dream you're not going to hurt them.)\n\n\w8\s[0]\i[3]* (They still seem suspicious, \w4but relax a little.)"
-				"\s[0]\i[1]* (You tell Dream NONBINARY IDENTITIES ARE VALID!!!)\n\n\w8\s[4]%(lps(3))I am a little confused why that needs to be said,\w6 but alright.\n\![*]\q[Ask to elaborate,nbheadcanonsomg]"
-				"\s[0]\i[1]You tell Dream everything is going to be okay.)\n\n\w8\s[0]\i[3]%(lps(3))...I appreciate the gesture."
-			}
-			--
-			"\n\n\![*]\q[Choose another ACTion,Ondreamyact]\n/
-			\![*]\q[Again,dreamhasanxiety]\n/
-			\![*]\q[Nevermind,CANCEL]\e"
-		}
-		Select.bnice2them //Compliment
-		{
-			niceact += 1
-			--
-			if sadnicelevel >= 25
-			{
-				"* (You tell Dream you admire how they always try their best.)\n\n\w8\s[0]\i[5]* (They seem thankful.)"
-			}
-			else
-			{
-			"* (You tell Dream they're cute as a button.)\n\n\w8\s[0]\i[5]Thanks!\n\n\w8* (...You can't tell if they mean it.)" //suggestion by calibri
-			"* (You gush that everyone should kiss Dream on their goldie little crown.)\n\n* (They smile and nod politely.)"
-			}
-			--
-			"\![*]\q[Again,bnice2them]\n%(actmeow)"
-		}
-		Select.dreamlikesstories //Story
-		{
-			niceact += 1
-			//Chance they might fall asleep but it's cute
-			"* (You read Dream %(bookstoread).)\n\n\w8"
-			--
-			"\s[4]A little odd, but interesting."
-			"\s[4]I'll have to think on it..."
-			"\s[0]\i[5]Cute!"
-			"\s[3]\i[4]\i[3]I wonder if Nightmare would enjoy it..."
-			--
-			"\n\![*]\q[Again,dreamlikesstories]%(actmeow)"
-		}
-		Select.scarethem //Tease
-		{
-			sadact += 1
-			"* (You warn Dream about the computer bugs.)\n\n\w8\s[0]\i[1]...\n\n\w8\s[3]* (They keep glancing worriedly.)"
-			"* (You jump at them suddenly,\w8\s[7] they flinch.)\w8\n\n\s[0]\i[1]..."
-			--
-			"\![*]\q[Again,scarethem]\n%(actmeow)"
-		}
-		Select.nowurjustmean2dream //Mock
-		{
-			sadact += 1
-			//you comment that no wonder people treat %(nightname) as a punching bag. He's way less cautious than Dream is
-			--
-			"\![*]\q[Again,nowurjustmean2dream]\n%(actmeow)"
-		}
-		//Joke
-			//they act like ur funnier than u are. rly.
-			//Skipping this one (for now) because they're difficult to write
-	
-	Oninterrogatedream //Ask...
+	--
+	if sadnicelevel >= 69
 	{
-		"\i[55]* (You ask Dream about...)\n\n"
-		--
-		"\![*]\q[Themself,askdreamyou]\n"
-		--
-		if askaboutnight == "on"
-		{
-			"\![*]\q[Brother,askbrother]\n"
-			//\![*]\q[Your name,askyourname]\n"
-			"\![*]\q[Tree,askdreamabtree]\n/
-			//\![*]\q[Their soul,askdreamtheirsoul]\n/
-			\![*]\q[Their crown,specilimportantcrown]\n/
-			\![*]\q[Their eyes,askdreamtheireyes]\e"
-		}
-		--
-		"\![*]\q[Nevermind,CANCEL]\e"
-		}
-		
-		Select.askdreamyou
-			{
-				"\s[17]\i[4]\i[3]Oh%(lps(2))\w8 So you don't kn-\w8\s[4] You aren't from the village,\w6 are you?\w8\s[2]\w8\w8\n\nI'm so sorry!\w8\n\n\s[0]I'm normally not so anxious talking to others. \w8\i[6]It's just been busy as of late.\w8\s[0] I promise I'm fine,\w4 though.\w8\n\n%(lps(2))I just accidentally found myself here because I was looking for someone.\n\n\![*]\q[Ask who they're looking for,dreamlook1s]"
-				--
-				repeatDream
-			}
-			Select.dreamlook1s
-			{
-				"\s[0]\i[1]It's my brother, you see%(lps(2))\w8\n\nI was just looking for him because we had something scheduled,\w5 and I somehow ended up here.\n\n\![*]\q[Ask what they had scheduled,dreamlook2]"
-			}
-			Select.dreamlook2
-			{
-				niceact += 1
-				"\s[4]Well it's me and my brother's birthday-\w8\i[11] We're twins,\w4 so we share one.\w8\n\n\s[3]\i[4]Usually when he's missing he's just out in the forest-\w5 or%(lps(2))\w8 That is how it used to be.\w8\n\nSome days I looked through and%(lps(2))\w8\s[0]\i[3]\n\nOh, I'm sorry. \w8I'm talking too much,\w4 aren't I?"
-				--
-				repeatDream
-			}
-		Select.askbrother
-		{
-			"\s[0]\i[3]My brother,\w4 Nightmare.\w8\n\nI%(lps(2))\w8 He hasn't been doing well, \w4so I'm just trying to look for him."
-			--
-			repeatDream
-		}
-		/*Select.askyourname
-		{
-			"Didn't you tell me your name? ...It's %(username), right?"
-		}*/
-		Select.askdreamabtree
-		{
-			"\s[0]\i[1]%(lps(2))The%(lps(2))\w5 anTree?\w8 How did you find out about that%(lps(2))?\w8\n\n\s[0]\i[3] %(lps(2))It's been doing fine.\w8 No irregularities."
-			--
-			repeatDream
-		}
-		Select.askdreamtheirsoul
-		{
-			"Recited thing. * (Ask to look at it?) (y/n) y: ...No ^^;;"
-			--
-			repeatDream
-		}
-		Select.specilimportantcrown
-		{
-			"\s[0]\i[5]It's pretty, isn't it?\n\n\w8* (Ask to take it off?)\n\n\![*]\q[Yes,lolasif]\n\![*]\q[No,crowntoospecil]"
-			--
-			repeatDream
-		}
-			Select.lolasif
-			{
-				"\s[6]...No."
-				--
-				repeatDream
-			}
-			Select.crowntoospecil
-			{
-				"* (They probably weren't going to, anyways.)"
-				--
-				repeatDream
-			}
-		Select.askdreamtheireyes
-		{
-			"\s[0]\i[5]Yellow and blue,\w5 like the day's sky.\n\n\w8* (...They don't seem to want to expand any further.)"
-			--
-			repeatDream
-		}
-	
-	Ondreambox //Items
-	{
-		"* (GIFTing in progress.)\n\n"
-		--
-		"\![*]\q[Food,Ongivemunchiestodream]\n/
-		\![*]\q[Gift,givedreamgift]\n/
-		\![*]\q[Plushie,lilpushietoy]\e"
-		//\![*]\q[Outfit,uhgfinallyoutfit]\e"
-		//Food
+		//"\![*]\q[Flirt,dreamsacebutyoucantry] " uncomment for now bc i have other things to do!
 	}
-			Ongivemunchiestodream
-			{
-				if sadnicelevel >= 25
-				{
-				niceact +=1
-				"* (You brew Dream a cup of tea.)\n\n\w8Aw,\w4 I like this kind.\n\n\w8* (They seem to calm down.)"
-				}
-				else
-				{
-				"I'll have to decline.\n\n\w8Apologies.\n\n\w8* (Seems like they don't accept food from strangers.)"
-				}
-				--
-				"%(itemmeow)\e"
-			}
-		//Gift
-			Select.givedreamgift
-			{
-				"\s[17]\i[2000]* (You place a blanket on them.)\n\n\w8Oh,\w4 this is the same one from earlier.\w8 It is quite soft%(lps(2))\w8 I can keep it."
-				"\s[0]* (You hand them a bouquet of flowers.)\n\n\w8These are nice.\w8 I could probably get my brother to tell them apart%(lps(2))\w8\i[6] I'm not very good at remembering the names.\w8 But I like them!"
-				--
-				"%(itemmeow)\e"
-			}
-		//Plush
-			Select.lilpushietoy
-			{
-				if whorupanic == "on"
-				{
-					whorupanic = "off"
-					nightplush = "on"
-				"\s[17\i[4]\i[3]* (You hand them a plush of %(nightname).)\n\n\w8Ah- That's%(lps(2)) This is my brother?\n\n\w8* (They look concerned, then contemplative.)\n\n\w8So that means you know him%(lps(2))\n\n\w8"
-					if nicensadlevel >= 25
-					{
-						niceact += 25
-					}
-					if nicensadlevel <= -5
-					{
-						sadact += 25
-					}
-				}
-				else
-				{
-					"\s[55]* (You've already given them a plushie,\w5 and Quonit was too lazy to write more for this.)"
-				}
-			//You hand them a plush of %(nightname).) Ah- That's... This is my brother? (they look very concerned.) You know him... This is... * (They trail off and just look around more, like at the edges of the screen.)
-			}
-		//Outfit
-			//Only use it if they like you. Discuss how they and Nightmare (Nightmare!) use costumes for ceremonies a lot.
-		Select.uhgfinallyoutfit
+	--
+	"\![*]\q[Reassure,dreamhasanxiety]\n/
+	\![*]\q[Compliment,bnice2them]\n/
+	\![*]\q[Story,dreamlikesstories]\n/
+	\![*]\q[Tease,scarethem]\n/
+	//\![*]\q[Mock,nowurjustmean2dream]\n/ same with flirt, am busy :sob:
+	\![*]\q[Back to menu,OnDreamMenu]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+
+
+
+Select.isitrealdream //CHECK
+{
+	"* (The REAL Dreamtale Sans.)"
+	"* (They, not he.)"
+	"* (Stealing all the attention.)"
+	"* (Still not even a Sans?)"
+	"* (Knows more than they're letting on.)"
+	"* (Their outfit matches %(nightname)'s.)"
+	if whorupanic == "on"
+	{
+		"\s[0]\i[1]* (More suspicious of you than %(nightname).)"
+	}
+	--
+	"\n\n\![*]\q[Choose another ACTion,Ondreamyact]\n/
+	\![*]\q[Again,isitrealdream]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+Select.dreamforgiveness //Apologize
+{
+	if starpunch == 1
+	{
+	"\s[0]\i[9]\i[1]...\n\n\w8* (It doesn't look like they're going to listen.)\w8\n\n[*]\q[* (Try again?),begforforgiveness]\n\e"
+	}
+	else
+	{
+	"\s[0]\i[9]\i[1]...\n\n\w8* (It doesn't look like they're going to listen.)\w8\n\n* (They're aparently a lot less forgiving than %(nightname).)\e"
+	}
+	//If you hit them once I think they'd be pretty spooked and quiet down fast, so if you apologize then you might need to do it more than once even if you only hit them one time.
+}
+Select.dreamsacebutyoucantry //Flirt
+{
+	//Yeah this'll go well
+	//o((⊙﹏⊙;))o.
+	--
+	"\n\n\![*]\q[Choose another ACTion,Ondreamyact]\n/
+	\![*]\q[Again,dreamsacebutyoucantry]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+Select.dreamhasanxiety //Reassure
+{
+	niceact += 1
+	if sadnicelevel >= 25
+	{
+		"\s[0]\i[3]* (You hum Dream a soft lullaby.)\n\n\w8\s[0]\i[5]* (They seem to enjoy it.)"
+	}
+	else
+	{
+		"\s[0]\i[1]* (You tell Dream you're not going to hurt them.)\n\n\w8\s[0]\i[3]* (They still seem suspicious, \w4but relax a little.)"
+		"\s[0]\i[1]* (You tell Dream NONBINARY IDENTITIES ARE VALID!!!)\n\n\w8\s[4]%(lps(3))I am a little confused why that needs to be said,\w6 but alright.\n\![*]\q[Ask to elaborate,nbheadcanonsomg]"
+		"\s[0]\i[1]You tell Dream everything is going to be okay.)\n\n\w8\s[0]\i[3]%(lps(3))...I appreciate the gesture."
+	}
+	--
+	"\n\n\![*]\q[Choose another ACTion,Ondreamyact]\n/
+	\![*]\q[Again,dreamhasanxiety]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
+}
+Select.bnice2them //Compliment
+{
+	niceact += 1
+	--
+	if sadnicelevel >= 25
+	{
+		"* (You tell Dream you admire how they always try their best.)\n\n\w8\s[0]\i[5]* (They seem thankful.)"
+	}
+	else
+	{
+	"* (You tell Dream they're cute as a button.)\n\n\w8\s[0]\i[5]Thanks!\n\n\w8* (...You can't tell if they mean it.)" //suggestion by calibri
+	"* (You gush that everyone should kiss Dream on their goldie little crown.)\n\n* (They smile and nod politely.)"
+	}
+	--
+	"\![*]\q[Again,bnice2them]\n%(actmeow)"
+}
+Select.dreamlikesstories //Story
+{
+	niceact += 1
+	//Chance they might fall asleep but it's cute
+	"* (You read Dream %(bookstoread).)\n\n\w8"
+	--
+	"\s[4]A little odd, but interesting."
+	"\s[4]I'll have to think on it..."
+	"\s[0]\i[5]Cute!"
+	"\s[3]\i[4]\i[3]I wonder if Nightmare would enjoy it..."
+	--
+	"\n\![*]\q[Again,dreamlikesstories]%(actmeow)"
+}
+Select.scarethem //Tease
+{
+	sadact += 1
+	"* (You warn Dream about the computer bugs.)\n\n\w8\s[0]\i[1]...\n\n\w8\s[3]* (They keep glancing worriedly.)"
+	"* (You jump at them suddenly,\w8\s[7] they flinch.)\w8\n\n\s[0]\i[1]..."
+	--
+	"\![*]\q[Again,scarethem]\n%(actmeow)"
+}
+Select.nowurjustmean2dream //Mock
+{
+	sadact += 1
+	//you comment that no wonder people treat %(nightname) as a punching bag. He's way less cautious than Dream is
+	--
+	"\![*]\q[Again,nowurjustmean2dream]\n%(actmeow)"
+}
+//Joke
+	//they act like ur funnier than u are. rly.
+	//Skipping this one (for now) because they're difficult to write
+
+
+
+
+
+Oninterrogatedream //Ask...
+{
+	"\i[55]* (You ask Dream about...)\n\n"
+	--
+	"\![*]\q[Themself,askdreamyou]\n"
+	--
+	if askaboutnight == "on"
+	{
+		"\![*]\q[Brother,askbrother]\n"
+		//\![*]\q[Your name,askyourname]\n"
+		"\![*]\q[Tree,askdreamabtree]\n/
+		//\![*]\q[Their soul,askdreamtheirsoul]\n/
+		\![*]\q[Their crown,specilimportantcrown]\n/
+		\![*]\q[Their eyes,askdreamtheireyes]"
+	}
+	--
+	"\n\![*]\q[Nevermind,CANCEL]\e"
+}
+	
+Select.askdreamyou
+{
+	if whorupanic == "on"
+	{
+		"\s[17]\i[4]\i[3]Oh%(lps(2))\w8 So you don't kn-\w8\s[4] You aren't from the village,\w6 are you?\w8\s[2]\w8\w8\n\nI'm so sorry!\w8\n\n\s[0]I'm normally not so anxious talking to others. \w8\i[6]It's just been busy as of late.\w8\s[0] I promise I'm fine,\w4 though.\w8\n\n%(lps(2))I just accidentally found myself here because I was looking for someone.\n\n\![*]\q[Ask who they're looking for,dreamlook1s]"
+	}
+	--
+	repeatDream
+}
+
+Select.dreamlook1s
+{
+	"\s[0]\i[1]It's my brother, you see%(lps(2))\w8\n\nI was just looking for him because we had something scheduled,\w5 and I somehow ended up here.\n\n\![*]\q[Ask what they had scheduled,dreamlook2]"
+}
+
+Select.dreamlook2
+{
+	niceact += 1
+	"\s[4]Well it's me and my brother's birthday-\w8\i[11] We're twins,\w4 so we share one.\w8\n\n\s[3]\i[4]Usually when he's missing he's just out in the forest-\w5 or%(lps(2))\w8 That is how it used to be.\w8\n\nSome days I looked through and%(lps(2))\w8\s[0]\i[3]\n\nOh, I'm sorry. \w8I'm talking too much,\w4 aren't I?"
+	--
+	repeatDream
+}
+	
+Select.askbrother
+{
+	"\s[0]\i[3]My brother,\w4 Nightmare.\w8\n\nI%(lps(2))\w8 He hasn't been doing well, \w4so I'm just trying to look for him."
+	--
+	repeatDream
+}
+
+
+/*Select.askyourname
+{
+	"Didn't you tell me your name? ...It's %(username), right?"
+}*/
+
+
+Select.askdreamabtree
+{
+	"\s[0]\i[1]%(lps(2))The%(lps(2))\w5 anTree?\w8 How did you find out about that%(lps(2))?\w8\n\n\s[0]\i[3] %(lps(2))It's been doing fine.\w8 No irregularities."
+	--
+	repeatDream
+}
+
+Select.askdreamtheirsoul
+{
+	"Recited thing. * (Ask to look at it?) (y/n) y: ...No ^^;;"
+	--
+	repeatDream
+}
+
+Select.specilimportantcrown
+{
+	"\s[0]\i[5]It's pretty, isn't it?\n\n\w8* (Ask to take it off?)\n\n\![*]\q[Yes,lolasif]\n\![*]\q[No,crowntoospecil]"
+	--
+	repeatDream
+}
+
+
+Select.lolasif
+{
+	"\s[6]...No."
+	--
+	repeatDream
+}
+
+Select.crowntoospecil
+{
+	"* (They probably weren't going to, anyways.)"
+	--
+	repeatDream
+}
+
+Select.askdreamtheireyes
+{
+	"\s[0]\i[5]Yellow and blue,\w5 like the day's sky.\n\n\w8* (...They don't seem to want to expand any further.)"
+	--
+	repeatDream
+}
+
+
+Ondreambox //Items
+{
+	"* (GIFTing in progress.)\n\n"
+	--
+	"\![*]\q[Food,Ongivemunchiestodream]\n/
+	\![*]\q[Gift,givedreamgift]\n/
+	\![*]\q[Plushie,lilpushietoy]\e"
+	//\![*]\q[Outfit,uhgfinallyoutfit]\e"
+	//Food
+}
+
+Ongivemunchiestodream
+{
+	if sadnicelevel >= 25
+	{
+		niceact +=1
+		"* (You brew Dream a cup of tea.)\n\n\w8Aw,\w4 I like this kind.\n\n\w8* (They seem to calm down.)"
+	}
+	else
+	{
+		"I'll have to decline.\n\n\w8Apologies.\n\n\w8* (Seems like they don't accept food from strangers.)"
+	}
+	--
+	"%(itemmeow)\e"
+}
+//Gift
+Select.givedreamgift
+{
+	"\s[17]\i[2000]* (You place a blanket on them.)\n\n\w8Oh,\w4 this is the same one from earlier.\w8 It is quite soft%(lps(2))\w8 I can keep it."
+	"\s[0]* (You hand them a bouquet of flowers.)\n\n\w8These are nice.\w8 I could probably get my brother to tell them apart%(lps(2))\w8\i[6] I'm not very good at remembering the names.\w8 But I like them!"
+	--
+	"%(itemmeow)\e"
+}
+
+//Plush
+Select.lilpushietoy
+{
+	if whorupanic == "on"
+	{
+		whorupanic = "off"
+		nightplush = "on"
+		"\s[17]\i[4]\i[3]* (You hand them a plush of %(nightname).)\n\n\w8Ah- That's%(lps(2)) This is my brother?\n\n\w8* (They look concerned, then contemplative.)\n\n\w8So that means you know him%(lps(2))\n\n\w8"
+		--
+		if nicensadlevel >= 25
 		{
-			"I don't really do that..."
+			niceact += 25
 		}
+		if nicensadlevel <= -5
+		{
+			sadact += 25
+		}
+	}
+	else
+	{
+		"\i[55]* (You've already given them a plushie,\w5 and Quonit was too lazy to write more for this.)"
+	}
+//You hand them a plush of %(nightname).) Ah- That's... This is my brother? (they look very concerned.) You know him... This is... * (They trail off and just look around more, like at the edges of the screen.)
+}
+//Outfit
+	//Only use it if they like you. Discuss how they and Nightmare (Nightmare!) use costumes for ceremonies a lot.
+Select.uhgfinallyoutfit
+{
+	"I don't really do that..."
+}
 
 Select.dreamtestvariable
 {
 	"%(Onnotonfirstboot)"
 }
 
+
 //Word.dic
 itemmeow
 {
 	"\n\n\![*]\q[Choose a different item,Ondreambox]\n/
-	\![*]\q[Back to menu,DreamMenu]\n/
+	\![*]\q[Back to menu,OnDreamMenu]\n/
 	\![*]\q[I'm done,CANCEL]\e"
 }
 actmeow
 {
 	"\n\n\![*]\q[Say something else,Ondreamyact]\n/
-	\![*]\q[Back to menu,DreamMenu]\n/
+	\![*]\q[Back to menu,OnDreamMenu]\n/
 	\![*]\q[I'm done,CANCEL]\e"
 }
 

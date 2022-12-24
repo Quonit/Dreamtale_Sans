@@ -288,7 +288,7 @@ RandomTalk : nonoverlap_pool
 		if blushiemode == "on" && privacyrespecter == "off"
 		{
 			"\0\s[13]I hope we can meet in real life or something one day...\e"
-			"\0\s[9]...\n\n\w8* (You ask him what's wrong.)\n\n\w8\w8Why do you like me?\n\n\w8\0\s[3]I mean,\w3 nobody else does,\w3 'cept for my brother.\w6 I just don't get why anybody other then them would want to be around me.\n\n\s[9]\w8'Less you're just,\w4 trying to manipulate me,\w4 or something.\n\n\w8It's silly to think that I just don't know how to handle it\w2.\w2.\w2.\w6 and I know that,\w3 I just can't stop being insecure about it anyways.\e"
+			"\0\s[9]...\n\n\w8* (You ask him what's wrong.)\n\n\w8\w8Why do you like me?\n\n\w8\0\s[3]I mean,\w3 nobody else does,\w3 'cept for my brother.\w6 I just don't get why anybody other than them would want to be around me.\n\n\s[9]\w8'Less you're just,\w4 trying to manipulate me,\w4 or something.\n\n\w8It's silly to think that I just don't know how to handle it\w2.\w2.\w2.\w6 and I know that,\w3 I just can't stop being insecure about it anyways.\e"
 			"\0\s[32]* (He seems happy.)\e"
 			"\0\s[6]I think my brother would like to meet you one day! \w8\0\s[20]They'd be happy I made a friend, \w3y'know? \w6\0\s[13]Cause I don't have those at home.\n\n\w8\0\s[20]Thank you a lot...\e"
 			"\0\s[28]* (He's blushing a lot, for whatever reason.)"
@@ -1057,33 +1057,58 @@ OnSurfaceRestore
 		}
 	}
 }
+			
 
 OnShellChanged //I hope this doesn't kill the ghost
 {
-	nowshell = reference0
-	if nowshell == "Nightmare"
-	{
-		"\C\0\s[0]\i[106]"
-	}
-	if nowshell == "Dream"
-	{
-		if specildreamboot == 0
-		{
-			specildreemboot = 1
-			"\w8\s[17]%(lps(8))\n\n\w8\w8* (You say hi.)\w8\w8\n\n* (%(lps(3))They are not paying attention.)\w8\w8\n\n/
-			\![*]\q[Say hello again,dreamintronext1]\n/
-			\![*]\q[Call their name,dreamintronext1]"
-		}
-		else
-		{
-			"\C%(OnDreamBoot)"
-		}
-	}
-	else
-	{
-		"\C\0\s[0]"
-	}
-	//"this shell is now changed"
+    
+    nowshell = reference0
+    
+    
+    if swapthem == "on"
+    {
+        swapthem = "off"
+        
+        if nowshell == "Nightmare"
+        {
+            OnGoopWake
+        }
+        elseif nowshell == "Dream"
+        {
+            OnDreamBoot
+        }
+        else
+        {
+            "%(normalboottalk)"
+        }
+        
+    }
+    else
+    {
+        if nowshell == "Nightmare"
+        {
+            "\C\0\s[0]\i[106]"
+        }
+        elseif nowshell == "Dream"
+        {
+            if specildreamboot == 0
+            {
+                sspecildreemboot = 1
+				"\![enter,passivemode]\w8\s[17]%(lps(8))\n\n\w8\w8* (You say hi.)\w8\w8\n\n* (%(lps(3))They are not paying attention.)\w8\w8\n\n\![leave,passivemode]/
+				\![*]\q[Say hello again,dreamintronext1]\n/
+				\![*]\q[Call their name,dreamintronext1]"
+            }
+            else
+            {
+                "\C%(OnDreamBoot)"
+            }
+        }
+        else
+        {
+            "\C\0\s[0]"
+        }
+        //"this shell is now changed"
+        }
 }
 
 OnKeyPress
@@ -1116,3 +1141,4 @@ OnKeyPress
 		"\![open,readme]"
 	}
 }
+

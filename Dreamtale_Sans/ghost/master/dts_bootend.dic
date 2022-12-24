@@ -267,7 +267,7 @@ OnBoot
 
 normalboottalk
 {
-	if nowmode = "intodreams"
+	if nowmode == "intodreams"
 	{
 		OnDreamBoot
 	}

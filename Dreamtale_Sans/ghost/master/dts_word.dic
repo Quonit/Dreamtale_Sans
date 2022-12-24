@@ -233,6 +233,7 @@ changemode
 	
 	LOGGING(ASEARCH(_var,_possiblemodes))
 	
+	
 	if ASEARCH(_var,_possiblemodes) != -1
 	{
 		if nowmode != _var
@@ -241,6 +242,15 @@ changemode
 			oldmode = nowmode
 			nowmode = _var
 		}
+		else
+		{
+			LOGGING("modes are fake liars")
+		}
+	}
+	else
+	{
+		LOGGING("something fucked up")
+		nowmode = "purpleman"
 	}
 }
 

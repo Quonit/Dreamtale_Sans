@@ -9,7 +9,7 @@
 	}
 	elseif nowmode == "intodreams"
 	{
-		DreamMenu
+		OnDreamMenu
 	}
 	elseif sleepingmode == "on"
 	{
@@ -215,7 +215,7 @@ Select.BACKTOMENU
 	}
 	elseif nowmode == "intodreams"
 	{
-		DreamMenu
+		OnDreamMenu
 	}
 	else
 	{
@@ -390,6 +390,8 @@ Select.removegoo
 
 Select.byedream
 {
+	swapthem = "on"
+	
 	if stonemode == "on"
 	{
 		ringringuthere = "on"
@@ -408,24 +410,31 @@ Select.byedream
 		}
 	}
 	--
-	nowmode = oldmode
+	changemode(oldmode)
 	--
 	if nowmode == "purpleman"
 	{
-		"\![change,Shell,Dreamtale Sans]%(OnBoot)"
+		"\![change,Shell,Dreamtale Sans]"
 	}
 	elseif nowmode == "Edgybitch"
 	{
-		"\![change,Shell,Nightmare]%(GoopWake)"
+		"\![change,Shell,Nightmare]"
+	}
+	else
+	{
+		changemode("purpleman")
+		--
+		"\![change,Shell,Dreamtale Sans]"
 	}
 }
 
 Select.summondream
 {
+	swapthem = "on"
 	changemode("intodreams")
 	--
-	"* (You tell %(nightname) goodbye.)\n\n\w8%(surface0)Oh,\w4 goodbye."
-	"Bye.\n\n\w8*(He doesn't seem to know you're switching him out for Dream.)"
+	"\i[55]* (You tell %(nightname) goodbye.)\n\n\w8%(surface0)Oh,\w4 goodbye."
+	"Bye.\n\n\w8\i[55]* (He doesn't seem to know you're switching him out for Dream.)"
 	--
 	"\w8\s[-1]\![change,Shell,Dream]\w8\w8"
 }
