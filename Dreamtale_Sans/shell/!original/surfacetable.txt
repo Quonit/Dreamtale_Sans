@@ -57,6 +57,9 @@ group,G
 	1530,Flower
 	1531,Fancy
 	1532,Dreamswap
+	1533,Main Pose
+	1534,Cygnus
+	1535,Calibri
 }
 
 group,Frames

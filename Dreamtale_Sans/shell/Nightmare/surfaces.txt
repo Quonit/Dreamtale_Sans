@@ -7,7 +7,7 @@ surface.append500-590
 	collision1,40,50,102,84,Point
 }
 
-surface.append0-9
+surface.append0-9,1619
 {
 	//i wanna pet the tentacle
 	collisionex6,Tentacle,polygon,30,63,30,331,129,332,150,246,145,214,151,176,144,161,136,100,160,76,185,79,205,105,203,127,196,136,208,150,230,234,214,252,222,317,229,331,331,331,331,63
@@ -468,6 +468,32 @@ surface1617
 surface1618
 {
 	element0,overlay,surface1618.png,0,0
+}
+
+//Null
+surface1619
+{
+	element0,overlay,surface1619.png,0,0
+}
+//Suave Furry
+surface1620
+{
+	element0,overlay,surface1620.png,0,0
+	//tail
+	animation100.interval,always
+	animation100.pattern0,interpolate,1013,0,0,0
+	animation100.pattern1,interpolate,1014,1000,0,0
+	animation100.pattern2,interpolate,1013,1000,0,0
+}
+//Castle Fic
+surface1621
+{
+	element0,overlay,surface1621.png,0,0
+	//tail
+	animation100.interval,always
+	animation100.pattern0,overlay,1015,0,0,0
+	animation100.pattern1,overlay,1016,1000,0,0
+	animation100.pattern2,overlay,1015,1000,0,0
 }
 
 //bluh bluh

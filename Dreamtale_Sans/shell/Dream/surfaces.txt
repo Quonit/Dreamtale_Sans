@@ -411,25 +411,36 @@ surface38
 // 88         .d88b.    88   88       88.  .88       88
 // 88888888P dP'  `dP   dP   dP       `88888P8 `88888P'
 
-surface1600
+surface1600 //DawnDream
 {
 	element0,overlay,surface1600.png,0,0
 }
-surface1601
+surface1601 //Dreamswap
 {
 	element0,overlay,surface1601.png,0,0
 }
-surface1602
+surface1602 //Flowerverse
 {
 	element0,overlay,surface1602.png,0,0
 }
-surface1603
+surface1603 //My Outfit
 {
 	element0,overlay,surface1603.png,0,0
 }
-surface1604
+surface1604 //SwapDream
 {
 	element0,overlay,surface1604.png,0,0
+	//Cape
+	animation1000.interval,bind
+	animation1000.pattern0,overlay,1020,0,0,0
+}
+surface1606 //Reunited Cali
+{
+	element0,overlay,surface1606.png,0,0
+}
+surface1607 //Empireverse
+{
+	element0,overlay,surface1607.png,0,0
 }
 
 //meditative sitting

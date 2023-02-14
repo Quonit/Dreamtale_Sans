@@ -88,6 +88,8 @@ RandomTalk : nonoverlap_pool
 			"\0\s[1]\i[55]* (He's being quite quiet.)\e"
 			"\0\s[1]\i[55]* (He's quietly reading.)\e"
 			"\0\s[16]* (He gets back up.)\![raise,OnSelfStand]"
+			"\0\s[1]\i[55]* (His eyelights flicker different colors as he reads.)\w8\n\n* (Perhaps it hints how he feels about the book?)"
+			"\0\s[1]\i[55]* (His eyelights move to his side like someone's talking to him over his shoulder,\w8 but you don't see anyone there.)"
 			if nicensadlevel >= 25
 			{
 				"\0\s[1]\i[55]\w8.\w8.\w8.\n\n\w8\w8\w8\w8\0\s[5]\i[55]\w8\w8\w8Z\w6Z\w6Z\w6.\w6.\w6.\w8\w8\w8\n\n* (It looks like he fell asleep.)\w8\n\n* (Poor thing\w3.\w3.\w3.\w8 He must've not slept during night.)\w6\![raise,Onsittangoffsleepingmodeon]\w8"
@@ -190,7 +192,13 @@ RandomTalk : nonoverlap_pool
 			"zzz Bu' I%(lps(4)) zzz wanna tell evr'one zzz\w8\e"
 			"zzz\w4.\w4.\w4."
 			"zzz%(lps(5))why %(lps(4)) zzz giant robots %(lps(4))zzz?\w8\w8\e"
-			"zzz %(lps(4)) Wanna be jus' like zzz %(lps(4)) jus' like 'im zzz\w8\w8\e"
+			"zzz %(lps(4))\w8\w8 Wanna be jus' like zzz %(lps(4)) jus' like 'im zzz\w8\w8\e"
+			"zzz%(lps(4))\w8\w8 Ya i's bad%(lps(4)) but I jus' wanna go back to bed%(lps(4)) zzz%(lps(4))"
+			"zzz%(lps(4))\w8\w8 I'm \f[italic,true]not\f[italic,false] shooting a turtle.\w8 zzz%(lps(4))"
+			"zzz%(lps(4))\w8\w8 don't say ethical%(lps(4))\w8 tha's a dumb word here%(lps(4)) zzz%(lps(4))"
+			"zzz%(lps(4))\w8\w8 he's just a little bird%(lps(4)) He can't hurt no one%(lps(4)) zzz%(lps(4))"
+			"zzz%(lps(4))\w8\w8 I could have teal eyes if i wanted to%(lps(4)) zzz%(lps(4))"
+			"zzz%(lps(4))\w8\w8 If you killed someone it was pry for a good reason%(lps(4)) zzz%(lps(4))"
 			
 			if punchout >= 3
 			{
@@ -284,6 +292,11 @@ RandomTalk : nonoverlap_pool
 				{
 				"\i[55]* (You ask Night about his tongue.)\n\n\w8\s[11]Ew, what?\n\n\w8* (You offer some theories, \w4such as if it's real, \w4a mirage, \w7or maybe possibly one of Mare's tendrils sticking out?)\n\n\w8\w3\s[4].\w3.\w3.\w8You know what,\w8\s[12] I'm not answering.\e"
 				}
+			if friendzoned == "on"
+			{
+				//temp dialogue
+			"Sigh...\n\n\w8* (You ask %(nightname) what he's sighing about.)\n\n\w8I am thinking about how confusing you are."
+			}
 		}
 		if blushiemode == "on" && privacyrespecter == "off"
 		{
@@ -404,7 +417,10 @@ RandomTalk : nonoverlap_pool
 				}
 			}
 		}
-		
+		if metalpet == 0
+		{
+			"\i[55]* (His skull looks like it's collecting dust up there.)"
+		}
 		/*
 		Spring - mild. Normal. Doesn't rain.
 		Summer - warmer. Very light rain occassionally.
@@ -516,6 +532,9 @@ RandomTalk : nonoverlap_pool
 			if nicensadlevel >= 25
 			{
 				"\0\s[0]\i[14]So,\w3 %(username),\w3 did you watch the sunrise as well?\n\n\w8Of course they're different sunrises,\w3 but it's still pretty.\e"
+				"\0\s[0]\i[12]* (He seems worried.)\n\n\w8So%(lps(3))\w8 %(username),\w8 Dream usually wakes up really early in the morning.\w8 I'm worried about just disappearing for them%(lps(3))\w8\n\nIs it okay if I leave for just a little while?\w8 You can bring me back after.\n/
+				\[*]\q[Let him go,nightgolookstuff]\n/
+				\[*]\q[Keep here,keepashostage]\e"
 			}
 			if hastea == "on"
 			{
@@ -577,22 +596,37 @@ RandomTalk : nonoverlap_pool
 			}
 		}	
 	//}	
-//}	
+//}
+		if passhour >= 1
+		{
+			"\0\s[4]You know%(lps(3)) \w8After a while,\w5 the noise becomes normal.\w8 You kinda stop noticing it."
+			"\0\s[8]How much longer am I going to be here?"
+			"Wonder if there's a way to predict when you're gonna put me here.\w8For me,\w4 I just kind of appear here when I stop being around people like fifty percent of the time.\w8...I doubt anyone misses me though.\e:missesnight=misschain"
+			if nicesadlevel >= 25
+			{
+				"%(surface0)Staying here's not so bad.\w8\s[13] You're ''good company''\w3..............\w3\s[8]Or whatever they call it.\w8\s[9] Did that sound silly...?"
+			}
+		}
+		if lastalked >= 60
+		{
+			"\0\s[9]Are you even paying attention to me%(lps(3))?w8\n\nI%(lps(3)) Guess I can get some reading done%(lps(3)) If no one's there%(lps(3)) Am I just talking to myself?"
+		}
 		if passhour == 1
 		{
 			"\0\s[3]It's been an hour\w2.\w2.\w2.\w6 are you sure you aren't bored or something yet?\e"
 		}
 		if passhour == 2
 		{
-			"\0\s[8]How much longer am I going to be here...?\e"
 			"\0\s[4]It's been two hours now,\w5 you've got to be at least a little bit bored...\e"
+		}
+		if passhour >= 3
+		{
+			"\0\s[8]It's been %(passhour) hours\w2.\w2.\w2.\w6 There's no way you kept me open this long without and still not have gotten bored...\e"
 		}
 		if passhour == 3
 		{
-			"\0\s[8]It's been %(passhour) hours\w2.\w2.\w2.\w6 There's no way you kept me open this long without and still not have gotten bored...\e"
-			"\0\s[9]Are you even paying attention to me after %(passhour) hours\w2.\w2.\w2.\w2?\e"
 		}
-		if passhour == 4
+		if passhour >= 4
 		{
 			"\s[3]%(lps(3))Hey %(username)?\w8\n\nIs it okay if I can leave for%(lps(3))\w6 A couple of seconds to check on some things?\w8\n\n\s[9]It's just that I've been out here a while and I just wanna see if things are okay.\n/
 			\[*]\q[Let him go,nightgolookstuff]\n/
@@ -613,6 +647,7 @@ Select.nightgolookstuff
 Select.keepashostage
 {
 	nicensadlevel - 5
+	maremare = "on"
 	"\s[7]What do you mean no?!\w8\i[4]\w8\n\n!\w8\w8\-\e"
 	//if specific circumstances for Mare, he grabs him and leaves. lolI did 
 }
@@ -798,6 +833,12 @@ ciderchain
 	"\0\s[0]Now that I think on it more,\w4 I wonder if the apples on Mom's tree taste anything like your world's apples.\e:chain=end"
 }}CHAIN
 
+misschain
+{{CHAIN
+//temp dialogue
+	"\0\s[0]\i[20]...Except for Dream. It's... Probably not fair to worry them.\w8 They worry about me a lot- but they won't usually say it.\w8I can tell with how they act. I think it's because they don't want me to feel bad about it, \w4but some days it just makes me feel more guilty.\e:chain=end"
+}}CHAIN
+
 //Time stuff
 HourCheck
 {
@@ -816,6 +857,15 @@ OnMinuteChange
 	--
 	if minute == 0
 	{
+		if hourhitannoying == "off"
+		{
+		}
+		if nicensadlevel <= 0
+		{
+			"\0\i[55]* (It's %(hour12)'o clock.)\e"
+		}
+		else
+		{
 		/*
 		if hour == 1
 		{
@@ -917,6 +967,11 @@ OnMinuteChange
 			"\0\s[0]It's %(hour12)'o clock.\e"
 		}
 		*/
+		}
+		if hourhitannoying == "on"
+		{
+			""
+		}
 	}
 	--
 	if mikireflag == 1
@@ -1055,6 +1110,10 @@ OnSurfaceRestore
 			"\0\s[0]\i[21]"
 			"\0\s[26]\i[6]"
 		}
+		if hasumbrella == "on"
+		{
+			"\s[2]\i[4]\i[5]"
+		}
 	}
 }
 			
@@ -1063,7 +1122,6 @@ OnShellChanged //I hope this doesn't kill the ghost
 {
     
     nowshell = reference0
-    
     
     if swapthem == "on"
     {
@@ -1093,10 +1151,7 @@ OnShellChanged //I hope this doesn't kill the ghost
         {
             if specildreamboot == 0
             {
-                sspecildreemboot = 1
-				"\![enter,passivemode]\w8\s[17]%(lps(8))\n\n\w8\w8* (You say hi.)\w8\w8\n\n* (%(lps(3))They are not paying attention.)\w8\w8\n\n\![leave,passivemode]/
-				\![*]\q[Say hello again,dreamintronext1]\n/
-				\![*]\q[Call their name,dreamintronext1]"
+                Select.dreamintronext0
             }
             else
             {

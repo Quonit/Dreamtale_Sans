@@ -1,5 +1,27 @@
 Changelog for Dreamtale Sans!
 --------------------------------------------------------------------------------------------------------------------
+--- 14 February 2023 ---
+Additions:
+-Now you can friendzone Nighty if you're in blushiemode!
+-Many pieces of dialogue were added relating to friendzoning him
+-More outfits for Night!
+-You can give Dream outfits now!
+-You can *try* to give Nightmare outfits?
+-Outfit menu changed for more precise selection + easier credits
+-You can give Night weather items which change depending on the season!
+-There are more gifts you can give both Night and Dream
+-Added ability to ask about Night's skull mark
+-New idle pose
+-You can give Night a blanket while he's sitting
+-More text for leaving him out for hours
+-More random dialogue
+-More closing dialogue
+-More sleeping dialogue
+-a SINGLE piece of text for if you've never pet him
+
+Tweaks:
+-Added shortcuts to the various parts of menu
+
 
 --- 21 December 2022 ---
 Additions:
@@ -50,7 +72,7 @@ Bugfixes:
 Additions:
 -Sit Mode! Now Nighty doesn't go up and down all the time.
 -New Main Pose
--Status Menu (Replacing the config menu)
+-Stats Menu (Replacing the config menu)
 -Additional Item Dialogue
 -More Questions (About Soul/Crown/Weird Boot)
 -Additional/Replaced Random Dialogue (Some of it no longer fit the lore)

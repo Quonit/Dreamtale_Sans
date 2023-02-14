@@ -31,7 +31,7 @@ GoopTalk : nonoverlap_pool
 		{
 			"\s[0] And given this device's been on %(exh) hours,\w4 \s[2]\i[2]\i[5]it seems you're cut from the same cloth.\w8"
 			--
-			if blushiemode == "on"
+			if blushiemode == "on" || friendzoned == "on"
 			{
 				"\i[3] No wonder you're reduced to flirting with your captives.\w8"
 			}
@@ -56,7 +56,7 @@ GoopTalk : nonoverlap_pool
 		"is how you spend your time?\w8"
 	}
     //Ifs
-    if blushiemode == "on"
+    if blushiemode == "on" || friendzoned == "on"
     {
 		"\0\s[1]You know\w5.\w5.\w5. \w8\s[0]It's almost a little sad. \w8\n\n\s[2]\i[2]To think he loved you at one point.\n\n\w8\0\s[0]Almost brings a tear to the eye, \w6that he actually trusted someone for once.\w8\i[5] Really taught him a valuable lesson there, huh?\e"
 		"\0\s[2]I'm surprised you don't act more distraught over losing your boyfriend.\n\n\w8\i[3]Then again, I doubt you ever cared in the first place.\e"
@@ -326,7 +326,7 @@ Select.flirtyflirtgoop
 		 "* (You tell him your favorite food is apples.)\n\n\s[8]Thanks, but only my boyfriend can vore me."
 	}
 	"* (Touch Fluffy Tail?)\w5\n\n\![*]\q[Yes,touchfluffytail]\n\![*]\q[Yes,touchfluffytail]\x\0\s[5]They're tentacles you sick %$#*&!"
-	if blushiemode == "on"
+	if blushiemode == "on" || friendzoned == "on"
 	{
 		"\s[8]Thirsty for anything that's stuck here with you,\w4 huh?\w8"
 		"\s[8]I heard all your lines when I was stuck in that vessel.\w8 You bore me.\w8"
@@ -445,12 +445,13 @@ Select.bunchaNPCs
 
 Select.goopitemsmenu
 {
-    "\0\s[8]Heh,\w4 sure.\n\n"
-    "\0\s[0]I'm curious,\w4 fine.\n\n"
-    "\0\s[8]Fine, whatever.\n\n"
+    "\0\s[8]Heh,\w4 sure."
+    "\0\s[0]I'm curious,\w4 fine."
+    "\0\s[8]Fine, whatever."
     --
-    "\![*]\q[Give him a toy,gooptoybox]\n/
+    "\n\n\![*]\q[Give him a toy,gooptoybox]\n/
     \![*]\q[Try to feed him,goopfood]\n/
+    \![*]\q[Attempt to give him some clothes,goopcostume]\n/
     \![*]\q[Nevermind,CANCEL]\e"
 }
 
@@ -492,6 +493,39 @@ Select.goopfood
     "\n\n\![*]\q[Give something else??,goopitemsmenu]\n/
     \![*]\q[Again...?,goopfood]\n/
     \![*]\q[Nevermind,CANCEL]\e"
+}
+
+Select.goopcostume
+{
+	if maremare == "on" && nicensadlevel >= 25
+	{
+    "\![*]\q[Empireverse,empireversen] - Lunnar-chan\n/
+    \![*]\q[Suave Furry,suavefurry] - Jakei95\n/
+    \![*]\q[King Castle Fic,castleficreal] - Quonit\n/
+    \![*]\q[Mal Evil Timeline,evilevilevil] - Quonit\n/
+    \![*]\q[Nevermind,CANCEL]\e" 
+	}
+	else
+	{
+	"* (You ask Nightmare to try on some clothes for you.)\n\n\w8Oh sure!\n\n\w8* (...He's definitely going to shred them.\w8 You decide not to.)"
+	}
+}
+
+Select.empireversen
+{
+	
+}
+Select.suavefurry
+{
+	"\s[1620]* (He morphs his goo to appear more cat-like.)\n\n\w8>:3"
+}
+Select.castleficreal
+{
+	"\s[1621]* ()"
+}
+Select.evilevilevil
+{
+	
 }
 
 Select.testvariable2

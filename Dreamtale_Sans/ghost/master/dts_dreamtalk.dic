@@ -29,21 +29,33 @@ Onnotonfirstboot
 	//moving this to OnShellChanged because HARD MAKE FUNCTION WORK
 }
 
-	Select.dreamintronext1
-	{
-		"\s[3]\i[1]* (You try talking to them.)\w8\w8\n\n* (No response.)\w8\w8\n\n/
-		\![*]\q[Give them a toy,dreamintronext2]\n/
-		\![*]\q[Give them a blanket,dreamintronext2]"
-	}
-	Select.dreamintronext2
-	{
-		"\s[3]* (You try giving them stuff.)\w8\w8\n\n* (No response!)\n\n/
-		\![*]\q[Drastic measures,dreamintronext3]"
-	}
-	Select.dreamintronext3
-	{
-		"\s[17]\i[2000]* (You bury them in a pile of stuff.)\w8\w8\n\n!\n\n\w5\s[17]\i[4]\i[3]Oh-\w5 oh,\w8\w8 I didn't-\w8 I didn't notice you there! \w8\n\n\s[2]* (They seem scared.)\w8\w8\w8%(surface0)\e" //Add sigh at the end where they calm down to act normal. Also main pose stare at you weird.
-	}
+Select.dreamintronext0
+{
+	"\![enter,passivemode]\w8\s[17]%(lps(8))\n\n\w8\w8* (You say hi.)\w8\w8\n\n* (%(lps(3))They are not paying attention.)\w8\w8\n\n/
+	\![*]\q[Say hello again,dreamintronext1]\n/
+	\![*]\q[Call their name,dreamintronext1]"
+}
+
+
+Select.dreamintronext1
+{
+	"\s[3]\i[1]* (You try talking to them.)\w8\w8\n\n* (No response.)\w8\w8\n\n/
+	\![*]\q[Give them a toy,dreamintronext2]\n/
+	\![*]\q[Give them a blanket,dreamintronext2]"
+}
+Select.dreamintronext2
+{
+	"\s[3]* (You try giving them stuff.)\w8\w8\n\n* (No response!)\n\n/
+	\![*]\q[Drastic measures,dreamintronext3]"
+}
+Select.dreamintronext3
+{
+	"\s[17]\i[2000]* (You bury them in a pile of stuff.)\w8\w8\n\n!\n\n\w5\s[17]\i[4]\i[3]Oh-\w5 oh,\w8\w8 I didn't-\w8 I didn't notice you there! \w8\n\n\s[2]* (They seem scared.)\w8\w8\w8%(surface0)\![leave,passivemode]\e:eval=specildreamboot=1" //Add sigh at the end where they calm down to act normal. Also main pose stare at you weird.
+}
+	
+	
+	
+	
 OnDreamBoot
 //{
 {
@@ -539,8 +551,8 @@ Ondreambox //Items
 	--
 	"\![*]\q[Food,Ongivemunchiestodream]\n/
 	\![*]\q[Gift,givedreamgift]\n/
-	\![*]\q[Plushie,lilpushietoy]\e"
-	//\![*]\q[Outfit,uhgfinallyoutfit]\e"
+	\![*]\q[Plushie,lilpushietoy]\n/
+	\![*]\q[Outfit,uhgfinallyoutfit]\e"
 	//Food
 }
 
@@ -563,6 +575,7 @@ Select.givedreamgift
 {
 	"\s[17]\i[2000]* (You place a blanket on them.)\n\n\w8Oh,\w4 this is the same one from earlier.\w8 It is quite soft%(lps(2))\w8 I can keep it."
 	"\s[0]* (You hand them a bouquet of flowers.)\n\n\w8These are nice.\w8 I could probably get my brother to tell them apart%(lps(2))\w8\i[6] I'm not very good at remembering the names.\w8 But I like them!"
+	"\s[4]* (You give Dream a stress ball.)\n\n\w8* (They squeeze it so much it breaks.)"
 	--
 	"%(itemmeow)\e"
 }
@@ -595,8 +608,88 @@ Select.lilpushietoy
 	//Only use it if they like you. Discuss how they and Nightmare (Nightmare!) use costumes for ceremonies a lot.
 Select.uhgfinallyoutfit
 {
-	"I don't really do that..."
+	if nicesadlevel >= 25
+	{
+	"\_q\![*]\q[Dreamswap,dreamswapn] - OneBizarrKai\n/
+	\![*]\q[DawnDream,dawndreamd] - Yume\n/
+	\![*]\q[Swapdream,dreamswapd] - litemong & Song_A_Song\n/
+	\![*]\q[Flowerverse,flowerversed] - flowerrei\n/
+	\![*]\q[Dulled Formal,myoutfitd] - Quonit\n/
+	\![*]\q[Dulled Formal,swapdreamd] - Quonit\n/
+	\![*]\q[Reunited,calid] - Feral-Fanatic & Clover-of-Promise\n/
+	\![*]\q[Empireverse,empired] - lunnar-chan"
+	//\![*]\q[Cygnus,saffrond] - Saffron Gold Stardust\n/
+	}
+	else
+	{
+		"\s[0]* (You ask Dream to put on some clothes for you.)\n\n\w8\i[6]Ahah,\w5 I'm not much of a fashion person."
+		--
+		"%(Itemmeow)"
+	}
 }
+	Select.dawndreamd
+	{
+		niceact += 1
+		"\s[1600]* (You hand Dream a dress.)\n\n\w8It's got quite a lot on it, yet it feels light!\w8 I wonder who would design an outfit like this...\w8I'd definitely call it ceremonial."
+		--
+		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+	}
+	Select.dreamswapd
+	{
+		niceact += 1
+		"\s[1601]* (You give Dream an outfit.)\n\n\w8Seems like the kind of jacket a human in the world outside of the village would wear.\w8They'd call it 'cool'."
+		--
+		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+	}
+	Select.flowerversed
+	{
+		niceact += 1
+		"\s[1602]* (You hand Dream a costume.)\n\n\w8Pink!\w8 Usually when the elders give me something to wear in pink,\w5 it's far lighter,\w5 but I prefer this shade.\w8 The flowers are a nice touch."
+		--
+		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+	}
+	Select.myoutfitd
+	{
+		niceact += 1
+		"\s[1603]* (Dream puts on the outfit.)\n\n\w8It's formal,\w5 but not as overwhelming as the usual ceremonial dresses we're given.\w8 I would wear this if there's an opportunity in it."
+		--
+		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+	}
+	Select.swapdreamd
+	{
+		niceact += 1
+		//temp dialogue
+		"\s[1604]* (You have Dream put on the outfit.)\n\n\w8"
+		--
+		if WearingCape == 1
+		{
+		"Well- The jacket's certainly heavy!\w8 Seems really well made and sturdy though%(lps(3))\w8 How much could this have cost?\w8 It gives off a different air than the normal ceremony outfits.\w8\n\nInstead of being just kind of an object of spectical to be fawned over.It feels grand and imporant,\w5 somehow."
+		}
+		else
+		{
+		"...It's-\w8 Hmm,\w6 hard to describe.\n\n\w8Like my normal outfit,\w6 but \f[italic,true]more\f[italic,false].\w8 Extra brightness, \w4extra studs, \w4feels sturdier.\w8\n\nI feel like I'd wear this in a court or something!"
+		}
+		--
+		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+	}
+	//Select.saffrond
+	//{
+		//niceact += 1
+	//}
+	Select.calid
+	{
+		niceact += 1
+		"\s[1606]* (You hand Dream some clothes.)\n\n\w8Aw,\w6 it's soft!\w8It's more casual than what I usually wear.\w7 How nice!"
+	--
+	"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+	}
+	Select.empired
+	{
+		niceact += 1
+		"\s[1607]* (You give Dream an outfit.)\n\n\w8It's so lightly colored%(lps(3))\w8 I would be worried about staining this.\w8\n\nThe hood is nice though,\w8 makes me feel calm."
+	--
+	"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+	}
 
 Select.dreamtestvariable
 {

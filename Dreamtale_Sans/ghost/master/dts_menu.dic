@@ -157,6 +157,15 @@ MenuRun
 	if sittang == "on"
 	{
 		"\![*]\q[Exit Sitmode,nomoresits]\n"
+		--
+		if hasblankie == "on"
+		{
+		"\![*]\q[Take away blanket,takesitblankie]\n"
+		}
+		else
+		{
+			"\![*]\q[Give him a blanket,givesleepblankie]\n\n"
+		}
 	}
 	--
 	"\![*]\q[ACT,Onyouact] or ask some \![*]\q[QUESTIONS,youtalk]\n/
@@ -269,8 +278,9 @@ TalkConfig
 	--
 	"Birthday: %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n/
 	Talk Rate: every %(talktime) \f[sup,1](\q[Change it?,talkinter])\f[sup,0]\n/
+	Hourly Hits: %(hourhitannoying) \f[sup,1](\q[Change it?,stopevilhourhit])\f[sup,0]\n/
 	Hemisphere: %(menusphere) \f[sup,1](\q[Change it?,changelovation])\f[sup,0]\n/
-	Updated: 21st December 2022 \f[sup,1](\q[Check for Updates?,Oncheckupdate])\f[sup,0]\n\n"
+	Updated: 14th February, 2023 \f[sup,1](\q[Check for Updates?,Oncheckupdate])\f[sup,0]\n\n"	
 	--
 	if nowmode != "intodreams" && ringringuthere == "on"
 	{
@@ -303,6 +313,19 @@ Select.changelovation
 	else
 	{
 		menusphere = "Southern"
+	}
+	--
+	TalkConfig
+}
+Select.stopevilhourhit
+{
+	if hourhitannoying != "off"
+	{
+		hourhitannoying = "off"
+	}
+	else
+	{
+		hourhitannoying = "on"
 	}
 	--
 	TalkConfig
@@ -1232,13 +1255,19 @@ Onyouact
 		"\![*]\q[Tell something??,ilynighty]\n"
 		"\![*]\q[Say???,ilynighty]\n"
 	}
-	--
 	"\![*]\q[Compliment,Oncomplementee] /
 	\![*]\q[Joke,sayafunny]\n/
 	\![*]\q[Story,storytime] /
-	\![*]\q[Tease,bemean]\n/
-	\![*]\q[Goad,iwantgoopy] /
+	\![*]\q[Tease,bemean]\n"
+	--
+	if blushiemode == "on"
+	{
+		"\![*]\q[Friendzone,confusinguser] "
+	}
+	--
+	"\![*]\q[Goad,iwantgoopy] /
 	\![*]\q[Mock,nitpicktheboy]\n\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
 }
 
@@ -1707,6 +1736,14 @@ Select.ilynighty
 	}
 }
 
+Select.confusinguser //Friendzone, perfect for a Valentines Day update
+{
+	//temp dialogue
+	blushiemode = "off"
+	friendzoned = "on"
+	"\s[0]\i[55]* (You tell Night that you like him,\w6 but only platonically.)\n\n\w8\s[7]....But you said-?\w8\s[13] Um%(lps(2))\w8\s[2] Okay,\w8\s[0]\i[18] I mean,\w8\s[4] I guess if you changed your mind thats fine.\w8\n\n\s[9]%(lps(2))Or I somehow misunderstood%(lps(2))?\n\n\w8\s[8]\i[55]* (He's definitely confused now.\w8 Poor boy.)\![bind,Costume,Blushies,false]"
+}
+
 Select.storytime
 {
 	posact += 1
@@ -1951,6 +1988,11 @@ Select.youtalk
 	"\![*]\q[Check,checkinguout]\n/
 	\![*]\q[His Soul,looksoul]\n/
 	\![*]\q[The Crown,reexplaincrown]\n"
+	--
+	if seenethicaltattoo == "on"
+	{
+		"\![*]\q[Ask about skull mark?,ethicaltattoo]"
+	}
 	//"\![*]\q[Yourself,talkaboutme]\n"
 	//"\![*]\q[Himself,talkaboutyou]\n"
 	--
@@ -1975,6 +2017,7 @@ Select.youtalk
 	}
 	--
 	"\![*]\q[Your eyes?,waxingandwaining]\n\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
 }
 
@@ -1982,7 +2025,7 @@ Select.reexplaincrown
 {
 	if privacyrespecter == "on"
 	{
-		"\0\s[12]...It's my crown, obviously."
+		"\0\s[12]...It's my crown,\w5 obviously."
 	}
 	elseif nowmode == "Edgybitch"
 	{
@@ -1990,6 +2033,7 @@ Select.reexplaincrown
 	}
 	elseif blushiemode == "on" || nicensadlevel >= 100
 	{
+		seenethicaltattoo = "on"
 		"\0\s[0]\i[55]* (You ask if you could see him without his crown.)\n\n\w8\0\s[13]Well\w2.\w2.\w2.\n\n\w8Maybe for just a second.\n\n\w8\s[26]\i[1]* (He takes it off.)\n\n\w8It feels kind of bare without it on\w2.\w2.\w2.\w8\n\n\s[26]\i[2]* (He puts it back on.)"
 	}
 	elseif nicensadlevel >= 25
@@ -2004,6 +2048,11 @@ Select.reexplaincrown
 	--
 	"%(backask)"
 }
+	Select.ethicaltattoo
+	{
+		//temp dialogue
+		"\s[4]Oh,\w5 my moon mark?\n\n\w8\s[26]\i[1]* (He takes it off.)\n\n\w8I-\w6 Well,\w4 me and my brother were born with it.\w8 Dream has a star instead though.\w8\w8 It's just the same mark as our crowns.\w8\w8\n\nWhen mom made our bodies with the anTree she branded our skulls with them,\w5\s[26]\i[2] kind of as a symbol of protection or to tell us apart or something.\n\n\w8\s[0]\i[19]%(lps(4))I guess that might seem a little weird if you live outside of the village or don't-\w8 uh,\w4 know us???\w8\n\n\s[2]Actually I'm not sure how weird you might find it.\n\n\w8\s[13]%(lps(4))I kind of like it though.\w8 Makes me feel like I'm being watched over or something%(lps(4))?\n\n\w8\s[9]I dunno,\w5 probably sounds stupid."
+	}
 
 Select.reexplaintree
 {
@@ -2242,31 +2291,85 @@ Select.itemsmenu
 	}
 	--
 	" \![*]\q[A rock,rude]	 \![*]\q[Some food,nightyneedstoeat]\n/
-	\![*]\q[A book,givebook] 	\![*]\q[A toy,givetoy]\n"
+	\![*]\q[A book,givebook] 	\![*]\q[A toy,givetoy]   	"
 	--
 	if ringringuthere == "on"
 	{
-		"\![*]\q[A bell,ringbell]\n"
+		"\![*]\q[A bell,ringbell]"
 	}
 	--
-	"\![*]\q[NOTHING,CANCEL]  \![*]\q[Go back,BACKTOMENU]\e"
+	"\n\![*]\q[Something weather related,iiiimsinginintherain]\n/
+	\![*]\q[NOTHING,CANCEL]  \![*]\q[Go back,BACKTOMENU]\e"
 }
 
 Select.giveoutfit
 {
-	posact += 1
-	"\0\s[1528]\i[55]* (He looks it over weirdly.)\n\n\w8I guess it's kinda comfy\w2.\w2.\w2.\w5 Though,\w3 I'm sticking to my normal outfit."
-	"\0\s[1529]Huh...\w8\n\nIt's a lot heavier than my normal one.\n\n\w8Why are there so many extras on it?"
-	"\0\s[1530]* (He lifts his arm looking at it.)\n\n\w8Flowers?"
-	"\0\s[1531]* (He seems happy!)\n\n\w8Aw,\w3 what a nice color!"
-	"\0\s[1532]* (You ask him what he thinks.)\w8\n\nWhy are the gloves and shoes all ripped at the ends?"
+	"\b2\_q\![*]\q[Dreamswap,dreamswapn] - OneBizarrKai\n/
+	\![*]\q[DawnDream,dawndreamn] - Yume\n/
+	\![*]\q[Swapdream,Swapdreamn] - litemong & Song_A_Song\n/
+	\![*]\q[Flowerverse,flowerversen] - flowerrei\n/
+	\![*]\q[Dulled Formal,myoutfitn] - Quonit\n/
+	\![*]\q[Cygnus,saffronn] - Saffron Gold Stardust\n/
+	\![*]\q[Reunited,calin] - SFeral-Fanatic & Clover-of-Promise"
 	--
 	"%(ItemMOO)"
 }
+	Select.dreamswapn
+	{
+		posact += 1
+		"\0\s[1528]\i[55]* (He looks it over.)\n\n\w8It feels new%(lps(4))\w8 I don't know where you got this,\w7 but I guess I'll keep it."
+		--
+		"\n\n\![*]\q[Choose another outfit,giveoutfit] %(ItemMOO)"
+	}
+	Select.dawndreamn
+	{
+		posact += 1
+		"\0\s[1529]Huh%(lps(4))\\w8\n\nIt's a lot heavier than my normal one.\n\n\w8Why are there so many extras on it?"
+		--
+		"\n\n\![*]\q[Choose another outfit,giveoutfit] %(ItemMOO)"
+	}
+	Select.flowerversen
+	{
+		posact += 1
+		"\0\s[1530]* (He lifts his arm looking at it.)\n\n\w8Flowers?\n\n\w8I didn't think they were supposed to bloom until later...!"
+		--
+		"\n\n\![*]\q[Choose another outfit,giveoutfit] %(ItemMOO)"
+	}
+	Select.Swapdreamn
+	{
+		posact += 1
+		"\0\s[1532]* (You ask him what he thinks.)\w8\n\nIt looks a little like a Halloween costume. \w8The gloves are ripped all spooky-like and it's got super bright colors."
+		--
+		"\n\n\![*]\q[Choose another outfit,giveoutfit] %(ItemMOO)"
+	}
+	Select.myoutfitn
+	{
+		posact += 1
+		"\0\s[1531]* (He seems happy!)\n\n\w8Aw,\w3 what a nice color!"
+		"\0\s[1531]* (He seems to like it.)\n\n\w8It's formal,\w5 but not overly fancy like some of the other stuff the elders give me and Dream."
+		--
+		"\n\n\![*]\q[Choose another outfit,giveoutfit] %(ItemMOO)"
+	}
+	Select.saffronn
+	{
+		posact += 1
+		"\0\s[1534]* (He seems to like it!)\n\n\w8It's colorful!\n\n\w8I wonder if teal would look nice on my other clothes..."
+		--
+		"\n\n\![*]\q[Choose another outfit,giveoutfit] %(ItemMOO)"
+	}
+	Select.calin
+	{
+		posact += 1
+		"\0\s[1535]* (You ask him his thoughts.)\n\n\w8Well,\w4 I like the tuxedo,\w4 and the eyepatch%(lps(4)) \w8Though I think I prefer seeing out of both eyes."
+		--
+		"\n\n\![*]\q[Choose another outfit,giveoutfit] %(ItemMOO)"
+	}
 Select.givebook
 {
 	posact += 1
 	"\0\s[0]\i[55]* (You gave him\w2.\w2.\w2.\w4 a book!)\0\s[4]\n\n\w8Oh,\w3 thank you.\w6 What's it about?\n\n\w8\i[55]* (You tell him it's %(bookstoread).)\0\s[13]\n\n\w8Interesting...?"
+	"\0\s[0]\i[55]* (You gave him %(bookstoread).)\0\s[4]\n\n\w8Ooo-\w8 I have a copy of this at home,\w8 though this one is higher quality."
+	"\0\s[0]\i[55]* (You give him an instruction book on how to play certain instruments.)\n\n\w8\s[32]Aww-\w6 now I just need to find something I'm allowed to practice on."
 	--
 	"%(ItemMOO)"
 }
@@ -2279,6 +2382,8 @@ Select.givegift
 	"\0\s[0]\i[55]* (You give him a tiny,\w4 cute-looking music box.)\n\n\w8\0\s[4]Aw\w2.\w2.\w2.\w4 It's so adorable.\n\n\w8* (You tell him to turn the key in it.)\n\n\w8\0\s[13]\i[55]* (He does so, and soon enough it starts clicking a tune.\w6 He smiles.)\n\n\w8\0\s[6]Thank you %(username)!!"
 	"\0\s[0]\i[55]* (You gift him with some scented candles.)\0\s[4]\n\n\w8Aw,\w3 that's nice of you.\w6 I could put them around the treehouse."
 	"\0\s[0]\i[55]* (You hand him a small stack of paper to write on.)\w8\n\n\0\s[4]Huh...?\n\n\w8\i[55]* (He takes it in his hands.)\w8\n\n\s[4]This is really high quality for paper...\w6\0\s[0]\i[14] I'll try not to use it up too fast."
+	"\0\s[0]\i[55]* (You hand him an old MP3 player.)\n\n\w8\s[4]* (He messes around with the buttons cluelessly,\w5\s[7] and he accidentally turns on a song.)\n\n\w8Ah!!-\w8\s[4] Oh,\w5 it's harmless.\w8\n\nIt's got video on it like the camera we had...\w8 This has to be something from outside the village.\0\s[6]* (He definitely seems to enjoy messing with it.)"
+	"\0\s[0]\i[55]* (You give him a chinese finger trap,\w4 hoping he'll trap his fingers in it.)\w8\n\n\s[4]Oh- I've seen these.\w8 They don't work for me and Dream,\w4 since it kind of relies on you having skin...\w8\n\n\s[2]Maybe I could give this to one of the humans."
 	if hasviolin == "off"
 	{
 		hasviolin = "on"
@@ -2368,16 +2473,22 @@ Select.rude
 Select.givetoy
 {
 	posact += 1
+	if RAND(100) < 25
+	{
+		"\0\s[0]\i[55]* (You bounce a rubber ball at him.)\w8\s[7]Ah!\w8\n\n\w8"
+		--
+		"* (Impressively,\w6 he manages to catch it.)"
+		"* (He doesn't catch it,\w8\s[-1] and ends up running after it.)"
+		--
+		"\n\n\w8\s[8]What's the point of this thing??\w8\n\n* (You tell him it's to bounce,\w8 and usually to try and catch when it goes back up.)\n\n\w8\s[4]* (He tries this, \w5but he's going to need more practice%(lps(3)))"
+	}
+	else
+	{
 	"\0\s[0]\i[55]* (You set down a small,\w2 plastic dinosoar toy.)\n\n\w8\s[4]\i[55]* (He picks it up and studies it.)\n\n\w8\i[23]It's got a weird texture%(lps(3))\w8 Does it do anything?\n\n\w8\i[55]* (You tell him it's just plastic. \w5Nothing special.)\n\n\w8\i[23]What's plastic?"
-	/*
-	//I'm not sure how to get this all to work ??? mmmm
-	"* (You bounce a rubber ball at him.)\w8\s[4]Ah!\w8\n\n\w8"
+	"\0\s[0]\i[55]* (You give him a small,\w4 posable action figure.)\n\n\w8\s[4]\i[55]* (He's not sure what to do with it,\w8\s[6]\i[55] then starts messing with the joints,\w8 spinning them around into circles.)\n\n\w8\s[6]I'm pretty sure humans aren't supposed to move like that.\n\n\w8\s[4]\i[55]* (The arm pops off.)\n\n\w8\s[7]Ah!\w8 I broke it!\n\n\w8* (You easily insert the arm back into it's socket.)\n\n\w8\s[4]Oh%(lps(3)) \w8I see."
+	"\0\s[0]\i[55]* (You set down one of those kids bead maze toys they have at doctor's offices on the ground for him.)\n\n\w8\s[43]* (He sits down to mess with it.)\n\n\w8So all your supposed to do is move the beads around? \w6Why?\n\n\w8* (You tell him it's a kids toy,\w4 so it doesn't really have a why.)\n\n\w8Hmm....\n\n\w8\i[12]* (He keeps messing with it, aparently enamored.)"
+	}
 	--
-	"* (Impressively,\w6 he manages to catch it."
-	"* (He doesn't catch it, and ends up running after it.)\n\n\w8"
-	--
-	"What's the point of this thing??\w8\n\n* (You tell him it's to bounce, and usually to try and catch when it goes back up.)\n\n\w8* (He tries this, \w5but he's going to need more practice%(lps(3)))"
-	*/
 	"%(ItemMOO)"
 }
 
@@ -2449,15 +2560,6 @@ Select.nightyneedstoeat
 	}
 	else //THANK YOU DREAM TEAM
 	{
-		posact += 1
-		//No modifiers, can be gotten any time of day.
-		//if it is winter
-		//{
-			//if nicensadlevel >= 50
-			//{
-		//"\0\s[0]\i[55]* (You slide him a bowl with six pomegranate seeds.)\w8\n\n\0\s[13]\i[55]* (He seems\w2.\w2.\w2. \w4suspicious?)\n\n\w8\0\s[4]What for?\n\n\w8\i[55]* (You tell him it's seasonal.)\n\n\w8* (He seems content with that explanation.)"
-			//}
-		//}
 		_norm = "\s[0]"
 		_attn = "\s[0]"
 		_eat = "\s[25]"
@@ -2474,7 +2576,14 @@ Select.nightyneedstoeat
 			_huh = "\s[1]\i[8]"
 			_ew = "\s[1]\i[9]"
 		}
-		
+		posact += 1
+		if season == "Winter"
+		{
+			if nicensadlevel >= 50
+			{
+			"\0\s[0]\i[55]* (You slide him a bowl with six pomegranate seeds.)\w8\n\n\0\s[13]\i[55]* (He seems\w2.\w2.\w2. \w4suspicious?)\n\n\w8\0\s[4]What for?\n\n\w8\i[55]* (You tell him it's seasonal.)\n\n\w8* (He seems content with that explanation.)"
+			}
+		}
 		if timeslot == "morning" //Morning (it's breakfast).
 		{
 			"%(_norm)\i[55]* (You give him a plate full of waffles for breakfast.)\n\n\w8\0\s[6]Thank you %(username)!!!%(_eat)\i[55]\w8\n\n"
@@ -2545,13 +2654,37 @@ Select.plsdontsticknailsinitorsomething
 	"\0\s[19]* (You hand him a half eaten poptart.) \w8* (He's too desperate to deny it...)\w8\0\s[25]\e"
 	"\0\s[19]* (You hand him a fruit snack.)\w8\n\n* (He tries opening it, \w4but it was already opened.)\w8\n\n * (All the snacks are gone...)\e"
 }
-/*
 Select.iiiimsinginintherain
 {
+	//tempdialogue
 	//You can give him things related to the weather. He loves weather because he can't have it himself. Winter - Snowglobe, Spring - flowercrown, summer - umbrella, Fall - a leaf, a feather +1 nicelevel
-	"Doesn't look like you have anything to give him.\e"
+	
+	"* (You give him some rubber boots.)\w8\s[4]...?\w8 \w4\s[6]Oh!\w8 This is made out of rubber!\w8 We don't have a lot of this at the village- * (He starts pulling at it, aparently more interested in the material than the boots.)"
+	"* (You hand him a thermometer.)\w8\n\n\s[4]It has numbers on it?\w8\n\n\i[55]* (You tell him it tells the temperature.)\n\n\w8\s[4]Oooh,\w8 okay.\w8 I'll see if I have a book that'll explain the numbers... \s[4]We don't have a lot of these because the weather is pretty consistant here so we don't need to know it so exactly.\n\n\w8* (He tilts it around a lot.)"
+	"* (You give him an infobook about different types of clouds.)\n\n\w8\s[32]Ok I will read it!"
+	posact += 1
+	if hasumbrella == "off"
+	{
+	hasumbrella = "on"
+	"%(surface0)* (You hand him an umbrella.)\n\n\w8\s[2]\i[4]\i[5]Oh,\w4 for the rain.\w8 I just try to get inside quickly when it rains%(lps(4))\w8 It can be pretty hard to get all the water out of my skull,\w3 haha!\e"
+	}
+	else
+	{
+		"* (You ask how his umbrella is.)\n\n\w8It's fine!\w8 Not broken or whatever.\w8 I don't get a lot of chances to use it,\w4 though."
+	}
+	if season == "Winter"
+	{
+		"* (You give %(nightname) a snowglobe!)\n\n\w8Oh, there's a mini house in there!\n\n\w8* (He seems a little too focused on the scene to think of shaking it.)"
+	}
+	//elseif season == "Spring"
+	//{
+	//	""
+	//}
+	--
+	"\![*]\q[Again,iiiimsinginintherain]\n/
+	\![*]\q[Give him something different,itemsmenu]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
 }
-*/
 
 
 
@@ -2591,7 +2724,18 @@ Select.letsleep
 Select.givesleepblankie
 {
 	givesleepyblankie = "on"
-	"\![bind,Blanket,cape,1] (He looks comfy.)\e"
+	"\![bind,Blanket,cape,1]* (He looks comfy.)\e"
+}
+Select.givesitblankie
+{
+	givesleepyblankie = "on"
+	"\![bind,Blanket,cape,1]Thanks %(username.)\e"
+	"\![bind,Blanket,cape,1]* (He looks comfier this way.)\e"
+}
+Select.takesitblankie
+{
+	hasblankie = "off"
+	"\![bind,Blanket,cape,0]\i[55]* (You take his blanket away.)\w8\n\n\s[1]It was getting a little too warm anyways.\e"
 }
 
 Select.nicewords

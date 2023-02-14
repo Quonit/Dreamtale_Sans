@@ -239,6 +239,10 @@ surface1
 	//Blushies
 	animation100.interval,bind
 	animation100.pattern0,add,1601,0,0,0
+	
+	//Blankie
+	animation48.interval,bind
+	animation48.pattern0,add,1145,0,0,0
 }
 
 //Shrug or something
@@ -275,11 +279,19 @@ surface2
 	//Annoyed side look
 	animation2.interval,runonce
 	animation2.pattern0,overlay,1136,0,0,0
+	//Happy
+	animation4.interval,never
+	animation4.pattern0,stop,2
+	animation4.pattern1,overlay,1144,0,0,0
 	
 	//Arms
-	//Shrug
+	//shrug
 	animation3.interval,runonce
 	animation3.pattern0,overlay,1227,0,0,0
+	//Umbrella
+	animation5.interval,never
+	animation5.pattern0,stop,3
+	animation5.pattern1,overlay,1231,0,0,0
 
 	//Blushies
 	animation100.interval,bind
@@ -918,6 +930,10 @@ surface43
 	animation8.interval,never
 	animation8.pattern1,stop,7
 	animation8.pattern0,overlay,1126,0,0,0
+	//Smile
+	animation12.interval,never
+	animation12.pattern1,stop,7
+	animation12.pattern0,overlay,1146,0,0,0
 
 	//Right Arms
 	//At Side
@@ -1161,6 +1177,16 @@ surface1531 //Hey look its mine!
 surface1532 //SwapDream
 {
 	element0,overlay,surface1532.png,0,0
+}
+
+
+surface1534 //saffron gold stardust
+{
+	element0,overlay,surface1534.png,0,0
+}
+surface1535 //calibri
+{
+	element0,overlay,surface1535.png,0,0
 }
 
 //      :::::::::  :::::::::  ::::::::::     :::       :::   :::

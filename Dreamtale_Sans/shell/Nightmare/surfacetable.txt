@@ -19,6 +19,9 @@ scope,0
 110,Oh no
 20,Dream shoots
 21,NM gets shot
+22,CutsceneNight1
+23,CutsceneNight2
+24,CutsceneNightCrown
 1600,shoot1
 1601,shoot2
 1602,shoot3
@@ -36,4 +39,9 @@ scope,0
 1614,NMshot4 or close eyes
 1615,NMopens eyes
 1616,NO DREAM LEAVE AAA
+1617,CutsceneNight
+1618,CutsceneNight5
+1619,Empireverse
+1620,Furry
+1621,King
 }

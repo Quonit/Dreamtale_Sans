@@ -450,6 +450,10 @@ UpdateVars
 	if !ISVAR('hastea'); {hastea='off'}
 	if !ISVAR('hasblankie'); {hasblankie='off'}
 	if !ISVAR('hasviolin'); {hasviolin='off'}
+	if !ISVAR('seenethicaltattoo'); {seenethicaltattoo='off'}
+	if !ISVAR('hasumbrella'); {hasumbrella='off'}
+	if !ISVAR('hourhitannoying'); {hourhitannoying='off'}
+	if !ISVAR('friendzoned'); {friendzoned='off'}
 	//counters
 	
 	if !ISVAR("posact") && !ISVAR("negact")
@@ -744,4 +748,38 @@ reversetalktime
 	{
 		aitalkinterval = 60
 	}
+}
+
+//Character ID, category name, part name, option (comma delimited if multiple), valid / invalid 0, thumbnail path
+OnNotifyDressupInfo
+{
+    availabledressups = IARRAY //This one is to display the dressup menu
+    currentdressups = IARRAY //This one is so we can display which dressups are currently in use
+    
+    //Has to be reference.raw because parts of this are delimited with C_BYTE1
+    foreach reference.raw; _dressup
+    {
+        _dressup = SPLIT(_dressup,C_BYTE1)
+        
+        _toadd = _dressup[0] + "|" + _dressup[1] + "|" + _dressup[2]
+        if _dressup[4] == 1; currentdressups ,= _toadd
+        
+        availabledressups ,= _toadd
+    }
+} //-Zi
+
+WearingCape
+{
+    if "0|Costume|Cape" _in_ currentdressups; 1
+    else; 0
+}
+WearingBlushies
+{
+    if "0|Costume|Blushies" _in_ currentdressups; 1
+    else; 0
+}
+WearingBlanket
+{
+    if "0|Blanket|cape" _in_ currentdressups; 1
+    else; 0
 }

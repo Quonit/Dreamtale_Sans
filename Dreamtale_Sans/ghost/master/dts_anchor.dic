@@ -141,7 +141,7 @@ OnAnchorSelect
 				{
 					"\0\s[12]...It's a magic tree.\e"
 				}
-				elseif blushiemode == "on" && privacyrespecter == "off"
+				elseif nicesadlevel >= 100 && privacyrespecter == "off"
 				{
 					momstreeexpo = "on"
 					"\_b[Extras\mydeadmom.png,125,10]\_l[0,60]\0\s[9]Mommy\w4.\w4.\w4. \w6I wish I knew her sometimes.\n\n\w8I\w3.\w3.\w3. \w4I think it's just in my head,\w3 but I think she'd've helped me a lot on stuff.\w6If I also had her to talk to instead of just the villagers.\w6 But\w3.\w3.\w3.\n\n\w8Some of the villagers say she wouldn't have liked me, \w5but I don't know if I should just trust what they're saying or not. \w6Because I didn't know her, \w3but they did.\w5So I dunno what to think\w3.\w3.\w3.\e"
