@@ -2353,7 +2353,7 @@ Select.giveoutfit
 	Select.saffronn
 	{
 		posact += 1
-		"\0\s[1534]* (He seems to like it!)\n\n\w8It's colorful!\n\n\w8I wonder if teal would look nice on my other clothes..."
+		"\0\s[1534]\b2* (He seems to like it!)\n\n\w8It's colorful!\n\n\w8I wonder if teal would look nice on my other clothes..."
 		--
 		"\n\n\![*]\q[Choose another outfit,giveoutfit] %(ItemMOO)"
 	}
