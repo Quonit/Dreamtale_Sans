@@ -80,7 +80,7 @@ MouseMoveSakura
 								"zzz\w4.\w4.\w4.\w8\w8 Don't\w4.\w4.\w4.\w8 Don't touch 		me-!!\w8\n\n\w8\w8\w8\w4z\w4z\w4z\w4.\w4.\w4.\w4"
 							}
 							
-							"zzz\w4.\w4.\w4.\w8\w8 Hmm\w4.\w4.\w4.\w8 Dream\w4.\w4.\w4.\w4?"
+							"zzz\w4.\w4.\w4.\w8\w8 Hmm\w4.\w4.\w4.\w8 anDream\w4.\w4.\w4.\w4?"
 							"zzz\w4.\w4.\w4.\w8\w8 Wha\w4.\w4.\w4.\w8 Wha's touchin' me\w4.\w4.\w4.\w4?"
 						}
 					}
@@ -206,7 +206,7 @@ MouseMoveSakura
 						"\0\s[6]You fleshy idiots are so weird.\e"
 					}
 				}
-				elseif reference4 == "StarCrown" && specildreamboot == 1 //Pet Dream
+				elseif reference4 == "StarCrown" //Pet Dream
 				{
 					if whorupanic == "on" //If they don't know you
 					{
@@ -223,7 +223,7 @@ MouseMoveSakura
 						"\s[18]* (You mouse over their crown.)\n\n\w8\s[0]\i[1]Could you maybe avoid that?\w8 I don't want others getting too close to it."
 					}
 				}
-				elseif reference4 == "StarSkull" && specildreamboot == 1 //Pet Dream
+				elseif reference4 == "StarSkull" //Pet Dream
 				{
 					sparklepet += 1
 					if whorupanic == "on" //If they don't know you
@@ -446,7 +446,7 @@ MouseDoubleClickSakura
 			}
 		}
 	}
-	elseif reference4 == "dremFace" && specildreamboot == 1
+	elseif reference4 == "dremFace"
 	{
 		if starpunch == 0
 		{
@@ -501,17 +501,7 @@ MouseDoubleClickSakura
 	}
 	else
  	{
-		//LOGGING("mode is %(nowmode)")
-		//LOGGING("dream boot is %(specildreamboot)")
-		
-		if nowmode != "intodreams"
-		{
 			OpenSakuraMenu
-		}
-		elseif specildreamboot != 0
-		{
-			OpenSakuraMenu
-		}
 	}
 }
 

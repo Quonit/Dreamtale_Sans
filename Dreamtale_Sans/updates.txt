@@ -19,7 +19,7 @@ file,ghost/master/dts_dreamtalk.dic959e36c5aee0c11c61a164e69251a69esize=23829
 file,ghost/master/dts_etc.dic8ea50d1c5a162a49e41f3c6e8cdfb502size=19272date=2023-02-02T00:31:37
 file,ghost/master/dts_gooptalk.dica7a3af9b2a585bfb3d0ab9a082dd0c40size=24099date=2023-02-06T01:13:05
 file,ghost/master/dts_menu.dice60e5f6d216396e9fc038e99859a7f1bsize=101941date=2023-02-14T15:00:06
-file,ghost/master/dts_mouse.dic98401b11db7313ea4ae65998ae90470bsize=18406date=2023-01-30T17:14:50
+file,ghost/master/dts_mouse.dica77f0fe846433c1ebc83a1c7a5950518size=18148date=2023-02-14T16:59:01
 file,ghost/master/dts_nameteach.dic47949919551e72d9ff42ae6eec23f1b9size=3160date=2022-10-27T17:48:11
 file,ghost/master/dts_word.dicf8ab81a9e321ddd033374fee0372a9bcsize=17445date=2022-12-24T11:51:54
 file,ghost/master/gomi.dll51fe9597398db01e684a0f9d52c63242size=13312date=2004-06-01T17:00:04
