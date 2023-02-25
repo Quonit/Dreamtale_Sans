@@ -15,7 +15,7 @@ file,ghost/master/dts_aitalk.dicb97b54a0fbf5e5ae55dbdb7713e4d524size=48847dat
 file,ghost/master/dts_anchor.dica2585b233128c1da38f5685e7ec80b83size=7861date=2023-02-02T02:01:46
 file,ghost/master/dts_bootend.dic6f684a2144c7b67cc7b0425faff616a0size=24644date=2023-02-24T18:11:29
 file,ghost/master/dts_commu.dic6b4c6a70045a20395a5239f14e72b214size=686date=2022-12-20T21:36:13
-file,ghost/master/dts_dreamtalk.dic33bb066002a1ec6c03fd507035ce6577size=24123date=2023-02-24T18:10:48
+file,ghost/master/dts_dreamtalk.dicc5446c41641cb4812c2969fb404c4343size=24071date=2023-02-24T19:00:46
 file,ghost/master/dts_etc.dic8ea50d1c5a162a49e41f3c6e8cdfb502size=19272date=2023-02-02T00:31:37
 file,ghost/master/dts_gooptalk.dica7a3af9b2a585bfb3d0ab9a082dd0c40size=24099date=2023-02-06T01:13:05
 file,ghost/master/dts_menu.dica883ae0e0f1a8d73e35e51d9f45d1504size=101941date=2023-02-24T18:12:59
@@ -340,8 +340,8 @@ file,shell/Dream/surface3.png3c7c913256547d55212a6fa09c802a67size=27634date=2
 file,shell/Dream/surface38.png252e249a31a9f7dd1cc5ceddfcb05e64size=37960date=2022-12-09T03:38:06
 file,shell/Dream/surface4.png4026416e61167bf99123563b28b4b92dsize=28317date=2022-12-09T01:24:41
 file,shell/Dream/surface7.png604b5ad461f87cdd7916a54d05f0e295size=34237date=2022-12-09T02:23:38
-file,shell/Dream/surfaces.txt6850fb73eca531e4520a8207bf1d0e3bsize=10725date=2023-01-31T21:44:37
-file,shell/Dream/surfacetable.txt778bd9dd6aeda4955a94d05662c65fb1size=329date=2023-01-31T18:08:18
+file,shell/Dream/surfaces.txt220385aa086159c2bad393bffc7bc87csize=10791date=2023-02-24T18:24:49
+file,shell/Dream/surfacetable.txt0e21ef3679e2f6f9fdf0d63e106e9e97size=341date=2023-02-24T18:29:43
 file,shell/Dream/thumbnail.pngb3abbdf9ba558ecb11fd65da059fa0d0size=184823date=2019-07-13T16:53:28
 file,shell/Nightmare/descript.txtdab08a4b7ed2fde6a542b8e385b5efdasize=2091date=2022-09-19T21:30:21
 file,shell/Nightmare/menu_background.png264771aa0e25a3eeb4dd49fbe97e6f71size=8462date=2020-03-04T18:10:58

@@ -610,9 +610,8 @@ Select.uhgfinallyoutfit
 {
 	if nicesadlevel >= 25
 	{
-	"\_q\![*]\q[Dreamswap,dreamswapn] - OneBizarrKai\n/
+	"\b2\_q\![*]\q[Dreamswap,dreamswapd] - OneBizarrKai\n/
 	\![*]\q[DawnDream,dawndreamd] - Yume\n/
-	\![*]\q[Swapdream,dreamswapd] - litemong & Song_A_Song\n/
 	\![*]\q[Flowerverse,flowerversed] - flowerrei\n/
 	\![*]\q[Dulled Formal,myoutfitd] - Quonit\n/
 	\![*]\q[SwapDream,swapdreamd] - Litemong & Song Song A\n/
@@ -625,36 +624,38 @@ Select.uhgfinallyoutfit
 	{
 		"\s[0]* (You ask Dream to put on some clothes for you.)\n\n\w8\i[6]Ahah,\w5 I'm not much of a fashion person."
 		--
-		"%(Itemmeow)"
+		"%(itemmeow)"
 	}
 }
-	Select.dawndreamd
+
+
+Select.dawndreamd
 	{
 		niceact += 1
 		"\s[1600]* (You hand Dream a dress.)\n\n\w8It's got quite a lot on it, yet it feels light!\w8 I wonder who would design an outfit like this...\w8I'd definitely call it ceremonial."
 		--
-		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(itemmeow)"
 	}
 	Select.dreamswapd
 	{
 		niceact += 1
-		"\s[1601]* (You give Dream an outfit.)\n\n\w8Seems like the kind of jacket a human in the world outside of the village would wear.\w8They'd call it 'cool'."
+		"\s[1601]* (You give Dream an outfit.)\n\n\w8Seems like the kind of jacket a human in the world outside of the village would wear.\w8 They'd call it 'cool'."
 		--
-		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(itemmeow)"
 	}
 	Select.flowerversed
 	{
 		niceact += 1
 		"\s[1602]* (You hand Dream a costume.)\n\n\w8Pink!\w8 Usually when the elders give me something to wear in pink,\w5 it's far lighter,\w5 but I prefer this shade.\w8 The flowers are a nice touch."
 		--
-		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(itemmeow)"
 	}
 	Select.myoutfitd
 	{
 		niceact += 1
 		"\s[1603]* (Dream puts on the outfit.)\n\n\w8It's formal,\w5 but not as overwhelming as the usual ceremonial dresses we're given.\w8 I would wear this if there's an opportunity in it."
 		--
-		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(itemmeow)"
 	}
 	Select.swapdreamd
 	{
@@ -671,7 +672,7 @@ Select.uhgfinallyoutfit
 		"...It's-\w8 Hmm,\w6 hard to describe.\n\n\w8Like my normal outfit,\w6 but \f[italic,true]more\f[italic,false].\w8 Extra brightness, \w4extra studs, \w4feels sturdier.\w8\n\nI feel like I'd wear this in a court or something!"
 		}
 		--
-		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+		"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(itemmeow)"
 	}
 	//Select.saffrond
 	//{
@@ -680,23 +681,23 @@ Select.uhgfinallyoutfit
 	Select.calid
 	{
 		niceact += 1
-		"\s[1606]* (You hand Dream some clothes.)\n\n\w8Aw,\w6 it's soft!\w8It's more casual than what I usually wear.\w7 How nice!"
+		"\s[1606]* (You hand Dream some clothes.)\n\n\w8Aw,\w6 it's soft!\w8 It's more casual than what I usually wear.\w7 How nice!"
 	--
-	"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+	"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(itemmeow)"
 	}
 	Select.empired
 	{
 		niceact += 1
 		"\s[1607]* (You give Dream an outfit.)\n\n\w8It's so lightly colored%(lps(3))\w8 I would be worried about staining this.\w8\n\nThe hood is nice though,\w8 makes me feel calm."
 	--
-	"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+	"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(itemmeow)"
 	}
 	Select.xdreamd
 	{
 		niceact += 1
-		"\s[1607]* (You give Dream an outfit.)\n\n\w8Black white and purple?\n\n\w8I feel like this would look nice on Nightmare..."
+		"\s[1608]* (You give Dream an outfit.)\n\n\w8Black white and purple?\n\n\w8I feel like this would look nice on Nightmare..."
 	--
-	"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+	"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(itemmeow)"
 	}
 
 Select.dreamtestvariable
