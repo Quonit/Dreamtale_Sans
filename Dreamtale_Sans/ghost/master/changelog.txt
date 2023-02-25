@@ -1,5 +1,12 @@
 Changelog for Dreamtale Sans!
 --------------------------------------------------------------------------------------------------------------------
+--- 24th February 2023 ---
+Additions:
+-New Dream outfit early, lol
+
+Bugfixes:
+-Negative route works again!
+
 --- 14 February 2023 ---
 Additions:
 -Now you can friendzone Nighty if you're in blushiemode!

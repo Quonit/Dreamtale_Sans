@@ -617,7 +617,8 @@ Select.uhgfinallyoutfit
 	\![*]\q[Dulled Formal,myoutfitd] - Quonit\n/
 	\![*]\q[SwapDream,swapdreamd] - Litemong & Song Song A\n/
 	\![*]\q[Reunited,calid] - Feral-Fanatic & Clover-of-Promise\n/
-	\![*]\q[Empireverse,empired] - lunnar-chan"
+	\![*]\q[Empireverse,empired] - lunnar-chan\n/
+	\![*]\q[XTale,xdreamd] - Saffron Gold Stardust"
 	//\![*]\q[Cygnus,saffrond] - Saffron Gold Stardust\n/
 	}
 	else
@@ -687,6 +688,13 @@ Select.uhgfinallyoutfit
 	{
 		niceact += 1
 		"\s[1607]* (You give Dream an outfit.)\n\n\w8It's so lightly colored%(lps(3))\w8 I would be worried about staining this.\w8\n\nThe hood is nice though,\w8 makes me feel calm."
+	--
+	"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
+	}
+	Select.xdreamd
+	{
+		niceact += 1
+		"\s[1607]* (You give Dream an outfit.)\n\n\w8Black white and purple?\n\n\w8I feel like this would look nice on Nightmare..."
 	--
 	"\n\n\![*]\q[Choose another outfit,uhgfinallyoutfit] %(Itemmeow)"
 	}

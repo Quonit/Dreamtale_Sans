@@ -42,6 +42,12 @@ RandomTalk : nonoverlap_pool
 	{
 		DreamTalk
 	}
+	elseif VillageLevel >= 200 && nowmode != "Edgybitch"
+	//nicensadlevel <= -120 && punchout >= 80 && nowmode != "Edgybitch" //IT ADDS UP TO 200 OK
+	//VillageLevel >= 200 && punchout > 1 && (nicensadlevel < 1 || betrayalvar > 1)
+	{
+		"\t\*\0\s[22]* (You hear sniffing.)\w8\w8\0\s[23]\n\n* \f[italic,true]sniff sniff\f[italic,false] *\n\n\w8\w4I want to go home-\w5 why can't I just go home?\n\n\w8\![*]\q[Push him over.,Goopmare]\e"
+	}
 	elseif VillageLevel >= 150 && nowmode != "Edgybitch"
 	{
 		"\0\s[22]\i[55]* (Despite everything you've done to him, \w4his life here might be better than at home.)\e"
@@ -209,12 +215,6 @@ RandomTalk : nonoverlap_pool
 				"zzz\w4.\w4.\w4.\w8\w8\w8 Ngh\w2.\w2.\w2.\w8 No\w4, don't\w4.\w4.w4.\w8 Stop\w4.\w4.\w4.\w8"
 			}
 		}
-	}
-	elseif VillageLevel >= 200 && nowmode != "Edgybitch"
-	//nicensadlevel <= -120 && punchout >= 80 && nowmode != "Edgybitch" //IT ADDS UP TO 200 OK
-	//VillageLevel >= 200 && punchout > 1 && (nicensadlevel < 1 || betrayalvar > 1)
-	{
-		"\t\*\0\s[22]* (You hear sniffing.)\w8\w8\0\s[23]\n\n* \f[italic,true]sniff sniff\f[italic,false] *\n\n\w8\w4I want to go home-\w5 why can't I just go home?\n\n\w8\![*]\q[Push him over.,Goopmare]\e"
 	}
 	elseif nicensadlevel >= 50 && nightynight != "on" && talkaboutlater != "on" //This is a failsafe if it still hasn't triggered the dialogue, somehow.
 	{

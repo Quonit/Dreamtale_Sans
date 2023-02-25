@@ -450,7 +450,7 @@ OnClose
 				"\0\s[4]I wonder when I'm coming back here again.\w8"
 				"\0\s[8]See you\w3.\w3.\w3. \w6Maybe.\w8"
 				"\0\s[3]I'm gonna go check on my brother.\w8"
-				"\0\s[12]Now I can go back to reading %(bookstoread)."
+				"\0\s[12]Now I can go back to reading %(bookstoread).\w8"
 			}
 		}
 		elseif VillageLevel >= 150

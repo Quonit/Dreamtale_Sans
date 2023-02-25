@@ -280,7 +280,7 @@ TalkConfig
 	Talk Rate: every %(talktime) \f[sup,1](\q[Change it?,talkinter])\f[sup,0]\n/
 	Hourly Hits: %(hourhitannoying) \f[sup,1](\q[Change it?,stopevilhourhit])\f[sup,0]\n/
 	Hemisphere: %(menusphere) \f[sup,1](\q[Change it?,changelovation])\f[sup,0]\n/
-	Updated: 14th February, 2023 \f[sup,1](\q[Check for Updates?,Oncheckupdate])\f[sup,0]\n\n"	
+	Updated: 24th February, 2023 \f[sup,1](\q[Check for Updates?,Oncheckupdate])\f[sup,0]\n\n"	
 	--
 	if nowmode != "intodreams" && ringringuthere == "on"
 	{
