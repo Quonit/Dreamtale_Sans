@@ -442,6 +442,10 @@ surface1607 //Empireverse
 {
 	element0,overlay,surface1607.png,0,0
 }
+surface1608 //XTale
+{
+	element0,overlay,surface1608.png,0,0
+}
 
 //meditative sitting
 surface1621

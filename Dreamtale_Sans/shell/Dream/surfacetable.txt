@@ -22,7 +22,8 @@ scope,0
 1602,Flowerie
 1603,Soft
 1604,SwapDream
-1604,Reunited
-1605,Empireverse
+1606,Reunited
+1607,Empireverse
+1608,XTale
 1621,Statue
 }
