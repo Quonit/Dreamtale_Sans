@@ -615,7 +615,7 @@ Select.uhgfinallyoutfit
 	\![*]\q[Flowerverse,flowerversed] - flowerrei\n/
 	\![*]\q[Dulled Formal,myoutfitd] - Quonit\n/
 	\![*]\q[SwapDream,swapdreamd] - Litemong & Song Song A\n/
-	\![*]\q[Reunited,calid] - Feral-Fanatic & Clover-of-Promise\n/
+	\![*]\q[Reunited,calid] - Feral-Fantic & Clover-of-Promise\n/
 	\![*]\q[Empireverse,empired] - lunnar-chan\n/
 	\![*]\q[XTale,xdreamd] - Saffron Gold Stardust"
 	//\![*]\q[Cygnus,saffrond] - Saffron Gold Stardust\n/
@@ -623,9 +623,9 @@ Select.uhgfinallyoutfit
 	else
 	{
 		"\s[0]* (You ask Dream to put on some clothes for you.)\n\n\w8\i[6]Ahah,\w5 I'm not much of a fashion person."
-		--
-		"%(itemmeow)"
 	}
+	--
+	"%(itemmeow)"
 }
 
 
