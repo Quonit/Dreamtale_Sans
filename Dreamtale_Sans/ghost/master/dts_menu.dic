@@ -174,7 +174,7 @@ MenuRun
 	\![*]\q[Use some items,itemsmenu]\n/
 	\![*]\q[Stats,configmenu]\n/
 	\![*]\q[Functions,dosomething]\n\n/
-	\![*]\q[the button that makes u terrible,testvariable]\n\n/
+	//\![*]\q[the button that makes u terrible,testvariable]\n\n/
 	\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 }
 
@@ -279,7 +279,7 @@ TalkConfig
 	}
 	--
 	"Talk Rate: every %(talktime) \f[sup,1](\q[Change it?,talkinter])\f[sup,0]\n/
-	Updated: 24th February, 2023 \f[sup,1](\q[Check for Updates?,Oncheckupdate])\f[sup,0]\n\n"	
+	Update: June 11, 2024 \f[sup,1](\q[Check for Updates?,Oncheckupdate])\f[sup,0]\n\n"	
 	--
 	if nowmode != "intodreams" && ringringuthere == "on"
 	{

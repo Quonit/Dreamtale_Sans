@@ -2,12 +2,12 @@ Charset,UTF-8
 __system_settings_version__,2
 char0.bind.savearray,100=0 48=0 41=0 500=0
 Char1.balloon.isleft,1
-balloon0.offset,120.19
+balloon0.offset,130.22
 scriptbox.left,1149
 Char0.centery,1040
 balloon1.offset,186.195
 Char0.balloon.isleft,1
-Char.VirtualDesktop,91dd09d9-e709-4351-8048-173dcd6f045c
+Char.VirtualDesktop,94b7898d-c0e1-4b5d-ac54-769e7b91e63c
 Char0.center,1641
 scriptbox.top,342
 Char1.centery,621

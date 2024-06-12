@@ -312,9 +312,9 @@ OnDreamMenu
 		\![*]\q[Use some items,Ondreambox]\n/
 		\![*]\q[Stats,configmenu]\n/
 		\![*]\q[Use some functions,dosomething]\n\n/
-		\![*]\q[Exit,CANCEL]\n"
-		--
-		"\![*]\q[Testvariable,dreamtestvariable]\n\n"
+		\![*]\q[Exit,CANCEL]\n\n"
+		//--
+		//"\![*]\q[Testvariable,dreamtestvariable]\n\n"
 		
 	}
 	--
