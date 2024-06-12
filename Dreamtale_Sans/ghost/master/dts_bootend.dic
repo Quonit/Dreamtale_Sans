@@ -40,6 +40,9 @@
 	wasemo = "off" //If you've seen goopmare before under bad circumstances.
 	sittang = "off" //if he is sitting
 	hourhitannoying = "off" //If the ghost will announce the hour
+	skeleXapple = "off" //If you've unlocked MareNight mode
+	UpdateText = "off" //If you want updates to take a million years
+	askaboutnight = "off" //Unlock the rest of dream's ask menu
 	//Items
 	hasdreamplush = "off" //If you've given him the Dream plush
 	hasmareplush = "off" //If you've given him the Mare plush
@@ -142,11 +145,16 @@ OnBoot
 	{
 		OnDreamBoot
 	}
+	elseif nowmode == "skeleXapple"
+	{
+		OnShipBoot
+	}
 	else
 	{
 		if SHIORI3FW.ShellName == "Nightmare"
 		{
 			"\0\s[0]\![change,Shell,Dreamtale Sans]\e"
+		//"\0\s[1].\w2.\w2.\w8\w8\0\s[0]\![change,shell,Passive Nighty]\0\s[7]Ah!\w8\n\n\0\s[13]Um\w2.\w2.\w2.\w6\0\s[4] How's your day?\e"
 		}
 		--
 		lastTalk = ""
@@ -156,16 +164,14 @@ OnBoot
 		passsec = 0
 		sleepingmode = "off"
 		sittang = "off"
-		"\0\s[0]\![bind,Blanket,cape,0]"
-		--	
 		dayslot = GetDaySlot
 		timeslot = GetTimeSlot
-		
-		//if SHIORI3FW.ShellName != "Nightmare"
-		//{
-		//"\0\s[1].\w2.\w2.\w8\w8\0\s[0]\![change,shell,Passive Nighty]\0\s[7]Ah!\w8\n\n\0\s[13]Um\w2.\w2.\w2.\w6\0\s[4] How's your day?\e"
-		//}
-		
+		"\0\s[0]\![bind,Blanket,cape,0]"
+		--
+		if GETTIME[1] != 4 && GETTIME[2] != 1
+		{
+			"\![bind,Costume,Flowers,false]"
+		}
 		--
 		if dayslot == userbirthday
 		{
@@ -193,6 +199,11 @@ OnBoot
 		elseif dayslot == "1month 1day"
 		{
 			"\0\s[9]Another year gone...\e"
+		}
+		elseif dayslot == "4month 1day"
+		{
+			"temp dialogue"
+			//"\0\s[0]\![bind,Costume,Flowers,true]* (He looks different.)\n\n\w8Oh,\w7 Hi %(username).\e"
 		}
 		elseif dayslot == "5month 28day"
 		{
@@ -597,7 +608,7 @@ OnClose
 				{
 					if blushiemode == "on" && privacyrespecter == "off" 
 					{
-						"\0\s[20]Have a good rest %(username).\w8"
+						"%(surface0)Have a good rest %(username).\w8"
 						"\0\s[4]I wonder if the stars are out yet.\w8"
 					}
 					"\0\s[4]I hope anDream is back home\w2.\w2.\w2.\n\n\w8Otherwise someone might be trying to keep them from going home.\w8"

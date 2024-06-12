@@ -371,7 +371,7 @@ MouseDoubleClickSakura
 	}
 	elseif reference4 == "Dollie"
 	{
-		"\0\s[26]* (You ask him if he likes the doll.)\n\n\w8It's nice and all but\w2.\w2.\w2.\w6 Where did you get this?\e"
+		"\0* (You ask him if he likes the doll.)\n\n\w8It's nice and all but\w2.\w2.\w2.\w6 Where did you get this?\e"
 	}
 	elseif reference4 == "Crown" //Double click crown
 	{
@@ -384,7 +384,7 @@ MouseDoubleClickSakura
 			"* (You tap at his circlet.)\n\n\w8"
 			"* (You bap the crown.)\n\n\w8"
 			--
-			"\s[8]You're super interested in seeing what's under there still,\w4 aren't you\w2.\w2.w2."
+			"\s[8]You're super interested in seeing what's under there still,\w4 aren't you%(lps(2))"
 			"\s[4]Why are you still trying to touch it?"
 			"* (It makes a little 'clink' sound.)"
 			"* (He sighs audibly.)"
@@ -446,7 +446,7 @@ MouseDoubleClickSakura
 			}
 		}
 	}
-	elseif reference4 == "dremFace"
+	elseif reference4 == "StarFace"
 	{
 		if starpunch == 0
 		{
@@ -479,13 +479,13 @@ MouseDoubleClickSakura
 		{
 			negact += 1
 			punchout += 1
-			"\0\s[290]Ah-\w5\0\s[23] Stop it!!!\e"
-			"\0\s[290]Hghk-! \w9\w9nnn...\e"
+			"\0\s[29]Ah-\w5\0\s[23] Stop it!!!\e"
+			"\0\s[29]Hghk-! \w9\w9nnn...\e"
 			"\0\s[30]Ah-\w5 Ow!! \w7\0\s[1619]Stop it!!\e"
 			"\0\s[30]Hey!\w7\w7\n\nOw...\w5 Ow...\w5 This hurts...\e"
 			"\0\s[30]Nngh-! \w9\w9hnnggg...\e"
-			"\0\s[290]!! \w9\w9Ow-\w4 Stop it!\e"
-			"\0\s[290]!! \w9\w9Don't do that!!\e"
+			"\0\s[29]!! \w9\w9Ow-\w4 Stop it!\e"
+			"\0\s[29]!! \w9\w9Don't do that!!\e"
 		}
 		else
 		{
@@ -528,7 +528,7 @@ Select.punchnighty
 		if nicensadlevel > 25; {negact += 10}
 		else; {negact += 1}
 		punchout += 1
-		"\0\s[290]Ack-! %(username)??\w4\0\s[21] Why did you do that???\e"
+		"\0\s[29]Ack-! %(username)??\w4\0\s[21] Why did you do that???\e"
 		"\0\s[30]Ow!! Wait,\w3\0\s[21] %(username)???\e"
 		"\0\s[30]Ah-!! Ow!!!\w4 %(username)?!\n\n\w8\0\s[21]Why did you do that???\w6 I-\w3 I thought you were my friend!\e"
 	}
@@ -536,11 +536,11 @@ Select.punchnighty
 	if nicensadlevel > 25; {negact += 10}
 	else; {negact += 1}
 	punchout += 1
-	"\0\s[290]Ow! \w3Why did you do that??"
-	"\0\s[290]Ow-! \w3Stop it!"
-	"\0\s[290]Ow- \w3Why did you hit me??"
+	"\0\s[29]Ow! \w3Why did you do that??"
+	"\0\s[29]Ow-! \w3Stop it!"
+	"\0\s[29]Ow- \w3Why did you hit me??"
 	"\0\s[30]Ack- \w3that hurt!"
-	"\0\s[290]Ah- \w3Don't do that!"
+	"\0\s[29]Ah- \w3Don't do that!"
 }
 
 Select.dontpunchnighty

@@ -1,11 +1,43 @@
 Changelog for Dreamtale Sans!
 --------------------------------------------------------------------------------------------------------------------
+--- June 11 2024 ---
+Additions:
+-New Jokes
+-Added more options to Night's sleeping menu
+-Some more dialogue for the negative route
+-Dream has more responses to Functions
+-Replaced Surface 14 (silly exahsperated --> other more fitting expressions depending on dialogue)
+-Updating dialogue is faster and more specific.
+-Added toggle to name files that are being updated due to lag.
+
+Tweaks:
+-Cleaned up some ACTions
+-Cleaned up Night's menu (split the STATs into two pages)
+-Cleaned up Dream's menu
+-Cleaned up shell surface code
+-Split the stats menu into two pages
+
+Bugfixes:
+-Clicking the Nightmare Plush no longer switches it to the Dream plush
+-Fixed If you obtained the blanket you couldn't give it to him while he's sleeping
+-Now you can punch Dream
+-Fixed typos (Including showing up as the wrong pose)
+-Misc pose cleaning
+-Fixed blanket dress up for second sitting pose
+-Fixed typos in changelog
+
+
 --- 24th February 2023 ---
 Additions:
--New Dream outfit early, lol
+-New Dream outfit early
+
+Tweaks:
+-Fixed some shortcuts in the outfit menu
 
 Bugfixes:
 -Negative route works again!
+-Fixed typos
+
 
 --- 14 February 2023 ---
 Additions:
@@ -34,7 +66,7 @@ Tweaks:
 Additions:
 -Dreamtale sans??? For real??? Boot ghost on Dec 21st to see!
 -Updated commu.dic to include ReplyToGhost for other modes.
--Added more ect.dic flavor text.
+-Added more etc.dic flavor text.
 -Some new random dialogue
 
 Bugfixes:

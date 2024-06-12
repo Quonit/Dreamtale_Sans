@@ -1,0 +1,112 @@
+//--Descript.txt
+
+
+//1. -- Basic information
+
+
+charset,UTF-8
+type,balloon
+name,Z - Undertale
+craftman,Zarla
+craftmanw,zarla
+craftmanurl,http://www.ashido.com/
+homeurl,http://www.ashido.com/ghost/undertaleballoon/
+
+
+//2. -- Defining Text Areas
+
+
+origin.x,17
+origin.y,21
+
+
+validrect.left,17
+validrect.top,21
+validrect.right,316
+validrect.bottom,181
+
+wordwrappoint.x,316
+wordwrappoint.y,0
+
+font.name,Determination Mono
+font.height,13
+font.color.r,255
+font.color.g,255
+font.color.b,255
+
+
+//3. -- Balloon Position
+
+windowposition.x,0
+windowposition.y,0
+
+
+//4. -- Other String
+
+
+font.shadowcolor.r,-1
+font.shadowcolor.g,-1
+font.shadowcolor.b,-1
+
+anchor.font.color.r,0
+anchor.font.color.g,60
+anchor.font.color.b,255
+
+
+//5. -- Choice Markers
+
+
+cursor.blendmethod,none
+cursor.style,underline
+
+cursor.pen.color.r,0
+cursor.pen.color.g,0
+cursor.pen.color.b,0
+
+cursor.brush.color.r,255
+cursor.brush.color.g,255
+cursor.brush.color.b,0
+
+cursor.font.color.r,255
+cursor.font.color.g,255
+cursor.font.color.b,0
+
+
+
+//6. -- Image Markers
+
+arrow0.x,319
+arrow0.y,9
+
+arrow1.x,319
+arrow1.y,182
+
+onlinemarker.x,17
+onlinemarker.y,9
+
+sstpmarker.x,9
+sstpmarker.y,181
+
+sstpmessage.font.height,9
+sstpmessage.font.color.r,150
+sstpmessage.font.color.g,150
+sstpmessage.font.color.b,150
+sstpmessage.x,19
+sstpmessage.y,184
+
+number.font.name,Determination Sans
+number.font.height,10
+number.font.color.r,150
+number.font.color.g,150
+number.font.color.b,150
+number.xr,315
+number.y,182
+
+
+//7. -- Communication Box
+
+communicatebox.x,14
+communicatebox.y,26
+
+communicatebox.width,327
+communicatebox.height,20

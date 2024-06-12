@@ -19,9 +19,12 @@ surface.append500-590
 	collision3,40,50,102,84,Book
 }
 //I don't know how this works but I'm doing to put tentacles here
-surface.append0-400
+surface.append0,2-100
 {
-	animation500.interval,never
+	animation41.interval,bind
+	animation41.pattern0,overlay,1700,0,0,0
+	
+	animation500.interval,bind
 	animation500.pattern0,interpolate,1304,0,0,0
 	animation500.pattern1,interpolate,1305,660,0,0
 	animation500.pattern2,interpolate,1304,500,0,0
@@ -34,6 +37,7 @@ surface.append0-400
 	animation501.pattern1,interpolate,1302,80,0,0
 	animation501.pattern2,interpolate,1303,80,0,0
 	animation501.pattern3,interpolate,0,80,0,0
+	
 }
 
 
@@ -367,6 +371,7 @@ surface4
 	//Blushies
 	animation100.interval,bind
 	animation100.pattern0,add,1604,0,0,0
+
 }
 
 //Sleeping
@@ -480,6 +485,7 @@ surface8
 	//Blushies
 	animation100.interval,bind
 	animation100.pattern0,add,1608,0,0,0
+	
 }
 
 //sad lookdown
@@ -527,6 +533,7 @@ surface12
 	//Blushies
 	animation100.interval,bind
 	animation100.pattern0,add,1612,0,0,0
+
 }
 
 //Shy
@@ -553,6 +560,14 @@ surface14
 	//Blushies
 	animation100.interval,bind
 	animation100.pattern0,add,1614,0,0,0
+	//face
+	//Angy
+	animation1.interval,runonce
+	animation1.pattern0,overlay,1147,0,0,0
+	
+	//Arms
+	animation2.interval,runonce
+	animation2.pattern0,overlay,1232,0,0,0
 }
 
 //hum
@@ -720,23 +735,20 @@ surface26
 	
 	//Holding Crown
 	animation1.interval,never
-	animation1.pattern0,stop,3
-	animation1.pattern1,stop,4
-	animation1.pattern2,stop,5
-	animation1.pattern3,overlay,1218,0,0,0
+	animation1.pattern0,parallelstop,(30,4,5)
+	animation1.pattern1,overlay,1218,0,0,0
 	//Put on
 	animation2.interval,never
-	animation2.pattern0,stop,3
-	animation2.pattern1,stop,4
-	animation2.pattern2,stop,5
+	animation2.pattern0,parallelstop,(30,4,5)
 	animation2.pattern3,overlay,1219,0,0,0
 	animation2.pattern4,overlay,1220,500,0,0
 	//Normal Crown
-	animation3.interval,runonce
-	animation3.pattern0,overlay,1221,0,0,0
+	animation30.interval,runonce
+	animation30.pattern0,overlay,1221,0,0,0
 	//Crossed arms
-	animation4.interval,runonce
-	animation4.pattern0,overlay,1222,0,0,0
+	animation4.interval,never
+	animation4.pattern0,stop,5
+	animation4.pattern1,overlay,1222,0,0,0
 	//dream plush
 	animation5.interval,runonce
 	animation5.pattern0,overlay,1223,0,0,0
@@ -744,9 +756,14 @@ surface26
 	animation6.interval,never
 	animation6.pattern0,stop,5
 	animation6.pattern1,overlay,1224,0,0,0
+	
+	//Eyes
 	//Look up eyes
 	animation7.interval,never
 	animation7.pattern0,overlay,1135,0,0,0
+	//Closed eyes
+	animation8.interval,never
+	animation8.pattern0,overlay,1143,0,0,0
 
 	//Blushies
 	animation100.interval,bind
@@ -933,7 +950,7 @@ surface43
 	//Smile
 	animation12.interval,never
 	animation12.pattern1,stop,7
-	animation12.pattern0,overlay,1146,0,0,0
+	animation12.pattern0,overlay,1148,0,0,0
 
 	//Right Arms
 	//At Side
@@ -948,45 +965,14 @@ surface43
 	//At Side
 	animation10.interval,runonce
 	animation10.pattern0,overlay,1212,0,0,0
-}
-
-//Slight Down
-surface44
-{
-	element0,overlay,surface1044.png,0,0
 	
-	//Arms
-	//Holding Crown
-	animation1.interval,never
-	animation1.pattern0,stop,30
-	animation1.pattern1,stop,4
-	animation1.pattern2,overlay,1218,0,0,0
-	//Put on
-	animation2.interval,never
-	animation2.pattern0,stop,30
-	animation2.pattern1,stop,4
-	animation2.pattern2,overlay,1219,0,0,0
-	animation2.pattern3,overlay,1220,500,0,0
-	//Normal Crown
-	animation30.interval,runonce
-	animation30.pattern0,overlay,1221,0,0,0
-	//Crossed arms
-	animation4.interval,runonce
-	animation4.pattern0,overlay,1222,0,0,0
-	//dream plush
-	animation5.interval,never
-	animation5.pattern0,overlay,1223,0,0,0
-	//mare plush
-	animation6.interval,never
-	animation6.pattern0,overlay,1224,0,0,0
+	//Blushies
+	animation100.interval,bind
+	animation100.pattern0,add,1601,0,0,0
 	
-	//Eyes
-	//Look up eyes
-	animation7.interval,never
-	animation7.pattern0,overlay,1135,0,0,0
-	//Closed eyes
-	animation8.interval,never
-	animation8.pattern0,overlay,1143,0,0,0
+	//Blankie
+	animation48.interval,bind
+	animation48.pattern0,add,1146,0,0,0
 }
 
 //Positive Pick-Up
@@ -1236,6 +1222,42 @@ surface2006 //Happy?
 	element0,overlay,surface2006.png,0,0
 }
 
+surface200
+{
+	element0,overlay,surface2200.png,0,0
+	
+	animation1.interval,runonce
+	animation1.pattern0,overlay,2520,0,0,0
+	//grrr
+	animation7.interval,never
+	animation7.pattern0,overlay,2213,0,0,0
+	
+	//Arms
+	//Polite Behind Back
+	animation2.interval,runonce
+	animation2.pattern0,interpolate,2300,0,0,0
+	
+	//Cape
+	//Cape top
+	animation1000.interval,runonce
+	animation1000.pattern0,interpolate,2500,0,0,0
+	//Cape bottom
+	animation1001.interval,runonce
+	animation1001.pattern0,overlay,2501,0,0,0
+}
+//Sigh
+surface202
+{
+	element0,overlay,surface2202.png,0,0
+	
+	//Cape
+	//Cape top
+	animation1000.interval,runonce
+	animation1000.pattern0,overlay,2510,0,0,0
+	//Cape bottom
+	animation1001.interval,runonce
+	animation1001.pattern0,interpolate,2511,0,0,0
+}
 //surface2007 //Worried
 //{
 //	element0,overlay,surface2007.png,0,0
@@ -1365,4 +1387,21 @@ surface100000
 	
 	animation10.interval,never
 	animation10.pattern0,overlay,1025,0,0,0
+	
+	animation11.interval,never
+	animation11.pattern0,overlay,1137,0,0,0
+	animation11.pattern1,overlay,1138,0,0,0
+	animation11.pattern2,overlay,1139,0,0,0
+	
+	animation12.interval,never
+	animation12.pattern0,overlay,1321,0,0,0
+	animation12.pattern1,overlay,1322,0,0,0
+	
+	animation13.interval,never
+	animation13.pattern0,overlay,1622,0,0,0
+	
+	animation14.interval,never
+	animation14.pattern0,overlay,2208,0,0,0
+
+
 }

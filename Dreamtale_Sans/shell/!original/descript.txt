@@ -60,8 +60,16 @@ menu.sidebar.bitmap.filename,menu_sidebar.png
 sakura.bindgroup100.name,Costume,Blushies
 sakura.bindgroup100.default,0
 
+//Blanket
 sakura.bindgroup48.name,Blanket,cape
 sakura.bindgroup48.default,0
+
+//Flowers
+sakura.bindgroup41.name,Flowers,Flowers
+sakura.bindgroup41.default,0
+
+sakura.bindgroup500.name,Tentacles,Default
+sakura.bindgroup500.default,0
 
 sakura.menuitem0,100
 sakura.menu,hidden

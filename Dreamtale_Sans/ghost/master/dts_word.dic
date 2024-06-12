@@ -1,6 +1,7 @@
 ﻿//Funny Envelopes
 bookstoread //Stolen from Zarla's hs ghost. Some are written by me.
 {
+	"a story about two star crossed lovers, an olm and honeypot ant." //https://www.lightspeedmagazine.com/fiction/a-saint-between-the-teeth/
 	"a hefty-looking book on skeleton history"
 	"a romance novel about a monster and human %(ANY('','that both die in the end'))"
 	"a book by that one guy who did a metric ton of cocaine" //Hunter S Thompson? or are we talking Buroughs's Naked Lunch?
@@ -13,7 +14,7 @@ bookstoread //Stolen from Zarla's hs ghost. Some are written by me.
 	"a book about a rare extinct bird"
 	"a book where everyone's miserable and their marriages are falling apart"
 	"a book with rabbits and made-up words" //Watership Down!
-	"a depressing book about two dogs who escape a research lab" //see, this seems like Mrs Frisby and the Rats of NIMH, but that was mice
+	"a depressing book about two dogs who escape a research lab" //The Plague Dogs
 	"a cute book about a princess who lives with a dragon"
 	"a book about a kid who lived in a sewer"
 	"a book about a weird magician messing with some sociologist"
@@ -21,15 +22,13 @@ bookstoread //Stolen from Zarla's hs ghost. Some are written by me.
 	"a book about talking mice" //Mrs Frisby and the Rats of NIMH, Ralph the Motorcycle Mouse, etc.
 	"a book about the Monsters and Humans War"
 	"a book about the Monsters and Humans War except with dragons" //Temeraire
-	"a book about a mad scientist that kept kis kids as lab rats" //platehands
+	"a book about a mad scientist that kept two kids as lab rats" //platehands
 	"a book about two kids living in a treehouse" //feck, I wanna say this is a mash-up of The Boxcar Children, The Magic Treehouse, and The Swiss Family Robinson
 	"a book about a guy who thought he was a soldier but was really a robot \w4but then maybe he really was a person who just thought he was a robot"
 	"a preachy book about politics"
 	"a book with spaceships and social commentary" //all of them? //but could be The Ship Who Sang, could be The Imperial Radch...
 	"a book where everyone dies at the end"
 	"a book about serial killers"
-	"a book about made-up crime"
-	"a book about creepy occult activity around here"
 	"an instructional book about magic"
 	"a cursed book whose cover is made of skin"
 	"a book that screams every time you open it"
@@ -60,7 +59,7 @@ bookstoread //Stolen from Zarla's hs ghost. Some are written by me.
 	"a book about a giant centipede that wants to enter a famous dog show"
 	"a weird report about killer stacks of paper" //I bet there's a Steven King story like this
 	"a book about children who die horrible gruesome deaths in the chocolate factory" //Charlie and the Chocolate Factory
-	"a boring book everyone has to read in school. You know what one I'm talking about." //Lord of the Flies?
+	"a boring book everyone has to read in school. You know what one I'm talking about." //Could be many different things
 	"a weird book where the story's split in two and one starts at the end and one starts at the beginning and then they meet at the center"
 	"a book of stupid jokes"
 	"a book of thought experiments"

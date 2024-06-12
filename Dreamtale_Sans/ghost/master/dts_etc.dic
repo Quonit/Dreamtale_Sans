@@ -250,7 +250,7 @@ OnBIFFFailure
 
 OnUpdateBegin
 {
-	"%(surface0)\i[55]* (Starting the update process.)\w8\n\n"
+	"\i[55]* (Starting the update process.)\w8\n\n"
 	--
 	if nowmode == "intodreams"
 	{
@@ -263,27 +263,38 @@ OnUpdateBegin
 	}
 	else
 	{
+		if nicensadlevel >= 0
+		{
 		"\0\s[4]I wonder what kind of things could be in the update...\w8"
+		}
+		if sleepingmode == "on"
+		{
+			"* (Checking for updates while he isn't looking,\w5 huh?)"
+		}
+		"%(surface0)\i[55]* (He sits there quietly for the update.)"
 	}
 	if reference0 == "artificial"
 	{
-		"%(surface0)\i[55]* (The user cancelled the update manually.)"
+		"%(surface0)\i[55]* (The user cancelled the update manually.\w8 Try again but don't click anything.)"
 	}
 }
 OnUpdateReady
 {
-	"%(surface0)\i[55]* (There are %(reference[0]) new files.)\w8\e"
+	"\i[55]* (There are %(reference[0]) new files.)\w8\e"
 }
 OnUpdateComplete
 {
 	if reference0 == "none"
 	{
-		"%(surface0)\i[55]* (There are no new files.)\e"
+		"\i[55]* (There are no new files.)\e"
+		if sleepingmode != on
+		{
 		"\0\s[2]Doesn't look like there's anything new to update with.\e"
+		}
 	}
 	else
 	{
-		"%(surface0)\i[55]* (Update successful!)\n\n\w8* (Do you want to read the changelog?)\n\n/
+		"\i[55]* (Update successful!)\n\n\w8* (Do you want to read the changelog?)\n\n/
 		\q[See Changelog,OnShowLog]   \q[No thanks,Cancel]"
 		--
 		UpdateVars
@@ -299,52 +310,118 @@ OnUpdateFailure
 	_file = SPLITPATH(reference1)[2] + SPLITPATH(reference1)[3] //This gets the name and extension of the offending file
 	if reference0 == "timeout"
 	{
-		"%(surface0)\i[55]* (The update connection timed out.)\e"
+		"\i[55]* (The update connection timed out.)\n\n\w8* (Check your internet connection,\w5 try again later,\w5 and if neither works it's Quonit's fault.)\e"
 	}
 	elseif reference0 == "md5 miss"
 	{
-		"%(surface0)\i[55]* (The MD5 hash of the files don't match. \w8There was an MD5 error on file %(_file).)\e"
+		"\i[55]* (The MD5 hash of the files don't match. \w8There was an MD5 error on file %(_file).)\n\n\w8* (This is Quonit's fault.)\e"
 	}
 	else //for other errors
 	{
-		"%(surface0)\i[55]* (The update could not be completed.)\w8\n\n* (The error is '%(reference0)'.)\e"
+		"%(surface0)\i[55]* (The update could not be completed.)\w8\n\n* (The error is '%(reference0)'.)\n\n\w8* (Quonit has no idea what this means.)\e"
 	}
 }
 OnUpdate.OnDownloadBegin
+{
+	
+if UpdateText == "on"
 {
 	if "aitalk" _in_ reference0
 	{
 		"\_q\i[55]* (You get the feeling he might have more things to say.)\e"
 	}
+	elseif "anchor" _in_ reference0
+	{
+		"\_q\i[55]* (You get the feeling he may answer differently to questions.)\e"
+	}
+	elseif "bootend" _in_ reference0
+	{
+		"\_q\i[55]* (You get the feeling he may say different things when opening or closing.)\e"
+	}
+	elseif "commu" _in_ reference0
+	{
+		"\_q\i[55]* (You get the feeling he may respond to other ghosts differently.)\e"
+	}
+	elseif "dreamtalk" _in_ reference0
+	{
+		if sodreamy == "on"
+		{
+		"\_q\i[55]* (You get the feeling Dream may have more things to say.)\e"
+		}
+		else
+		{
+		"\_q\i[55]* (You get the feeling that you should change your computer clock to December 21st.)\e"
+		}
+	}
+	elseif "ect" _in_ reference0
+	{
+		"\_q\i[55]* (You get the feeling some boring work was done.)\e"
+	}
+	elseif "gooptalk" _in_ reference0
+	{
+		if wasemo == "on" || maremare == "on"
+		{
+		"\_q\i[55]* (You get the feeling Mare might have more things to say.)\e"
+		}
+		else
+		{
+		"\_q\i[55]* (You get the feeling that you should change your computer clock to October 31st.)\e"
+		}
+	}
+	elseif "marenightmode" _in_ reference0
+	{
+		if skeleXapple == "on"
+		{
+		"\_q\i[55]* (You get the feeling Night and Mare may talk to each other more.)\e"
+		}
+		else
+		{
+		"\_q\i[55]* (You get the feeling that you should change your computer clock to April 1st.)"
+		}
+	}
+	elseif "menu" _in_ reference0
+	{
+		"\_q\i[55]* (You get the feeling his menus may have been tweaked.)\e"
+	}
+	elseif "mouse" _in_ reference0
+	{
+		"\_q\i[55]* (You get the feeling he may respond differently to petting or hitting.)\e"
+	}
+	//Not specifying nameteach or word because updates for them are too broad or minor or backend
 	else //for files not specified above
 	{
-	"\0\s[1]\i[55]\_q* (...)\e"
+	"\i[55]\_q* (...)\e"
 	}
+}
+else
+{
+}
+	
 }
 
 OnUpdate.OnMD5CompareBegin {}
 OnUpdate.OnMD5CompareComplete {}
 OnUpdate.OnMD5CompareFailure
 {
-	"%(surface0)\i[55]* (The MDI values don't seem to match.)\w8\e"
+	"\i[55]* (The MDI values don't seem to match.)\n\n\w8* (This is Quonit's fault.)\e"
 }
 OnHeadlinesenseBegin
 {
-	"%(surface0)\i[55]* (You've selected %(reference0).)\e"
+	"\i[55]* (You've selected %(reference0).)\e"
 }
 OnHeadlinesense.OnFind
 {
 	if reference2 == "First" || reference2 == "First and Last"
 	{
-		"%(surface0)\i[55]%(reference0):"
+		"\i[55]%(reference0):"
 	}
 	elseif reference2 == "Next"
 	{
-		"%(surface0)\i[55]%(reference0):"
+		"\i[55]%(reference0):"
 	}
 	elseif reference2 == "Last"
 	{
-		"%(surface0)\i[55]%(reference0):"
+		"\i[55]%(reference0):"
 	}
 	--
 	"\n\n%reference3\n"
@@ -365,11 +442,11 @@ Select.Headline_Cancel
 }
 OnHeadlinesenseComplete
 {
-	"%(surface0)\i[55]* (No update. %(reference0).)\e"
+	"\i[55]* (No update. %(reference0).)\e"
 }
 OnHeadlinesenseFailure
 {
-	"%(surface0)\i[55]* (The feed can't updated because "
+	"\i[55]* (The feed can't updated because "
 	--
 	if reference0 == "can't download"
 	{
@@ -454,6 +531,9 @@ UpdateVars
 	if !ISVAR('hasumbrella'); {hasumbrella='off'}
 	if !ISVAR('hourhitannoying'); {hourhitannoying='off'}
 	if !ISVAR('friendzoned'); {friendzoned='off'}
+	if !ISVAR('skeleXapple'); {skeleXapple='off'}
+	if !ISVAR('UpdateText'); {skeleXapple='off'}
+	if !ISVAR('askaboutnight'); {askaboutnight='off'}
 	//counters
 	
 	if !ISVAR("posact") && !ISVAR("negact")
@@ -489,23 +569,23 @@ UpdateVars
 
 OnUpdatedataCreating
 {
-	"%(surface0)\i[55]* (* (Creating the updates2.dau file.))\e"
+	"\_q\i[55]* (Creating the updates2.dau file.)\e"
 }
 OnUpdatedataCreated
 {
-	"%(surface0)\i[55]* (Successfully created updates2.dau.)\e"
+	"\_q\i[55]* (Successfully created updates2.dau.)\e"
 }
 OnNarCreating
 {
-	"%(surface0)\i[55]* (Creating the .nar file.)\e"
+	"\_q\i[55]* (Creating the .nar file.)\e"
 }
 OnNarCreated
 {
-	"%(surface0)\i[55]* (Successfully created '%(reference0)'.)\e"
+	"\_q\i[55]* (Successfully created '%(reference0)'.)\e"
 }
 OnSNTPBegin
 {
-	"%(surface0)\i[55]* (Connecting to %(reference0) for the time.)\e"
+	"\_q\i[55]* (Connecting to %(reference0) for the time.)\e"
 }
 OnSNTPCompare
 {
@@ -514,7 +594,7 @@ OnSNTPCompare
 	--
 	if reference3 == 0
 	{
-		"%(surface0)\i[55]* (The clock is accurate.)\e"
+		"\i[55]* (The clock is accurate.)\e"
 	}
 	else
 	{
@@ -525,15 +605,15 @@ OnSNTPCompare
 }
 OnSNTPEXECUTE
 {
-	"%(surface0)\i[55]* (The clock has been fixed.)\6\e"
+	"\i[55]* (The clock has been fixed.)\6\e"
 }
 OnSNTPCANCEL
 {
-	"%(surface0)\i[55]* (You decide to leave it alone.)\e"
+	"\i[55]* (You decide to leave it alone.)\e"
 }
 OnSNTPFailure
 {
-	"%(surface0)\i[55]* (The clock wasn't changed. \w8Something went wrong.)\e"
+	"\i[55]* (The clock wasn't changed. \w8Something went wrong.)\e"
 }
 OnDisplayChange
 {
@@ -554,6 +634,10 @@ OnScreenSaverStart
 			"\s[17]\i[4]\i[3]...%(username)??\w8 Are you there?"
 		}
 	}
+	elseif sleepingmode == "on"
+	{
+		"* (Maybe he can see the screensaver in his dreams?"
+	}
 	else
 	{
 		"\0\s[3]Um- \w8.\w8.\w8.\w8\n\n\0\s[7]what's going on??\e"
@@ -572,6 +656,10 @@ OnScreenSaverEnd
 			"\s[17]Eep!\w8\s[2]%(lps(3))okay,\w4 it's gone now."
 		}
 	}
+	elseif sleepingmode == "on"
+	{
+		"* (Maybe he saw see the screensaver in his dream."
+	}
 	else
 	{
 		"\0\s[8]Okay\w3.\w3.\w3. \w8good, it's gone.\e"
@@ -579,15 +667,15 @@ OnScreenSaverEnd
 }
 OnApplicationBoot
 {
-	"%(surface0)\i[55]* (%(reference0) just started.)\e"
+	"\_q\i[55]* (%(reference0) just started.)\e"
 }
 OnApplicationClose
 {
-	"%(surface0)\i[55]* (%(reference0) has closed.)\e"
+	"\i[55]* (%(reference0) has closed.)\e"
 }
 OnApplicationFileOpen
 {
-	"%(surface0)Opening %(reference1).\e"
+	"\_qOpening %(reference1).\e"
 }
 OnBatteryLow
 {
@@ -620,6 +708,10 @@ OnShellScaling
 		}
 		else
 		{
+			if sleepingmode == "on"
+			{
+				"* (Up close and personal sleeping Dreamtale Sans.)"
+			}
 			"\0\s[3]Dunno why you'd want me to take up so much of your screen\w3.\w3.\w3. \w4But okay.\e"
 			"%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
 			"%(surface0)\i[55]* (Big size sans.)\e"
@@ -636,16 +728,16 @@ OnShellScaling
 		{
 			if stonemode != "on"
 			{
-				if username == "Khitty"
-				{
-					"\s[17]Oh!\w8 \s[0]Bugtesting again?\e"
-				}
 				"\s[17]Eep!\w8\s[0]\i[3]\n\n%(lps(3))The size changes are sudden%(lps(3))\w8\s[0]\i[1] They frighten me :<"
 				"%(surface0)\i[55]* (They seem to have noticed.)\e"
 			}
 		}
 		else
 		{
+				if sleepingmode == "on"
+				{
+					"* (ZZZ)"
+				}
 			"%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
 			"\0\s[4]Back to normal...\e"
 			"%(surface0)\i[55]* (Normal sized sans.)\e"
@@ -669,6 +761,10 @@ OnShellScaling
 		}
 		else
 		{
+			if sleepingmode == "on"
+				{
+					"* (tiny sleepy little guy)"
+				}
 			"\0\s[7]Um\w3.\w3.\w3. \w8\0\s[13]\n\nEverything is really big now.\e"
 			"%(surface0)\i[55]* (He doesn't seem to have noticed.)\e"
 			"%(surface0)\i[55]* (Smol sans.\w8 Fun-sized sans.)\e"

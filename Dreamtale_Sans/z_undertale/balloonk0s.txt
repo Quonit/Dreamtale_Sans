@@ -1,0 +1,27 @@
+//--Balloonk1s.txt
+
+
+origin.x,17
+origin.y,21
+
+validrect.left,18
+validrect.top,21
+validrect.right,288
+validrect.bottom,181
+
+wordwrappoint.x,288
+wordwrappoint.y,0
+
+arrow0.x,291
+arrow0.y,10
+
+arrow1.x,291
+arrow1.y,183
+
+number.font.name,Determination Sans
+number.font.height,10
+number.font.color.r,150
+number.font.color.g,150
+number.font.color.b,150
+number.xr,288
+number.y,182

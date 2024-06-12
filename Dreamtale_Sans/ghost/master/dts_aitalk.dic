@@ -24,7 +24,9 @@
 		}
 	}
 }
-
+//What season is it when you are on a trampoline? Spring time
+//Where did the computer go to dance? The Disc-o. Oh! I know what a computer is! I've read about them :3
+//What kind of armor is best for sleeping? umm... Leather, because it's made of hide.
 RandomTalk : nonoverlap_pool
 {
 //Replace all dialogue ifs
@@ -145,7 +147,7 @@ RandomTalk : nonoverlap_pool
 			}
 			if timeslot == "midnight"
 			{
-				"\0\s[1]* (It's awfully late,\w4 shouldn't he be getting to bed?)\e"
+				"\0\s[1]\i[55]* (It's awfully late,\w4 shouldn't he be getting to bed?)\e"
 			}
 		}
 	}
@@ -282,7 +284,7 @@ RandomTalk : nonoverlap_pool
 				\![*]\q[Yes,whatswronglilbb]\n/
 				\![*]\q[No,lethimbeplsfortheloveofgod]\e"
 			}
-			"\0\s[4]Sometimes I wonder about birds in the village.\w8 There's a lot of land in there,\w4 but birds can fly pretty far.\w8\n\nIf they fly past the anseal,\w5 then they can't come back. \w8So all the birds are decendents of birds that were inside when it was created,\w3 and none of their ancestors flew away.\n\n\w8\s[44]\i[8]%(lps(3))I guess it's kind of dumb since *everything* inside the seal is decended from something or someone that didn't leave,\w6 \s[2]but birds don't really know what they're doing and would've done it on accident while people know not to.\e"
+			"\0\s[4]Sometimes I wonder about birds in the village.\w8 There's a lot of land in there,\w4 but birds can fly pretty far.\w8\n\nIf they fly past the anseal,\w5 then they can't come back. \w8So all the birds are decendents of birds that were inside when it was created,\w3 and none of their ancestors flew away.\n\n\w8\s[26]\i[8]\i[4]%(lps(3))I guess it's kind of dumb since \f[italic,true]everything\f[italic,false] inside the seal is decended from something or someone that didn't leave,\w6 \s[2]but birds don't really know what they're doing and would've done it on accident while people know not to.\e:chain=birdseal"
 		}
 		if nicensadlevel >= 50
 		{
@@ -327,7 +329,7 @@ RandomTalk : nonoverlap_pool
 		{
 			"\0\s[41]* (He sips something out of the mug you gave him.)\e"
 			"\0\s[27]\i[55]* (Smells like green tea.)\e"
-			"\0\s[41]* (He dinks some chai tea.)\n\n\w8\w4You know%(lps(3))\w8 saying ''chai tea'' is actually redundant, because ''chai'' just means tea."
+			"\0\s[41]* (He drinks some chai tea.)\n\n\w8\w4You know%(lps(3))\w8 saying ''chai tea'' is actually redundant, because ''chai'' just means tea."
 		}
 		if hasviolin == "off"
 		{
@@ -512,7 +514,7 @@ RandomTalk : nonoverlap_pool
 		if weekday == 6 //Saturday
 		{
 			"\0\s[0]Did you get to stay home today?\n\n\w8\0\s[4]I wonder actually,\w4 am I in your home?\w4 Or did you take me somewhere?\e"
-			"\0\s[8]anDream's always out hanging out with other people on Saturdays,\w4 so even if you let me leave I wouldn't have much to do\w4.\w4.\w4.\n\n\w8\w8\0\s[0]\i[11]Well\w4.\w4.\w4.\w8\i[10]It's more like other people are take up all their time on Saturday,\w5 and anDream can't really leave without those people getting back at them.\e"
+			"\0\s[8]anDream's always out hanging out with other people on Saturdays,\w4 so even if you let me leave I wouldn't have much to do\w4.\w4.\w4.\n\n\w8\w8\0\s[0]\i[11]Well\w4.\w4.\w4.\w8\i[10]It's more like other people take up all their time on Saturday,\w5 and anDream can't really leave without those people getting back at them.\e"
 		}
 		if weekday == 7 //Sunday
 		{
@@ -602,7 +604,7 @@ RandomTalk : nonoverlap_pool
 			"\0\s[4]You know%(lps(3)) \w8After a while,\w5 the noise becomes normal.\w8 You kinda stop noticing it."
 			"\0\s[8]How much longer am I going to be here?"
 			"Wonder if there's a way to predict when you're gonna put me here.\w8For me,\w4 I just kind of appear here when I stop being around people like fifty percent of the time.\w8...I doubt anyone misses me though.\e:missesnight=misschain"
-			if nicesadlevel >= 25
+			if sadnicelevel >= 25
 			{
 				"%(surface0)Staying here's not so bad.\w8\s[13] You're ''good company''\w3..............\w3\s[8]Or whatever they call it.\w8\s[9] Did that sound silly...?"
 			}
@@ -837,6 +839,12 @@ misschain
 {{CHAIN
 //temp dialogue
 	"\0\s[0]\i[20]...Except for Dream. It's... Probably not fair to worry them.\w8 They worry about me a lot- but they won't usually say it.\w8I can tell with how they act. I think it's because they don't want me to feel bad about it, \w4but some days it just makes me feel more guilty.\e:chain=end"
+}}CHAIN
+
+birdseal
+{{CHAIN
+//temp dialogue
+	"\0\s[4]...Unless the birds can just get through the seal through holes or having strong enough souls...?\e:chain=end"
 }}CHAIN
 
 //Time stuff

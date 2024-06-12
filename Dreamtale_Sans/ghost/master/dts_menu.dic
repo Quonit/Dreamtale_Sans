@@ -13,9 +13,11 @@
 	}
 	elseif sleepingmode == "on"
 	{
-		"zzz\w4.\w4.\w4.\w8\n\n* (Wake him up?)\n\n"
+		"zzz\w4.\w4.\w4.\w8\n\n* (Wake him up?)\n\n/
+		\![*]\q[Yes,wakeup]\n/
+		\![*]\q[No,letsleep]"
 		--
-		if hasblankie == "off"
+		if hasblankie == "on"
 		{
 			"[*]\q[Give him a blanket,givesleepblankie]\n"
 		}
@@ -25,8 +27,8 @@
 			"\![*]\q[Tell him something nice,nicewords]\n"
 		}
 		--
-		"\![*]\q[Yes,wakeup]\n/
-		\![*]\q[No,letsleep]\e"
+		"\![*]\q[Stats,configmenu]\n/
+		\![*]\q[Functions,dosomething]\e"
 	}
 	elseif VillageLevel >= 40 && nowmode == "purpleman"
 	{
@@ -171,8 +173,8 @@ MenuRun
 	"\![*]\q[ACT,Onyouact] or ask some \![*]\q[QUESTIONS,youtalk]\n/
 	\![*]\q[Use some items,itemsmenu]\n/
 	\![*]\q[Stats,configmenu]\n/
-	\![*]\q[Use some functions,dosomething]\n\n/
-	//\![*]\q[Testvariable,testvariable]\n\n/
+	\![*]\q[Functions,dosomething]\n\n/
+	\![*]\q[the button that makes u terrible,testvariable]\n\n/
 	\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 }
 
@@ -256,7 +258,7 @@ TalkConfig
 	}
 	elseif nowmode == "intodreams"
 	{
-		"Relationship Points: %(sadnicelevel)\n/
+		"%(surface0)Relationship Points: %(sadnicelevel)\n/
 		Times Pet: %(sparklepet)\n/
 		Times Hit: %(starpunch)\n\n"
 	}
@@ -276,10 +278,7 @@ TalkConfig
 		"Pronouns: %(heshe)/%(himher)/%(hisher) \f[sup,1](\q[Change them?,TEACHPRONOUN])\f[sup,0]\n"
 	}
 	--
-	"Birthday: %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n/
-	Talk Rate: every %(talktime) \f[sup,1](\q[Change it?,talkinter])\f[sup,0]\n/
-	Hourly Hits: %(hourhitannoying) \f[sup,1](\q[Change it?,stopevilhourhit])\f[sup,0]\n/
-	Hemisphere: %(menusphere) \f[sup,1](\q[Change it?,changelovation])\f[sup,0]\n/
+	"Talk Rate: every %(talktime) \f[sup,1](\q[Change it?,talkinter])\f[sup,0]\n/
 	Updated: 24th February, 2023 \f[sup,1](\q[Check for Updates?,Oncheckupdate])\f[sup,0]\n\n"	
 	--
 	if nowmode != "intodreams" && ringringuthere == "on"
@@ -297,13 +296,35 @@ TalkConfig
 		"* (Exit out of Goopmode?)\n\q[Yes,removegoo] \q[No,CANCEL]\n\n"
 	}
 	--
-	"\![*]\q[RESET,resettheghost]\n/
+	"\![*]\q[RESET,resettheghost]					   \![*]\q[Page 2,statspage2]\n/
 	\![*]\q[Go Back,BACKTOMENU]					   \![*]\q[ESCAPE,CANCEL]/
 	\e"
 	//Fix no date temp dialogue
 	//LV: %(userlevel)\n/
 }
 
+Select.statspage2
+{
+	"\_qBirthday: %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n/
+	Hourly Hits: %(hourhitannoying) \f[sup,1](\q[Change it?,stopevilhourhit])\f[sup,0]\n/
+	Hemisphere: %(menusphere) \f[sup,1](\q[Change it?,changelovation])\f[sup,0]\n/
+	Update Text: %(UpdateText) \f[sup,1](\q[Change it?,changeupdatetext])\f[sup,0] (\f[color,255,255,0]WARNING:\f[color,default] This feature will slow updates significantly!)\n\n/
+	\![*]\q[Page 1,configmenu]\n/
+	\![*]\q[Go Back,BACKTOMENU]					   \![*]\q[ESCAPE,CANCEL]/
+	\e"
+}
+
+Select.changeupdatetext
+{
+	if UpdateText == "off"
+	{
+	UpdateText = "on"
+	}
+	else
+	{
+		UpdateText = "off"
+	}
+}
 Select.changelovation
 {
 	if menusphere != "Northern"
@@ -716,13 +737,20 @@ birthchecked
 
 Select.talkinter
 {
-	"\i[55]* (How often do you want %(nightname) to talk?)\n\n\w8* (Right now it's set to %(talktime).)/
-	\i[55]\n\n/
-	\![*]\q[Every 30 seconds,TALKMAX]\n/
+	if nowmode == "intodreams"
+	{
+		"\i[55]* (How often do you want Dream to talk?)\n\n\w8* (Right now it's set to %(talktime).)	\i[55]\n\n"
+	}
+	else
+	{
+	"\i[55]* (How often do you want %(nightname) to talk?)\n\n\w8* (Right now it's set to %(talktime).)	\i[55]\n\n"
+	}
+	--
+	"\![*]\q[Every 30 seconds,TALKMAX]\n/
 	\![*]\q[Every minute,TALKHIGH]\n/
 	 \![*]\q[Every 3 minutes,TALKNORMAL]\n/
 	\![*]\q[Every 5 minutes,TALKPOOR]\n/
-	 \![*]\q[Don't speak,TALKNONE]\n\n/
+	\![*]\q[Don't speak,TALKNONE]\n\n/
 	\![*]\q[Don't change,TalksTill]\e"
 }
 Select.TalksTill
@@ -852,7 +880,7 @@ Select.TALKPOOR
 }
 Select.TALKNONE
 {
-	talktime = "\0\s[8]...Guess I won't talk at all."
+	talktime = "NEVER"
 	aitalkinterval = 0
 	if nowmode == "Edgybitch"
 	{
@@ -964,19 +992,28 @@ Select.dosomething
 	{
 		"\0\s[0]\i[102]Hell is it you want?\n\n"
 		"\0\s[0]\i[102]What do you want?\n\n"
-		"\0\s[8]* (He grumbles.)\n\n"
+		"\_q\0\s[8]* (He grumbles.)\n\n\_q"
 	}
 	elseif nowmode == "intodreams"
 	{
-		"%(surface0)\i[55]* (You look into your functions...)\n\n"
+		"\_q%(surface0)\i[55]* (You look into your functions...)\n\n\_q"
 	}
 	elseif VillageLevel >= 150
 	{
-		"\0\s[19]* (He faces you reluctantly.)\n\n"
-		"\0\s[19]* (He's not very happy about this...)\n\n"
+		"\_q\0\s[19]* (He faces you reluctantly.)\n\n\_q"
+		"\_q\0\s[19]* (He's not very happy about this...)\n\n\_q"
+	}
+	elseif sleepingmode == "on"
+	{
+		"\i[55]* (He's sleeping now,\w5 but you might be able to do some things without his help...)"
 	}
 	else
 	{
+		if sittang == "on"
+		{
+			sittang = "off"
+			"\0\s[16]\w8"
+		}
 		"%(surface0)What do you want me to do?\n\n"
 		"%(surface0)Fine, what do you need?\n\n"
 		"%(surface0)What do you want?\n\n"
@@ -1002,22 +1039,12 @@ Select.CALENDAR
 	--
 	if nowmode == "Edgybitch"
 	{
-		"\0\s[0]\i[55]* (Opening the calendar...)\w8"
-		"\0\s[8]Ah,\w5 yes, \w5because you can't just see the date on your computer.\w8"
-		"\0\s[8]You could also just press ctrl + D instead of making me do it.\w8"
-		--
-		randomfunction
+		"\0\s[8]Go make someone else you've trapped here do it.\w8\+" // \+ changes it to a random other ghost
 	}
-	elseif VillageLevel >= 150
-	{
-		"\0\s[19]\i[55]* (Opening the calendar...)\![open,calendar]"
-	}
-	else
-	{
-		"%(surface0)\i[55]* (Opening the calendar...)\![open,calendar]"
-	}
+	elseif VillageLevel >= 150	{ "\0\s[19]" }
+	else { "%(surface0)" }
 	--
-	"%(funmenu)"
+	"\i[55]* (Opening the calendar...)\![open,calendar]%(funmenu)"
 }
 Select.sspconfig
 {
@@ -1029,9 +1056,7 @@ Select.sspconfig
 	}
 	elseif VillageLevel >= 150
 	{
-		"\0\s[19]* (Opening the SSP config menu...)\![open,calendar]\w8\w8\w8\n\n/
-		*(You yell at \0\s[18]him for opening the wrong function.)\w8\n\n/
-		\0\s[19]Sorry! Sorry!\![open,configurationdialog] You'll  have to use CTRL+D to close the calendar.\w5 I'm-s- I'm sorry.\w8"
+		"*(You yell at \0\s[18]him for opening the wrong function.)\w8\n\n\0\s[19]Sorry! Sorry!\![open,configurationdialog] You'll have to use CTRL+D to close the calendar.\w5 I'm-s- I'm sorry.\w8"
 	}
 	else
 	{
@@ -1050,9 +1075,17 @@ Select.ChoiceGarbagecan
 		{
 			"\0\s[8]Are you really so lazy you're making me take out your trash??\w8\n\n\s[5]All you need is like, \w5two buttons!\n\n\w8\s[0]\i[102]* (You tell him to do it anyways.)\w8\n\n* (He's not very happy about it...)\i[105]\w8\w8\s[-1]\w8\w8\w8\w8\w8\c\0\s[5]There wasn't even anything there you idiot!"
 		}
+		if nowmode == "intodreams"
+		{
+			"%(surface0)* (You ask them to take out the trash.)\n\n\w8\s[3]\i[4]\i[3]* (They look around.)\s[14]\i[2]\i[3]\w8\w8\n\n\w8\s[0]\i[1]%(lps(4))I don't see any trash cans,\w8 sorry.\n\n\w8\s[2]* (%(lps(4))You might need to get someone else to do it.)"
+		}
 		elseif VillageLevel >= 150
 		{
 			"\0\s[19]* (He doesn't even protest.)\w8\w8\s[-1]\w8\w8\w8\w8\w8\0\s[19]\cT-\w5There wasn't-\w6 Wasn't anything in there\w4.\w4.\w4."
+		}
+		elseif sleepingmode == "on"
+		{
+			"* (%(lps(4))Unfortunately, %(nightname) is not a good enough sleepwalker for this.)"
 		}
 		elseif privacyrespecter == "off" && blushiemode == "on"
 		{
@@ -1084,10 +1117,18 @@ Select.ChoiceGarbagecan
 		{
 			"\0\s[8]Are you really so lazy you're making me take out your trash??\w8\n\nAll you need is like, \w5two buttons!\n\n\w8* (You tell him to do it anyways.)\w8\n\n* (He's not very happy about it...)\i[105]\w8\w8\s[-1]\w8\w8\w8\w8\w8\0\c\s[5]There wasn't even anything there you idiot!"
 		}
+		if nowmode == "intodreams"
+		{
+			"%(surface0)* (You ask them to take out the trash.)\n\n\w8\s[3]\i[4]\i[3]* (They look around.)\s[14]\i[2]\i[3]\w8\w8\n\n\w8\s[0]\i[1]%(lps(4))I don't see any trash cans,\w8 sorry.\n\n\w8\s[2]* (%(lps(4))You might need to get someone else to do it.)"
+		}
 		elseif VillageLevel >= 150
 		{
 			"\0\s[19]* (He doesn't even protest.)\w8\w8\s[-1]\w8\w8\w8\w8\w8\0\s[19]\cI-\w6 I got it\w4.\w4.\w4.\e"
 			"\0\s[19]* (He doesn't even protest.)\w8\w8\s[-1]\w8\w8\w8\w8\w8\0\s[19]\cI-\w6 I-\w8.\w4.\w4.got\w8\n\n* (You tell him to give it up.)"
+		}
+		elseif sleepingmode == "on"
+		{
+			"* (%(lps(4))Unfortunately, %(nightname) is not a good enough sleepwalker for this.)"
 		}
 		else
 		{
@@ -1138,17 +1179,17 @@ Select.MailCheck
 }
 Select.HEADLINECANCEL
 {
-	"\0\s[0]Done.\e"
+	"\i[55]* (Done.)\e"
 }	
 Select.bugreport
 {
 	if nowmode == "Edgybitch"
 	{
-		"\0\s[8]Please, \w4this thing is no doubt riddled with bugs and balancing issues.\w8\0\s[0] Go bug Quonit to fix it if you care that much:\n\n\w8\_qDiscord:   Quonit#9934\nTumblr: @Quonit\e"
+		"\0\s[8]Please, \w4this thing is no doubt riddled with bugs and balancing issues.\w8\0\s[0] Go bug Quonit to fix it if you care that much:\n\n\w8\_qDiscord:   Quonit\nTumblr: @Quonit\e"
 	}
-	elseif nicensadlevel <= -50 && punchout >= 20
+	elseif nicensadlevel <= -50 && punchout >= 20 || sleepingmode == "on"
 	{
-		"\0\s[22]\_qDiscord:   Quonit#9934\nTumblr:   @Quonit"
+		"\0\s[22]\_qDiscord:   Quonit\nTumblr:   @Quonit"
 	}
 	if sittang == "on"
 	{
@@ -1156,7 +1197,7 @@ Select.bugreport
 	}
 	else
 	{
-		"\0\s[0]Sure\w2.\w2.\w2.\w8 I can't really fix myself,\w8 so you should really tell them if something's wrong\w2.\w2.\w2.\n\n\w8\_qDiscord:   Quonit#9934\nTumblr:   @Quonit\e"
+		"\0\s[0]Sure\w2.\w2.\w2.\w8 I can't really fix myself,\w8 so you should really tell them if something's wrong\w2.\w2.\w2.\n\n\w8\_qDiscord:   Quonit\nTumblr:   @Quonit\e"
 	}
 	--
 	"%(funmenu)"
@@ -1202,7 +1243,7 @@ Select.resetgreetingyes //Create more if there is time. It'd be funny.
 }
 Select.resetgreetingno
 {
-	"%(surface0)\i[55]* (You decide not to reset...)"
+	"\i[55]* (You decide not to reset...)"
 }
 Oncheckupdate
 {
@@ -1600,22 +1641,25 @@ Select.sayafunny
 	else
 	{
 		posact += 1
-		"\0\s[0]\i[55]* (You ask him if he has a joke.)\n\n\w8\0\s[6]Me!\w8\n\n\i[55]* (You tell him that's not very funny\w3.\w3.\w3.)\n\n\w8\0\s[12]Well, it should be.\w6\n\n\w6\i[55]* (%(lps(5))Is he okay?)\w8\n\n"
-		"\0\s[0]* (You ask him if he has a joke.)\n\n\w8\0\s[4]Um\w2.\w2.\w2.\n\n\w8Oh!\w6\0\s[15] I'm so good at sleeping, I can do it with my eyes closed!\n\n"
-		"\0\s[0]\i[55]* (You ask him if he has a joke.)\n\n\w8\0\s[4]Um\w2.\w2.\w2.\n\n\w8Oh!\w8\n\n\0\s[15]What rhymes with orange?\n\n\w8\i[55]* (You tell him it doesn't.)\0\s[4]\n\n\w8Huh?\n\n"
-		"\0\s[0]\i[55]* (You tell him your friend told you stop acting like a flamingo,\w6 so you had to put your foot down.)\n\n\w8\0\s[6]snerk-\w4 hehehe!\n\n"
-		"\0\s[0]\i[55]* (Why couldn't the bicycle stand up?)\w8\w4\n\n* (Because it was two-tired!)\n\n\0\s[4]\w8What's a bicycle?\n\n"
-		"\0\s[0]\i[55]* (You tell %(nightname) that parallel lines have so much in common.)\n\n\w8*(It's a shame they'll never meet.)\n\n\0\s[6]\w8mehehehe!\n\n\w8\i[55]* (He at least understood the math joke...)\n\n"
-		"\0\s[0]\i[55]* (As you suspected, \w5someone has been adding soil to your garden.) \w8* (The plot thickens.)\n\n\0\s[6]\w8mehehehe!\n\n\w8Me and anDream help in gardens at home!!\n\n"
-		"\i[55]* (You tell him an elaborate story that ends with a horrible pun.)\n\n\w8\w5* (He seems at a loss what to make of it until he catches your expression.)\n\n...Huh.\w8"
+		"\0\s[0]\i[55]* (You ask him if he has a joke.)\n\n\w8\0\s[6]Me!\w8\n\n\i[55]* (You tell him that's not very funny\w3.\w3.\w3.)\n\n\w8\0\s[12]Well, it should be.\w6\n\n\w6\i[55]* (%(lps(5))Is he okay?)"
+		"\0\s[0]* (You ask him if he has a joke.)\n\n\w8\0\s[4]Um\w2.\w2.\w2.\n\n\w8Oh!\w6\0\s[15] I'm so good at sleeping, I can do it with my eyes closed!"
+		"\0\s[0]\i[55]* (You ask him if he has a joke.)\n\n\w8\0\s[4]Um\w2.\w2.\w2.\n\n\w8Oh!\w8\n\n\0\s[15]What rhymes with orange?\n\n\w8\i[55]* (You tell him it doesn't.)\0\s[4]\n\n\w8Huh?"
+		"\0\s[0]\i[55]* (You tell him your friend told you stop acting like a flamingo,\w6 so you had to put your foot down.)\n\n\w8\0\s[6]snerk-\w4 hehehe!"
+		"\0\s[0]\i[55]* (Why couldn't the bicycle stand up?)\w8\w4\n\n* (Because it was two-tired!)\n\n\0\s[4]\w8What's a bicycle?"
+		"\0\s[0]\i[55]* (You tell %(nightname) that parallel lines have so much in common.)\n\n\w8*(It's a shame they'll never meet.)\n\n\0\s[6]\w8mehehehe!\n\n\w8\i[55]* (He at least understood the math joke...)"
+		"\0\s[0]\i[55]* (As you suspected, \w5someone has been adding soil to your garden.) \w8* (The plot thickens.)\n\n\0\s[6]\w8mehehehe!\n\n\w8Me and anDream help in gardens at home!!"
+		"\i[55]* (You tell him an elaborate story that ends with a horrible pun.)\n\n\w8\w5* (He seems at a loss what to make of it until he catches your expression.)\n\n...Huh."
 		"\i[55]* (You get halfway through telling in an in-joke before you realize he won't get it.)"
+		"\i[55]* (You ask %(nightname) what happens every 60 seconds in the Underground.)\n\n\w8\s[4]Um...\w8 where's 'the Underground'?\w8\n\n\i[55]* (A minute.)\s[6]\w8hehehe!"
+		"\i[55]* (You ask %(nightname) how many bones are in a human hand.)\n\n\w8\s[4]Twenty seven?\n\n\w8\w6\i[55]* (A handful.)\n\n\w8\w8\s[8]%(lps(5))\w5.\w5.\w8I guess that's also right."
+		"\i[55]* (You ask him what kind of tree can fit in your hand?)\n\n\w8\s[4]Hmm,\w8 well some bonsai trees can be really small.\n\n\w8\i[44]* (A palm tree.)\n\n\w8\s[4]Do my hands count as palms?"
 		if flirtlevel >= 10
 		{
-			"\0\s[0]\i[55]* (You ask him if he's a chicken.)\n\n\0\s[13]Um\w2.\w2.\w2.\w4 Why do you ask?\n\n\w8\i[55]* (Because he's \f[italic,true]impeccable\f[italic,false].)\n\n\w8\0\s[8]That's not even very funny...\n\n"
+			"\0\s[0]\i[55]* (You ask him if he's a chicken.)\n\n\0\s[13]Um\w2.\w2.\w2.\w4 Why do you ask?\n\n\w8\i[55]* (Because he's \f[italic,true]impeccable\f[italic,false].)\n\n\w8\0\s[8]That's not even very funny..."
 		}
 	}
 	--
-	"\![*]\q[Choose another ACTion,Onyouact]\n/
+	"\w8\n\n\![*]\q[Choose another ACTion,Onyouact]\n/
 	\![*]\q[Again,sayafunny]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
 }
@@ -1966,13 +2010,11 @@ Select.bemean
 
 Select.youtalk
 {
+	//"\_q"
+	//--
 	if nicensadlevel <= -50 && punchout >= 20
 	{
 		"\0\s[19]...\n\n"
-	}
-	if blushiemode == "on" && privacyrespecter == "off"
-	{
-		"\0\s[6]What do'ya wanna ask?\n\n"
 	}
 	else
 	{
@@ -1981,43 +2023,52 @@ Select.youtalk
 			sittang = "off"
 			"\0\s[16]"
 		}
-		--
+		if blushiemode == "on" && privacyrespecter == "off"
+		{
+		"\0\s[6]What do'ya wanna ask?\n\n"
+		}
+		if nicensadlevel >= 50
+		{
+			"\s[32]What is it?"
+			"\s[20]Yeah?"
+		}
+		"\s[4]What do you want to know?"
 		"\0\s[0]What do you want to ask?\n\n"
+		"\0\s[0]Hm?\n\n"
+
 	}
 	--
-	"\![*]\q[Check,checkinguout]\n/
-	\![*]\q[His Soul,looksoul]\n/
-	\![*]\q[The Crown,reexplaincrown]\n"
+	"\_q\![*]\q[Check,checkinguout]       	\![*]\q[His Soul,looksoul]\n/
+	\![*]\q[The Crown,reexplaincrown]   \![*]\q[His eyes,waxingandwaining]"
 	--
 	if seenethicaltattoo == "on"
 	{
-		"\![*]\q[Ask about skull mark?,ethicaltattoo]"
+		"\n\![*]\q[His skull mark,ethicaltattoo]"
 	}
 	//"\![*]\q[Yourself,talkaboutme]\n"
 	//"\![*]\q[Himself,talkaboutyou]\n"
 	--
 	if momstreeexpo == "on"
 	{
-	   "\![*]\q[Magic tree?,reexplaintree]\n"
+	   "\n\![*]\q[The magic tree,reexplaintree]"
 	}
 	--
 	if brotherexpo == "on"
 	{
-	   "\![*]\q[Your brother?,reexplaindream]\n"
+	   "\n\![*]\q[His brother,reexplaindream]"
 	}
 	--
 	if askaboutnamee == "on"
 	{
-	   "\![*]\q[Your name?,whataboutmyname]\n"
+	   "\n\![*]\q[His name,whataboutmyname]"
 	}
 	--
 	if wasemo == "on" || maremare == "on"
 	{
-	   "\![*]\q[Goopmare?,askboutgoopy]\n"
+	   "\n\![*]\q[Goopmare?,askboutgoopy]"
 	}
 	--
-	"\![*]\q[Your eyes?,waxingandwaining]\n\n/
-	\![*]\q[Back to main menu,BACKTOMENU]\n/
+	"\n\n\![*]\q[Back to main menu,BACKTOMENU]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
 }
 
@@ -2174,7 +2225,7 @@ Select.waxingandwaining
 	}
 	elseif blushiemode == "on"
 	{
-		"\0\s[6]Oh, my eyes!\w8\0\s[0]i[11] They actually wax and wane like the moon,\w7 which I think is pretty neat!\w8 anDream's eyes get all starry when they're excited,\w5 but mine are more subtle.\w7\w8\0\s[4] Uh, more yellow if I'm happy,\w5 more purple\0\s[13]... otherwise.\w8\0\s[6] But you make me happy, so-!\w8\n\n"
+		"\0\s[6]Oh, my eyes!\w8\0\s[0]\i[11] They actually wax and wane like the moon,\w7 which I think is pretty neat!\w8 anDream's eyes get all starry when they're excited,\w5 but mine are more subtle.\w7\w8\0\s[4] Uh, more yellow if I'm happy,\w5 more purple\0\s[13]... otherwise.\w8\0\s[6] But you make me happy, so-!\w8\n\n"
 	}
 	else
 	{
@@ -2324,7 +2375,7 @@ Select.giveoutfit
 	Select.dawndreamn
 	{
 		posact += 1
-		"\0\s[1529]Huh%(lps(4))\\w8\n\nIt's a lot heavier than my normal one.\n\n\w8Why are there so many extras on it?"
+		"\0\s[1529]Huh%(lps(4))\w8\n\nIt's a lot heavier than my normal one.\n\n\w8Why are there so many extras on it?"
 		--
 		"\n\n\![*]\q[Choose another outfit,giveoutfit] %(ItemMOO)"
 	}
@@ -2486,7 +2537,7 @@ Select.givetoy
 	{
 	"\0\s[0]\i[55]* (You set down a small,\w2 plastic dinosoar toy.)\n\n\w8\s[4]\i[55]* (He picks it up and studies it.)\n\n\w8\i[23]It's got a weird texture%(lps(3))\w8 Does it do anything?\n\n\w8\i[55]* (You tell him it's just plastic. \w5Nothing special.)\n\n\w8\i[23]What's plastic?"
 	"\0\s[0]\i[55]* (You give him a small,\w4 posable action figure.)\n\n\w8\s[4]\i[55]* (He's not sure what to do with it,\w8\s[6]\i[55] then starts messing with the joints,\w8 spinning them around into circles.)\n\n\w8\s[6]I'm pretty sure humans aren't supposed to move like that.\n\n\w8\s[4]\i[55]* (The arm pops off.)\n\n\w8\s[7]Ah!\w8 I broke it!\n\n\w8* (You easily insert the arm back into it's socket.)\n\n\w8\s[4]Oh%(lps(3)) \w8I see."
-	"\0\s[0]\i[55]* (You set down one of those kids bead maze toys they have at doctor's offices on the ground for him.)\n\n\w8\s[43]* (He sits down to mess with it.)\n\n\w8So all your supposed to do is move the beads around? \w6Why?\n\n\w8* (You tell him it's a kids toy,\w4 so it doesn't really have a why.)\n\n\w8Hmm....\n\n\w8\i[12]* (He keeps messing with it, aparently enamored.)"
+	"\0\s[0]\i[55]* (You set down one of those kids bead maze toys they have at doctor's offices on the ground for him.)\n\n\w8\s[43]* (He sits down to mess with it.)\n\n\w8So all your supposed to do is move the beads around? \w8Why?\n\n\w8* (You tell him it's a kids toy,\w4 so it doesn't really have a why.)\n\n\w8Hmm....\n\n\w8\i[12]\i[55]* (He keeps messing with it, aparently enamored.)"
 	}
 	--
 	"%(ItemMOO)"
@@ -2609,7 +2660,7 @@ Select.nightyneedstoeat
 		if timeslot == "evening" //Late (Dinner)
 		{
 			"%(_norm)\i[55]* (You hand him a grilled cheese sandwich.)\0\s[6]\w8\n\nThank you!\w8%(_eat)\i[55]\w8\n\n"
-			"%(_norm)i[55]* (You ask him if he wants this pasta you made.)\n\n\w8* (He's a bit reluctant.)\w8\n\n\0\s[13]Well\w3.\w3.\w3. \w6It's not a good idea to take food from people you don't know\w3.\w3.\w3. \w8%(_happy)but okay, \w6sure.%(_eat)\i[55]\w8\n\n"
+			"%(_norm)\i[55]* (You ask him if he wants this pasta you made.)\n\n\w8* (He's a bit reluctant.)\w8\n\n\0\s[13]Well\w3.\w3.\w3. \w6It's not a good idea to take food from people you don't know\w3.\w3.\w3. \w8%(_happy)but okay, \w6sure.%(_eat)\i[55]\w8\n\n"
 			"%(_norm)\i[55]* (You make a bowl of macaroni and cheese for him.)\n\n\w8\0\s[4]\i[55]* (He looks at it curiously, like he doesn't recognize it.)\n\n\w8Is this a kind of pasta?\n\n\w8* (You tell him it is.\w6 It's called elbow macaroni.)\w8%(_eat)\i[55]\w8\n\n"
 			"%(_norm)\i[55]* (You give him a few potstickers.)\n\n\w8%(_attn)Uhm,\w4 thank you.\w8%(_eat)\i[55]\w8\n\n"
 		}
@@ -2670,7 +2721,7 @@ Select.iiiimsinginintherain
 	}
 	else
 	{
-		"* (You ask how his umbrella is.)\n\n\w8It's fine!\w8 Not broken or whatever.\w8 I don't get a lot of chances to use it,\w4 though."
+		"* (You ask how his umbrella is.)\n\n\w8\s[2]\i[4]\i[5]It's fine!\w8 Not broken or whatever.\w8 I don't get a lot of chances to use it,\w4 though."
 	}
 	if season == "Winter"
 	{
@@ -2681,7 +2732,7 @@ Select.iiiimsinginintherain
 	//	""
 	//}
 	--
-	"\![*]\q[Again,iiiimsinginintherain]\n/
+	"\n\![*]\q[Again,iiiimsinginintherain]\n/
 	\![*]\q[Give him something different,itemsmenu]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
 }
@@ -2724,13 +2775,13 @@ Select.letsleep
 Select.givesleepblankie
 {
 	givesleepyblankie = "on"
-	"\![bind,Blanket,cape,1]* (He looks comfy.)\e"
+	"\![bind,Blanket,cape,1]\i[55]* (He looks comfy.)\e"
 }
 Select.givesitblankie
 {
 	givesleepyblankie = "on"
 	"\![bind,Blanket,cape,1]Thanks %(username.)\e"
-	"\![bind,Blanket,cape,1]* (He looks comfier this way.)\e"
+	"\![bind,Blanket,cape,1]\i[55]* (He looks comfier this way.)\e"
 }
 Select.takesitblankie
 {
@@ -2741,7 +2792,8 @@ Select.takesitblankie
 Select.nicewords
 {
 	posact +=1
-	
+	"\i[55]"
+	--
 	//what you tell him
 	"* (You tell him he's a wonderful brother.)\w8\w8\n\n"
 	"* (You tell him he doesn't deserve anything that happened to him.)\w8\w8\n\n"
@@ -2809,13 +2861,6 @@ Select.nomoresits
 {
 	"\0\s[1]Fine\w4, fine,\w4 I'll get up.\w8\w8\0\s[16]\![raise,OnSelfStand]"
 }
-Select.testvariable
-{
-	changemode("intodreams")
-	"\![change,Shell,Dream]"
-	--
-	"\s[7]AAAAAA"
-}
 
 
 Select.changeshell
@@ -2849,3 +2894,8 @@ Select.testgoo
 	"\![change,Shell,Nightmare]"
 }
 
+
+Select.testvariable
+{	
+	"this dialogue is \&[quot]in quotes\&[quot]."
+}

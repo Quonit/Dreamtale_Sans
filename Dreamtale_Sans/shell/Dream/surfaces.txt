@@ -317,11 +317,22 @@ surface14
 	animation1001.pattern0,interpolate,1007,0,0,0
 	
 	//Eyes
+	//Angry
 	animation0.interval,runonce
 	animation0.pattern0,overlay,1218,0,0,0
+	//Look up
+	animation2.interval,never
+	animation3.pattern0,stop,0
+	animation2.pattern0,overlay,1219,0,0,0
+	
 	//Arms
+	//up
 	animation1.interval,runonce
 	animation1.pattern0,overlay,1316,0,0,0
+	//think
+	animation3.interval,never
+	animation3.pattern0,stop,1
+	animation3.pattern0,overlay,1317,0,0,0
 }
 
 //hum

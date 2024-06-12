@@ -30,8 +30,9 @@ group,G
 	21,Begging
 	22,Facing away
 	23,Sniff
+	24,Fall Down
 	25,nom nom
-	26,Dream doll
+	26,Crown n Plush
 	27,Mug
 	28,Flush
 	29,Blow Kiss

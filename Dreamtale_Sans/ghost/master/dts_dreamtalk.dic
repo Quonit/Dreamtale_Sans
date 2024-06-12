@@ -78,14 +78,14 @@ OnDreamBoot
 			"\![bind,Costume,Cape,false]"
 		}
 		--
+		"%(surface0)"
+		--
 			if sadnicelevel >= 25
 			{
-				"%(surface0)Oh,\w6 hello again."
+				"Oh,\w6 hello again."
 			}
 			else
 			{
-				"%(surface0)"
-				--
 				"Oh... \w8Hello."
 				"...\n\n\w8* (They look at you with quiet regard.)"
 				"...\n\n\w8* (It looks like they're still scared of you.)"
@@ -272,6 +272,18 @@ OnDreamMenu
 	ap = GetAP
 	nowmin = Getnowmin
 	nowhour = Getnowhour
+	"\b2"
+	--
+		if sadnicelevel >= 25
+		{
+		"\s[14]\i[2]\i[3]You want something from me?"
+		}
+		else
+		{
+		"\_q\s[17]\i[55]* (They're surprised by the menu that pops up!)\_q"
+		}
+	"\_q\i[55]* (You open their menu.)\_q"
+	"\_q\i[55]* (They haven't noticed the menu's appeared.)\_q"
 	--
 	"\n\n\_q"
 	--
@@ -279,7 +291,7 @@ OnDreamMenu
 	{
 		"\![*]\q[Go back to %(nightname),byedream]\n/
 		\![*]\q[Close ghost,goodnightmoon]\n/
-		\![*]\q[Reset relationship with Dream,startfromscratch]\e"
+		\![*]\q[Reset Dream,startfromscratch]\e"
 	}
 	else
 	{
@@ -299,22 +311,22 @@ OnDreamMenu
 		"\![*]\q[ACT,Ondreamyact] or ask some \![*]\q[QUESTIONS,Oninterrogatedream]\n/
 		\![*]\q[Use some items,Ondreambox]\n/
 		\![*]\q[Stats,configmenu]\n/
-		\![*]\q[Use some functions,dosomething]\n/
-		\![*]\q[Exit,CANCEL]\e"
+		\![*]\q[Use some functions,dosomething]\n\n/
+		\![*]\q[Exit,CANCEL]\n"
 		--
-		//"\![*]\q[Testvariable,dreamtestvariable]\n\n"
+		"\![*]\q[Testvariable,dreamtestvariable]\n\n"
 		
 	}
 	--
-	"\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	"%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 }
 
 
 Ondreamyact //Act
 {
-	"* (ACTing in progress.)\n"
+	"\_q* (ACTing in progress.)\n"
 	--
-	"\_q\![*]\q[Check,isitrealdream]\n"
+	"\![*]\q[Check,isitrealdream]\n"
 	--
 	if starpunch >= 1
 	{
@@ -329,7 +341,7 @@ Ondreamyact //Act
 	"\![*]\q[Reassure,dreamhasanxiety]\n/
 	\![*]\q[Compliment,bnice2them]\n/
 	\![*]\q[Story,dreamlikesstories]\n/
-	\![*]\q[Tease,scarethem]\n/
+	\![*]\q[Tease,scarethem]\n\n/
 	//\![*]\q[Mock,nowurjustmean2dream]\n/ same with flirt, am busy :sob:
 	\![*]\q[Back to menu,OnDreamMenu]\n/
 	\![*]\q[Nevermind,CANCEL]\e"
@@ -447,21 +459,24 @@ Select.nowurjustmean2dream //Mock
 
 Oninterrogatedream //Ask...
 {
-	"\i[55]* (You ask Dream about...)\n\n"
+	"\_q\i[55]* (You ask Dream about...)\n\n"
 	--
 	"\![*]\q[Themself,askdreamyou]\n"
 	--
 	if askaboutnight == "on"
 	{
-		"\![*]\q[Brother,askbrother]\n"
-		//\![*]\q[Your name,askyourname]\n"
-		"\![*]\q[Tree,askdreamabtree]\n/
-		//\![*]\q[Their soul,askdreamtheirsoul]\n/
+		"\![*]\q[Brother,askbrother]\n/
+		\![*]\q[Tree,askdreamabtree]\n/
 		\![*]\q[Their crown,specilimportantcrown]\n/
 		\![*]\q[Their eyes,askdreamtheireyes]"
+		
+		//\![*]\q[Your name,askyourname]\n"
+		
+		//\![*]\q[Their soul,askdreamtheirsoul]\n/
 	}
 	--
-	"\n\![*]\q[Nevermind,CANCEL]\e"
+	"\n\n\![*]\q[Back to menu,OnDreamMenu]\n/
+	\![*]\q[Nevermind,CANCEL]\e"
 }
 	
 Select.askdreamyou
@@ -469,6 +484,10 @@ Select.askdreamyou
 	if whorupanic == "on"
 	{
 		"\s[17]\i[4]\i[3]Oh%(lps(2))\w8 So you don't kn-\w8\s[4] You aren't from the village,\w6 are you?\w8\s[2]\w8\w8\n\nI'm so sorry!\w8\n\n\s[0]I'm normally not so anxious talking to others. \w8\i[6]It's just been busy as of late.\w8\s[0] I promise I'm fine,\w4 though.\w8\n\n%(lps(2))I just accidentally found myself here because I was looking for someone.\n\n\![*]\q[Ask who they're looking for,dreamlook1s]"
+	}
+	else
+	{
+		"\s[4]My name is Dream%(lps(2))\w8 \s[0]\i[6]and I have no idea where I am."
 	}
 	--
 	repeatDream
@@ -482,6 +501,7 @@ Select.dreamlook1s
 Select.dreamlook2
 {
 	niceact += 1
+	askaboutnight = "on"
 	"\s[4]Well it's me and my brother's birthday-\w8\i[11] We're twins,\w4 so we share one.\w8\n\n\s[3]\i[4]Usually when he's missing he's just out in the forest-\w5 or%(lps(2))\w8 That is how it used to be.\w8\n\nSome days I looked through and%(lps(2))\w8\s[0]\i[3]\n\nOh, I'm sorry. \w8I'm talking too much,\w4 aren't I?"
 	--
 	repeatDream
@@ -503,7 +523,7 @@ Select.askbrother
 
 Select.askdreamabtree
 {
-	"\s[0]\i[1]%(lps(2))The%(lps(2))\w5 anTree?\w8 How did you find out about that%(lps(2))?\w8\n\n\s[0]\i[3] %(lps(2))It's been doing fine.\w8 No irregularities."
+	"\s[0]\i[1]%(lps(2))The%(lps(2))\w5 anTree?\w8 How did you find out about that%(lps(2))?\w8\n\n\s[0]\i[3]%(lps(2))It's been doing fine.\w8 No irregularities."
 	--
 	repeatDream
 }
@@ -552,8 +572,11 @@ Ondreambox //Items
 	"\![*]\q[Food,Ongivemunchiestodream]\n/
 	\![*]\q[Gift,givedreamgift]\n/
 	\![*]\q[Plushie,lilpushietoy]\n/
-	\![*]\q[Outfit,uhgfinallyoutfit]\e"
+	\![*]\q[Outfit,uhgfinallyoutfit]"
 	//Food
+	--
+	"\n\n\![*]\q[Back to menu,OnDreamMenu]\n/
+	\![*]\q[I'm done,CANCEL]\e"
 }
 
 Ongivemunchiestodream
@@ -608,9 +631,9 @@ Select.lilpushietoy
 	//Only use it if they like you. Discuss how they and Nightmare (Nightmare!) use costumes for ceremonies a lot.
 Select.uhgfinallyoutfit
 {
-	if nicesadlevel >= 25
+	if sadnicelevel >= 25
 	{
-	"\b2\_q\![*]\q[Dreamswap,dreamswapd] - OneBizarrKai\n/
+	"\b2\_q\![*]\q[Dreamswap,dreamswapd] - OneBizarreKai\n/
 	\![*]\q[DawnDream,dawndreamd] - Yume\n/
 	\![*]\q[Flowerverse,flowerversed] - flowerrei\n/
 	\![*]\q[Dulled Formal,myoutfitd] - Quonit\n/
@@ -702,7 +725,7 @@ Select.dawndreamd
 
 Select.dreamtestvariable
 {
-	"%(Onnotonfirstboot)"
+	askaboutnight = "on"
 }
 
 
