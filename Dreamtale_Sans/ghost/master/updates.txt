@@ -14,7 +14,7 @@ file,ghost/master/delete.txt2b24f81f08e79c9d70383b1047ac11d2size=103date=2022
 file,ghost/master/descript.txt9c6866e718b9db372d1468fbe2806720size=293date=2022-11-01T01:14:15
 file,ghost/master/dts_aitalk.dic30683bb571b4c562f6afe03e337c813csize=49321date=2024-06-11T15:02:23
 file,ghost/master/dts_anchor.diccb1e3fd9a5b8e1f407cbb599313a3e66size=7873date=2024-06-11T21:20:44
-file,ghost/master/dts_bootend.dic7cc5d30b7639785700e44592f7a5db4asize=25073date=2023-07-26T23:53:46
+file,ghost/master/dts_bootend.dic2a3e33b275c13a3032e334360f3ef39dsize=25076date=2024-06-11T21:27:09
 file,ghost/master/dts_commu.dic6b4c6a70045a20395a5239f14e72b214size=686date=2022-12-20T21:36:13
 file,ghost/master/dts_dreamtalk.dic361329ff3f1a9090394108cbc6fa937bsize=24534date=2024-06-11T20:26:47
 file,ghost/master/dts_etc.dic9d10a81fbe90f4f64cc4e8465dae6a7fsize=21696date=2024-06-11T21:22:07
